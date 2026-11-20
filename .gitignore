@@ -1,0 +1,13 @@
+# Obsidian per-device state
+.obsidian/workspace*.json
+.obsidian/cache
+.trash/
+
+# PDF exports (generated from Markdown; share them, don't commit them)
+*.pdf
+exports/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini

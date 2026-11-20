@@ -1,6 +1,6 @@
-# college-notes
+# class-notes
 
-Lecture notes for subjects I teach that are **outside the scope of the main AI/ML/Data Science notes site**.
+Lecture notes for subjects I teach that are **outside the scope of Sutra**, the main AI/ML/Data Science notes site (`ai-ds-notes` repo).
 Rules come from `NOTES_PROJECT_PLAN.md`, Section 18.
 
 | Subject ID | Subject | Class |
@@ -12,12 +12,12 @@ Rules come from `NOTES_PROJECT_PLAN.md`, Section 18.
 
 - **Just in time.** Write notes lecture by lecture, a few days before class. Never pre-write a whole syllabus.
 - **One topic per note.** The file name is the note ID: `content/<subject-id>/<note-id>.md`.
-- **Same syntax as the main site** (plan Section 8.5): KaTeX maths, Mermaid diagrams, Obsidian callouts, fenced code.
+- **Same syntax as Sutra** (plan Section 8.5): KaTeX maths, Mermaid diagrams, Obsidian callouts, fenced code.
 - **Same style guide** (plan Section 11): simple English, Q&A explanations, paraphrase, never copy textbooks, mark unverified chapter references `verify`.
 - **No icons or emojis in notes** (plan Sections 11 and 12). When this repo is published with the main engine, icons and colours are added per section automatically.
 - **Write each `##` section to fit on one slide.** The engine's present mode (plan Section 12) turns every `##` section into a slide, so these notes become lecture slides without a separate PPT. Split a long section into Q&A items rather than writing one long block.
 - **Separate from the main site.** No `REGISTRY.md` rows, no career paths, no wikilinks to main-site notes. Link to a main-site note by URL only.
-- **Separate from the question paper bank** (`QP_GENERATOR_PLAN.md`). Students see the "Exam questions" in these notes, so a QP bank chat for these subjects must write new questions, never copy them from here.
+- **Separate from the exam question bank** (`qp-bank`, see `QP_GENERATOR_PLAN.md`). Students see the "Exam questions" in these notes, so a QP-BANK chat for these subjects must write new questions, never copy them from here.
 - **Delivery:** export PDFs from Obsidian. The Markdown is the only source; never keep a separate Word or PDF version.
 
 ## Folder structure
@@ -76,10 +76,10 @@ Ctrl+P → "Export to PDF". Callouts, maths and Mermaid render. For printed copi
 
 ## Starter block for a subject chat
 
-Paste one of these into a new chat in the notes project, and change the last line.
+Name the chat `CLASS-NOTES · <subject-id>` (plan Section 7.5), paste the matching block, and change the last line.
 
 ```text
-COLLEGE-NOTES CHAT
+CLASS-NOTES CHAT
 Subject ID: security-in-computing
 Subject: Security in Computing, Sem 6 IT
 Follow NOTES_PROJECT_PLAN.md Section 18 (lighter template). This subject is
@@ -90,7 +90,7 @@ Today's task: notes for Unit 1, lectures 1–3
 ```
 
 ```text
-COLLEGE-NOTES CHAT
+CLASS-NOTES CHAT
 Subject ID: embedded-systems
 Subject: Embedded System, Sem 4 IT/DS
 Follow NOTES_PROJECT_PLAN.md Section 18 (lighter template). This subject is
@@ -102,4 +102,4 @@ Today's task: notes for Unit 1, lectures 1–3
 
 ## Licence
 
-Notes are licensed CC BY-NC-SA 4.0, the same as the main site. See `LICENSE`.
+Notes are licensed CC BY-NC-SA 4.0, the same as Sutra. See `LICENSE`.

@@ -57,7 +57,7 @@ templates/
 
 In Obsidian, the link in `_index.md` turns from unresolved (faded) to resolved as soon as the note exists, so the index doubles as a progress list.
 
-**Note IDs** are lowercase kebab-case, unique across this repo, and never change once a PDF has gone out. Practicals start with `prac-`; intro notes end with `-intro`.
+**Note IDs** are lowercase kebab-case, unique across this repo, and never change once a PDF has gone out. Practicals are named `<topic>-practical` (e.g. `ospf-md5-authentication-practical`), carry `practical: <number>`, and are listed under `## Practicals` in the subject index (plan v2.3, Sections 8.2 and 18). Intro notes end with `-intro`.
 
 **Template sections** (in order)
 
@@ -73,7 +73,7 @@ In Obsidian, the link in `_index.md` turns from unresolved (faded) to resolved a
 | | Exam questions (short + long) | Viva questions |
 | | Sources | Sources |
 
-For practicals, **Code** is Cisco IOS / ASA commands (Security in Computing) or 8051 Embedded C in Keil (Embedded Systems).
+For practicals, **Setup** names the tool (Cisco Packet Tracer, Keil µVision, Proteus). **Code** is Cisco IOS / ASA commands (Security in Computing) or 8051 Embedded C in Keil (Embedded Systems).
 **Output** is the real `show` command output, or a screenshot of the Proteus or Packet Tracer result saved in `content/assets/img/<subject-id>/`, with alt text.
 
 ## Workflow (plan Section 14.2)

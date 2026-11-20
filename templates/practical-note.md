@@ -1,9 +1,10 @@
 ---
-id: prac-note-id-here
+id: topic-here-practical
 title: Practical Title Here
 subject: subject-id-here
 unit: 1
 type: practical
+practical: 1
 syllabus: [COURSE-CODE]
 status: draft
 sources:
@@ -20,7 +21,7 @@ sources:
 
 ## Setup
 
-<!-- Optional. Tool (Packet Tracer / GNS3 / Keil / Proteus), topology or circuit, devices. -->
+<!-- Name the tool (Cisco Packet Tracer / GNS3 / Keil µVision / Proteus), then the topology or circuit and devices. -->
 
 ## Code
 

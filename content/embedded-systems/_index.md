@@ -70,31 +70,33 @@ Faded links are not written yet.
 8. [[embedded-product-development-life-cycle]]
 9. [[embedded-industry-trends]]: IoT, edge computing
 
-## Practicals (Keil µVision + Proteus)
+## Practicals
+
+Tools: Keil µVision (C51) for every practical; Proteus for circuit simulation from practical 7 onwards.
 
 **Unit 1 · 8051 Programming and Basic Interfacing**
-1. [[prac-8051-programming-environment]]: architecture study; write, compile, execute
-2. [[prac-8051-reprogrammable-system]]
-3. [[prac-8051-debugging]]
-4. [[prac-8051-timer-registers]]: configure TMOD/TCON, generate a delay
-5. [[prac-8051-gpio-ports]]
-6. [[prac-8051-data-transfer-between-controllers]]
+1. [[8051-programming-environment-practical]]: architecture study; write, compile, execute
+2. [[8051-reprogrammable-system-practical]]
+3. [[8051-debugging-practical]]
+4. [[8051-timer-registers-practical]]: configure TMOD/TCON, generate a delay
+5. [[8051-gpio-ports-practical]]
+6. [[8051-data-transfer-between-controllers-practical]]
 
 **Unit 2 · Timing and Communication**
-7. [[prac-led-interfacing]]
-8. [[prac-led-binary-counter]]
-9. [[prac-led-patterns]]: sequential, alternate, LED control applications
-10. [[prac-timer-led-blinking]]: incl. timer delay vs software loop delay
+7. [[led-interfacing-practical]]
+8. [[led-binary-counter-practical]]
+9. [[led-patterns-practical]]: sequential, alternate, LED control applications
+10. [[timer-led-blinking-practical]]: incl. timer delay vs software loop delay
 
 **Unit 3 · Peripheral Interfacing and Signal Generation**
-11. [[prac-serial-communication]]: configure UART, exchange data with a PC
-12. [[prac-seven-segment-display]]: incl. 0–99 counter
-13. [[prac-dac-square-wave]]: DAC interfacing, square wave
-14. [[prac-dac-waveforms]]: triangular and sine using lookup tables
+11. [[serial-communication-practical]]: configure UART, exchange data with a PC
+12. [[seven-segment-display-practical]]: incl. 0–99 counter
+13. [[dac-square-wave-practical]]: DAC interfacing, square wave
+14. [[dac-waveforms-practical]]: triangular and sine using lookup tables
 
 **Unit 4 · Embedded Applications**
-15. [[prac-stepper-motor]]: clockwise and anticlockwise
-16. [[prac-traffic-signal-controller]]
-17. [[prac-temperature-monitoring]]
-18. [[prac-elevator-control]]
-19. [[prac-proteus-keil-simulation]]
+15. [[stepper-motor-practical]]: clockwise and anticlockwise
+16. [[traffic-signal-controller-practical]]
+17. [[temperature-monitoring-practical]]
+18. [[elevator-control-practical]]
+19. [[proteus-keil-simulation-practical]]

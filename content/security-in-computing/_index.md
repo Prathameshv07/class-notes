@@ -65,26 +65,28 @@ Faded links are not written yet.
 6. [[physical-security-basics]]: asset classification, vulnerability assessment, site selection
 7. [[physical-access-control]]: access control systems, locks, intrusion detection
 
-## Practicals (Packet Tracer / GNS3)
+## Practicals
+
+Tool: Cisco Packet Tracer (GNS3 also works). Course code UITVI-002.
 
 **Unit 1 · Router Security and Authentication**
-1. [[prac-ospf-md5-authentication]]
-2. [[prac-ntp-syslog]]
-3. [[prac-ssh-remote-access]]
-4. [[prac-aaa-local-authentication]]: verify via console and remote client
+1. [[ospf-md5-authentication-practical]]
+2. [[ntp-syslog-practical]]
+3. [[ssh-remote-access-practical]]
+4. [[aaa-local-authentication-practical]]: verify via console and remote client
 
 **Unit 2 · ACLs, Firewall and IPS Configuration**
-5. [[prac-extended-numbered-acl]]
-6. [[prac-ipv4-ipv6-acl]]: remote access control, attack mitigation
-7. [[prac-zone-based-firewall]]
-8. [[prac-ios-ips]]: incl. modifying signatures
+5. [[extended-numbered-acl-practical]]
+6. [[ipv4-ipv6-acl-practical]]: remote access control, attack mitigation
+7. [[zone-based-firewall-practical]]
+8. [[ios-ips-practical]]: incl. modifying signatures
 
 **Unit 3 · Layer 2 Security and VPN Configuration**
-9. [[prac-layer2-security]]: root bridge, STP protection, port security, CAM overflow
-10. [[prac-vlan-security]]
-11. [[prac-site-to-site-ipsec-vpn]]
+9. [[layer2-security-practical]]: root bridge, STP protection, port security, CAM overflow
+10. [[vlan-security-practical]]
+11. [[site-to-site-ipsec-vpn-practical]]
 
 **Unit 4 · ASA Firewall and Secure Network Services**
-12. [[prac-asa-basic-settings]]: security levels, routing, NAT, inspection
-13. [[prac-asa-dhcp-aaa-ssh]]
-14. [[prac-asa-dmz-static-nat-acl]]
+12. [[asa-basic-settings-practical]]: security levels, routing, NAT, inspection
+13. [[asa-dhcp-aaa-ssh-practical]]
+14. [[asa-dmz-static-nat-acl-practical]]

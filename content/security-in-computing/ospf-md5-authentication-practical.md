@@ -1,5 +1,5 @@
 ---
-id: prac-ospf-md5-authentication
+id: ospf-md5-authentication-practical
 title: "Practical 1: OSPF MD5 Authentication"
 subject: security-in-computing
 unit: 1

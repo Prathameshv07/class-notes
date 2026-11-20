@@ -70,7 +70,7 @@ Faded links are not written yet.
 Tool: Cisco Packet Tracer (GNS3 also works). Course code UITVI-002.
 
 **Unit 1 · Router Security and Authentication**
-1. [[prac-ospf-md5-authentication]]
+1. [[ospf-md5-authentication-practical]]
 2. [[ntp-syslog-practical]]
 3. [[ssh-remote-access-practical]]
 4. [[aaa-local-authentication-practical]]: verify via console and remote client

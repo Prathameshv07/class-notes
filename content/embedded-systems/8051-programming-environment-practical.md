@@ -1,5 +1,5 @@
 ---
-id: prac-8051-programming-environment
+id: 8051-programming-environment-practical
 title: Study of the 8051 and Its Programming Environment (Keil µVision)
 subject: embedded-systems
 unit: 1

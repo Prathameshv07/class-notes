@@ -75,7 +75,7 @@ Faded links are not written yet.
 Tools: Keil µVision (C51) for every practical; Proteus for circuit simulation from practical 7 onwards.
 
 **Unit 1 · 8051 Programming and Basic Interfacing**
-1. [[8051-programming-environment-practical]]: architecture study; write, compile, execute
+1. [[prac-8051-programming-environment]]: architecture study; write, compile, execute
 2. [[8051-reprogrammable-system-practical]]
 3. [[8051-debugging-practical]]
 4. [[8051-timer-registers-practical]]: configure TMOD/TCON, generate a delay

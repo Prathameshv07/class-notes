@@ -1,0 +1,55 @@
+# Builds these notes with the Sutra engine and publishes them to GitHub Pages
+# (NOTES_PROJECT_PLAN.md Section 18, decision 39). The engine is not copied here: every run fetches
+# it from Prathameshv07/ai-ds-notes and builds with its "class-notes" profile.
+#
+# A note with a problem (missing section, broken link…) stops publishing. The run's page lists each
+# problem with its file and a "fix:" line; fix the note and push again.
+# One-time setup: Settings → Pages → Source: "GitHub Actions".
+name: Build and deploy
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 21 * * *' # daily at 02:47 IST, so engine updates reach this site without a notes push
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history: "Last updated" and "What's new" come from git
+      - uses: actions/checkout@v4
+        with:
+          repository: Prathameshv07/ai-ds-notes
+          path: .engine
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: .engine/package-lock.json
+      - run: npm ci
+        working-directory: .engine
+      - name: Check and build the notes
+        run: node .engine/scripts/build.mjs --profile=class-notes --root=. --out=_site
+      - if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

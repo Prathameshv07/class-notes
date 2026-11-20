@@ -64,11 +64,18 @@ In Obsidian, the link in `_index.md` turns from unresolved (faded) to resolved a
 For practicals, **Code** is Cisco IOS / ASA commands (Security in Computing) or 8051 Embedded C in Keil (Embedded Systems).
 **Output** is the real `show` command output, or a screenshot of the Proteus or Packet Tracer result saved in `content/assets/img/<subject-id>/`.
 
+## Workflow (plan Section 14.1)
+
+- **Chats push directly to GitHub.** Each CLASS-NOTES chat pulls before starting and pushes to `main` when a piece of work is done. No zips, no uploads.
+- **Each chat touches only `content/<its subject>/`** (plus that subject's images in `content/assets/img/<subject-id>/`).
+- **Safe pushing:** small commits with clear messages; pull and rebase before every push; never force-push.
+
 ## Obsidian setup (one time)
 
-1. Open this repository folder as a vault.
-2. Settings → Core plugins → turn on **Templates**. Set the template folder to `templates`.
-3. New note → Ctrl+P → "Templates: Insert template".
+1. Clone this repository and open the folder as a vault.
+2. Settings → Community plugins → install **Obsidian Git**. It pulls new notes automatically and commits your edits back.
+3. Settings → Core plugins → turn on **Templates**. Set the template folder to `templates`.
+4. New note → Ctrl+P → "Templates: Insert template".
 
 ## Exporting PDFs
 
@@ -82,8 +89,9 @@ Name the chat `CLASS-NOTES · <subject-id>` (plan Section 7.5), paste the matchi
 CLASS-NOTES CHAT
 Subject ID: security-in-computing
 Subject: Security in Computing, Sem 6 IT
-Follow NOTES_PROJECT_PLAN.md Section 18 (lighter template). This subject is
-NOT part of the main notes site: no registry rows, no career paths,
+Follow NOTES_PROJECT_PLAN.md Section 18 (lighter template).
+Repo: Prathameshv07/class-notes. Pull before work; push to main when done.
+This subject is NOT part of the main notes site: no registry rows, no career paths,
 no wikilinks to main-site notes. Use the note IDs in
 content/security-in-computing/_index.md.
 Today's task: notes for Unit 1, lectures 1–3
@@ -93,8 +101,9 @@ Today's task: notes for Unit 1, lectures 1–3
 CLASS-NOTES CHAT
 Subject ID: embedded-systems
 Subject: Embedded System, Sem 4 IT/DS
-Follow NOTES_PROJECT_PLAN.md Section 18 (lighter template). This subject is
-NOT part of the main notes site: no registry rows, no career paths,
+Follow NOTES_PROJECT_PLAN.md Section 18 (lighter template).
+Repo: Prathameshv07/class-notes. Pull before work; push to main when done.
+This subject is NOT part of the main notes site: no registry rows, no career paths,
 no wikilinks to main-site notes. Use the note IDs in
 content/embedded-systems/_index.md.
 Today's task: notes for Unit 1, lectures 1–3

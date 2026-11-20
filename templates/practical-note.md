@@ -4,6 +4,7 @@ title: Practical Title Here
 subject: subject-id-here
 unit: 1
 type: practical
+syllabus: [COURSE-CODE]
 status: draft
 sources:
   - "Lab manual / official documentation (verify)"
@@ -33,11 +34,12 @@ sources:
 <real show-command output or observed result>
 ```
 
-<!-- Or a screenshot: ![[content/assets/img/subject-id/file.png]] -->
+<!-- Or a screenshot, with alt text (required):
+![Packet Tracer output showing the OSPF neighbour in FULL state](../assets/img/subject-id/file.png) -->
 
 ## Explanation
 
-<!-- What each block of code does and why. -->
+<!-- What each block of code does and why. Under about 120 words per chunk; split with ### if longer. -->
 
 ## Try it
 

@@ -3,7 +3,7 @@ id: embedded-systems
 title: Embedded System
 type: index
 class: Sem 4 BSc IT and BSc DS
-codes: "IT: UITIV-005 (theory), UITIV-006 (practical); DS: same syllabus"
+codes: "IT: UITIV-005 (theory), UITIV-006 (practical); DS: UDSIV-005 (theory), UDSIV-006 (practical)"
 ---
 
 Topic list in lecture order, mapped from the university syllabus (BOS 05/06/2026).
@@ -12,6 +12,10 @@ Faded links are not written yet.
 
 **Reference books (from syllabus):** Raj Kamal, *Embedded Systems: Architecture, Programming and Design*; Mazidi & Mazidi, *The 8051 Microcontroller and Embedded Systems*; Deshmukh, *Microcontrollers: Theory and Applications*; Vahid & Givargis, *Embedded Systems Design*.
 **Additional:** NPTEL Embedded Systems, 8051 datasheets, Keil µVision, Proteus.
+
+## Start here
+
+0. [[embedded-systems-intro]]
 
 ## Theory
 

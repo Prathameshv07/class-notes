@@ -12,6 +12,10 @@ Faded links are not written yet.
 **Reference books (from syllabus):** Pfleeger, *Security in Computing*; Stallings, *Cryptography and Network Security*; Godbole, *Information Systems Security*.
 **Additional:** NIST guidelines, OWASP, CIS Benchmarks.
 
+## Start here
+
+0. [[security-in-computing-intro]]
+
 ## Theory
 
 ### Module 1 · Information Security Fundamentals and Data Protection

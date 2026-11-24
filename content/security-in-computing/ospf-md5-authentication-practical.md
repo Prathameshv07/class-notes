@@ -6,7 +6,7 @@ unit: 1
 type: practical
 practical: 1
 syllabus: [UITVI-002]
-status: draft
+status: reviewed
 sources:
   - "Cisco, IP Routing: OSPF Configuration Guide, 'OSPF message digest (MD5) authentication' (verify exact chapter title for your IOS version)"
   - "Cisco Networking Academy, CCNA Security lab: Securing the Router for Administrative Access / OSPF authentication (verify)"

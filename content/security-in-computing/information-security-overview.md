@@ -5,7 +5,7 @@ subject: security-in-computing
 unit: 1
 type: theory
 syllabus: [UITVI-001]
-status: draft
+status: reviewed
 sources:
   - "Mark Rhodes-Ousley, Information Security: The Complete Reference, 2nd ed., Ch. 1 (verify)"
   - "Charles P. Pfleeger, Shari L. Pfleeger and Jonathan Margulies, Security in Computing, 5th ed., Ch. 1 (verify)"

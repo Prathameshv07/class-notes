@@ -5,7 +5,7 @@ subject: embedded-systems
 unit: 0
 type: intro
 syllabus: [UITIV-005, UDSIV-005, UITIV-006, UDSIV-006]
-status: draft
+status: reviewed
 sources:
   - "Shibu K V, Introduction to Embedded Systems, McGraw Hill, Ch. 1 (verify)"
   - "Raj Kamal, Embedded Systems: Architecture, Programming and Design, Tata McGraw Hill, Ch. 1 (verify)"

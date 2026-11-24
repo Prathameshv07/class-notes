@@ -6,7 +6,7 @@ unit: 1
 type: practical
 practical: 1
 syllabus: [UITIV-006, UDSIV-006]
-status: draft
+status: reviewed
 sources:
   - "Muhammad Ali Mazidi and Janice Mazidi, The 8051 Microcontroller and Embedded Systems, Pearson, Ch. 1 and Ch. 7 (verify)"
   - "Arm Keil, µVision User's Guide and C51 documentation (keil.com)"

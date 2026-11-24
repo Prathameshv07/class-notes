@@ -72,7 +72,7 @@ Faded links are not written yet.
 
 ## Practicals
 
-Tools: Keil µVision (C51) for every practical; Proteus for circuit simulation from practical 7 onwards.
+Tools: Keil µVision (C51) for every practical; Proteus whenever a circuit is simulated (from practical 2).
 
 **Unit 1 · 8051 Programming and Basic Interfacing**
 1. [[8051-programming-environment-practical]]: architecture study; write, compile, execute

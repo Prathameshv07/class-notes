@@ -5,7 +5,7 @@ subject: security-in-computing
 unit: 1
 type: theory
 syllabus: [UITVI-001]
-status: draft
+status: reviewed
 sources:
   - "Mark Rhodes-Ousley, Information Security: The Complete Reference, 2nd ed., Ch. 1, 'Justifying Security Investment' (verify)"
   - "IBM Security and Ponemon Institute, Cost of a Data Breach Report 2025 (India figures from IBM India newsroom, 7 Aug 2025)"

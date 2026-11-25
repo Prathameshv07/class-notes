@@ -5,7 +5,7 @@ subject: security-in-computing
 unit: 1
 type: theory
 syllabus: [UITVI-001]
-status: draft
+status: reviewed
 sources:
   - "Mark Rhodes-Ousley, Information Security: The Complete Reference, 2nd ed., Ch. 4, Secure Design Principles: Zones of Trust (verify)"
   - "NIST SP 800-41 Rev. 1, Guidelines on Firewalls and Firewall Policy (DMZ and network segmentation)"
@@ -77,7 +77,7 @@ You will build these in practicals 5–7 (ACLs, zone-based firewall) and 10 (VLA
 - ==**Apply the right controls:**== strict rules where data is valuable, lighter rules elsewhere.
 - ==**Reduce the attack surface:**== each system is reachable only by those who need it.
 - ==**Easier monitoring:**== traffic crossing a boundary is a natural place to log and inspect.
-- ==**Supports compliance:**== standards such as PCI DSS expect sensitive systems to be segmented.
+- ==**Supports compliance:**== standards such as PCI DSS recommend segmenting sensitive systems.
 
 ### Q6. What are the challenges?
 

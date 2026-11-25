@@ -5,7 +5,7 @@ subject: security-in-computing
 unit: 1
 type: theory
 syllabus: [UITVI-001]
-status: draft
+status: reviewed
 sources:
   - "Mark Rhodes-Ousley, Information Security: The Complete Reference, 2nd ed., Ch. 4, Secure Design Principles: Best Practices for Network Defense (verify)"
   - "Center for Internet Security, CIS Critical Security Controls v8 (verify version)"

@@ -5,7 +5,7 @@ subject: security-in-computing
 unit: 1
 type: theory
 syllabus: [UITVI-001]
-status: draft
+status: reviewed
 sources:
   - "Mark Rhodes-Ousley, Information Security: The Complete Reference, 2nd ed., Ch. 4, Secure Design Principles: The Lollipop Model and The Onion Model (verify)"
   - "NIST SP 800-207, Zero Trust Architecture (for the beyond-the-syllabus note)"

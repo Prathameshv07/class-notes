@@ -27,19 +27,19 @@ The lollipop model protects a network with a single hard outer perimeter and lit
 
 ### Q1. What is a defense model?
 
-A **defense model** is the overall plan for where security controls are placed around the assets.
+==A **defense model** is the overall plan for where security controls are placed around the assets.==
 
 It answers: if an attacker gets past one control, what stops them next?
 
 Two classic models are:
-- the **lollipop model** (perimeter only), and
-- the **onion model** (layered, also called defense in depth).
+- ==the **lollipop model** (perimeter only)==, and
+- ==the **onion model** (layered, also called defense in depth)==.
 
 ### Q2. What is the lollipop model?
 
 ==The lollipop model protects assets with one hard outer shell, such as a perimeter firewall, while the inside is soft and trusts everything.==
 
-Like a lollipop: a hard candy shell around a soft, chewy centre.
+Like a lollipop: ==a hard candy shell around a soft, chewy centre==.
 
 - The firewall at the internet edge is the only real control.
 - Everything inside the network is treated as trusted.
@@ -49,11 +49,11 @@ It was common in the 1990s, when networks had one internet connection and all us
 
 ### Q3. What are the weaknesses of the lollipop model?
 
-- **One point of failure:** a single misconfiguration or bug in the perimeter exposes everything.
-- **No protection from insiders:** employees and contractors are already inside.
-- **Malware walks in through users:** email, USB drives and web downloads bypass the perimeter.
-- **No detection inside:** once in, attackers move freely and quietly, often for months.
-- **Today's networks have no single edge:** laptops at home, mobile phones, cloud servers and partner links all cross the "wall".
+- ==**One point of failure:**== a single misconfiguration or bug in the perimeter exposes everything.
+- ==**No protection from insiders:**== employees and contractors are already inside.
+- ==**Malware walks in through users:**== email, USB drives and web downloads bypass the perimeter.
+- ==**No detection inside:**== once in, attackers move freely and quietly, often for months.
+- ==**Today's networks have no single edge:**== laptops at home, mobile phones, cloud servers and partner links all cross the "wall".
 
 ### Q4. What is the onion model?
 
@@ -73,10 +73,10 @@ Typical layers, outside to inside:
 
 ### Q5. Why is the onion model better?
 
-- **No single point of failure:** if the firewall is bypassed, host controls and encryption still protect the data.
-- **Slows attackers down:** each layer costs the attacker time and effort.
-- **More chances to detect:** each layer can log and alert, so the attack is noticed before the core is reached.
-- **Covers insiders:** inner layers (access control, encryption) also limit what employees can do.
+- ==**No single point of failure:**== if the firewall is bypassed, host controls and encryption still protect the data.
+- ==**Slows attackers down:**== each layer costs the attacker time and effort.
+- ==**More chances to detect:**== each layer can log and alert, so the attack is noticed before the core is reached.
+- ==**Covers insiders:**== inner layers (access control, encryption) also limit what employees can do.
 
 ==Lollipop: one strong outer layer. Onion: many layers, each able to stop or detect an attack.==
 
@@ -84,12 +84,12 @@ Typical layers, outside to inside:
 
 | Point | Lollipop model | Onion model |
 |---|---|---|
-| Layers | One (perimeter) | Many |
-| Inside the network | Trusted, soft | Protected, segmented |
-| If perimeter fails | Everything exposed | Inner layers still protect |
-| Insider threats | Not handled | Limited by inner layers |
-| Detection | Mostly at the edge | At every layer |
-| Cost and effort | Lower | Higher, but justified for valuable assets |
+| ==Layers== | One (perimeter) | Many |
+| ==Inside the network== | Trusted, soft | Protected, segmented |
+| ==If perimeter fails== | Everything exposed | Inner layers still protect |
+| ==Insider threats== | Not handled | Limited by inner layers |
+| ==Detection== | Mostly at the edge | At every layer |
+| ==Cost and effort== | Lower | Higher, but justified for valuable assets |
 | Also called | Perimeter security | Defense in depth, layered security |
 
 > [!beyond] Beyond the syllabus

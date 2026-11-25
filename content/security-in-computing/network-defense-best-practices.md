@@ -37,8 +37,8 @@ Network defense best practices are proven, everyday measures (secure physical ac
 They come from experience and from published guides such as the CIS Critical Security Controls, NIST guidelines and vendor hardening guides (CIS Benchmarks).
 
 They are grouped here into:
-- design principles (how to think), and
-- operational practices (what to do every day).
+- ==design principles (how to think)==, and
+- ==operational practices (what to do every day)==.
 
 ### Q2. What design principles guide network defense?
 
@@ -47,41 +47,41 @@ They are grouped here into:
 - **Segmentation:** separate systems into zones of trust ([[zones-of-trust]]).
 - **Secure by default:** new systems start locked down; features are turned on only when needed.
 - **Fail securely:** if a control fails, it should block, not allow (a firewall that crashes should not pass all traffic).
-- **Separation of duties:** no single person can complete a sensitive task alone.
-- **Keep it simple:** simple designs have fewer hidden mistakes.
+- ==**Separation of duties:**== no single person can complete a sensitive task alone.
+- ==**Keep it simple:**== simple designs have fewer hidden mistakes.
 
 ==Key design principles: least privilege, defense in depth, segmentation, secure by default, fail securely.==
 
 ### Q3. Practices 1–4: physical, passwords, hardening, patching
 
-1. **Secure the physical environment:** lock server rooms and network cabinets; control who enters; protect against fire and power failure.
-2. **Strong authentication:** change all default passwords; use long passphrases; turn on multi-factor login for admins, email and VPN.
-3. **Harden systems:** disable unused services, ports and accounts; follow CIS Benchmarks for routers, servers and PCs; use SSH instead of Telnet (practical 3).
-4. **Patch promptly:** keep an inventory of all systems and software; apply security updates quickly, critical ones first.
+1. ==**Secure the physical environment:**== lock server rooms and network cabinets; control who enters; protect against fire and power failure.
+2. ==**Strong authentication:**== change all default passwords; use long passphrases; turn on multi-factor login for admins, email and VPN.
+3. ==**Harden systems:**== disable unused services, ports and accounts; follow CIS Benchmarks for routers, servers and PCs; use SSH instead of Telnet (practical 3).
+4. ==**Patch promptly:**== keep an inventory of all systems and software; apply security updates quickly, critical ones first.
 
 ### Q4. Practices 5–8: malware, firewalls, encryption, admin access
 
-5. **Protect against malware:** endpoint protection on every PC and server, kept updated; block risky attachments and USB auto-run.
-6. **Firewalls and filtering:** at the perimeter and between zones; default-deny rules; review rules regularly and remove old ones.
-7. **Encrypt sensitive data:** in transit (HTTPS, VPN, SSH) and at rest (disk and database encryption).
-8. **Control admin access:** separate admin accounts from daily accounts; restrict admin access to the management zone; use AAA to record who did what (practical 4).
+5. ==**Protect against malware:**== endpoint protection on every PC and server, kept updated; block risky attachments and USB auto-run.
+6. ==**Firewalls and filtering:**== at the perimeter and between zones; default-deny rules; review rules regularly and remove old ones.
+7. ==**Encrypt sensitive data:**== in transit (HTTPS, VPN, SSH) and at rest (disk and database encryption).
+8. ==**Control admin access:**== separate admin accounts from daily accounts; restrict admin access to the management zone; use AAA to record who did what (practical 4).
 
 ### Q5. Practices 9–12: monitoring, backups, people, plan
 
-9. **Monitor and log:** central syslog with correct time (practical 2), IDS/IPS at boundaries, and someone who actually reviews alerts.
-10. **Back up and test recovery:** follow the 3-2-1 rule (3 copies, 2 types of media, 1 offline or off-site); test restores regularly.
-11. **Train people:** regular awareness on phishing, passwords and reporting incidents. People are part of the defence, not just a weakness.
-12. **Plan for incidents:** a written incident response plan: who to call, how to isolate systems, how to report (CERT-In expects certain incidents to be reported within 6 hours).
+9. ==**Monitor and log:**== central syslog with correct time (practical 2), IDS/IPS at boundaries, and someone who actually reviews alerts.
+10. ==**Back up and test recovery:**== follow the 3-2-1 rule (3 copies, 2 types of media, 1 offline or off-site); test restores regularly.
+11. ==**Train people:**== regular awareness on phishing, passwords and reporting incidents. People are part of the defence, not just a weakness.
+12. ==**Plan for incidents:**== a written incident response plan: who to call, how to isolate systems, how to report (CERT-In expects certain incidents to be reported within 6 hours).
 
 ==Back up, patch, use least privilege, monitor logs, and train people: these stop most real attacks.==
 
 ### Q6. How does an organisation keep these practices working?
 
-- **Document** them as policies and standards ([[security-methodology]]).
-- **Assign owners:** every practice has a responsible person.
-- **Audit regularly:** check that patches, backups and rule reviews are actually being done.
-- **Review after incidents:** each incident teaches something; update the practices.
-- **Prioritise by risk:** start with the practices that reduce the biggest risks ([[risk-analysis]]).
+- ==**Document** them as policies and standards== ([[security-methodology]]).
+- ==**Assign owners:**== every practice has a responsible person.
+- ==**Audit regularly:**== check that patches, backups and rule reviews are actually being done.
+- ==**Review after incidents:**== each incident teaches something; update the practices.
+- ==**Prioritise by risk:**== start with the practices that reduce the biggest risks ([[risk-analysis]]).
 
 Best practices are not a one-time setup. They are habits that must be checked, like a vehicle's regular service.
 

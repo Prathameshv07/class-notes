@@ -36,10 +36,10 @@ A security methodology is a planned, repeatable way of protecting an organisatio
 
 It answers four questions in order:
 
-1. **What** are we protecting? (information assets)
-2. **From what?** (threats and risks)
-3. **How?** (controls: process and technology)
-4. **Is it working?** (monitoring, audit, improvement)
+1. ==**What** are we protecting?== (information assets)
+2. ==**From what?** (threats and risks)==
+3. ==**How?** (controls: process and technology)==
+4. ==**Is it working?** (monitoring, audit, improvement)==
 
 Without a methodology, security becomes a shopping list of products bought after each scare.
 
@@ -49,65 +49,65 @@ Security rests on three things working together:
 
 | Part | Meaning | College example |
 |---|---|---|
-| People | Awareness, skills, responsibility | Staff trained not to share ERP passwords |
-| Process | Rules for how work is done | Access approved by HOD, removed on the last working day |
-| Technology | Tools that enforce and monitor | Firewall, ERP logins, encrypted backups |
+| People | ==Awareness, skills, responsibility== | Staff trained not to share ERP passwords |
+| Process | ==Rules for how work is done== | Access approved by HOD, removed on the last working day |
+| Technology | ==Tools that enforce and monitor== | Firewall, ERP logins, encrypted backups |
 
 ==Security fails at its weakest link, and that link is most often people or process, not technology.==
 
 ### Q3. What is a security program?
 
-A **security program** is the methodology put into practice in one organisation: a continuing set of activities, roles and documents, owned by management.
+==A **security program** is the methodology put into practice in one organisation==: a continuing set of activities, roles and documents, owned by management.
 
-It is a **program**, not a **project**: a project ends; a program never does, because threats, staff and systems keep changing.
+It is a **program**, not a **project**: ==a project ends; a program never does==, because threats, staff and systems keep changing.
 
 A typical program has:
 
-- a person in charge (for example a CISO, Chief Information Security Officer),
-- written policies approved by management,
-- a budget and a yearly plan,
-- regular reviews, audits and training.
+- ==a person in charge== (for example a CISO, Chief Information Security Officer),
+- ==written policies approved by management==,
+- ==a budget and a yearly plan==,
+- ==regular reviews, audits and training==.
 
 ### Q4. How is a security program built? (steps 1–3)
 
-1. **Authority:** top management formally backs the program, appoints its owner and gives a budget. Without this, nobody follows the rules.
-2. **Framework:** write the rules down, from general to specific:
-   - **Policy:** what must be achieved ("All student data is confidential").
-   - **Standard:** the required way ("Passwords of at least 12 characters").
-   - **Procedure:** the step-by-step how ("Steps to create an ERP account").
+1. ==**Authority:** top management formally backs the program==, appoints its owner and gives a budget. Without this, nobody follows the rules.
+2. ==**Framework:** write the rules down==, from general to specific:
+   - ==**Policy:** what must be achieved== ("All student data is confidential").
+   - ==**Standard:** the required way== ("Passwords of at least 12 characters").
+   - ==**Procedure:** the step-by-step how== ("Steps to create an ERP account").
    - **Guideline:** recommended, not mandatory, advice.
-3. **Assessment:** list the assets, find threats and weaknesses, and rank risks ([[risk-analysis]], lecture 5).
+3. ==**Assessment:** list the assets, find threats== and weaknesses, and rank risks ([[risk-analysis]], lecture 5).
 
 ### Q5. How is a security program built? (steps 4–6)
 
-4. **Planning:** decide which risks to fix first, with what controls, by when and at what cost.
-5. **Action:** implement the controls: configure systems, change processes, train people.
-6. **Maintenance:** monitor, audit, respond to incidents, and repeat the cycle as things change.
+4. ==**Planning:** decide which risks to fix first==, with what controls, by when and at what cost.
+5. ==**Action:** implement the controls==: configure systems, change processes, train people.
+6. ==**Maintenance:** monitor, audit, respond to incidents==, and repeat the cycle as things change.
 
 ==Steps of a security program: Authority, Framework, Assessment, Planning, Action, Maintenance.==
 
-The same idea appears in the ISO 27001 standard as **Plan–Do–Check–Act**: plan the controls, do (implement) them, check that they work, act to improve.
+The same idea appears in the ISO 27001 standard as ==**Plan–Do–Check–Act**==: plan the controls, do (implement) them, check that they work, act to improve.
 
 ### Q6. What is the difference between business processes and technical controls?
 
 | | Business processes (administrative controls) | Technical controls |
 |---|---|---|
-| What | Rules for how people work | Hardware and software that enforce rules |
+| What | ==Rules for how people work== | ==Hardware and software that enforce rules== |
 | Examples | Access approval, joining/leaving checklist, maker–checker in banks, background checks | Passwords, firewalls, encryption, audit logs |
 | Who runs them | Managers and staff | Systems, set up by IT |
 | Weakness | Depends on people following them | Only enforces what someone configured |
 
-They depend on each other. The ERP can disable a login automatically (technical), but only if HR tells IT that the teacher has left (process).
+==They depend on each other.== The ERP can disable a login automatically (technical), but only if HR tells IT that the teacher has left (process).
 
 ### Q7. How else are controls classified?
 
 By **when** they act:
 
-- **Preventive:** stop an incident (firewall rule, locked door, maker–checker approval).
-- **Detective:** notice an incident (CCTV, audit logs, intrusion detection).
-- **Corrective:** recover after it (restore from backup, patch, incident response).
+- ==**Preventive:** stop an incident== (firewall rule, locked door, maker–checker approval).
+- ==**Detective:** notice an incident== (CCTV, audit logs, intrusion detection).
+- ==**Corrective:** recover after it== (restore from backup, patch, incident response).
 
-By **type**: administrative (process), technical (logical) and physical (guards, locks).
+By **type**: ==administrative (process), technical (logical) and physical== (guards, locks).
 
 A good program has some of each. The AIIMS ransomware attack in 2022 showed a gap in prevention, while separate backup servers made correction possible.
 

@@ -30,19 +30,19 @@ Zones of trust divide a network into segments with different trust levels, and c
 ==A zone of trust is a group of systems that share the same level of trust and the same security requirements, separated from other zones by controlled boundaries.==
 
 - Systems inside a zone can talk to each other more freely.
-- Traffic between zones must pass a **control point**, usually a firewall or router with access rules.
-- Each zone gets controls that match the value of what it holds.
+- ==Traffic between zones must pass a **control point**==, usually a firewall or router with access rules.
+- ==Each zone gets controls that match the value== of what it holds.
 
 ### Q2. What are the common zones?
 
 | Zone | Trust level | Example systems |
 |---|---|---|
-| Internet / untrusted | None | Everyone outside the organisation |
-| Guest | Very low | Visitor Wi-Fi |
-| DMZ (demilitarised zone) | Low | Public website, mail server |
-| Internal / trusted | Medium | Staff PCs, printers, internal apps |
-| Restricted / high security | High | Database servers, finance, exam server, HR records |
-| Management | High | Network admin access to routers and firewalls |
+| ==Internet / untrusted== | None | Everyone outside the organisation |
+| ==Guest== | Very low | Visitor Wi-Fi |
+| ==DMZ (demilitarised zone)== | Low | Public website, mail server |
+| ==Internal / trusted== | Medium | Staff PCs, printers, internal apps |
+| ==Restricted / high security== | High | Database servers, finance, exam server, HR records |
+| ==Management== | High | Network admin access to routers and firewalls |
 
 The more valuable the data, the deeper (more trusted, more protected) the zone.
 
@@ -50,8 +50,8 @@ The more valuable the data, the deeper (more trusted, more protected) the zone.
 
 ==A DMZ is a separate zone between the internet and the internal network that holds servers the public must reach, such as a website.==
 
-- Internet users may reach the DMZ, but **not** the internal network.
-- DMZ servers may reach only the specific internal services they need.
+- ==Internet users may reach the DMZ==, but **not** the internal network.
+- ==DMZ servers may reach only the specific internal services== they need.
 - If a DMZ web server is hacked, the attacker is still outside the internal zone.
 
 You will configure a real DMZ on the Cisco ASA in practical 14.
@@ -60,31 +60,31 @@ You will configure a real DMZ on the Cisco ASA in practical 14.
 
 The basic rule:
 
-- **Higher trust to lower trust:** usually allowed (staff browsing the internet), with replies allowed back.
-- **Lower trust to higher trust:** blocked by default; allowed only for specific, needed services.
+- ==**Higher trust to lower trust:** usually allowed== (staff browsing the internet), with replies allowed back.
+- ==**Lower trust to higher trust:** blocked by default==; allowed only for specific, needed services.
 
 Boundaries are enforced with:
-- firewalls and access control lists (ACLs),
-- VLANs and network segmentation,
-- VPNs for remote users entering a zone,
-- monitoring (IDS) at the boundary.
+- ==firewalls and access control lists (ACLs)==,
+- ==VLANs and network segmentation==,
+- ==VPNs for remote users== entering a zone,
+- ==monitoring (IDS) at the boundary==.
 
 You will build these in practicals 5–7 (ACLs, zone-based firewall) and 10 (VLAN security).
 
 ### Q5. Why use zones of trust?
 
-- **Contain attacks:** malware in the student lab cannot spread to finance.
-- **Apply the right controls:** strict rules where data is valuable, lighter rules elsewhere.
-- **Reduce the attack surface:** each system is reachable only by those who need it.
-- **Easier monitoring:** traffic crossing a boundary is a natural place to log and inspect.
-- **Supports compliance:** standards such as PCI DSS expect sensitive systems to be segmented.
+- ==**Contain attacks:**== malware in the student lab cannot spread to finance.
+- ==**Apply the right controls:**== strict rules where data is valuable, lighter rules elsewhere.
+- ==**Reduce the attack surface:**== each system is reachable only by those who need it.
+- ==**Easier monitoring:**== traffic crossing a boundary is a natural place to log and inspect.
+- ==**Supports compliance:**== standards such as PCI DSS expect sensitive systems to be segmented.
 
 ### Q6. What are the challenges?
 
-- **Design effort:** each system must be classified and placed correctly.
-- **Too many exceptions:** every "temporary" rule that opens a zone weakens it.
-- **Trust inside a zone:** an attacker inside a zone can still reach its neighbours.
-- **Mobile and cloud users** do not sit neatly inside one zone.
+- ==**Design effort:**== each system must be classified and placed correctly.
+- ==**Too many exceptions:**== every "temporary" rule that opens a zone weakens it.
+- ==**Trust inside a zone:**== an attacker inside a zone can still reach its neighbours.
+- ==**Mobile and cloud users**== do not sit neatly inside one zone.
 
 ==Zones of trust work only if the rules between zones are kept strict and reviewed regularly.==
 

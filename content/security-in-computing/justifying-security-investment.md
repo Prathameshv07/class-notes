@@ -26,10 +26,10 @@ Justifying security investment means showing management, in business terms, that
 
 ### Q1. Why is security investment hard to justify?
 
-- **Success is invisible.** When security works, nothing happens, and "nothing happened" looks like wasted money.
-- **Losses are uncertain.** A breach may or may not happen this year.
-- **It does not sell products directly.** Unlike a new machine, a firewall does not produce anything.
-- **Cost is now, benefit is later.** The bill comes today; the attack it stops may come in two years.
+- ==**Success is invisible.**== When security works, nothing happens, and "nothing happened" looks like wasted money.
+- ==**Losses are uncertain.**== A breach may or may not happen this year.
+- ==**It does not sell products directly.**== Unlike a new machine, a firewall does not produce anything.
+- ==**Cost is now, benefit is later.**== The bill comes today; the attack it stops may come in two years.
 
 ==Security investment is justified by comparing the cost of a control with the expected loss it prevents and the business value it adds.==
 
@@ -39,10 +39,10 @@ A breach costs far more than fixing the computers:
 
 | Cost | Example |
 |---|---|
-| Direct | Investigation, restoring systems, ransom, legal fees |
-| Lost business | Downtime, customers leaving |
-| Regulatory | Penalties under the DPDP Act 2023 or sector regulators such as RBI |
-| Reputation | Loss of trust, lower share price, harder hiring |
+| ==Direct== | Investigation, restoring systems, ransom, legal fees |
+| ==Lost business== | Downtime, customers leaving |
+| ==Regulatory== | Penalties under the DPDP Act 2023 or sector regulators such as RBI |
+| ==Reputation== | Loss of trust, lower share price, harder hiring |
 
 According to IBM's 2025 Cost of a Data Breach report, the average cost of a breach to an organisation in India reached about ₹22 crore (INR 220 million), 13% more than in 2024. Phishing was the most common cause.
 
@@ -50,11 +50,11 @@ According to IBM's 2025 Cost of a Data Breach report, the average cost of a brea
 
 Security is not only loss prevention. It also helps the business:
 
-- **Business agility:** a secure network lets the company launch online services, allow remote work and connect partners quickly, because the risks are already managed.
-- **Cost reduction:** fewer incidents, less downtime, automated monitoring instead of manual checks, and sometimes lower cyber-insurance premiums.
-- **Portability:** good security policies and controls let staff work safely from any device or location, and let systems move to the cloud.
-- **Compliance:** meeting legal and customer requirements (DPDP Act, RBI rules, ISO 27001) avoids penalties and wins contracts.
-- **Trust:** customers choose the bank or app they believe is safe.
+- ==**Business agility:**== a secure network lets the company launch online services, allow remote work and connect partners quickly, because the risks are already managed.
+- ==**Cost reduction:**== fewer incidents, less downtime, automated monitoring instead of manual checks, and sometimes lower cyber-insurance premiums.
+- ==**Portability:**== good security policies and controls let staff work safely from any device or location, and let systems move to the cloud.
+- ==**Compliance:**== meeting legal and customer requirements (DPDP Act, RBI rules, ISO 27001) avoids penalties and wins contracts.
+- ==**Trust:**== customers choose the bank or app they believe is safe.
 
 ### Q4. How is the money value calculated? (ALE)
 
@@ -62,20 +62,20 @@ Security teams estimate the **expected yearly loss** from a risk:
 
 $$ALE = SLE \times ARO$$
 
-- **SLE** (Single Loss Expectancy): money lost in one incident.
-- **ARO** (Annualised Rate of Occurrence): how many times a year it is expected.
-- **ALE** (Annualised Loss Expectancy): expected loss per year.
+- ==**SLE** (Single Loss Expectancy): money lost in one incident==.
+- ==**ARO** (Annualised Rate of Occurrence): how many times a year== it is expected.
+- ==**ALE** (Annualised Loss Expectancy): expected loss per year==.
 
 How to find SLE and ARO is covered in [[risk-analysis]]. Here we use ALE to judge a control.
 
 ### Q5. How do we decide whether a control is worth buying? (ROSI)
 
-**Return on Security Investment (ROSI)** compares the loss avoided with the cost of the control:
+==**Return on Security Investment (ROSI)** compares the loss avoided with the cost of the control==:
 
 $$ROSI = \frac{(ALE_{before} - ALE_{after}) - \text{Annual cost of control}}{\text{Annual cost of control}}$$
 
-- ROSI **above 0**: the control saves more than it costs; buy it.
-- ROSI **below 0**: the control costs more than it saves; look for a cheaper option or accept the risk.
+- ==ROSI **above 0**: the control saves more than it costs==; buy it.
+- ==ROSI **below 0**: the control costs more than it saves==; look for a cheaper option or accept the risk.
 
 ==A control is worth buying when the reduction in expected yearly loss is greater than its yearly cost.==
 
@@ -93,11 +93,11 @@ Every rupee spent saves ₹2.50 more than it costs, so the investment is justifi
 
 ### Q7. What else, besides numbers, convinces management?
 
-- **Speak in business terms:** "two days of admissions downtime", not "a missing patch".
-- **Link to goals:** show how security supports a new online service or a big client contract.
-- **Use real incidents:** AIIMS 2022, or a competitor's breach.
-- **Show legal duty:** DPDP Act obligations, RBI or CERT-In directions.
-- **Measure and report:** after spending, report results such as fewer incidents and faster recovery, so the next request is easier.
+- ==**Speak in business terms:**== "two days of admissions downtime", not "a missing patch".
+- ==**Link to goals:**== show how security supports a new online service or a big client contract.
+- ==**Use real incidents:**== AIIMS 2022, or a competitor's breach.
+- ==**Show legal duty:**== DPDP Act obligations, RBI or CERT-In directions.
+- ==**Measure and report:**== after spending, report results such as fewer incidents and faster recovery, so the next request is easier.
 
 > [!beyond] Beyond the syllabus
 > Large companies also use Total Cost of Ownership (TCO), which adds staff time, licences, training and maintenance over several years to the purchase price, and cyber-insurance, which transfers part of the financial risk.

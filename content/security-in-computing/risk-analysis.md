@@ -32,27 +32,27 @@ Risk analysis is the process of identifying assets, the threats and vulnerabilit
 
 $$\text{Risk} = \text{Likelihood} \times \text{Impact}$$
 
-- **High likelihood, low impact:** a lab PC gets adware. Annoying, not serious.
-- **Low likelihood, high impact:** the server room floods. Rare, but disastrous.
-- **High likelihood, high impact:** a phishing email steals the admin password. Fix first.
+- ==**High likelihood, low impact:**== a lab PC gets adware. Annoying, not serious.
+- ==**Low likelihood, high impact:**== the server room floods. Rare, but disastrous.
+- ==**High likelihood, high impact:**== a phishing email steals the admin password. Fix first.
 
 Threats and vulnerabilities were defined in [[threats-and-attacks]].
 
 ### Q2. What are the steps of risk analysis?
 
-1. **Identify assets** and give each a value (data, servers, services, reputation).
-2. **Identify threats** to each asset.
-3. **Identify vulnerabilities** the threats could use.
-4. **Estimate likelihood** of each threat succeeding.
-5. **Estimate impact** on confidentiality, integrity and availability.
+1. ==**Identify assets**== and give each a value (data, servers, services, reputation).
+2. ==**Identify threats**== to each asset.
+3. ==**Identify vulnerabilities**== the threats could use.
+4. ==**Estimate likelihood**== of each threat succeeding.
+5. ==**Estimate impact**== on confidentiality, integrity and availability.
 6. **Calculate and rank risks.**
-7. **Choose a treatment** for each risk and record it in a **risk register**.
+7. ==**Choose a treatment**== for each risk and record it in a **risk register**.
 
 The process repeats every year, or whenever systems or threats change.
 
 ### Q3. What is qualitative risk analysis?
 
-Qualitative analysis rates likelihood and impact on a **scale** such as Low, Medium, High (or 1 to 5), using expert judgement.
+==Qualitative analysis rates likelihood and impact on a **scale**== such as Low, Medium, High (or 1 to 5), using expert judgement.
 
 | Likelihood \ Impact | Low | Medium | High |
 |---|---|---|---|
@@ -60,14 +60,14 @@ Qualitative analysis rates likelihood and impact on a **scale** such as Low, Med
 | **Medium** | Low | Medium | High |
 | **Low** | Low | Low | Medium |
 
-- **Strength:** quick, needs no exact money figures.
-- **Weakness:** subjective; two people may rate the same risk differently.
+- ==**Strength:** quick, needs no exact money figures==.
+- ==**Weakness:** subjective==; two people may rate the same risk differently.
 
-Most organisations start with this kind of **risk matrix**.
+Most organisations start with this kind of ==**risk matrix**==.
 
 ### Q4. What is quantitative risk analysis?
 
-Quantitative analysis puts **money values** on risk.
+==Quantitative analysis puts **money values** on risk.==
 
 - **AV** (Asset Value): value of the asset in rupees.
 - **EF** (Exposure Factor): fraction of the value lost in one incident (0 to 1).
@@ -77,8 +77,8 @@ Quantitative analysis puts **money values** on risk.
 
 ==SLE = AV × EF, and ALE = SLE × ARO.==
 
-- **Strength:** objective numbers that management understands; supports cost–benefit decisions ([[justifying-security-investment]]).
-- **Weakness:** good data on probabilities is often unavailable.
+- ==**Strength:** objective numbers that management understands==; supports cost–benefit decisions ([[justifying-security-investment]]).
+- ==**Weakness:** good data on probabilities is often unavailable==.
 
 ### Q5. Worked example (quantitative)
 
@@ -97,14 +97,14 @@ After ranking, each risk gets one of four treatments:
 
 | Treatment | Meaning | Example |
 |---|---|---|
-| Avoid | Stop the risky activity | Do not store card numbers at all |
-| Mitigate (reduce) | Add controls to lower likelihood or impact | Patch servers, add backups |
-| Transfer (share) | Shift the financial impact to another party | Cyber-insurance, outsourcing to a provider |
-| Accept | Live with it, knowingly | A low risk where controls would cost more than the loss |
+| ==Avoid== | Stop the risky activity | Do not store card numbers at all |
+| ==Mitigate (reduce)== | Add controls to lower likelihood or impact | Patch servers, add backups |
+| ==Transfer (share)== | Shift the financial impact to another party | Cyber-insurance, outsourcing to a provider |
+| ==Accept== | Live with it, knowingly | A low risk where controls would cost more than the loss |
 
 ==Risk treatments: avoid, mitigate, transfer, accept.==
 
-The risk left after treatment is called **residual risk**. Management must formally accept it.
+==The risk left after treatment is called **residual risk**==. Management must formally accept it.
 
 > [!beyond] Beyond the syllabus
 > Organisations often follow published methods such as NIST SP 800-30 or ISO/IEC 27005 for risk assessment, so that results are consistent from year to year and can be audited.

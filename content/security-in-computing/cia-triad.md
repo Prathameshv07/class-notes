@@ -32,9 +32,9 @@ The CIA triad is the three core goals of information security: Confidentiality (
 
 ==The CIA triad is the model of the three goals of information security: Confidentiality, Integrity and Availability.==
 
-- It is used to **design** controls: which goal does this control protect?
-- It is used to **analyse** incidents: which goal was broken?
-- It is used to **rate impact** in [[risk-analysis]]: how badly would losing C, I or A hurt?
+- ==It is used to **design** controls==: which goal does this control protect?
+- ==It is used to **analyse** incidents==: which goal was broken?
+- ==It is used to **rate impact**== in [[risk-analysis]]: how badly would losing C, I or A hurt?
 
 The three goals often pull against each other, so the right balance depends on the asset.
 
@@ -44,10 +44,10 @@ The three goals often pull against each other, so the right balance depends on t
 
 | Threats | Controls |
 |---|---|
-| Eavesdropping on networks | Encryption |
-| Stolen passwords | Strong authentication, multi-factor login |
-| Excess access by staff | Access control, least privilege |
-| Lost laptops and pen drives | Disk encryption |
+| Eavesdropping on networks | ==Encryption== |
+| Stolen passwords | ==Strong authentication, multi-factor login== |
+| Excess access by staff | ==Access control, least privilege== |
+| Lost laptops and pen drives | ==Disk encryption== |
 | Shoulder surfing, social engineering | Training, privacy screens |
 
 Example: only you and your college can see your marks; Aadhaar numbers in a database are masked or encrypted.
@@ -58,12 +58,12 @@ Example: only you and your college can see your marks; Aadhaar numbers in a data
 
 | Threats | Controls |
 |---|---|
-| Unauthorised changes (tampering) | Access control, audit logs |
-| Changes in transit | Hashes, digital signatures, message authentication codes |
-| Accidental errors | Input validation, maker–checker approval |
+| Unauthorised changes (tampering) | ==Access control, audit logs== |
+| Changes in transit | ==Hashes, digital signatures, message authentication codes== |
+| Accidental errors | ==Input validation, maker–checker approval== |
 | Malware corrupting files | Antivirus, backups, file-integrity monitoring |
 
-Integrity also covers **authenticity** (data really comes from who it claims) and **non-repudiation** (the sender cannot later deny sending it). Example: a bank transfer amount cannot be altered between your phone and the bank.
+Integrity also covers ==**authenticity** (data really comes from who it claims)== and ==**non-repudiation** (the sender cannot later deny sending it)==. Example: a bank transfer amount cannot be altered between your phone and the bank.
 
 ### Q4. What is availability?
 
@@ -71,23 +71,23 @@ Integrity also covers **authenticity** (data really comes from who it claims) an
 
 | Threats | Controls |
 |---|---|
-| DoS and DDoS attacks | Traffic filtering, anti-DDoS services |
-| Hardware failure | Redundant servers, RAID disks |
-| Ransomware | Offline backups, tested recovery |
-| Power cuts, fire, flood | UPS, generators, a disaster-recovery site |
+| DoS and DDoS attacks | ==Traffic filtering, anti-DDoS services== |
+| Hardware failure | ==Redundant servers, RAID disks== |
+| Ransomware | ==Offline backups, tested recovery== |
+| Power cuts, fire, flood | ==UPS, generators, a disaster-recovery site== |
 | Unplanned maintenance | Change management |
 
 Example: IRCTC must stay up when lakhs of users book Tatkal tickets at 10 a.m.
 
 ### Q5. Is there a balance between the three?
 
-Yes. Strengthening one can weaken another:
+Yes. ==Strengthening one can weaken another==:
 
-- **More confidentiality can reduce availability:** five-step logins and strict encryption slow users down; a lost key can lock everyone out.
-- **More availability can reduce confidentiality:** copying data to many servers and backups means more places it can leak.
-- **Integrity checks add delay:** approvals and verification slow down transactions.
+- ==**More confidentiality can reduce availability:**== five-step logins and strict encryption slow users down; a lost key can lock everyone out.
+- ==**More availability can reduce confidentiality:**== copying data to many servers and backups means more places it can leak.
+- ==**Integrity checks add delay:**== approvals and verification slow down transactions.
 
-The right balance depends on the asset:
+==The right balance depends on the asset==:
 
 | System | Most important goal |
 |---|---|
@@ -97,13 +97,13 @@ The right balance depends on the asset:
 
 ### Q6. What is the opposite of CIA?
 
-The **DAD triad** describes what attackers aim for:
+The ==**DAD triad** describes what attackers aim for==:
 
 | CIA goal | Broken by | Example |
 |---|---|---|
-| Confidentiality | **Disclosure** | Customer data leaked online |
-| Integrity | **Alteration** | Marks changed in the database |
-| Availability | **Destruction / Denial** | Website taken down by DDoS |
+| Confidentiality | ==**Disclosure**== | Customer data leaked online |
+| Integrity | ==**Alteration**== | Marks changed in the database |
+| Availability | ==**Destruction / Denial**== | Website taken down by DDoS |
 
 When you analyse an incident, ask: was data disclosed, altered or destroyed?
 

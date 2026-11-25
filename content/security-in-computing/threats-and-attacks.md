@@ -30,24 +30,24 @@ A threat is anything that can cause harm, a vulnerability is a weakness it can u
 
 | Term | Meaning | Example |
 |---|---|---|
-| Asset | Anything of value | Student database |
-| Threat | A possible cause of harm | A hacker, a flood, a careless clerk |
-| Vulnerability | A weakness that can be used | Default admin password on the ERP |
-| Exploit | The method or tool that uses a weakness | A script that logs in with default passwords |
-| Attack | An actual attempt to cause harm | The hacker logs in and changes marks |
-| Risk | Chance of harm × its impact | High: easy to do, serious result |
+| Asset | ==Anything of value== | Student database |
+| Threat | ==A possible cause of harm== | A hacker, a flood, a careless clerk |
+| Vulnerability | ==A weakness that can be used== | Default admin password on the ERP |
+| Exploit | ==The method or tool that uses a weakness== | A script that logs in with default passwords |
+| Attack | ==An actual attempt to cause harm== | The hacker logs in and changes marks |
+| Risk | ==Chance of harm × its impact== | High: easy to do, serious result |
 
 ==A threat exploits a vulnerability to harm an asset; a control removes the vulnerability or reduces the harm.==
 
 ### Q2. Where do threats come from?
 
 - **By source:**
-  - **External:** hackers, criminal gangs, competitors, nation-state groups.
-  - **Internal (insiders):** employees, contractors, ex-employees with old access. Insiders already know the systems, so they are often the most damaging.
+  - ==**External:** hackers, criminal gangs==, competitors, nation-state groups.
+  - ==**Internal (insiders):** employees, contractors, ex-employees== with old access. Insiders already know the systems, so they are often the most damaging.
 - **By intent:**
-  - **Intentional:** theft, fraud, sabotage.
-  - **Accidental:** wrong file deleted, data emailed to the wrong person.
-- **Natural and environmental:** flood, fire, earthquake, power failure.
+  - ==**Intentional:** theft, fraud, sabotage==.
+  - ==**Accidental:** wrong file deleted==, data emailed to the wrong person.
+- ==**Natural and environmental:** flood, fire, earthquake==, power failure.
 
 A complete security plan covers all three kinds, not just hackers.
 
@@ -55,38 +55,38 @@ A complete security plan covers all three kinds, not just hackers.
 
 ==A passive attack only observes or copies information; it does not change anything.==
 
-- **Release of message contents:** reading emails or captured network traffic.
-- **Traffic analysis:** studying who talks to whom, how often and how much, even if the content is encrypted.
+- ==**Release of message contents:**== reading emails or captured network traffic.
+- ==**Traffic analysis:**== studying who talks to whom, how often and how much, even if the content is encrypted.
 
-Passive attacks are hard to **detect** because nothing changes. The defence is to **prevent** them, mainly with encryption.
+Passive attacks are hard to **detect** because nothing changes. The defence is to **prevent** them, ==mainly with encryption==.
 
 ### Q4. What are active attacks?
 
-An active attack changes data or disrupts a system.
+==An active attack changes data or disrupts a system.==
 
 | Attack | What happens |
 |---|---|
-| Masquerade | Attacker pretends to be someone else (stolen password) |
-| Replay | Captured valid data is sent again later (re-sending a payment request) |
-| Modification | Data is changed in transit (account number altered) |
-| Denial of service (DoS) | A system is flooded or crashed so real users cannot use it |
+| ==Masquerade== | Attacker pretends to be someone else (stolen password) |
+| ==Replay== | Captured valid data is sent again later (re-sending a payment request) |
+| ==Modification== | Data is changed in transit (account number altered) |
+| ==Denial of service (DoS)== | A system is flooded or crashed so real users cannot use it |
 
-Active attacks are easier to detect but hard to prevent completely. The aim is to detect them quickly and recover.
+Active attacks are easier to detect but hard to prevent completely. ==The aim is to detect them quickly and recover.==
 
 ### Q5. What are the common attacks today? (part 1)
 
-- **Malware:** harmful software.
-  - Virus (attaches to files), worm (spreads by itself), Trojan (hides inside useful-looking software), spyware, and **ransomware** (encrypts data and demands payment).
-- **Phishing and social engineering:** tricking people into giving passwords, OTPs or money. Fake KYC SMS, fake customer-care numbers and calls from "bank officers" are common in India.
-- **Password attacks:** guessing, brute force, and reusing passwords leaked from other sites (credential stuffing).
+- ==**Malware:** harmful software.==
+  - Virus (attaches to files), worm (spreads by itself), Trojan (hides inside useful-looking software), spyware, and ==**ransomware** (encrypts data and demands payment)==.
+- ==**Phishing and social engineering:** tricking people into giving passwords==, OTPs or money. Fake KYC SMS, fake customer-care numbers and calls from "bank officers" are common in India.
+- ==**Password attacks:** guessing, brute force==, and reusing passwords leaked from other sites (credential stuffing).
 
 ### Q6. What are the common attacks today? (part 2)
 
-- **DoS and DDoS:** a distributed DoS uses thousands of infected devices (a botnet) to flood a website.
-- **Man-in-the-middle (MITM):** the attacker sits between two parties, for example on fake public Wi-Fi, and reads or changes their traffic.
-- **Injection attacks:** malicious input such as SQL injection makes a web application run the attacker's commands (Unit 4).
-- **Insider misuse:** a staff member copies customer data before leaving.
-- **Exploiting unpatched software:** using a known bug that the organisation has not fixed.
+- ==**DoS and DDoS:**== a distributed DoS uses thousands of infected devices (a botnet) to flood a website.
+- ==**Man-in-the-middle (MITM):**== the attacker sits between two parties, for example on fake public Wi-Fi, and reads or changes their traffic.
+- ==**Injection attacks:**== malicious input such as SQL injection makes a web application run the attacker's commands (Unit 4).
+- ==**Insider misuse:**== a staff member copies customer data before leaving.
+- ==**Exploiting unpatched software:**== using a known bug that the organisation has not fixed.
 
 > [!beyond] Beyond the syllabus
 > Security teams map real attacks step by step using the MITRE ATT&CK framework, a public catalogue of attacker techniques, from first access to stealing data.

@@ -8,7 +8,7 @@ syllabus: [UITIV-005, UDSIV-005]
 status: draft
 sources:
   - "Shibu K V, Introduction to Embedded Systems, McGraw Hill, Ch. 2 (verify)"
-  - "Arm Keil, C51 Compiler User's Guide, data storage formats (verify)"
+  - "Arm Keil, Knowledge Base article 799: C51 Little-Endian CAN Registers, Big-Endian Compiler"
   - "IETF, RFC 1700 / RFC 791: network byte order is big endian (verify)"
 ---
 
@@ -100,7 +100,7 @@ Little endian
 ==Whenever multi-byte data crosses between two systems, both must agree on the byte order.==
 
 > [!beyond] Beyond the syllabus
-> The 8051 has almost no instructions that read 16-bit values from memory, so for C variables the **compiler** decides the byte order. Keil C51 stores multi-byte variables in big-endian order (verify in the C51 manual), while the free SDCC compiler stores them in little-endian order. The same C code can therefore lay out memory differently on the same chip.
+> The 8051 has almost no instructions that read 16-bit values from memory, so for C variables the **compiler** decides the byte order. Keil C51 stores multi-byte variables in big-endian order (Keil's own knowledge base confirms this), while the free SDCC compiler stores them in little-endian order. The same C code can therefore lay out memory differently on the same chip.
 
 ## Analogy and real-life example
 
@@ -155,5 +155,5 @@ flowchart LR
 ## Sources
 
 - Shibu K V, *Introduction to Embedded Systems*, McGraw Hill, Ch. 2, section on big-endian and little-endian processors (verify).
-- Arm Keil, *C51 Compiler User's Guide*, data storage formats (verify).
+- Arm Keil, Knowledge Base article 799, "C51: Little-Endian CAN Registers, Big-Endian Compiler" (keil.com/support/docs/799.htm).
 - IETF, Internet protocol standards (RFC 791, RFC 1700) on network byte order (verify).

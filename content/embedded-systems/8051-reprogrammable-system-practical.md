@@ -9,7 +9,7 @@ syllabus: [UITIV-006, UDSIV-006]
 status: draft
 sources:
   - "Muhammad Ali Mazidi and Janice Mazidi, The 8051 Microcontroller and Embedded Systems, Pearson, Ch. 7 (verify)"
-  - "Microchip (Atmel), AT89C51 datasheet (verify)"
+  - "Microchip (Atmel), AT89C51 datasheet: DC characteristics, IOL limits"
   - "Labcenter Electronics, Proteus help: loading a program file into a microcontroller (verify)"
 ---
 
@@ -134,7 +134,9 @@ Each LED's anode goes to +5 V and its cathode to a port pin.
 
 ==On the 8051, LEDs are usually wired active-low: writing 0 to a pin turns its LED on.==
 
-The 8051's ==port pins can sink (take in) current better== than they can source (give out) it, which is why this wiring is preferred. ==The 330 Ω resistor limits the current== to about 10 mA, so neither the LED nor the pin is damaged.
+The 8051's ==port pins can sink (take in) current better== than they can source (give out) it, which is why this wiring is preferred. ==The 330 Ω resistor limits the current== to about 9 mA per LED.
+
+On real hardware, check the totals: the AT89C51 datasheet allows at most 10 mA per pin but only 15 mA for a whole port (P1 to P3). Eight LEDs at 9 mA each is about 72 mA, far over that limit. Proteus does not complain, but on a real board use a driver chip (lab trainer boards already have one) or larger resistors, such as 2.2 kΩ (about 1.4 mA each).
 
 ### How does Program 1 work?
 
@@ -154,7 +156,7 @@ The delay works by making the CPU count in two nested loops. The inner loop of 1
 
 ## Try it
 
-Write Program 3, which makes the light run **backwards**, from P1.7 to P1.0. Load it into the same circuit. Which two lines of Program 2 must change?
+Write Program 3, which makes the light run **backwards**, from P1.7 to P1.0. Load it into the same circuit. Which three lines of Program 2 must change?
 
 > [!answer]- Answer
 > Start with `led = 0x80;` (P1.7) and shift right with `led = led >> 1;`. Reset with `if (led == 0) led = 0x80;`. Nothing in the circuit changes, which is the point of a reprogrammable system.
@@ -166,12 +168,12 @@ Write Program 3, which makes the light run **backwards**, from P1.7 to P1.0. Loa
 3. **What is the difference between mask ROM, OTP and flash?** Mask ROM is fixed at the factory; OTP can be written once by the user; flash can be erased and written many times.
 4. **Why is pin 31 (EA) connected to +5 V?** EA high makes the 8051 fetch its program from internal ROM/flash; EA low makes it use external program memory.
 5. **What does "active-low" mean?** The device turns on when the pin is 0 (low).
-6. **Why is a 330 Ω resistor used with each LED?** To limit current to a safe value for the LED and the port pin.
+6. **Why is a 330 Ω resistor used with each LED?** To limit the current through the LED and the port pin. With many LEDs on one port, the port's total limit (15 mA on the AT89C51) also matters.
 7. **What does `led << 1` do?** Shifts all bits one place left, moving the ON position to the next LED.
 8. **Name two real products that are updated by reprogramming.** Smartphones (OS updates) and Wi-Fi routers (firmware updates); also cars with over-the-air updates.
 
 ## Sources
 
 - Muhammad Ali Mazidi and Janice Mazidi, *The 8051 Microcontroller and Embedded Systems*, Pearson, Ch. 7 (time delays and I/O programming in C) (verify).
-- Microchip (Atmel), *AT89C51 8-bit Microcontroller with 4K Bytes Flash* datasheet (verify).
+- Microchip (Atmel), *AT89C51 8-bit Microcontroller with 4K Bytes Flash* datasheet, DC characteristics (current limits per pin and per port).
 - Labcenter Electronics, *Proteus* help on microcontroller simulation and program files (verify).

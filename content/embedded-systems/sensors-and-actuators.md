@@ -42,10 +42,12 @@ Examples: LM35 temperature sensor, LDR (light), PIR (human motion), ultrasonic s
 |---|---|---|
 | Output signal | ==**Analog:** continuous voltage== | LM35, LDR |
 | | ==**Digital:** only 0/1==, or a digital number | PIR, push button, DHT11 |
-| Power | ==**Active:** needs external power== | Ultrasonic sensor, PIR |
-| | ==**Passive:** generates its own signal== or only changes resistance | Thermocouple, LDR |
+| Power | ==**Active:** needs external power== | LM35, LDR, ultrasonic sensor |
+| | ==**Passive:** generates its own signal== without external power | Thermocouple, piezoelectric sensor |
 | Contact | ==**Contact**== | Thermometer probe, push button |
 | | ==**Non-contact**== | IR thermometer, ultrasonic sensor |
+
+The **PIR** (passive infrared) motion sensor is named "passive" because it only receives infrared and emits none; the module itself still needs a power supply.
 
 ### Q3. How does a microcontroller read an analog sensor?
 

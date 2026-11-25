@@ -63,9 +63,9 @@ A microprocessor is only a CPU on a chip and needs external memory and I/O chips
 ### Q4. Which one does an embedded system use, and why?
 
 Most embedded systems use a **microcontroller**, because they need:
-- ==**Low cost:** one chip instead of five or six==.
+- ==**Low cost:**== one chip instead of five or six.
 - ==**Small size:** fits inside a remote==, a watch or a sensor.
-- ==**Low power:** runs for months on a battery==.
+- ==**Low power:**== runs for months on a battery.
 - ==**Ready I/O:** pins can directly read switches== and drive LEDs or relays.
 
 Large embedded systems, such as a smartphone, a network router or a car's infotainment unit, ==use powerful **microprocessors** or systems-on-chip==, because they need more speed and memory than a microcontroller offers.

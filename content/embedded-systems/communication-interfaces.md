@@ -53,7 +53,7 @@ The same device usually uses both: a smartwatch uses I2C to read its sensors (on
 
 - ==**Asynchronous:** no shared clock wire==. Both sides agree on the speed (**baud rate**, e.g. 9600 bits per second) in advance.
 - ==Each byte is framed==: a **start bit**, 8 data bits, and a **stop bit**.
-- ==Point-to-point: connects two devices only==.
+- ==Point-to-point==: connects two devices only.
 - ==The 8051 has one built-in UART== (pins P3.0 RXD and P3.1 TXD). You will use it in practical 11.
 - Examples: microcontroller to PC, GPS module, GSM module, Bluetooth module (HC-05).
 

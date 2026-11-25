@@ -28,12 +28,12 @@ Communication interfaces are standard ways for an embedded system to exchange da
 
 ### Q1. What are serial and parallel communication?
 
-**Parallel:** sends several bits at the same time on several wires (e.g. 8 wires for a byte).
-- Fast over short distances, but needs many pins and wires.
+==**Parallel:** sends several bits at the same time== on several wires (e.g. 8 wires for a byte).
+- ==Fast over short distances==, but needs many pins and wires.
 - Example: an 8051 port driving an LCD with 8 data lines.
 
-**Serial:** sends bits one after another on one (or a few) wires.
-- Fewer wires and pins, works over longer distances, cheaper.
+==**Serial:** sends bits one after another== on one (or a few) wires.
+- ==Fewer wires and pins, works over longer distances==, cheaper.
 - Almost all modern interfaces are serial: UART, I2C, SPI, USB.
 
 ==Parallel sends many bits at once on many wires; serial sends one bit at a time on few wires.==
@@ -42,19 +42,19 @@ Communication interfaces are standard ways for an embedded system to exchange da
 
 | Group | Purpose | Examples |
 |---|---|---|
-| **Onboard** | Chips on the same circuit board talk to each other | UART, I2C, SPI, 1-Wire, parallel bus |
-| **External** | The device talks to other devices, PCs or networks | RS-232, RS-485, USB, IrDA (infrared), Bluetooth, Wi-Fi, ZigBee, GSM/4G |
+| **Onboard** | ==Chips on the same circuit board talk to each other== | UART, I2C, SPI, 1-Wire, parallel bus |
+| **External** | ==The device talks to other devices, PCs or networks== | RS-232, RS-485, USB, IrDA (infrared), Bluetooth, Wi-Fi, ZigBee, GSM/4G |
 
 The same device usually uses both: a smartwatch uses I2C to read its sensors (onboard) and Bluetooth to reach your phone (external).
 
 ### Q3. What is UART?
 
-**UART** (Universal Asynchronous Receiver Transmitter) sends serial data using two lines: **TX** (transmit) and **RX** (receive).
+==**UART** (Universal Asynchronous Receiver Transmitter)== sends serial data using ==two lines: **TX** (transmit) and **RX** (receive)==.
 
-- **Asynchronous:** no shared clock wire. Both sides agree on the speed (**baud rate**, e.g. 9600 bits per second) in advance.
-- Each byte is framed: a **start bit**, 8 data bits, and a **stop bit**.
-- Point-to-point: connects two devices only.
-- The 8051 has one built-in UART (pins P3.0 RXD and P3.1 TXD). You will use it in practical 11.
+- ==**Asynchronous:** no shared clock wire==. Both sides agree on the speed (**baud rate**, e.g. 9600 bits per second) in advance.
+- ==Each byte is framed==: a **start bit**, 8 data bits, and a **stop bit**.
+- ==Point-to-point: connects two devices only==.
+- ==The 8051 has one built-in UART== (pins P3.0 RXD and P3.1 TXD). You will use it in practical 11.
 - Examples: microcontroller to PC, GPS module, GSM module, Bluetooth module (HC-05).
 
 ### Q4. What are I2C and SPI?
@@ -62,29 +62,29 @@ The same device usually uses both: a smartwatch uses I2C to read its sensors (on
 | Feature | I2C | SPI |
 |---|---|---|
 | Full name | Inter-Integrated Circuit | Serial Peripheral Interface |
-| Wires | 2: SDA (data), SCL (clock) | 4: MOSI, MISO, SCLK, SS |
+| Wires | ==2: SDA (data), SCL (clock)== | ==4: MOSI, MISO, SCLK, SS== |
 | Clock | Synchronous (shared clock) | Synchronous |
-| Selecting a device | Each device has an **address** | A separate **SS** (slave select) line per device |
-| Direction | Half duplex | Full duplex |
+| Selecting a device | ==Each device has an **address**== | A separate **SS** (slave select) line per device |
+| Direction | ==Half duplex== | ==Full duplex== |
 | Speed | Slower (typically 100–400 kbit/s) | Faster (several Mbit/s) |
 | Typical use | Sensors, RTC, EEPROM | SD cards, displays, flash memory |
 
 ==I2C uses 2 wires and device addresses; SPI uses 4 wires, a select line per device, and is faster.==
 
-**1-Wire** uses a single data line (plus ground) for slow devices, such as the DS18B20 temperature sensor.
+==**1-Wire** uses a single data line== (plus ground) for slow devices, such as the DS18B20 temperature sensor.
 
 ### Q5. What are the common external interfaces?
 
 **Wired**
-- **RS-232:** old serial standard for PC COM ports; short distance (about 15 m).
-- **RS-485:** differential serial for long distances (over 1 km) and many devices; used in industry and energy meters.
-- **USB:** fast, plug-and-play, also supplies power; used to program boards and connect to PCs.
+- ==**RS-232:** old serial standard== for PC COM ports; short distance (about 15 m).
+- ==**RS-485:** differential serial for long distances== (over 1 km) and many devices; used in industry and energy meters.
+- ==**USB:** fast, plug-and-play==, also supplies power; used to program boards and connect to PCs.
 
 **Wireless**
 - **Infrared (IrDA):** short range, line of sight; TV remotes.
-- **Bluetooth:** about 10 m, low power; earphones, fitness bands.
-- **Wi-Fi:** high speed, internet access; smart plugs, CCTV.
-- **ZigBee:** low power, low data rate, mesh networks; home and industrial automation.
+- ==**Bluetooth:** about 10 m, low power==; earphones, fitness bands.
+- ==**Wi-Fi:** high speed, internet access==; smart plugs, CCTV.
+- ==**ZigBee:** low power, low data rate==, mesh networks; home and industrial automation.
 - **GSM/4G (GPRS):** cellular, long distance; vehicle trackers, UPI soundboxes.
 
 ## Analogy and real-life example

@@ -75,7 +75,7 @@ P1 = 0x59     bits 7..0 = 0 1 0 1 1 0 0 1
 
 ### Part A: the 8051 at a glance
 
-The 8051 is an 8-bit **microcontroller**: processor, memory, I/O ports and timers on one chip.
+==The 8051 is an 8-bit **microcontroller**==: processor, memory, I/O ports and timers on one chip.
 
 | Feature | 8051 |
 |---|---|
@@ -112,10 +112,10 @@ Our program used three blocks: **ROM** (holds the program), **RAM** (holds `a`, 
 
 ==Embedded C program → compiler → HEX file → simulator or microcontroller.==
 
-- **Keil µVision** is an IDE (integrated development environment): editor, compiler, linker and simulator in one window.
-- The **C51 compiler** turns C into 8051 machine code. Because it runs on a PC but produces code for a different processor, it is called a **cross compiler**.
-- The **HEX file** is the machine code in a text format. Later, a programmer device "burns" it into the real chip's ROM.
-- The **simulator** pretends to be an 8051 on your PC, so you can test without hardware.
+- ==**Keil µVision** is an IDE== (integrated development environment): editor, compiler, linker and simulator in one window.
+- The **C51 compiler** turns C into 8051 machine code. Because it runs on a PC but produces code for a different processor, ==it is called a **cross compiler**==.
+- ==The **HEX file** is the machine code in a text format==. Later, a programmer device "burns" it into the real chip's ROM.
+- ==The **simulator** pretends to be an 8051== on your PC, so you can test without hardware.
 
 ### Part B: line by line
 

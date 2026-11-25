@@ -30,7 +30,7 @@ Endianness is the order in which a processor stores the bytes of a multi-byte nu
 
 Memory is organised in **bytes**: each address holds 8 bits. But many numbers are larger: a 16-bit `int` needs 2 bytes, a 32-bit number needs 4.
 
-So the processor must split the number across several addresses, and it must decide **which byte goes to the lowest address**. There are two choices, and different processor families chose differently.
+So the processor must split the number across several addresses, and it must decide ==**which byte goes to the lowest address**==. There are two choices, and different processor families chose differently.
 
 The terms come from *Gulliver's Travels*, where two kingdoms fought over which end of a boiled egg to break first: the big end or the little end.
 
@@ -46,7 +46,7 @@ Storing 0x12345678 at address 1000:
 
 The number reads left to right in memory exactly as we write it.
 
-Used by: older Motorola 68000, IBM mainframes, and **network protocols** (TCP/IP sends data in big-endian order, called **network byte order**).
+==Used by: older Motorola 68000, IBM mainframes, and **network protocols**== (TCP/IP sends data in big-endian order, called **network byte order**).
 
 ### Q3. What is little endian?
 
@@ -60,11 +60,11 @@ Storing 0x12345678 at address 1000:
 
 The number appears "backwards" in memory.
 
-Used by: Intel and AMD x86 (all PCs), and most ARM systems (ARM can run either way, but phones and microcontrollers usually use little endian).
+==Used by: Intel and AMD x86 (all PCs), and most ARM systems== (ARM can run either way, but phones and microcontrollers usually use little endian).
 
 ### Q4. How can a program find out which one it is running on?
 
-Store a known number and look at its first byte:
+==Store a known number and look at its first byte==:
 
 ```c
 #include <stdio.h>
@@ -92,10 +92,10 @@ Little endian
 
 ### Q5. Where does endianness cause problems in embedded systems?
 
-- **Device to PC or server:** a sensor node sends a 16-bit reading; if the two sides use different orders, the value is garbled (as in the truck example).
-- **Networking:** data must be converted to network byte order (big endian) before sending, using functions like `htons()` and `htonl()`.
-- **Files and memory dumps:** reading a binary file or EEPROM written by another processor.
-- **Chip-to-chip links:** some sensors send the high byte first, some the low byte first; the datasheet says which.
+- ==**Device to PC or server:**== a sensor node sends a 16-bit reading; if the two sides use different orders, the value is garbled (as in the truck example).
+- ==**Networking:** data must be converted to network byte order== (big endian) before sending, using functions like `htons()` and `htonl()`.
+- ==**Files and memory dumps:**== reading a binary file or EEPROM written by another processor.
+- ==**Chip-to-chip links:**== some sensors send the high byte first, some the low byte first; the datasheet says which.
 
 ==Whenever multi-byte data crosses between two systems, both must agree on the byte order.==
 

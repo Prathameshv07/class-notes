@@ -121,9 +121,9 @@ Program 2 (runlight.hex):  P1 = FE -> FD -> FB -> F7 -> EF -> DF -> BF -> 7F -> 
 
 ==A reprogrammable embedded system can change its function by loading new firmware, without changing its hardware.==
 
-- The AT89C51 stores its program in **flash memory**, which can be erased and written again many times.
+- The AT89C51 ==stores its program in **flash memory**==, which can be erased and written again many times.
 - In this practical, the circuit never changed. Only the HEX file loaded into the chip changed, and the LEDs did something completely different.
-- Older chips used **mask ROM** (program fixed at the factory) or **OTP** (one-time programmable) memory, which cannot be rewritten.
+- Older chips used ==**mask ROM** (program fixed at the factory)== or ==**OTP** (one-time programmable)== memory, which cannot be rewritten.
 - Real products use this every day: firmware updates for phones, routers, TVs and cars.
 
 ### Why are the LEDs "active-low"?
@@ -134,7 +134,7 @@ Each LED's anode goes to +5 V and its cathode to a port pin.
 
 ==On the 8051, LEDs are usually wired active-low: writing 0 to a pin turns its LED on.==
 
-The 8051's port pins can sink (take in) current better than they can source (give out) it, which is why this wiring is preferred. The 330 Ω resistor limits the current to about 10 mA, so neither the LED nor the pin is damaged.
+The 8051's ==port pins can sink (take in) current better== than they can source (give out) it, which is why this wiring is preferred. ==The 330 Ω resistor limits the current== to about 10 mA, so neither the LED nor the pin is damaged.
 
 ### How does Program 1 work?
 

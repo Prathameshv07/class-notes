@@ -30,12 +30,12 @@ Embedded systems grew from 1960s guidance computers through 4-bit and 8-bit chip
 
 | Period | Milestone |
 |---|---|
-| 1960s | Guidance computers for missiles and the **Apollo** spacecraft: the first computers built into a larger machine for one job |
-| 1971 | **Intel 4004**, a 4-bit microprocessor, made for a calculator |
-| 1976–1980 | **Microcontrollers**: CPU, memory and I/O on one chip (Intel 8048, then the **8051** in 1980) |
-| 1990s | 16- and 32-bit processors (such as ARM) spread into mobile phones, cars and networking |
-| 2000s–2010s | Systems-on-chip, Arduino and Raspberry Pi, the Internet of Things |
-| Today | Multicore chips and edge AI running inside devices |
+| 1960s | ==Guidance computers for missiles and the **Apollo** spacecraft==: the first computers built into a larger machine for one job |
+| 1971 | ==**Intel 4004**, a 4-bit microprocessor==, made for a calculator |
+| 1976–1980 | ==**Microcontrollers**: CPU, memory and I/O on one chip== (Intel 8048, then the **8051** in 1980) |
+| 1990s | ==16- and 32-bit processors (such as ARM)== spread into mobile phones, cars and networking |
+| 2000s–2010s | ==Systems-on-chip, Arduino and Raspberry Pi==, the Internet of Things |
+| Today | ==Multicore chips and edge AI== running inside devices |
 
 The 8051 from 1980 is still made by many companies, and is the chip you will program in this course.
 
@@ -52,14 +52,14 @@ There are millions of embedded designs, from a TV remote to a satellite. Classif
 
 ### Q3. What is classification by generation?
 
-Based on the processor technology used:
+==Based on the processor technology used==:
 
 | Generation | Processor used | Example |
 |---|---|---|
-| First | 8-bit microprocessors (8085), 4-bit microcontrollers | Digital telephone keypad, stepper motor control |
-| Second | 16-bit microprocessors, 8/16-bit microcontrollers | Data-acquisition systems, SCADA |
-| Third | 32-bit processors, DSPs, ASICs | Robotics, industrial process control, network routers |
-| Fourth | Systems-on-chip, multicore processors | Smartphones, smart TVs, tablets |
+| First | ==8-bit microprocessors (8085), 4-bit microcontrollers== | Digital telephone keypad, stepper motor control |
+| Second | ==16-bit microprocessors, 8/16-bit microcontrollers== | Data-acquisition systems, SCADA |
+| Third | ==32-bit processors, DSPs, ASICs== | Robotics, industrial process control, network routers |
+| Fourth | ==Systems-on-chip, multicore processors== | Smartphones, smart TVs, tablets |
 
 Each generation brought more power, more memory and, from the third generation on, an operating system in many devices.
 
@@ -67,22 +67,22 @@ Each generation brought more power, more memory and, from the third generation o
 
 | Type | Processor | Operating system | Example |
 |---|---|---|---|
-| Small-scale | 8/16-bit microcontroller (e.g. 8051) | Usually none | Electronic toy, TV remote, washing machine |
-| Medium-scale | 16/32-bit microcontroller, DSP or RISC processor | Sometimes an RTOS | ATM, router, car engine controller |
-| Large-scale (complex) | 32/64-bit multicore, SoC, FPGA | RTOS or embedded Linux | Aircraft flight control, satellite, smartphone |
+| Small-scale | ==8/16-bit microcontroller (e.g. 8051)== | ==Usually none== | Electronic toy, TV remote, washing machine |
+| Medium-scale | ==16/32-bit microcontroller, DSP or RISC processor== | ==Sometimes an RTOS== | ATM, router, car engine controller |
+| Large-scale (complex) | ==32/64-bit multicore, SoC, FPGA== | ==RTOS or embedded Linux== | Aircraft flight control, satellite, smartphone |
 
-==Small-scale: 8/16-bit, usually no OS. Medium-scale: 16/32-bit, may use an RTOS. Large-scale: 32/64-bit or multicore, needs an RTOS.==
+Small-scale: 8/16-bit, usually no OS. Medium-scale: 16/32-bit, may use an RTOS. Large-scale: 32/64-bit or multicore, needs an RTOS.
 
 ### Q5. What is classification by functional requirement?
 
-Based on what the system must do:
+==Based on what the system must do==:
 
 | Type | Meaning | Example |
 |---|---|---|
-| Stand-alone | Works alone: takes input, processes, gives output; no host computer needed | Digital camera, microwave oven, calculator |
-| Real-time | Must produce the correct output **within a fixed time** | Airbag controller, ABS brakes, pacemaker |
-| Networked | Connected to a network (LAN, internet) to share data or be controlled remotely | Smart electricity meter, CCTV camera, UPI soundbox |
-| Mobile | Portable and battery-powered, small size and low power | Mobile phone, fitness band, handheld POS machine |
+| Stand-alone | ==Works alone==: takes input, processes, gives output; no host computer needed | Digital camera, microwave oven, calculator |
+| Real-time | ==Must produce the correct output **within a fixed time**== | Airbag controller, ABS brakes, pacemaker |
+| Networked | ==Connected to a network== (LAN, internet) to share data or be controlled remotely | Smart electricity meter, CCTV camera, UPI soundbox |
+| Mobile | ==Portable and battery-powered==, small size and low power | Mobile phone, fitness band, handheld POS machine |
 
 One device can fit several types: a fitness band is mobile **and** networked.
 
@@ -92,17 +92,17 @@ This classification is by **deterministic behaviour**: how strict the deadline i
 
 | Type | Missed deadline means | Example |
 |---|---|---|
-| Hard real-time | System failure, possibly loss of life | Airbag, flight control, pacemaker |
-| Soft real-time | Lower quality, but the system still works | Video streaming, online game, ATM response |
+| Hard real-time | ==System failure, possibly loss of life== | Airbag, flight control, pacemaker |
+| Soft real-time | ==Lower quality, but the system still works== | Video streaming, online game, ATM response |
 
 ==A hard real-time system must never miss a deadline; a soft real-time system can tolerate an occasional delay.==
 
 ### Q7. What are event-triggered and time-triggered systems?
 
-This classification is by **triggering**: what makes the system act.
+This classification is by **triggering**: ==what makes the system act==.
 
-- **Event-triggered:** acts when something happens, such as a key press or a sensor crossing a limit (fire alarm).
-- **Time-triggered:** acts at fixed time intervals, such as reading a temperature every second (data logger).
+- ==**Event-triggered:** acts when something happens==, such as a key press or a sensor crossing a limit (fire alarm).
+- ==**Time-triggered:** acts at fixed time intervals==, such as reading a temperature every second (data logger).
 
 ## Analogy and real-life example
 

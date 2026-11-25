@@ -30,9 +30,9 @@ A sensor converts a physical quantity (temperature, light, motion) into an elect
 
 ==A sensor detects a physical quantity and converts it into an electrical signal.==
 
-- Physical quantities: temperature, light, sound, pressure, distance, motion, humidity, gas.
+- ==Physical quantities: temperature, light, sound==, pressure, distance, motion, humidity, gas.
 - Output: a voltage, current or resistance change, or a digital value.
-- A **transducer** is any device that converts energy from one form to another. A sensor is an input transducer; an actuator is an output transducer.
+- ==A **transducer** is any device that converts energy from one form to another==. ==A sensor is an input transducer==; an actuator is an output transducer.
 
 Examples: LM35 temperature sensor, LDR (light), PIR (human motion), ultrasonic sensor (distance), MQ-2 (gas/smoke), accelerometer (tilt, steps).
 
@@ -40,24 +40,24 @@ Examples: LM35 temperature sensor, LDR (light), PIR (human motion), ultrasonic s
 
 | Basis | Types | Example |
 |---|---|---|
-| Output signal | **Analog:** continuous voltage | LM35, LDR |
-| | **Digital:** only 0/1, or a digital number | PIR, push button, DHT11 |
-| Power | **Active:** needs external power | Ultrasonic sensor, PIR |
-| | **Passive:** generates its own signal or only changes resistance | Thermocouple, LDR |
-| Contact | **Contact** | Thermometer probe, push button |
-| | **Non-contact** | IR thermometer, ultrasonic sensor |
+| Output signal | ==**Analog:** continuous voltage== | LM35, LDR |
+| | ==**Digital:** only 0/1==, or a digital number | PIR, push button, DHT11 |
+| Power | ==**Active:** needs external power== | Ultrasonic sensor, PIR |
+| | ==**Passive:** generates its own signal== or only changes resistance | Thermocouple, LDR |
+| Contact | ==**Contact**== | Thermometer probe, push button |
+| | ==**Non-contact**== | IR thermometer, ultrasonic sensor |
 
 ### Q3. How does a microcontroller read an analog sensor?
 
-A microcontroller works with digital numbers, so an analog voltage must first be converted by an **ADC** (analog-to-digital converter).
+A microcontroller works with digital numbers, so ==an analog voltage must first be converted by an **ADC**== (analog-to-digital converter).
 
-Example: the LM35 gives **10 mV per °C**.
+Example: ==the LM35 gives **10 mV per °C**==.
 - At 32 °C, its output is 32 × 10 mV = 320 mV.
 - An 8-bit ADC with a 5 V reference divides 0–5 V into 256 steps, so one step ≈ 5 V / 256 ≈ 19.5 mV.
 - 320 mV / 19.5 mV ≈ 16, so the ADC gives about **16**.
 - The program converts back: 16 × 19.5 mV ≈ 312 mV ≈ 31 °C (close to 32 °C; the gap is the ADC's step size).
 
-The basic 8051 has no built-in ADC, so an external ADC chip (such as the ADC0804) is used.
+==The basic 8051 has no built-in ADC==, so an external ADC chip (such as the ADC0804) is used.
 
 ### Q4. What is an actuator?
 
@@ -67,20 +67,20 @@ The basic 8051 has no built-in ADC, so an external ADC chip (such as the ADC0804
 |---|---|---|
 | LED | Light | Status indicator |
 | Buzzer | Sound | Alarm, key beep |
-| Relay | Switches a high-power circuit | Street lamp, water pump |
-| DC motor | Continuous rotation | Fan, toy car |
-| Stepper motor | Rotation in fixed steps | Printer, CNC machine |
-| Servo motor | Turns to a set angle | Robot arm, camera mount |
+| Relay | ==Switches a high-power circuit== | Street lamp, water pump |
+| DC motor | ==Continuous rotation== | Fan, toy car |
+| Stepper motor | ==Rotation in fixed steps== | Printer, CNC machine |
+| Servo motor | ==Turns to a set angle== | Robot arm, camera mount |
 | Solenoid valve | Opens or closes a pipe | Washing machine water inlet |
 
 ### Q5. Why can't the 8051 drive a motor or lamp directly?
 
-An 8051 port pin can supply or take only a few milliamperes at 5 V. A motor may need an ampere; a street lamp runs on 230 V AC. Connecting them directly would damage the chip.
+An 8051 port pin can supply or take ==only a few milliamperes at 5 V==. A motor may need an ampere; a street lamp runs on 230 V AC. Connecting them directly would damage the chip.
 
 So a **driver** stands between the pin and the actuator:
-- **Transistor or driver IC** (e.g. ULN2003, L293D) for motors.
-- **Relay** for mains devices: the small coil current switches a separate high-power circuit.
-- **Optocoupler** to keep the high-voltage side electrically isolated from the controller.
+- ==**Transistor or driver IC**== (e.g. ULN2003, L293D) for motors.
+- ==**Relay** for mains devices==: the small coil current switches a separate high-power circuit.
+- ==**Optocoupler**== to keep the high-voltage side electrically isolated from the controller.
 
 ==A sensor feeds the controller through signal conditioning or an ADC; an actuator is driven by the controller through a driver circuit.==
 

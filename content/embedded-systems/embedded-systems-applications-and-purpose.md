@@ -29,13 +29,13 @@ Embedded systems are used in almost every field, from consumer electronics to sp
 
 | Area | Examples |
 |---|---|
-| Consumer electronics | Digital camera, smart TV, washing machine, microwave oven |
+| ==Consumer electronics== | Digital camera, smart TV, washing machine, microwave oven |
 | Household and building | Air conditioner, security alarm, smart lock, lift controller |
-| Automotive | Engine control, ABS, airbags, infotainment, FASTag reader |
-| Telecom and networking | Mobile phone, router, Wi-Fi access point, network switch |
-| Healthcare | ECG machine, pulse oximeter, glucose meter, pacemaker |
-| Banking and retail | ATM, card-swipe (POS) machine, UPI soundbox, billing scale |
-| Industry | PLC-controlled assembly lines, robots, SCADA |
+| ==Automotive== | Engine control, ABS, airbags, infotainment, FASTag reader |
+| ==Telecom and networking== | Mobile phone, router, Wi-Fi access point, network switch |
+| ==Healthcare== | ECG machine, pulse oximeter, glucose meter, pacemaker |
+| ==Banking and retail== | ATM, card-swipe (POS) machine, UPI soundbox, billing scale |
+| ==Industry== | PLC-controlled assembly lines, robots, SCADA |
 | Defence and space | Missile guidance, satellites, launch vehicles |
 | Agriculture | Soil-moisture sensors, automatic drip irrigation |
 
@@ -48,30 +48,30 @@ Each embedded system is built for one or more of these. A digital thermometer co
 ### Q3. What are data collection and data communication?
 
 **Data collection (storage and representation)**
-- The system senses real-world data, converts it to digital form, and stores or displays it.
-- A **sensor** measures a physical quantity; an **ADC** (analog-to-digital converter) turns it into numbers.
+- ==The system senses real-world data, converts it to digital form==, and stores or displays it.
+- ==A **sensor** measures a physical quantity==; an **ADC** (analog-to-digital converter) turns it into numbers.
 - Examples: digital camera (light → image file), digital thermometer, data logger in a cold-storage truck.
 
 **Data communication**
-- The system sends data from one place to another, over wires or wirelessly.
+- ==The system sends data from one place to another==, over wires or wirelessly.
 - Some systems only carry data (a router); others collect and then send it (a smart meter sending readings to the electricity board).
 - Examples: Wi-Fi router, network switch, GPS tracker in a delivery bike.
 
 ### Q4. What are data processing, monitoring and control?
 
-**Data processing:** the system changes data to make it useful. A hearing aid filters noise and amplifies speech; a voice assistant processes sound to detect a wake word.
+==**Data processing:** the system changes data to make it useful==. A hearing aid filters noise and amplifies speech; a voice assistant processes sound to detect a wake word.
 
-**Monitoring:** the system watches a quantity and reports it, but does not change it. An ECG machine shows the heart's activity; a smoke detector watches for smoke and sounds an alarm.
+==**Monitoring:** the system watches a quantity and reports it==, but does not change it. An ECG machine shows the heart's activity; a smoke detector watches for smoke and sounds an alarm.
 
-**Control:** the system watches a quantity **and acts** to keep it at a target. An air conditioner reads room temperature (sensor) and switches the compressor (actuator) to hold 24 °C.
+==**Control:** the system watches a quantity **and acts**== to keep it at a target. An air conditioner reads room temperature (sensor) and switches the compressor (actuator) to hold 24 °C.
 
 ==Monitoring only observes; control observes and then acts to change the output.==
 
 ### Q5. What is an application-specific user interface?
 
-Some embedded systems exist mainly to give the user a simple, dedicated way to interact with something.
+Some embedded systems exist mainly ==to give the user a simple, dedicated way to interact== with something.
 
-- Buttons, a small keypad, LEDs, a small display or a touch panel, designed only for that one job.
+- Buttons, a small keypad, LEDs, a small display or a touch panel, ==designed only for that one job==.
 - Examples: TV remote, mobile phone keypad, lift buttons, ATM screen, card-swipe machine.
 
 The interface is "application-specific" because it shows only what that one task needs, unlike a PC's general keyboard and screen.

@@ -29,7 +29,7 @@ Quality attributes are the non-functional requirements of an embedded system: op
 
 ### Q1. What are quality attributes, and how are they grouped?
 
-A device's **functional requirements** say what it must do ("announce the payment amount"). Its **quality attributes** say how well it must do it ("within one second, every time, for years").
+A device's ==**functional requirements** say what it must do== ("announce the payment amount"). Its ==**quality attributes** say how well it must do it== ("within one second, every time, for years").
 
 ==Quality attributes are grouped into operational (considered while the system is running) and non-operational (considered during design, production and later life).==
 
@@ -44,20 +44,20 @@ A device's **functional requirements** say what it must do ("announce the paymen
 
 ### Q2. What are response and throughput?
 
-**Response:** how quickly the system reacts to an input or event.
+==**Response:** how quickly the system reacts== to an input or event.
 - Example: a car's brake controller must respond in milliseconds; a weather logger can take a few seconds.
 
-**Throughput:** how much work the system completes in a given time.
+==**Throughput:** how much work the system completes== in a given time.
 - Example: a barcode scanner at a supermarket counter scanning 50 items per minute; a network router forwarding a few million packets per second.
 
 Response is about **how fast one event** is handled; throughput is about **how many** are handled per unit time.
 
 ### Q3. What is reliability, and how is it measured?
 
-**Reliability** is how long the system works without failure.
+==**Reliability** is how long the system works without failure==.
 
-- **MTBF** (Mean Time Between Failures): average working time between two failures. Higher is better.
-- **MTTR** (Mean Time To Repair): average time to repair and restart after a failure. Lower is better.
+- ==**MTBF** (Mean Time Between Failures)==: average working time between two failures. Higher is better.
+- ==**MTTR** (Mean Time To Repair)==: average time to repair and restart after a failure. Lower is better.
 
 $$\text{Availability} = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}} \times 100\%$$
 
@@ -66,19 +66,19 @@ Availability = 2000 / (2000 + 4) × 100 = 2000 / 2004 × 100 ≈ **99.8%**.
 
 ### Q4. What are maintainability, security and safety?
 
-**Maintainability:** how easily the system can be kept working: fixed, serviced or updated. Measured by MTTR. Example: a meter whose firmware can be updated remotely is highly maintainable.
+==**Maintainability:** how easily the system can be kept working==: fixed, serviced or updated. Measured by MTTR. Example: a meter whose firmware can be updated remotely is highly maintainable.
 
-**Security:** protecting the system and its data from unauthorised access, using the **CIA** ideas: **confidentiality** (secrets stay secret), **integrity** (data is not altered), **availability** (it works when needed). Example: a card-swipe machine encrypting the card data.
+==**Security:** protecting the system and its data from unauthorised access==, using the **CIA** ideas: **confidentiality** (secrets stay secret), **integrity** (data is not altered), **availability** (it works when needed). Example: a card-swipe machine encrypting the card data.
 
-**Safety:** the system must not cause harm to people, property or the environment, even when it fails. Example: if a lift controller fails, the brakes must lock, not release.
+==**Safety:** the system must not cause harm== to people, property or the environment, even when it fails. Example: if a lift controller fails, the brakes must lock, not release.
 
 ### Q5. What are the non-operational quality attributes?
 
-- **Testability and debuggability:** how easily the hardware and firmware can be tested and faults found (test points, debug ports, simulators).
-- **Evolvability:** how easily the product can be upgraded with new features or technology.
-- **Portability:** how easily the firmware can move to a different processor or platform. Code in Embedded C is more portable than assembly.
-- **Time to prototype and time to market:** how quickly a working model, and then the product, can be made. Using COTS modules shortens this.
-- **Per-unit and total cost:** the cost of each unit, and the whole cost including design, testing and support.
+- ==**Testability and debuggability:**== how easily the hardware and firmware can be tested and faults found (test points, debug ports, simulators).
+- ==**Evolvability:**== how easily the product can be upgraded with new features or technology.
+- ==**Portability:**== how easily the firmware can move to a different processor or platform. Code in Embedded C is more portable than assembly.
+- ==**Time to prototype and time to market:**== how quickly a working model, and then the product, can be made. Using COTS modules shortens this.
+- ==**Per-unit and total cost:**== the cost of each unit, and the whole cost including design, testing and support.
 
 ==MTBF measures reliability, MTTR measures maintainability, and availability is MTBF divided by (MTBF + MTTR).==
 

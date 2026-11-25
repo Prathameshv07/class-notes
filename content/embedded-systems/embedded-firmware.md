@@ -29,9 +29,9 @@ Embedded firmware is the control program stored permanently in an embedded syste
 
 ==Firmware is the program stored in an embedded system's non-volatile memory that controls its hardware to perform its specific task.==
 
-- **Non-volatile:** it stays in ROM or flash when power is off, and runs as soon as the device is switched on.
-- It is written by the **manufacturer**, not the user.
-- It talks directly to the hardware: reading port pins, setting timers, driving displays.
+- ==**Non-volatile:** it stays in ROM or flash== when power is off, and runs as soon as the device is switched on.
+- It is ==written by the **manufacturer**, not the user==.
+- ==It talks directly to the hardware==: reading port pins, setting timers, driving displays.
 - The name means it sits between hardware (fixed) and software (easily changed): "firm".
 
 Examples: the program in a TV remote, a microwave oven, a router, a car's engine controller.
@@ -40,34 +40,34 @@ Examples: the program in a TV remote, a microwave oven, a router, a car's engine
 
 | Point | Firmware | PC application software |
 |---|---|---|
-| Stored in | ROM or flash, inside the device | Hard disk or SSD |
-| Installed by | Manufacturer | User |
-| Purpose | One fixed function | Any task the user wants |
-| Hardware access | Direct, controls pins and registers | Through the operating system |
-| Size | Small (KB to a few MB) | Large (MB to GB) |
+| Stored in | ==ROM or flash, inside the device== | Hard disk or SSD |
+| Installed by | ==Manufacturer== | User |
+| Purpose | ==One fixed function== | Any task the user wants |
+| Hardware access | ==Direct, controls pins and registers== | Through the operating system |
+| Size | ==Small (KB to a few MB)== | Large (MB to GB) |
 | Updates | Rare, by the maker | Frequent, by the user |
-| Ends? | Never: runs in an infinite loop | Closes when the user exits |
+| Ends? | ==Never: runs in an infinite loop== | Closes when the user exits |
 
 ### Q3. In which languages is firmware written?
 
 | Approach | Language | Strength | Weakness |
 |---|---|---|---|
-| Assembly language | Processor's own mnemonics (MOV, ADD, SJMP) | Smallest, fastest code; full control | Hard to write, read and port to another chip |
-| High-level language | **Embedded C** (most common), C++ | Faster development, readable, portable | Slightly larger, slower code |
-| Mixed | C with a few assembly parts | Speed where it matters, C elsewhere | Needs knowledge of both |
+| Assembly language | Processor's own mnemonics (MOV, ADD, SJMP) | ==Smallest, fastest code; full control== | Hard to write, read and port to another chip |
+| High-level language | **Embedded C** (most common), C++ | ==Faster development, readable, portable== | Slightly larger, slower code |
+| Mixed | C with a few assembly parts | ==Speed where it matters, C elsewhere== | Needs knowledge of both |
 
 ==Embedded C is the most widely used firmware language: it is C plus extensions to access the microcontroller's registers and pins.==
 
 ### Q4. What are the two ways of designing firmware?
 
 **1. Super loop (no operating system)**
-- After setting up the hardware, the program runs one infinite loop that repeats a list of tasks.
-- Simple, small and predictable; suits small systems (8051, calculators, toys).
-- Weakness: if one task takes long, the others wait.
+- After setting up the hardware, ==the program runs one infinite loop that repeats a list of tasks==.
+- ==Simple, small and predictable==; suits small systems (8051, calculators, toys).
+- Weakness: ==if one task takes long, the others wait==.
 
 **2. Operating system based**
-- An **RTOS** or embedded OS (e.g. FreeRTOS, embedded Linux) schedules several tasks.
-- Suits complex systems that must handle many things on time (phones, routers, cars).
+- ==An **RTOS** or embedded OS== (e.g. FreeRTOS, embedded Linux) schedules several tasks.
+- ==Suits complex systems== that must handle many things on time (phones, routers, cars).
 
 You will study the RTOS approach in Unit 4.
 
@@ -87,14 +87,14 @@ main()
 }
 ```
 
-This is the shape of every 8051 program you wrote in the practicals: set-up code, then `while(1)`. A microcontroller has no operating system to return to, so `main()` never ends.
+This is the shape of every 8051 program you wrote in the practicals: set-up code, then `while(1)`. A microcontroller has ==no operating system to return to==, so `main()` never ends.
 
 ### Q6. How does firmware get into the device, and how is it updated?
 
-1. The programmer writes firmware in Embedded C or assembly on a PC.
-2. A **cross compiler** (e.g. Keil C51) converts it into machine code, producing a **HEX file**.
-3. A **device programmer** or **ISP** (in-system programming) cable writes the HEX file into the chip's flash.
-4. **Updates:** the same flash can be rewritten later. Modern devices receive updates **over the air (OTA)**, through Wi-Fi or mobile data, like your phone's system update.
+1. ==The programmer writes firmware in Embedded C or assembly== on a PC.
+2. ==A **cross compiler** (e.g. Keil C51) converts it into machine code==, ==producing a **HEX file**==.
+3. ==A **device programmer** or **ISP**== (in-system programming) cable writes the HEX file into the chip's flash.
+4. **Updates:** the same flash can be rewritten later. Modern devices receive updates ==**over the air (OTA)**==, through Wi-Fi or mobile data, like your phone's system update.
 
 ## Analogy and real-life example
 

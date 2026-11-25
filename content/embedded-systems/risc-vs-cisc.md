@@ -27,22 +27,22 @@ RISC (Reduced Instruction Set Computer) uses a small set of simple, fixed-length
 
 ### Q1. What is an instruction set?
 
-The **instruction set** is the list of basic operations a processor understands, such as ADD, MOV, JUMP and MUL. Every program, whatever language it is written in, is finally turned into these instructions.
+==The **instruction set** is the list of basic operations a processor understands==, such as ADD, MOV, JUMP and MUL. Every program, whatever language it is written in, is finally turned into these instructions.
 
 There are two ways to design this list:
-- Give the processor **many powerful instructions**, so programs are short (CISC).
-- Give it **few simple instructions** that run very fast, and let the compiler combine them (RISC).
+- ==Give the processor **many powerful instructions**==, so programs are short (CISC).
+- ==Give it **few simple instructions**== that run very fast, and let the compiler combine them (RISC).
 
 ### Q2. What is RISC?
 
 ==RISC: a small set of simple, fixed-length instructions, most executing in one clock cycle.==
 
 Features:
-- **Load/store architecture:** only LOAD and STORE instructions touch memory; all arithmetic works on registers.
-- **Many general-purpose registers**, so data stays close to the CPU.
-- **Fixed instruction length**, which makes decoding simple and fast.
-- **Hardwired control unit** (fast logic circuits, no microcode).
-- **Pipelining** is easy: the next instruction starts before the previous one finishes.
+- ==**Load/store architecture:** only LOAD and STORE instructions touch memory==; all arithmetic works on registers.
+- ==**Many general-purpose registers**==, so data stays close to the CPU.
+- ==**Fixed instruction length**==, which makes decoding simple and fast.
+- ==**Hardwired control unit**== (fast logic circuits, no microcode).
+- ==**Pipelining** is easy==: the next instruction starts before the previous one finishes.
 
 Examples: ARM, RISC-V, AVR (Arduino Uno), PIC.
 
@@ -51,11 +51,11 @@ Examples: ARM, RISC-V, AVR (Arduino Uno), PIC.
 ==CISC: a large set of complex, variable-length instructions; one instruction can do several operations, including memory access.==
 
 Features:
-- **Many instructions and addressing modes**; arithmetic can work directly on memory.
-- **Variable instruction length** (one to several bytes).
+- ==**Many instructions and addressing modes**==; arithmetic can work directly on memory.
+- ==**Variable instruction length**== (one to several bytes).
 - **Fewer registers.**
-- **Microprogrammed control unit:** each complex instruction runs as a small internal program.
-- Instructions take **several clock cycles**, and pipelining is harder.
+- ==**Microprogrammed control unit:**== each complex instruction runs as a small internal program.
+- ==Instructions take **several clock cycles**==, and pipelining is harder.
 
 Examples: Intel x86 (8086 to Core i7), and the **8051**, which has over a hundred instructions of 1 to 3 bytes.
 
@@ -63,14 +63,14 @@ Examples: Intel x86 (8086 to Core i7), and the **8051**, which has over a hundre
 
 | Point | RISC | CISC |
 |---|---|---|
-| Number of instructions | Few, simple | Many, complex |
-| Instruction length | Fixed | Variable |
-| Cycles per instruction | Mostly one | Several |
-| Memory access | Only LOAD and STORE | Many instructions can access memory |
+| Number of instructions | ==Few, simple== | Many, complex |
+| Instruction length | ==Fixed== | Variable |
+| Cycles per instruction | ==Mostly one== | Several |
+| Memory access | ==Only LOAD and STORE== | Many instructions can access memory |
 | Registers | Many | Few |
-| Control unit | Hardwired | Microprogrammed |
+| Control unit | ==Hardwired== | Microprogrammed |
 | Pipelining | Easy | Difficult |
-| Program size | Larger (more instructions) | Smaller |
+| Program size | ==Larger (more instructions)== | Smaller |
 | Compiler's job | Harder | Easier |
 | Examples | ARM, RISC-V, AVR | x86, 8051 |
 

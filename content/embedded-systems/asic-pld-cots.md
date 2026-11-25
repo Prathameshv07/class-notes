@@ -31,21 +31,21 @@ An ASIC is a chip designed for one application, a PLD is a chip whose hardware l
 
 ==An ASIC (Application-Specific Integrated Circuit) is a chip designed and manufactured for one particular application.==
 
-- It contains exactly the circuits that application needs, and nothing more.
-- Benefits: **small size, low power, high speed, very low cost per chip** when made in large numbers.
-- Drawbacks: **high one-time design cost** (called NRE, non-recurring engineering cost), long design time, and the design **cannot be changed** after manufacture.
+- ==It contains exactly the circuits that application needs==, and nothing more.
+- ==Benefits: **small size, low power, high speed, very low cost per chip**== when made in large numbers.
+- ==Drawbacks: **high one-time design cost**== (called NRE, non-recurring engineering cost), long design time, and ==the design **cannot be changed**== after manufacture.
 - Examples: the chip in a quartz watch, a TV's video decoder, Bitcoin mining chips, Google's TPU for AI.
 
-An **ASSP** (Application-Specific Standard Product) is an ASIC-like chip designed for one application but sold to many companies, such as a standard Ethernet controller chip.
+==An **ASSP** (Application-Specific Standard Product)== is an ASIC-like chip designed for one application but sold to many companies, such as a standard Ethernet controller chip.
 
 ### Q2. When is an ASIC worth making?
 
-The design cost is paid once; the chip cost is paid per unit. So:
+==The design cost is paid once; the chip cost is paid per unit==. So:
 
 | Volume | Better choice |
 |---|---|
-| Small (hundreds to a few thousand) | Microcontroller or FPGA: low design cost |
-| Very large (lakhs to crores) | ASIC: low cost per unit outweighs the design cost |
+| Small (hundreds to a few thousand) | ==Microcontroller or FPGA: low design cost== |
+| Very large (lakhs to crores) | ==ASIC: low cost per unit outweighs the design cost== |
 
 Example: if an ASIC costs ₹5 crore to design but saves ₹50 per unit, it pays off only after 10 lakh units.
 
@@ -53,19 +53,19 @@ Example: if an ASIC costs ₹5 crore to design but saves ₹50 per unit, it pays
 
 ==A PLD is a chip whose internal logic circuits can be configured by the user after manufacture to implement custom hardware.==
 
-Unlike a microcontroller, which runs a **program** one instruction at a time, a PLD is **wired** into the circuit you need, so many operations happen in parallel.
+Unlike a microcontroller, which runs a **program** one instruction at a time, ==a PLD is **wired** into the circuit you need==, so many operations happen in parallel.
 
 Types:
-- **SPLD** (simple PLD): PAL, PLA, GAL. Small logic, a few gates.
-- **CPLD** (complex PLD): several SPLD blocks on one chip; keeps its configuration when power is off.
-- **FPGA** (field-programmable gate array): thousands to millions of logic blocks; very flexible; usually reloads its configuration at power-on.
+- ==**SPLD** (simple PLD): PAL, PLA, GAL==. Small logic, a few gates.
+- ==**CPLD** (complex PLD)==: several SPLD blocks on one chip; keeps its configuration when power is off.
+- ==**FPGA** (field-programmable gate array)==: thousands to millions of logic blocks; very flexible; usually reloads its configuration at power-on.
 
 ### Q4. Where are PLDs, especially FPGAs, used?
 
-- **Prototyping ASICs:** a design is tested on an FPGA before spending crores on an ASIC.
-- **High-speed signal processing:** radar, 5G base stations, medical imaging.
-- **Low-volume products** that need custom hardware: test equipment, defence systems.
-- **Fixable hardware:** a bug can be corrected by reprogramming, even in the field.
+- ==**Prototyping ASICs:**== a design is tested on an FPGA before spending crores on an ASIC.
+- ==**High-speed signal processing:**== radar, 5G base stations, medical imaging.
+- ==**Low-volume products**== that need custom hardware: test equipment, defence systems.
+- ==**Fixable hardware:**== a bug can be corrected by reprogramming, even in the field.
 
 Trade-off: compared with an ASIC, an FPGA costs more per unit and uses more power, but has no large design cost and can be changed.
 
@@ -81,8 +81,8 @@ Examples:
 
 | Advantages | Disadvantages |
 |---|---|
-| Fast development, low cost | Depends on the vendor |
-| Already tested and reliable | Part may be discontinued |
+| ==Fast development, low cost== | ==Depends on the vendor== |
+| ==Already tested and reliable== | ==Part may be discontinued== |
 | No need to design from scratch | May include unused features; less optimised |
 
 ## Analogy and real-life example

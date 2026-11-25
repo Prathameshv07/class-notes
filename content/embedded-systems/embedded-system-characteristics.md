@@ -35,38 +35,38 @@ Each is explained below with an example. In exams, write the characteristic, a o
 
 ### Q2. What does "application and domain specific" mean?
 
-- **Application specific:** each embedded system is designed for one task and cannot be used for another. The controller of a washing machine cannot run an air conditioner.
-- **Domain specific:** systems are designed with the knowledge of their field. An automotive controller follows automotive rules for temperature range and safety; a medical device follows medical safety standards.
+- ==**Application specific:** each embedded system is designed for one task== and cannot be used for another. The controller of a washing machine cannot run an air conditioner.
+- ==**Domain specific:** systems are designed with the knowledge of their field==. An automotive controller follows automotive rules for temperature range and safety; a medical device follows medical safety standards.
 
 This is the most basic difference from a PC, which can be used for anything.
 
 ### Q3. What does "reactive and real-time" mean?
 
-- **Reactive:** the system continuously responds to events in its environment, such as a key press, a sensor reading or a message.
-- **Real-time:** it must respond **within a fixed time limit**. A late answer is a wrong answer.
+- ==**Reactive:** the system continuously responds to events== in its environment, such as a key press, a sensor reading or a message.
+- ==**Real-time:** it must respond **within a fixed time limit**==. A late answer is a wrong answer.
 
 Example: an ABS (anti-lock braking) controller reads wheel-speed sensors many times a second and must release and re-apply the brakes in milliseconds. If it reacts late, the wheel locks and the car skids.
 
 ### Q4. What do "harsh environments" and "distributed" mean?
 
 **Operates in harsh environments**
-- Must work in heat, cold, dust, moisture, vibration and electrical noise.
+- ==Must work in heat, cold, dust, moisture, vibration== and electrical noise.
 - Example: an engine controller near a hot engine; a weather station on a mountain.
-- Design response: rugged casing, wide temperature-rated parts, protective coating, careful power supply design.
+- Design response: ==rugged casing, wide temperature-rated parts==, protective coating, careful power supply design.
 
 **Distributed**
-- Many small embedded systems work together, each doing part of a bigger job, connected by a network.
+- ==Many small embedded systems work together==, each doing part of a bigger job, connected by a network.
 - Example: a car has dozens of controllers (engine, brakes, airbags, doors) talking over a CAN bus. An ATM has separate controllers for the card reader, cash dispenser and printer.
 
 ### Q5. What do "small size and weight" and "power concerns" mean?
 
 **Small size and weight**
-- Many embedded systems must fit in a small space or be carried: phones, fitness bands, hearing aids, drones.
-- Design response: microcontrollers with on-chip memory and I/O, surface-mount parts, fewer chips.
+- Many embedded systems ==must fit in a small space or be carried==: phones, fitness bands, hearing aids, drones.
+- Design response: ==microcontrollers with on-chip memory and I/O==, surface-mount parts, fewer chips.
 
 **Power concerns**
-- Battery devices must last long; all devices should waste little heat.
-- Design response: low-power microcontrollers, **sleep modes** (the chip sleeps and wakes only on an event), efficient firmware.
+- ==Battery devices must last long==; all devices should waste little heat.
+- Design response: ==low-power microcontrollers, **sleep modes**== (the chip sleeps and wakes only on an event), efficient firmware.
 - Example: a TV remote's chip sleeps until a key is pressed, so two AA cells last a year or more.
 
 ==Embedded systems must deliver their function within tight limits of time, power, size and cost.==

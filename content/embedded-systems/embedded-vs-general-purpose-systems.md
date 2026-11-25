@@ -31,9 +31,9 @@ An embedded system is a combination of hardware and firmware built into a larger
 ==An embedded system is an electronic system of hardware and firmware, designed to perform a specific function, usually as part of a larger device.==
 
 Break the name down:
-- **Embedded** means "fixed inside". The computer is hidden inside a washing machine, car or meter. The user sees the product, not the computer.
-- **System** means several parts working together: processor, memory, input, output and the program.
-- **Firmware** is the program stored permanently in the device's memory. It is written once by the maker and runs every time the device is switched on.
+- ==**Embedded** means "fixed inside"==. The computer is hidden inside a washing machine, car or meter. The user sees the product, not the computer.
+- ==**System** means several parts working together==: processor, memory, input, output and the program.
+- ==**Firmware** is the program stored permanently== in the device's memory. It is written once by the maker and runs every time the device is switched on.
 
 Examples: digital watch, microwave oven, pulse oximeter, FASTag reader, traffic signal controller.
 
@@ -42,8 +42,8 @@ Examples: digital watch, microwave oven, pulse oximeter, FASTag reader, traffic 
 ==A general-purpose computer is designed to run many different programs, chosen and installed by its user.==
 
 - Your laptop runs a browser now, a spreadsheet later, a game at night.
-- It has a full operating system (Windows, Linux, macOS) that manages these programs.
-- It has a general user interface: keyboard, mouse, large screen.
+- ==It has a full operating system== (Windows, Linux, macOS) that manages these programs.
+- ==It has a general user interface==: keyboard, mouse, large screen.
 - Nobody knows in advance exactly what it will be used for, so it is designed to be flexible rather than to meet one fixed deadline.
 
 Examples: desktop PC, laptop, server.
@@ -52,12 +52,12 @@ Examples: desktop PC, laptop, server.
 
 | Point | General-purpose computer | Embedded system |
 |---|---|---|
-| Purpose | Many tasks | One specific task |
-| Software | User installs and changes apps | Fixed firmware from the maker |
-| Operating system | Full OS (Windows, Linux) | None, an RTOS or a small OS |
-| Timing | Speed matters, deadlines rarely strict | Often must respond within a fixed time |
-| Power | Mains or large battery | Often very low power |
-| Size and cost | Larger, costlier | Small, cheap, made in lakhs |
+| Purpose | Many tasks | ==One specific task== |
+| Software | User installs and changes apps | ==Fixed firmware from the maker== |
+| Operating system | Full OS (Windows, Linux) | ==None, an RTOS or a small OS== |
+| Timing | Speed matters, deadlines rarely strict | ==Often must respond within a fixed time== |
+| Power | Mains or large battery | ==Often very low power== |
+| Size and cost | Larger, costlier | ==Small, cheap, made in lakhs== |
 | User interface | Keyboard, mouse, screen | Few buttons, LEDs, or none |
 | Failure | Restart and continue | May be costly or dangerous |
 
@@ -67,10 +67,10 @@ Exams usually ask for five or six of these differences, with an example for each
 
 It sits on the boundary.
 
-- **Like a general-purpose computer:** you install any app, it runs a full OS (Android, iOS), and its use is not fixed.
-- **Like an embedded system:** it is battery-powered, compact and full of embedded parts. The camera module, the modem and the fingerprint sensor each have their own small processor and firmware.
+- ==**Like a general-purpose computer:** you install any app==, it runs a full OS (Android, iOS), and its use is not fixed.
+- ==**Like an embedded system:** it is battery-powered, compact== and full of embedded parts. The camera module, the modem and the fingerprint sensor each have their own small processor and firmware.
 
-So a smartphone is usually called a general-purpose device **built from many embedded subsystems**. An ATM is the opposite case: it runs a PC-like computer, but the whole machine does one job, so it is treated as embedded.
+So a smartphone is usually called a ==general-purpose device **built from many embedded subsystems**==. An ATM is the opposite case: it runs a PC-like computer, but the whole machine does one job, so it is treated as embedded.
 
 ### Q5. What are the building blocks of an embedded system?
 
@@ -78,10 +78,10 @@ So a smartphone is usually called a general-purpose device **built from many emb
 
 | Block | Job | Washing machine example |
 |---|---|---|
-| Input | Sense the world | Water-level sensor, door switch, buttons |
-| Processing | Decide what to do | Microcontroller running the wash program |
-| Output | Act on the world | Motor, water valve, display, buzzer |
-| Communication | Talk to other devices | Wi-Fi module in smart models |
+| Input | ==Sense the world== | Water-level sensor, door switch, buttons |
+| Processing | ==Decide what to do== | Microcontroller running the wash program |
+| Output | ==Act on the world== | Motor, water valve, display, buzzer |
+| Communication | ==Talk to other devices== | Wi-Fi module in smart models |
 
 You will study each block in later lectures of this unit.
 

@@ -6,7 +6,7 @@ unit: 1
 type: practical
 practical: 1
 syllabus: [UITVI-002]
-status: reviewed
+status: draft
 sources:
   - "Cisco, IP Routing: OSPF Configuration Guide, 'OSPF message digest (MD5) authentication' (verify exact chapter title for your IOS version)"
   - "Cisco Networking Academy, CCNA Security lab: Securing the Router for Administrative Access / OSPF authentication (verify)"
@@ -25,13 +25,36 @@ To configure OSPF routing between three routers and secure it with MD5 authentic
 
 **Why this matters.** OSPF routers believe whatever routes their neighbours advertise. An attacker who plugs a laptop or rogue router into the network can send fake OSPF updates and redirect traffic through their machine. With MD5 authentication, every OSPF packet carries a hash made with a secret key, so packets from anyone without the key are dropped.
 
+## Before the lab
+
+**Install or open**
+- **Cisco Packet Tracer 8.x or later.** It is free: create a Cisco Networking Academy (Skills for All) account and download it from there.
+- Nothing else. This practical builds the topology that Practicals 2 to 8 reuse, so **save your file carefully** at the end.
+
+**Revise first**
+- IP addressing and subnet masks; what a /30 network is (2 usable addresses, used for router-to-router links).
+- OSPF basics: what a neighbour is, what area 0 is, what a wildcard mask is (0.0.0.255 matches a /24).
+- [[authentication]]: the idea of a shared secret.
+
+**Cisco CLI in one minute**
+
+| Prompt | Mode | How you get there |
+|---|---|---|
+| `R1>` | User EXEC (look only) | Starting point |
+| `R1#` | Privileged EXEC (show, save) | `enable` |
+| `R1(config)#` | Global configuration | `configure terminal` |
+| `R1(config-if)#` | Interface configuration | `interface g0/1` |
+| `R1(config-router)#` | Routing protocol configuration | `router ospf 1` |
+
+`exit` goes back one level; `end` goes straight back to `R1#`. Press **Tab** to complete a command and **?** to list options.
+
 ## Setup
 
 **Tool:** Cisco Packet Tracer (8.x or later). GNS3 with a Cisco IOS image also works with the same commands.
 
 ### Devices and topology
 
-Three 2911 routers (R1, R2, R3), two 2960 switches, two PCs. Connect routers to each other with copper cross-over cables; PCs to switches and switches to routers with copper straight-through cables.
+Three 2911 routers (R1, R2, R3), two 2960 switches (S1, S3), two PCs (PC-A, PC-C).
 
 ```mermaid
 flowchart LR
@@ -56,15 +79,105 @@ flowchart LR
 | PC-A | NIC | 192.168.1.3 | 255.255.255.0 | 192.168.1.1 |
 | PC-C | NIC | 192.168.3.3 | 255.255.255.0 | 192.168.3.1 |
 
-Set the PC addresses in Desktop → IP Configuration.
+## Steps
+
+### Part A. Build the topology
+
+1. **Add three routers.** In the device box at the bottom, choose Network Devices → Routers → **2911**, and drag three onto the workspace. Click each one → Config tab → Display Name: R1, R2, R3.
+   → **You should see:** three router icons labelled R1, R2, R3.
+2. **Add two switches and two PCs.** Network Devices → Switches → **2960** (two: S1, S3); End Devices → **PC** (two: PC-A, PC-C).
+   → **You should see:** all seven devices on the workspace.
+3. **Connect the routers.** Connections (lightning icon) → **Copper Cross-Over**. Click R1 → GigabitEthernet0/1, then R2 → GigabitEthernet0/1. Repeat for R2 G0/2 to R3 G0/1.
+   → **You should see:** a line with a red dot at each end. The dots stay red until the interfaces are switched on in Part B.
+4. **Connect the LANs.** **Copper Straight-Through**: PC-A FastEthernet0 → S1 Fa0/1, and S1 Gig0/1 → R1 G0/0. Do the same for PC-C → S3 → R3 G0/0.
+   → **You should see:** the PC–switch dots turn amber, then green within about 30 seconds. The router-side dot stays red for now.
+5. **Address the PCs.** Click PC-A → Desktop → IP Configuration → Static. Enter IP 192.168.1.3, mask 255.255.255.0, gateway 192.168.1.1. Do the same for PC-C with its values from the table.
+   → **You should see:** the values saved; no error message.
+
+### Part B. Basic settings and OSPF
+
+6. **Open R1's command line.** Click R1 → **CLI** tab. If asked `Would you like to enter the initial configuration dialog? [yes/no]:`, type `no` and press Enter.
+   → **You should see:** the prompt `Router>`.
+7. **Name the router and stop name lookups.**
+   ```text
+   enable
+   configure terminal
+   hostname R1
+   no ip domain-lookup
+   ```
+   → **You should see:** the prompt change to `R1(config)#`.
+8. **Address and switch on R1's interfaces.**
+   ```text
+   interface g0/0
+    ip address 192.168.1.1 255.255.255.0
+    no shutdown
+   interface g0/1
+    ip address 10.1.1.1 255.255.255.252
+    no shutdown
+   exit
+   ```
+   → **You should see:** `%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up`, and the same for G0/1. The router-side dots on the workspace turn green.
+9. **Start OSPF on R1.**
+   ```text
+   router ospf 1
+    router-id 1.1.1.1
+    network 192.168.1.0 0.0.0.255 area 0
+    network 10.1.1.0 0.0.0.3 area 0
+    passive-interface g0/0
+   end
+   ```
+   → **You should see:** no message yet. R1 has no OSPF neighbour until R2 is configured.
+10. **Configure R2 the same way.** Use hostname R2, its two interface addresses, `router-id 2.2.2.2`, and `network 10.1.1.0 0.0.0.3 area 0` and `network 10.2.2.0 0.0.0.3 area 0`. R2 has no LAN, so it needs no `passive-interface`.
+    → **You should see:** after a few seconds, `%OSPF-5-ADJCHG: Process 1, Nbr 1.1.1.1 on GigabitEthernet0/1 from LOADING to FULL, Loading Done`.
+11. **Configure R3 the same way.** Use hostname R3, its addresses, `router-id 3.3.3.3`, `network 192.168.3.0 0.0.0.255 area 0`, `network 10.2.2.0 0.0.0.3 area 0` and `passive-interface g0/0`.
+    → **You should see:** `%OSPF-5-ADJCHG: Process 1, Nbr 2.2.2.2 on GigabitEthernet0/1 from LOADING to FULL, Loading Done`.
+12. **Test before adding security.** PC-A → Desktop → Command Prompt → `ping 192.168.3.3`.
+    → **You should see:** replies. The first reply may be `Request timed out.` while addresses are being learned; that is normal.
+
+### Part C. Add MD5 authentication
+
+13. **Add the key and enable authentication on R1.**
+    ```text
+    configure terminal
+    interface g0/1
+     ip ospf message-digest-key 1 md5 MD5pa55
+    exit
+    router ospf 1
+     area 0 authentication message-digest
+    end
+    ```
+    → **You should see:** within about 40 seconds, `%OSPF-5-ADJCHG: Process 1, Nbr 2.2.2.2 on GigabitEthernet0/1 from FULL to DOWN, Neighbor Down: Dead timer expired`. **This is expected:** R2 does not know the key yet, so R1 now ignores it. (Use the **Fast Forward Time** button at the bottom of Packet Tracer to skip waiting.)
+14. **Add the key on both of R2's OSPF interfaces, then enable authentication.**
+    ```text
+    configure terminal
+    interface g0/1
+     ip ospf message-digest-key 1 md5 MD5pa55
+    interface g0/2
+     ip ospf message-digest-key 1 md5 MD5pa55
+    exit
+    router ospf 1
+     area 0 authentication message-digest
+    end
+    ```
+    → **You should see:** the neighbour to R1 come back (`from LOADING to FULL`), and the neighbour to R3 go down, because R3 has no key yet.
+15. **Add the key and authentication on R3.** Use the same commands as R1, on R3's G0/1.
+    → **You should see:** `%OSPF-5-ADJCHG: Process 1, Nbr 2.2.2.2 on GigabitEthernet0/1 from LOADING to FULL, Loading Done`.
+16. **Check authentication on an interface.** On R1: `show ip ospf interface g0/1`.
+    → **You should see:** the lines `Message digest authentication enabled` and `Youngest key id is 1`.
+17. **Check neighbours.** On R2: `show ip ospf neighbor`.
+    → **You should see:** two neighbours, 1.1.1.1 and 3.3.3.3, both in state `FULL`.
+18. **Test end to end.** From PC-A: `ping 192.168.3.3`.
+    → **You should see:** four replies.
+19. **Save everything.** On each router: `copy running-config startup-config`, press Enter at `Destination filename [startup-config]?`. Then File → Save As → `practical1.pkt`.
+    → **You should see:** `Building configuration... [OK]` on each router.
 
 ## Code
 
-### Step 1. Basic settings and OSPF on R1
+Complete configuration for your journal. R2 and R3 follow the same pattern with their own addresses and router IDs (Steps 10, 11, 14 and 15).
+
+**R1**
 
 ```text
-enable
-configure terminal
 hostname R1
 no ip domain-lookup
 interface g0/0
@@ -72,42 +185,39 @@ interface g0/0
  no shutdown
 interface g0/1
  ip address 10.1.1.1 255.255.255.252
+ ip ospf message-digest-key 1 md5 MD5pa55
  no shutdown
-exit
 router ospf 1
  router-id 1.1.1.1
  network 192.168.1.0 0.0.0.255 area 0
  network 10.1.1.0 0.0.0.3 area 0
  passive-interface g0/0
-end
+ area 0 authentication message-digest
 ```
 
-### Step 2. Basic settings and OSPF on R2
+**R2**
 
 ```text
-enable
-configure terminal
 hostname R2
 no ip domain-lookup
 interface g0/1
  ip address 10.1.1.2 255.255.255.252
+ ip ospf message-digest-key 1 md5 MD5pa55
  no shutdown
 interface g0/2
  ip address 10.2.2.2 255.255.255.252
+ ip ospf message-digest-key 1 md5 MD5pa55
  no shutdown
-exit
 router ospf 1
  router-id 2.2.2.2
  network 10.1.1.0 0.0.0.3 area 0
  network 10.2.2.0 0.0.0.3 area 0
-end
+ area 0 authentication message-digest
 ```
 
-### Step 3. Basic settings and OSPF on R3
+**R3**
 
 ```text
-enable
-configure terminal
 hostname R3
 no ip domain-lookup
 interface g0/0
@@ -115,65 +225,14 @@ interface g0/0
  no shutdown
 interface g0/1
  ip address 10.2.2.1 255.255.255.252
+ ip ospf message-digest-key 1 md5 MD5pa55
  no shutdown
-exit
 router ospf 1
  router-id 3.3.3.3
  network 192.168.3.0 0.0.0.255 area 0
  network 10.2.2.0 0.0.0.3 area 0
  passive-interface g0/0
-end
-```
-
-Before going on, check that PC-A can ping PC-C. OSPF works, but without any authentication yet.
-
-### Step 4. Enable MD5 authentication on all three routers
-
-On **R1**:
-
-```text
-configure terminal
-interface g0/1
- ip ospf message-digest-key 1 md5 MD5pa55
-exit
-router ospf 1
  area 0 authentication message-digest
-end
-```
-
-On **R2** (two OSPF links, so the key goes on both):
-
-```text
-configure terminal
-interface g0/1
- ip ospf message-digest-key 1 md5 MD5pa55
-interface g0/2
- ip ospf message-digest-key 1 md5 MD5pa55
-exit
-router ospf 1
- area 0 authentication message-digest
-end
-```
-
-On **R3**:
-
-```text
-configure terminal
-interface g0/1
- ip ospf message-digest-key 1 md5 MD5pa55
-exit
-router ospf 1
- area 0 authentication message-digest
-end
-```
-
-### Step 5. Verify
-
-```text
-R1# show ip ospf interface g0/1
-R2# show ip ospf neighbor
-R1# show ip route ospf
-PC-A> ping 192.168.3.3
 ```
 
 ## Output
@@ -181,7 +240,7 @@ PC-A> ping 192.168.3.3
 > [!warning] Replace with your own output
 > The blocks below show what correct output looks like. After running the lab, paste your real output here, or save a screenshot in `content/assets/img/security-in-computing/` and link it with alt text.
 
-**Authentication active on the interface** (`show ip ospf interface g0/1` on R1, last lines):
+**Authentication active on the interface** (`show ip ospf interface g0/1` on R1, relevant lines):
 
 ```output
 GigabitEthernet0/1 is up, line protocol is up
@@ -220,7 +279,7 @@ Ping statistics for 192.168.3.3:
 
 ## Explanation
 
-### What Steps 1–3 do
+### What Steps 7–11 do
 
 - `hostname`, `no ip domain-lookup`: name the router; stop it from treating a typo as a hostname to look up.
 - `ip address … / no shutdown`: address each interface and turn it on.
@@ -229,19 +288,32 @@ Ping statistics for 192.168.3.3:
 - `network … area 0`: run OSPF on interfaces in that range. The second value is a **wildcard mask** (0.0.0.3 matches a /30).
 - `passive-interface g0/0`: advertise the LAN, but send no OSPF packets towards PCs. A PC on that LAN cannot then form a fake neighbourship.
 
-### What Step 4 does
+### What Steps 13–15 do
 
 - `ip ospf message-digest-key 1 md5 MD5pa55`: on this interface, key number 1 with the secret `MD5pa55`. ==The key ID and the key must match on both ends of a link.==
 - `area 0 authentication message-digest`: every interface in area 0 must use MD5 authentication.
 
 Before sending, the router computes an MD5 hash over the OSPF packet plus the secret key and attaches it. The receiver recomputes the hash with its own key. If the two hashes differ, the packet is dropped. ==The key itself is never sent over the link.==
 
-### What you will notice while configuring
+### Why the neighbour went down in Step 13
 
-As soon as R1 has authentication and R2 does not, their neighbourship goes down after the dead timer (40 seconds). Routes disappear and pings fail. When R2 is configured too, the neighbourship returns to FULL. This is the security feature working: a router without the right key is ignored.
+As soon as R1 had authentication and R2 did not, R1 dropped R2's unauthenticated hellos. After the dead timer (40 seconds) the neighbourship went down and routes disappeared. When R2 was configured too, it returned to FULL. This is the security feature working: a router without the right key is ignored.
 
 > [!beyond] Beyond the syllabus
 > MD5 is now considered weak. Newer IOS versions support OSPFv2 authentication with HMAC-SHA using a key chain (`key chain`, `cryptographic-algorithm hmac-sha-256`). Packet Tracer may not support it; real networks should prefer it.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| `% Invalid input detected at '^' marker.` | A typing mistake, or the command was typed in the wrong mode | Check the `^` position for the typo. Check the prompt: interface commands need `(config-if)#`, OSPF commands need `(config-router)#` |
+| `% Incomplete command.` | Part of the command is missing | Type `?` after the command to see what is expected |
+| Router freezes on `Translating "netwrok"...domain server (255.255.255.255)` | A mistyped word in `R1>` or `R1#` mode was treated as a hostname to look up | Wait about 30 seconds (or press Ctrl+Shift+6). Prevent it with `no ip domain-lookup` (Step 7) |
+| The router-side link dot stays red | Interface not switched on, or wrong cable | Check `show ip interface brief`: if it says `administratively down`, enter the interface and type `no shutdown`. If the cable is wrong, delete it and use the **Automatically Choose Connection Type** cable |
+| `show ip ospf neighbor` shows nothing (before Part C) | A wrong `network` statement or wildcard mask, or an interface is down | Check `show ip protocols` and `show ip interface brief`; compare each `network` line with the addressing table |
+| After Part C, a neighbour never returns to FULL | The key or key ID differs on the two ends (keys are case-sensitive: `MD5pa55` is not `md5pa55`), or `area 0 authentication message-digest` is missing on one router | Re-enter the key on both interfaces of that link, exactly as given, and check the area command on both routers |
+| PC ping shows `Request timed out.` only for the first reply | Address learning (ARP) on the first packet | Normal; ping again |
+| PC ping shows `Reply from 192.168.1.1: Destination host unreachable.` | The router has no route to the far network (OSPF not complete) | Check `show ip route ospf` on R1; fix OSPF neighbours first |
 
 ## Try it
 

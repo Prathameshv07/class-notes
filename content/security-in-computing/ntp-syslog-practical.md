@@ -25,13 +25,24 @@ To configure routers to take their time from an authenticated NTP server and to 
 
 **Why this matters.** When something goes wrong at 2 a.m., the first questions are "what happened, on which device, and when?" Logs answer the first two; correct time answers the third. If three routers have three different clocks, you cannot put events in order. If logs stay only on the router, an attacker who gets in can erase them. A central syslog server with synchronised time fixes both.
 
+## Before the lab
+
+**Install or open**
+- Cisco Packet Tracer 8.x or later.
+- Your saved file **practical1.pkt**, with OSPF and MD5 authentication working. If you do not have it, finish Practical 1 first.
+
+**Revise first**
+- The CLI modes table in [[ospf-md5-authentication-practical]] (Before the lab).
+- Why logs and correct time matter: detective controls in [[security-methodology]].
+- Ports: NTP uses **UDP 123**, syslog uses **UDP 514**.
+
 ## Setup
 
 **Tool:** Cisco Packet Tracer (8.x or later).
 
 ### Devices and topology
 
-Open your saved file from Practical 1 (three 2911 routers with OSPF and MD5 authentication working). Add one **Server-PT** to switch S1. One server will run both NTP and syslog.
+The Practical 1 topology plus one **Server-PT** on switch S1. The one server runs both NTP and syslog.
 
 ```mermaid
 flowchart LR
@@ -52,59 +63,86 @@ flowchart LR
 | Services → NTP | On; Authentication **Enable**; Key **1**; Password **NTPpa55** |
 | Services → SYSLOG | On |
 
-All other addresses are the same as in Practical 1. Ping 192.168.1.5 from R3 before you start: OSPF must already carry the route.
+All other addresses are the same as in Practical 1.
+
+## Steps
+
+### Part A. Add and prepare the server
+
+1. **Open your Practical 1 file and save a copy.** File → Open → `practical1.pkt`, then File → Save As → `practical2.pkt`.
+   → **You should see:** the Practical 1 topology, all links green.
+2. **Add the server.** End Devices → **Server**. Connect its FastEthernet0 to S1 Fa0/2 with a **Copper Straight-Through** cable. Name it `NTP-Syslog`.
+   → **You should see:** the link turn amber, then green.
+3. **Address the server.** Server → Desktop → IP Configuration → Static: 192.168.1.5, 255.255.255.0, gateway 192.168.1.1.
+   → **You should see:** the values saved.
+4. **Turn on NTP with authentication.** Server → Services → **NTP**: Service **On**; Authentication **Enable**; Key `1`; Password `NTPpa55`.
+   → **You should see:** the server's current date and time shown on the NTP page.
+5. **Turn on syslog.** Server → Services → **SYSLOG**: Service **On**.
+   → **You should see:** an empty message table.
+6. **Check that every router can reach the server.** On R3: `ping 192.168.1.5`.
+   → **You should see:** `Success rate is 100 percent (5/5)`. The first try may show `.!!!!` (80 percent); that is normal.
+
+### Part B. Synchronise router clocks with NTP
+
+7. **Look at the router's clock before NTP.** On R1: `show clock`.
+   → **You should see:** a time with `*` in front and a date that is not today. The `*` means the clock is not trusted.
+8. **Configure NTP with authentication on R1.**
+   ```text
+   configure terminal
+   ntp authenticate
+   ntp authentication-key 1 md5 NTPpa55
+   ntp trusted-key 1
+   ntp server 192.168.1.5 key 1
+   ntp update-calendar
+   end
+   ```
+   → **You should see:** no error message.
+9. **Wait for synchronisation, then check.** Click **Fast Forward Time** two or three times, then on R1: `show ntp status`.
+   → **You should see:** `Clock is synchronized, stratum 2, reference is 192.168.1.5`. Now `show clock` shows the server's date and time, without the `*`.
+10. **Repeat Step 8 on R2 and R3,** then check `show ntp status` on each.
+    → **You should see:** `Clock is synchronized` on both.
+
+### Part C. Send logs to the syslog server
+
+11. **Turn on timestamps and remote logging on R1.**
+    ```text
+    configure terminal
+    service timestamps log datetime msec
+    logging host 192.168.1.5
+    end
+    ```
+    → **You should see:** the prompt return to `R1#` with no error.
+12. **Repeat Step 11 on R2 and R3.**
+    → **You should see:** no error on either router.
+13. **Generate a log message on each router.** Shut and re-enable an unused interface (R1 and R3: g0/2; R2: g0/0):
+    ```text
+    configure terminal
+    interface g0/2
+     shutdown
+     no shutdown
+    end
+    ```
+    → **You should see:** on the router, lines such as `%LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to administratively down`, now starting with today's date and time.
+14. **Read the logs on the server.** Server → Services → SYSLOG.
+    → **You should see:** entries from 192.168.1.1 (R1), 10.1.1.2 (R2) and 10.2.2.1 (R3), each with a time that matches the server's clock.
+15. **Check the logging settings.** On R1: `show logging`.
+    → **You should see:** `Logging to 192.168.1.5` in the output.
+16. **Save everything.** `copy running-config startup-config` on each router; File → Save.
+    → **You should see:** `Building configuration... [OK]`.
 
 ## Code
 
-### Step 1. NTP with authentication on R1
+Complete configuration added in this practical. **The same commands go on R1, R2 and R3.**
 
 ```text
-enable
-configure terminal
 ntp authenticate
 ntp authentication-key 1 md5 NTPpa55
 ntp trusted-key 1
 ntp server 192.168.1.5 key 1
 ntp update-calendar
-end
-```
-
-Repeat **exactly the same commands** on R2 and R3.
-
-### Step 2. Timestamps and syslog on R1
-
-```text
-configure terminal
 service timestamps log datetime msec
 logging host 192.168.1.5
-end
 ```
-
-Repeat on R2 and R3.
-
-### Step 3. Generate a log message
-
-On each router, enter and leave configuration mode, or shut and re-enable an unused interface:
-
-```text
-configure terminal
-interface g0/2
- shutdown
- no shutdown
-end
-```
-
-(On R2, g0/2 is in use. Use g0/0 instead.)
-
-### Step 4. Verify
-
-```text
-R1# show clock
-R1# show ntp status
-R1# show logging
-```
-
-Then on the server: **Services → SYSLOG** and read the message list.
 
 ## Output
 
@@ -116,8 +154,6 @@ Then on the server: **Services → SYSLOG** and read the message list.
 ```output
 Clock is synchronized, stratum 2, reference is 192.168.1.5
 ```
-
-NTP can take a minute or two to synchronise. If it says `unsynchronized`, wait and run the command again.
 
 **Logging to the server is on** (`show logging` on R1, relevant lines):
 
@@ -135,8 +171,6 @@ Time                      HostName       Message
 <date> 10:15:22.415       192.168.1.1    %SYS-5-CONFIG_I: Configured from console by console
 <date> 10:16:03.120       10.2.2.1       %LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to administratively down
 ```
-
-The timestamps of all three routers now agree with the server's clock.
 
 ## Explanation
 
@@ -173,9 +207,20 @@ Lower number means more serious. By default the router sends levels 0–6 (infor
 > [!beyond] Beyond the syllabus
 > In real networks, logs from hundreds of devices go into a SIEM (Security Information and Event Management) system, which correlates them and raises alerts. You meet SIEM in Unit 3 theory.
 
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| `show ntp status` keeps saying `Clock is unsynchronized, stratum 16, no reference clock` | NTP is off on the server, the key or password does not match, or the router cannot reach the server | Check Services → NTP is **On** with Key 1 and Password `NTPpa55` (case-sensitive). Ping 192.168.1.5 from the router. Then click Fast Forward Time and check again |
+| `show clock` still starts with `*` | The router has not yet synchronised | Same checks as above; NTP takes a minute or two |
+| Ping from a router to 192.168.1.5 fails | Wrong server address or gateway, or OSPF is broken | Check the server's IP Configuration (gateway 192.168.1.1) and `show ip route` on the router |
+| The syslog table on the server stays empty | SYSLOG service is off, a typo in `logging host`, or no new events since configuring it | Turn SYSLOG **On**; check `show logging` for `Logging to 192.168.1.5`; repeat Step 13 to create new messages |
+| `% Invalid input detected at '^' marker.` on `logging host 192.168.1.5` | Some Packet Tracer versions accept only the short form | Use `logging 192.168.1.5` instead |
+| Log lines show a time such as `*00:15:22` with no date | `service timestamps log datetime msec` missing, or the clock is not synchronised | Add the timestamps command (Step 11) and fix NTP first |
+
 ## Try it
 
-1. On R3, change the NTP key password to `WrongKey` (`ntp authentication-key 1 md5 WrongKey`), reload the router's clock with `clock set 00:00:00 1 Jan 2020` in privileged mode, and wait. Does `show ntp status` ever reach `synchronized`? Why not? Restore the correct key.
+1. On R3, change the NTP key password to `WrongKey` (`ntp authentication-key 1 md5 WrongKey`), set a wrong clock with `clock set 00:00:00 1 Jan 2020` in privileged mode, and wait. Does `show ntp status` ever reach `synchronized`? Why not? Restore the correct key.
 2. On R1, try `logging trap warnings`. Generate a `CONFIG_I` message again. Does it still reach the server? Explain using the severity table.
 
 ## Viva questions

@@ -24,13 +24,25 @@ To configure a Zone-Based Policy Firewall on a Cisco router so that hosts in the
 
 **Why this matters.** An ACL checks each packet on its own and has no memory of conversations. To let inside users browse while blocking outsiders, you would need many careful ACL lines. A **stateful** firewall remembers the connections inside users start and lets only their replies back in. The Zone-Based Policy Firewall turns a Cisco router into such a firewall, using the zones-of-trust idea directly.
 
+## Before the lab
+
+**Install or open**
+- Cisco Packet Tracer 8.x or later.
+- Your saved file **practical4.pkt** (no ACLs yet). Do **not** start from Practical 5 or 6.
+- R3's SSH login: **SSHadmin / ciscosshpa55**. R1's console login: **Admin1 / admin1pa55**.
+
+**Revise first**
+- [[zones-of-trust]]: inside, outside, and the rule that lower trust may not start connections to higher trust.
+- ACL syntax from [[extended-numbered-acl-practical]]: an ACL is used here to pick the traffic.
+- Stateless versus stateful: an ACL looks at one packet; a stateful firewall remembers the whole conversation.
+
 ## Setup
 
 **Tool:** Cisco Packet Tracer (8.x or later).
 
 ### Devices and topology
 
-Open your saved file from **Practical 4**. The firewall is configured on **R3**:
+The Practical 4 topology. The firewall is configured on **R3**:
 
 | Zone | R3 interface | Contains |
 |---|---|---|
@@ -48,77 +60,121 @@ flowchart LR
 
 ### Security license
 
-Zone-based firewall needs the **security** technology package on the 2911. Packet Tracer lets you enable it with a command and a reload (Step 1).
+Zone-based firewall needs the **security** technology package on the 2911. Packet Tracer lets you enable it with a command and a reload (Steps 3–5).
+
+## Steps
+
+### Part A. Baseline and licence
+
+1. **Open your Practical 4 file and save a copy** as `practical7.pkt`.
+   → **You should see:** the Practical 4 topology, all links green.
+2. **Confirm that the outside can reach the inside now.** PC-A: `ping 192.168.3.3`.
+   → **You should see:** replies. After the firewall this must fail.
+3. **Enable the security licence on R3.**
+   ```text
+   configure terminal
+   license boot module c2900 technology-package securityk9
+   ```
+   At `ACCEPT? [yes/no]:`, type `yes`.
+   → **You should see:** a licence notice, then `% use 'write' command to make license boot config take effect on next boot`.
+4. **Save and reload R3.**
+   ```text
+   end
+   copy running-config startup-config
+   reload
+   ```
+   Press Enter at `Proceed with reload? [confirm]`.
+   → **You should see:** R3 restart and boot messages scroll; the prompt returns as `R3>`.
+5. **Check the licence.** `show version`
+   → **You should see:** in the Technology Package table, the `security` row shows `securityk9`.
+
+### Part B. Build the firewall policy
+
+6. **Create the two zones.**
+   ```text
+   enable
+   configure terminal
+   zone security IN-ZONE
+   exit
+   zone security OUT-ZONE
+   exit
+   ```
+   → **You should see:** the prompt `R3(config-sec-zone)#` while inside each zone, then `R3(config)#`.
+7. **Choose the traffic: an ACL and a class map.**
+   ```text
+   access-list 101 permit ip 192.168.3.0 0.0.0.255 any
+   class-map type inspect match-all IN-NET-CLASS-MAP
+    match access-group 101
+   exit
+   ```
+   → **You should see:** the prompt `R3(config-cmap)#`, then `R3(config)#`.
+8. **Choose the action: a policy map that inspects that class.**
+   ```text
+   policy-map type inspect IN-2-OUT-PMAP
+    class type inspect IN-NET-CLASS-MAP
+     inspect
+    exit
+   exit
+   ```
+   → **You should see:** the prompts `R3(config-pmap)#` and `R3(config-pmap-c)#`, then `R3(config)#`.
+9. **Choose the direction: a zone pair from inside to outside, with the policy attached.**
+   ```text
+   zone-pair security IN-2-OUT-ZPAIR source IN-ZONE destination OUT-ZONE
+    service-policy type inspect IN-2-OUT-PMAP
+   exit
+   ```
+   → **You should see:** the prompt `R3(config-sec-zone-pair)#`, then `R3(config)#`.
+
+### Part C. Put the interfaces into zones
+
+10. **Put the LAN interface into IN-ZONE.**
+    ```text
+    interface g0/0
+     zone-member security IN-ZONE
+    ```
+    → **You should see:** no message. For a moment PC-C loses connectivity, because traffic between a zoned and an unzoned interface is dropped. Step 11 fixes this.
+11. **Put the WAN interface into OUT-ZONE.**
+    ```text
+    interface g0/1
+     zone-member security OUT-ZONE
+    end
+    ```
+    → **You should see:** the prompt return to `R3#`.
+
+### Part D. Test
+
+12. **Inside to outside.** PC-C: `ping 192.168.1.3`.
+    → **You should see:** replies (started inside, inspected, replies allowed back).
+13. **Inside to outside, web.** PC-C → Web Browser → `http://192.168.1.5`. Keep it open and, on R3, run `show policy-map type inspect zone-pair sessions`.
+    → **You should see:** the page loads, and an established session from 192.168.3.3 to 192.168.1.5 port 80.
+14. **Outside to inside.** PC-A: `ping 192.168.3.3`.
+    → **You should see:** `Request timed out.` four times.
+15. **Traffic to the router itself.** On R1 (after logging in), `ssh -l SSHadmin 10.2.2.1`.
+    → **You should see:** `Password:` and then `R3>`. Traffic to the router itself is not blocked.
+16. **Save everything.** `copy running-config startup-config` on R3; File → Save.
+    → **You should see:** `Building configuration... [OK]`.
 
 ## Code
 
-### Step 1. Enable the security license on R3
+Complete configuration added on **R3** in this practical:
 
 ```text
-R3# configure terminal
-R3(config)# license boot module c2900 technology-package securityk9
-ACCEPT? [yes/no]: yes
-R3(config)# end
-R3# copy running-config startup-config
-R3# reload
-R3# show version
-```
-
-### Step 2. Create the zones
-
-```text
-R3(config)# zone security IN-ZONE
-R3(config-sec-zone)# exit
-R3(config)# zone security OUT-ZONE
-R3(config-sec-zone)# exit
-```
-
-### Step 3. Class map: which traffic to inspect
-
-```text
-R3(config)# access-list 101 permit ip 192.168.3.0 0.0.0.255 any
-R3(config)# class-map type inspect match-all IN-NET-CLASS-MAP
-R3(config-cmap)# match access-group 101
-R3(config-cmap)# exit
-```
-
-### Step 4. Policy map: what to do with it
-
-```text
-R3(config)# policy-map type inspect IN-2-OUT-PMAP
-R3(config-pmap)# class type inspect IN-NET-CLASS-MAP
-R3(config-pmap-c)# inspect
-R3(config-pmap-c)# exit
-R3(config-pmap)# exit
-```
-
-### Step 5. Zone pair and service policy
-
-```text
-R3(config)# zone-pair security IN-2-OUT-ZPAIR source IN-ZONE destination OUT-ZONE
-R3(config-sec-zone-pair)# service-policy type inspect IN-2-OUT-PMAP
-R3(config-sec-zone-pair)# exit
-```
-
-### Step 6. Put the interfaces into zones
-
-```text
-R3(config)# interface g0/0
-R3(config-if)# zone-member security IN-ZONE
-R3(config-if)# interface g0/1
-R3(config-if)# zone-member security OUT-ZONE
-R3(config-if)# end
-R3# copy running-config startup-config
-```
-
-### Step 7. Verify
-
-```text
-PC-C> ping 192.168.1.3
-PC-C: Web Browser → http://192.168.1.5   (keep it open)
-R3# show policy-map type inspect zone-pair sessions
-PC-A> ping 192.168.3.3
-R1# ssh -l SSHadmin 10.2.2.1
+license boot module c2900 technology-package securityk9
+! (accept, save and reload)
+zone security IN-ZONE
+zone security OUT-ZONE
+access-list 101 permit ip 192.168.3.0 0.0.0.255 any
+class-map type inspect match-all IN-NET-CLASS-MAP
+ match access-group 101
+policy-map type inspect IN-2-OUT-PMAP
+ class type inspect IN-NET-CLASS-MAP
+  inspect
+zone-pair security IN-2-OUT-ZPAIR source IN-ZONE destination OUT-ZONE
+ service-policy type inspect IN-2-OUT-PMAP
+interface g0/0
+ zone-member security IN-ZONE
+interface g0/1
+ zone-member security OUT-ZONE
 ```
 
 ## Output
@@ -174,6 +230,17 @@ Zone-pair: IN-2-OUT-ZPAIR
 
 > [!beyond] Beyond the syllabus
 > Dedicated next-generation firewalls add application awareness (identifying WhatsApp or YouTube regardless of port), user identity and intrusion prevention in the same box. You will meet Cisco's dedicated firewall, the ASA, in Unit 4 practicals.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| `% Invalid input detected at '^' marker.` on `zone security IN-ZONE` | The security licence is not active yet | Do Steps 3–5; the licence works only **after** the reload. Check `show version` |
+| After the reload, R3 has lost its configuration | The configuration was not saved before `reload` | R3 boots from the startup configuration. Always `copy running-config startup-config` before reloading |
+| PC-C cannot reach anything after Step 10 | Only one interface is in a zone; traffic between zoned and unzoned interfaces is dropped | Do Step 11. Check `show zone security` lists G0/0 in IN-ZONE and G0/1 in OUT-ZONE |
+| PC-C still cannot reach the outside after Step 11 | The zone pair was written in the wrong direction, the policy is not attached, or ACL 101 has the wrong network | `show zone-pair security` must show source IN-ZONE, destination OUT-ZONE and policy IN-2-OUT-PMAP. Check `show access-lists 101` |
+| Error when typing `class type inspect IN-NET-CLASS-MAP` | No class map exists with exactly that name | Names are case-sensitive and must match. Check `show class-map type inspect` |
+| PC-A can still ping PC-C | Zones not applied, or an OUT-2-IN zone pair exists | Check `show zone security` and `show zone-pair security` |
 
 ## Try it
 

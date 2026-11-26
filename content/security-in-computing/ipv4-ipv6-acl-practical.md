@@ -25,15 +25,25 @@ To restrict remote (SSH) management of a router to one administrator PC, to filt
 
 **Why this matters.** Even with SSH, anyone who can reach a router can try to guess its password. Limiting management to one admin PC removes that attack path for everyone else. Attackers also scan networks with ping sweeps and fake (spoof) source addresses to hide. Simple ACLs at the edge block both. Modern networks run IPv6 alongside IPv4, and an IPv4-only filter leaves the IPv6 path wide open.
 
+## Before the lab
+
+**Install or open**
+- Cisco Packet Tracer 8.x or later.
+- Your saved file **practical4.pkt** (no ACLs yet). Do **not** start from Practical 5.
+- R1's console login: **Admin1 / admin1pa55**, enable secret **ciscoenpa55**. R3's SSH login: **SSHadmin / ciscosshpa55**.
+
+**Revise first**
+- ACL basics from [[extended-numbered-acl-practical]]: top-down order, implicit deny, wildcard masks.
+- IPv6 addresses: written in hexadecimal, `::` replaces a run of zeros, `/64` is the usual LAN prefix.
+- [[threats-and-attacks]]: what spoofing and a ping sweep are.
+
 ## Setup
 
 **Tool:** Cisco Packet Tracer (8.x or later).
 
 ### Devices and topology
 
-Open your saved file from **Practical 4** (no ACLs yet). Same routers, PCs and server.
-
-R1's console now asks for a login (Practical 4): use **Admin1 / admin1pa55**.
+The Practical 4 topology. Three parts:
 
 | Part | Router | What you configure |
 |---|---|---|
@@ -52,72 +62,172 @@ R1's console now asks for a login (Practical 4): use **Admin1 / admin1pa55**.
 | Server | NIC | 2001:db8:1::5/64 | 2001:db8:1::1 |
 | PC-C | NIC | 2001:db8:3::3/64 | 2001:db8:3::1 |
 
-## Code
+## Steps
 
 ### Part A. SSH to R3 only from PC-A
 
+1. **Open your Practical 4 file and save a copy** as `practical6.pkt`.
+   → **You should see:** the Practical 4 topology, all links green.
+2. **Confirm SSH works from PC-C now.** PC-C: `ssh -l SSHadmin 192.168.3.1`.
+   → **You should see:** `Password:` and then `R3>`. Type `exit`.
+3. **Create a standard ACL that matches only PC-A.** On R3:
+   ```text
+   configure terminal
+   access-list 10 permit host 192.168.1.3
+   ```
+   → **You should see:** no message.
+4. **Apply it to the VTY lines.**
+   ```text
+   line vty 0 4
+    access-class 10 in
+   end
+   ```
+   → **You should see:** the prompt return to `R3#`.
+5. **Test from PC-C.** `ssh -l SSHadmin 192.168.3.1`
+   → **You should see:** `% Connection refused by remote host`.
+6. **Test from PC-A.** `ssh -l SSHadmin 192.168.3.1`
+   → **You should see:** `Password:`, then `R3>` after the password. Type `exit`.
+
+### Part B. Edge filtering on R1
+
+7. **Confirm the baseline.** PC-C: `ping 192.168.1.3`.
+   → **You should see:** replies.
+8. **Create the anti-spoofing lines of ACL 120 on R1.**
+   ```text
+   configure terminal
+   access-list 120 remark Block spoofed sources and incoming pings
+   access-list 120 deny ip 192.168.1.0 0.0.0.255 any
+   access-list 120 deny ip 127.0.0.0 0.255.255.255 any
+   ```
+   → **You should see:** no message.
+9. **Add the ICMP and permit lines.**
+   ```text
+   access-list 120 deny icmp any 192.168.1.0 0.0.0.255 echo
+   access-list 120 permit ip any any
+   ```
+   → **You should see:** no message.
+10. **Apply ACL 120 inbound on R1's WAN interface.**
+    ```text
+    interface g0/1
+     ip access-group 120 in
+    end
+    ```
+    → **You should see:** the prompt return to `R1#`.
+11. **Test incoming ping.** PC-C: `ping 192.168.1.3`.
+    → **You should see:** `Reply from 10.1.1.1: Destination host unreachable.` (or `Request timed out.`).
+12. **Test outgoing ping.** PC-A: `ping 192.168.3.3`.
+    → **You should see:** replies. Echo **replies** coming back are allowed.
+13. **Check the matches.** On R1: `show access-lists`.
+    → **You should see:** matches on the `deny icmp … echo` line.
+
+### Part C. IPv6 and an IPv6 ACL
+
+14. **Turn on IPv6 routing and OSPFv3 on R1.**
+    ```text
+    configure terminal
+    ipv6 unicast-routing
+    ipv6 router ospf 10
+     router-id 1.1.1.1
+    exit
+    ```
+    → **You should see:** no message.
+15. **Add IPv6 addresses to R1's interfaces and put them in OSPFv3.**
+    ```text
+    interface g0/0
+     ipv6 address 2001:db8:1::1/64
+     ipv6 ospf 10 area 0
+    interface g0/1
+     ipv6 address 2001:db8:12::1/64
+     ipv6 ospf 10 area 0
+    end
+    ```
+    → **You should see:** no message yet.
+16. **Repeat Steps 14–15 on R2** with router ID 2.2.2.2 and its addresses from the table.
+    → **You should see:** `%OSPFv3-5-ADJCHG: Process 10, Nbr 1.1.1.1 on GigabitEthernet0/1 from LOADING to FULL, Loading Done`.
+17. **Repeat Steps 14–15 on R3** with router ID 3.3.3.3 and its addresses.
+    → **You should see:** `%OSPFv3-5-ADJCHG: Process 10, Nbr 2.2.2.2 on GigabitEthernet0/1 from LOADING to FULL, Loading Done`.
+18. **Give the PCs and the server IPv6 addresses.** Desktop → IP Configuration → IPv6 Configuration → **Static**, using the table.
+    → **You should see:** the IPv6 address and gateway saved on each device.
+19. **Test IPv6.** PC-C: `ping 2001:db8:1::3`.
+    → **You should see:** replies.
+20. **Create the IPv6 ACL on R3.**
+    ```text
+    configure terminal
+    ipv6 access-list BLOCK-PING-PCA
+     deny icmp 2001:db8:3::/64 host 2001:db8:1::3
+     permit ipv6 any any
+    exit
+    ```
+    → **You should see:** the prompt `R3(config)#`.
+21. **Apply it inbound on R3's LAN interface.**
+    ```text
+    interface g0/0
+     ipv6 traffic-filter BLOCK-PING-PCA in
+    end
+    ```
+    → **You should see:** the prompt return to `R3#`.
+22. **Test the IPv6 ACL.** PC-C: `ping 2001:db8:1::3`, then `ping 2001:db8:1::5`.
+    → **You should see:** the ping to PC-A fails; the ping to the server replies.
+23. **Check the matches.** On R3: `show ipv6 access-list`.
+    → **You should see:** matches on the `deny icmp` line.
+24. **Save everything.** `copy running-config startup-config` on each router; File → Save.
+    → **You should see:** `Building configuration... [OK]`.
+
+## Code
+
+**R3** (Parts A and C):
+
 ```text
-R3# configure terminal
-R3(config)# access-list 10 permit host 192.168.1.3
-R3(config)# line vty 0 4
-R3(config-line)# access-class 10 in
-R3(config-line)# end
+access-list 10 permit host 192.168.1.3
+line vty 0 4
+ access-class 10 in
+ipv6 unicast-routing
+ipv6 router ospf 10
+ router-id 3.3.3.3
+interface g0/0
+ ipv6 address 2001:db8:3::1/64
+ ipv6 ospf 10 area 0
+ ipv6 traffic-filter BLOCK-PING-PCA in
+interface g0/1
+ ipv6 address 2001:db8:23::1/64
+ ipv6 ospf 10 area 0
+ipv6 access-list BLOCK-PING-PCA
+ deny icmp 2001:db8:3::/64 host 2001:db8:1::3
+ permit ipv6 any any
 ```
 
-### Part B. Edge filtering on R1 (traffic arriving from R2)
+**R1** (Parts B and C):
 
 ```text
-R1# configure terminal
-R1(config)# access-list 120 remark Block spoofed sources and incoming pings
-R1(config)# access-list 120 deny ip 192.168.1.0 0.0.0.255 any
-R1(config)# access-list 120 deny ip 127.0.0.0 0.255.255.255 any
-R1(config)# access-list 120 deny icmp any 192.168.1.0 0.0.0.255 echo
-R1(config)# access-list 120 permit ip any any
-R1(config)# interface g0/1
-R1(config-if)# ip access-group 120 in
-R1(config-if)# end
+access-list 120 remark Block spoofed sources and incoming pings
+access-list 120 deny ip 192.168.1.0 0.0.0.255 any
+access-list 120 deny ip 127.0.0.0 0.255.255.255 any
+access-list 120 deny icmp any 192.168.1.0 0.0.0.255 echo
+access-list 120 permit ip any any
+ipv6 unicast-routing
+ipv6 router ospf 10
+ router-id 1.1.1.1
+interface g0/0
+ ipv6 address 2001:db8:1::1/64
+ ipv6 ospf 10 area 0
+interface g0/1
+ ip access-group 120 in
+ ipv6 address 2001:db8:12::1/64
+ ipv6 ospf 10 area 0
 ```
 
-### Part C1. IPv6 addresses and OSPFv3 (R1 shown; repeat on R2 and R3 with their addresses)
+**R2** (Part C):
 
 ```text
-R1(config)# ipv6 unicast-routing
-R1(config)# ipv6 router ospf 10
-R1(config-rtr)# router-id 1.1.1.1
-R1(config-rtr)# exit
-R1(config)# interface g0/0
-R1(config-if)# ipv6 address 2001:db8:1::1/64
-R1(config-if)# ipv6 ospf 10 area 0
-R1(config-if)# interface g0/1
-R1(config-if)# ipv6 address 2001:db8:12::1/64
-R1(config-if)# ipv6 ospf 10 area 0
-```
-
-Use router IDs 2.2.2.2 on R2 and 3.3.3.3 on R3. Set the PC and server IPv6 addresses in Desktop → IP Configuration, then check PC-C can ping 2001:db8:1::3.
-
-### Part C2. IPv6 ACL on R3: PC-C's LAN may not ping PC-A
-
-```text
-R3(config)# ipv6 access-list BLOCK-PING-PCA
-R3(config-ipv6-acl)# deny icmp 2001:db8:3::/64 host 2001:db8:1::3
-R3(config-ipv6-acl)# permit ipv6 any any
-R3(config-ipv6-acl)# exit
-R3(config)# interface g0/0
-R3(config-if)# ipv6 traffic-filter BLOCK-PING-PCA in
-R3(config-if)# end
-```
-
-### Verify
-
-```text
-PC-A> ssh -l SSHadmin 192.168.3.1
-PC-C> ssh -l SSHadmin 192.168.3.1
-PC-C> ping 192.168.1.3
-PC-A> ping 192.168.3.3
-PC-C> ping 2001:db8:1::3
-PC-C> ping 2001:db8:1::5
-R1# show access-lists
-R3# show ipv6 access-list
+ipv6 unicast-routing
+ipv6 router ospf 10
+ router-id 2.2.2.2
+interface g0/1
+ ipv6 address 2001:db8:12::2/64
+ ipv6 ospf 10 area 0
+interface g0/2
+ ipv6 address 2001:db8:23::2/64
+ ipv6 ospf 10 area 0
 ```
 
 ## Output
@@ -166,6 +276,18 @@ IPv6 access list BLOCK-PING-PCA
 
 > [!beyond] Beyond the syllabus
 > Internet service providers apply the same anti-spoofing idea at scale (BCP 38): they drop packets whose source address could not have come from the customer's network, which makes spoofed DDoS attacks harder to launch.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| `% Invalid input detected at '^' marker.` on `ip access-group 10 in` under `line vty 0 4` | Lines use `access-class`, not `access-group` | Use `access-class 10 in` |
+| SSH from PC-A is also refused after Step 4 | The host address in ACL 10 is wrong | Check `show access-lists 10`; it must be `permit host 192.168.1.3`. Fix it from R3's console |
+| PC-A's own pings to PC-C fail after Part B | ICMP was blocked too broadly (for example `deny icmp any any`) | Block only `echo` towards 192.168.1.0; echo-replies must still come in |
+| `% IPv6 routing not enabled` | `ipv6 unicast-routing` was not entered first | Enter `ipv6 unicast-routing` in global configuration, then repeat the step |
+| No `%OSPFv3-5-ADJCHG` message, IPv6 pings fail between routers | `ipv6 ospf 10 area 0` missing on an interface, or an address typo | Check `show ipv6 ospf neighbor` and `show ipv6 interface brief` on both routers |
+| IPv6 ping from a PC fails before the ACL | Wrong IPv6 address or gateway on the PC | The gateway must be the router's address on that LAN (for PC-C, 2001:db8:3::1) |
+| `% Invalid input detected` while typing the IPv6 ACL | A wildcard mask was used (`0.0.0.255` style) | IPv6 ACLs use prefixes: `2001:db8:3::/64` |
 
 ## Try it
 

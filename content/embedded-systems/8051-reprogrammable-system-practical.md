@@ -22,6 +22,13 @@ To design and develop a reprogrammable embedded system using the 8051 microcontr
 - [[8051-programming-environment-practical]] (creating a project and HEX file in Keil)
 - [[embedded-vs-general-purpose-systems]] (firmware)
 
+## Before the lab
+
+- **Install:** Keil µVision 5 (C51) and **Proteus 8** (ISIS schematic capture), as available in the lab.
+- **Revise first:** practical 1 ([[8051-programming-environment-practical]]), especially creating a project and a HEX file, and the meaning of active-low (Explanation below).
+- **Know these Proteus names:** **P** = Pick Devices, **Terminals Mode** (for POWER and GROUND), **Run** button (bottom left).
+- **Have ready:** a folder with two sub-folders, `blink` and `runlight`, one Keil project in each.
+
 ## Setup
 
 ### Tools
@@ -41,12 +48,30 @@ To design and develop a reprogrammable embedded system using the 8051 microcontr
 
 Proteus supplies the clock and reset for the AT89C51 in simulation. On a real board you also need an 11.0592 MHz crystal with two 33 pF capacitors, and a reset circuit on pin 9.
 
-### Steps
+## Steps
 
-1. In Keil, make project `blink` with Program 1, tick **Create HEX File**, build → `blink.hex`.
-2. Make a second project `runlight` with Program 2, build → `runlight.hex`.
-3. In Proteus, draw the circuit. Double-click the AT89C51: set **Clock Frequency** to `11.0592MHz` and **Program File** to `blink.hex`. Run.
-4. Stop. Change **Program File** to `runlight.hex`. Run again. Same circuit, new behaviour.
+1. In Keil, create project `blink` in the `blink` folder, exactly as in practical 1 steps 1–6 (AT89C51, 11.0592 MHz, Create HEX File ticked).
+   *You should see:* Target 1 → Source Group 1 in the Project pane.
+2. Add `main.c` with **Program 1** and press **F7**.
+   *You should see:* `"blink" - 0 Error(s), 0 Warning(s).` and `creating hex file from "blink"...`.
+3. Create project `runlight` in the `runlight` folder the same way, with **Program 2**, and build.
+   *You should see:* `"runlight" - 0 Error(s), 0 Warning(s).`
+4. Open **Proteus 8**, click **File → New Project**, give it a name and click **Next** through the wizard (default schematic, no PCB, no firmware project), then **Finish**.
+   *You should see:* an empty blue-grid schematic sheet.
+5. Press **P**, search `AT89C51`, double-click it; search `LED-RED` and `RES` and double-click each; close the window.
+   *You should see:* AT89C51, LED-RED and RES in the **Devices** list on the left.
+6. Place the AT89C51, eight LEDs and eight resistors, and wire them as in the circuit table. Add a **POWER** terminal (Terminals Mode) for +5 V.
+   *You should see:* each LED's anode reaching +5 V through a resistor, and each cathode reaching a P1 pin.
+7. Double-click each resistor and set **Resistance** to `330`.
+   *You should see:* the label under each resistor change from 10k to 330.
+8. Double-click the AT89C51, set **Program File** to `blink.hex` and **Clock Frequency** to `11.0592MHz`, click **OK**.
+   *You should see:* the dialog close; nothing moves yet.
+9. Click **Run** (the ▶ button at the bottom left).
+   *You should see:* all eight LEDs turn on and off together.
+10. Click **Stop** (■). Double-click the AT89C51 and change **Program File** to `runlight.hex`, click **OK**.
+    *You should see:* the LEDs go dark while stopped.
+11. Click **Run** again.
+    *You should see:* one LED moving from P1.0 to P1.7 and starting again. Same circuit, new behaviour: the system was reprogrammed.
 
 ## Code
 
@@ -153,6 +178,17 @@ The delay works by making the CPU count in two nested loops. The inner loop of 1
 - `~led` inverts every bit (`1111 1110` = 0xFE), because the LEDs are active-low.
 - `led << 1` shifts the 1 one place left: P1.0 → P1.1 → … → P1.7.
 - After P1.7, shifting once more pushes the 1 out of the 8-bit variable, so `led` becomes 0. The `if` resets it to `0x01`, and the light starts again from P1.0.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| LEDs never light, or glow very dimly | The resistors are still Proteus's default **10k** | Set each resistor to 330 Ω (step 7) |
+| One LED never lights | That LED is placed the wrong way round | Rotate or flip it: anode (triangle side) to the resistor, cathode (bar side) to the pin |
+| Simulation will not start; the log says the program file cannot be loaded | Wrong path, or the HEX file was not created | Rebuild in Keil with Create HEX File ticked, and browse to the `.hex` again |
+| `Simulation is not running in real time due to excessive CPU load.` | The PC cannot keep up with the simulated 11.0592 MHz | Harmless: the LEDs just change more slowly. Close other programs if it is very slow |
+| `warning C206: 'delay_ms': missing function-prototype` and `error C267: 'delay_ms': requires ANSI-style prototype` | `delay_ms` is written **below** `main`, so the compiler meets the call first | Move the function above `main`, or add `void delay_ms(unsigned int ms);` before `main` |
+| LEDs blink, but in the opposite way to what you expect | The LEDs are wired active-high (pin → LED → ground) | Wire them active-low as in the table, or invert the values in the program |
 
 ## Try it
 

@@ -23,12 +23,34 @@ To generate sequential and alternate LED patterns using the 8051's I/O ports, an
 - [[led-binary-counter-practical]] (active-low LEDs, binary place values)
 - [[embedded-firmware]] (super loop, functions)
 
+## Before the lab
+
+- **Install:** Keil µVision 5 (C51) and Proteus 8.
+- **Revise first:** practical 8 (active-low LEDs, P1.7 on the left), and the bit operators `<<`, `|` and `~`.
+- **Work out first, on paper:** the binary of 0x55 and 0xAA, and draw which LEDs are on for each.
+- **Have ready:** the eight-LED circuit from practical 8.
+
 ## Setup
 
 ### Tools
 
 - **Keil µVision 5 (C51)**: build `patterns.hex`.
 - **Proteus**: the eight-LED circuit from practical 8 (LEDs on P1.0 … P1.7, active-low, P1.7 on the left).
+
+## Steps
+
+1. Create Keil project `patterns` (as in practical 1 steps 1–6), add the code below and press **F7**.
+   *You should see:* `"patterns" - 0 Error(s), 0 Warning(s).`
+2. Press **Ctrl+F5**, open **Peripherals → I/O-Ports → Port 1**, press **F5**, and watch for a few seconds.
+   *You should see:* P1 alternate 0x55 and 0xAA four times, then FE, FC, F8 … 00.
+3. End the debug session.
+   *You should see:* the editor layout again.
+4. In Proteus, load `patterns.hex` into the AT89C51 of the practical 8 circuit (clock 11.0592 MHz) and click **Run**.
+   *You should see:* odd and even LEDs taking turns, four times.
+5. Keep watching.
+   *You should see:* LEDs filling up one by one from the right until all eight are on.
+6. Keep watching.
+   *You should see:* two lights starting at both ends, meeting in the middle and moving out again; then everything repeats.
 
 ## Code
 
@@ -134,6 +156,17 @@ Each pattern is a separate **function**, so the main loop reads like a playlist 
 ### Where is this used in real life?
 
 Decorative festival light controllers (Diwali serial lights), shop sign boards, running-light indicators on vehicles, and LED bar-graph level meters all use the same idea: a sequence of bytes on a port, timed by a delay or a timer.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| `error C249: 'DATA': SEGMENT TOO LARGE` | Large pattern tables declared **without** `code`, so they are put in the 128-byte RAM | Declare tables as `unsigned char code name[] = {...};` |
+| `warning C206: 'alternate': missing function-prototype` | A pattern function is written below `main` | Write the functions above `main`, or add prototypes |
+| Patterns look mirror-imaged | LEDs placed with P1.0 on the left | Put P1.7 on the left |
+| Fill-up pattern lights from the wrong end, or all LEDs at once | `>>` used instead of `<<`, or `| 0x01` left out | Use `led = (led << 1) | 0x01;` |
+| Meet-in-the-middle shows the inverse (lit LEDs dark) | `~` missing before `meet[k]` | Write `P1 = ~meet[k];` |
+| Only the first pattern ever plays | A `while (1)` was put inside `alternate()` | Each pattern function must end; only `main` has the endless loop |
 
 ## Try it
 

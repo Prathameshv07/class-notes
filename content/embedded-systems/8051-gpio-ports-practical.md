@@ -21,6 +21,13 @@ To configure the general-purpose I/O ports of the 8051 as inputs and outputs, by
 - [[8051-reprogrammable-system-practical]] (active-low LED wiring)
 - [[memory-io-interrupt-map]] (ports as SFRs)
 
+## Before the lab
+
+- **Install:** Keil µVision 5 (C51) and Proteus 8.
+- **Revise first:** practical 2 (active-low LEDs, building a Proteus circuit) and [[memory-io-interrupt-map]] (ports P0–P3 as SFRs).
+- **Know these Proteus parts:** **SWITCH** (click it during simulation to open or close it), **BUTTON** (pressed while you hold the mouse button), **GROUND** terminal.
+- **Have ready:** the eight-LED circuit from practical 2; you will add switches to it.
+
 ## Setup
 
 ### Tools
@@ -39,6 +46,33 @@ To configure the general-purpose I/O ports of the 8051 as inputs and outputs, by
 | 1 × LED-GREEN + 330 Ω | +5 V → resistor → LED → P3.7 |
 
 No pull-up resistors are needed on P1, P2 and P3: they have internal pull-ups. (Port 0 has none; it would need external pull-up resistors.)
+
+## Steps
+
+1. Open **Keil µVision 5**.
+   *You should see:* the µVision window, with an empty **Project** pane on the left.
+2. Click **Project → New µVision Project**, make a new folder named `gpio`, type the project name `gpio` and click **Save**.
+   *You should see:* the **Select Device for Target** window.
+3. Type `AT89C51` in the search box, select it (under Microchip, or Atmel in older versions) and click **OK**.
+   *You should see:* a question asking whether to copy `STARTUP.A51` to the project folder.
+4. Click **No** (the C51 library already has start-up code).
+   *You should see:* **Target 1 → Source Group 1** in the Project pane.
+5. Click **Project → Options for Target 'Target 1'**, and on the **Target** tab set **Xtal (MHz)** to `11.0592`.
+   *You should see:* 11.0592 in the Xtal box.
+6. On the **Output** tab, tick **Create HEX File**, then click **OK**.
+   *You should see:* the dialog close.
+7. Add `main.c` with the code below and press **F7**.
+   *You should see:* `"gpio" - 0 Error(s), 0 Warning(s).` and a HEX file created.
+8. In Proteus, open the practical 2 circuit (or redraw it) and add eight **SWITCH** parts from P2.0–P2.7 to **GROUND**.
+   *You should see:* each switch with one side on a P2 pin and the other on a ground symbol.
+9. Add a **BUTTON** from P3.2 to ground, and a green LED with 330 Ω from +5 V to P3.7.
+   *You should see:* the button and green LED wired to Port 3.
+10. Double-click the AT89C51, set **Program File** to `gpio.hex` and the clock to 11.0592 MHz; click **Run**.
+    *You should see:* all LEDs off (no switch closed).
+11. During the simulation, click the switches on P2.1 and P2.3 to close them.
+    *You should see:* the LEDs on P1.1 and P1.3 light.
+12. Hold the mouse button down on the P3.2 button.
+    *You should see:* the green LED on P3.7 light while you hold it, and go off when you release it.
 
 ## Code
 
@@ -116,6 +150,17 @@ A pressed switch connects its pin to ground (0); because the LEDs are active-low
 | ==P3== | Internal | RXD, TXD, INT0, INT1, T0, T1, WR, RD |
 
 When a P3 pin is used for its special function (for example P3.0 as RXD), it is not free for general I/O.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| Switches have no effect at all | The switches are wired to +5 V instead of ground | Connect the other side of each switch to **GROUND**: a pressed switch must pull the pin to 0 |
+| Pins read random values, or are always 0 | Switches were put on **Port 0**, which has no internal pull-ups | Use Port 2 as shown, or add 10 kΩ pull-up resistors on P0 |
+| An input never reads 1 again | The program wrote 0 to that input pin, so the pin is held low | Write 1 to an input pin (`P2 = 0xFF;`) before reading it |
+| `main.c(3): error C202: 'p3': undefined identifier` | C is case-sensitive: `p3` is not `P3` | Write `sbit SW = P3^2;` with a capital P |
+| The button "does nothing" | It was clicked only briefly while the simulation was paused | Run the simulation, then hold the mouse button down on the button |
+| LEDs show the opposite of the switches | LEDs wired active-high, or the program was changed to `P1 = ~P2;` | Use the active-low circuit and `P1 = P2;` |
 
 ## Try it
 

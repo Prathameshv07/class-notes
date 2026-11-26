@@ -6,7 +6,7 @@ unit: 1
 type: practical
 practical: 1
 syllabus: [UITIV-006, UDSIV-006]
-status: reviewed
+status: draft
 sources:
   - "Muhammad Ali Mazidi and Janice Mazidi, The 8051 Microcontroller and Embedded Systems, Pearson, Ch. 1 and Ch. 7 (verify)"
   - "Arm Keil, µVision User's Guide and C51 documentation (keil.com)"
@@ -24,21 +24,47 @@ To study the architecture and programming environment of the 8051 microcontrolle
 - [[embedded-vs-general-purpose-systems]]
 - [[8051-architecture]] (theory, Unit 3)
 
+## Before the lab
+
+- **Install:** Keil µVision 5 with the **C51** compiler (free evaluation version from keil.com; the 2 KB code limit is enough for all our practicals).
+- **Revise first:** [[embedded-vs-general-purpose-systems]] (what firmware is), and hexadecimal-to-binary conversion (0x59 = 0101 1001).
+- **Know these words:** project, device, build, HEX file, simulator. They are explained in Part B of the Explanation.
+- **Have ready:** a folder on your PC for Embedded Systems practicals, one sub-folder per practical.
+
 ## Setup
 
 ### Tool
 
 Keil µVision 5 with the C51 compiler (free evaluation version, enough for all our practicals). No board is needed: Keil's built-in simulator runs the program. Proteus is used from later practicals, when we attach LEDs and displays.
 
-### Steps in Keil µVision
+## Steps
 
-1. **Project → New µVision Project.** Make a new folder, name the project `add_p1`.
-2. **Select device:** search `AT89C51` (listed under Microchip, or Atmel in older versions). Click OK. If asked to add `STARTUP.A51`, click **No**; the C51 library supplies default start-up code.
-3. **Project → Options for Target → Target tab:** set Xtal (MHz) to `11.0592`. **Output tab:** tick **Create HEX File**.
-4. **File → New**, type the code below, save as `main.c`. In the Project window, right-click **Source Group 1 → Add Existing Files**, add `main.c`.
-5. **Build (F7).** Check the Build Output window.
-6. **Debug → Start/Stop Debug Session (Ctrl+F5)**, then **Run (F5)**.
-7. **Peripherals → I/O-Ports → Port 1** to see the result. Stop the run and end the debug session.
+1. Open **Keil µVision 5**.
+   *You should see:* the µVision window, with an empty **Project** pane on the left.
+2. Click **Project → New µVision Project**, make a new folder named `add_p1`, type the project name `add_p1` and click **Save**.
+   *You should see:* the **Select Device for Target** window.
+3. Type `AT89C51` in the search box, select it (under Microchip, or Atmel in older versions) and click **OK**.
+   *You should see:* a question asking whether to copy `STARTUP.A51` to the project folder.
+4. Click **No** (the C51 library already has start-up code).
+   *You should see:* **Target 1 → Source Group 1** in the Project pane.
+5. Click **Project → Options for Target 'Target 1'**, and on the **Target** tab set **Xtal (MHz)** to `11.0592`.
+   *You should see:* 11.0592 in the Xtal box.
+6. On the **Output** tab, tick **Create HEX File**, then click **OK**.
+   *You should see:* the dialog close.
+7. Click **File → New**, type the code from the **Code** section below, then **File → Save As** `main.c` in the project folder.
+   *You should see:* the code turn coloured (keywords in blue) once it is saved as a `.c` file.
+8. Right-click **Source Group 1 → Add Existing Files to Group 'Source Group 1'**, select `main.c`, click **Add**, then **Close**.
+   *You should see:* `main.c` listed under Source Group 1.
+9. Press **F7** (Build).
+   *You should see:* the Build Output window end with `"add_p1" - 0 Error(s), 0 Warning(s).` and a line `creating hex file from "add_p1"...`.
+10. Press **Ctrl+F5** (Start/Stop Debug Session).
+    *You should see:* an evaluation-mode message about the 2K code size limit (click **OK**), then the debug layout with registers on the left.
+11. Click **Peripherals → I/O-Ports → Port 1**.
+    *You should see:* the Port 1 window showing P1 = 0xFF, with all eight boxes ticked (the reset value).
+12. Press **F5** (Run).
+    *You should see:* P1 change to **0x59**, with boxes ticked for bits 0, 3, 4 and 6.
+13. Press **Ctrl+F5** again to end the debug session.
+    *You should see:* the normal editor layout return.
 
 ## Code
 
@@ -132,6 +158,17 @@ Our program used three blocks: **ROM** (holds the program), **RAM** (holds `a`, 
 - Result: 0x59 = 0101 1001 in binary = 89 in decimal.
 
 In the Port 1 window, pins P1.0, P1.3, P1.4 and P1.6 are ticked (high), matching the 1-bits of 0101 1001 read from bit 0 upwards. On a real board with LEDs on Port 1, those four LEDs would change state.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| `main.c(10): error C202: 'P1': undefined identifier` | `#include <reg51.h>` is missing or misspelt, so the compiler does not know the name P1 | Add `#include <reg51.h>` as the first line |
+| `error C141: syntax error near ...` | A missing `;` or `}` on the line shown or the line **before** it | Check the end of the previous line first |
+| Build Output shows only `linking...`, no `compiling main.c...` | `main.c` was saved but never added to Source Group 1 | Do step 8 |
+| No `creating hex file` line; no `.hex` file in the folder | **Create HEX File** was not ticked | Do step 6, then build again |
+| Port 1 window still shows 0xFF | The program was not run, or the window was opened outside a debug session | Start debugging (Ctrl+F5), then press F5 |
+| Code is black, not coloured, and will not compile | The file was saved as `.txt` or without an extension | Save it again as `main.c` |
 
 ## Try it
 

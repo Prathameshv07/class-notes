@@ -23,6 +23,13 @@ To blink an LED every 500 ms using Timer 0 of the 8051, and to compare this time
 - [[8051-timer-registers-practical]] (Timer 0, mode 1, 50 ms delay)
 - [[8051-debugging-practical]] (measuring time with the stopwatch)
 
+## Before the lab
+
+- **Install:** Keil µVision 5 (C51); Proteus is optional.
+- **Revise first:** practical 4 ([[8051-timer-registers-practical]]): the 4C00H calculation and TF0/TR0; and practical 3's stopwatch method.
+- **Have ready:** the `delay_ms` function from practical 2, for the software-delay version.
+- **Prepare in your journal:** a table with columns Method, Measured time, Depends on compiler?, CPU free?
+
 ## Setup
 
 ### Tools
@@ -30,11 +37,22 @@ To blink an LED every 500 ms using Timer 0 of the 8051, and to compare this time
 - **Keil µVision 5 (C51)**, AT89C51, Xtal 11.0592 MHz: measure each delay with the **sec** counter (practical 3) or the Logic Analyzer.
 - **Proteus**: one LED with 330 Ω on P1.0, active-low.
 
-### Steps
+## Steps
 
-1. Build the timer program below and measure the time between LED toggles.
-2. Build the software-delay version: replace `delay_500ms();` with `delay_ms(500);` from practical 2, and measure again.
-3. Fill in the comparison table in your journal.
+1. Create Keil project `tblink` (as in practical 1 steps 1–6), add the code below and press **F7**.
+   *You should see:* `"tblink" - 0 Error(s), 0 Warning(s).`
+2. Press **Ctrl+F5** and put a breakpoint (F9) on the line `LED = ~LED;`.
+   *You should see:* a red dot on that line.
+3. Press **F5**, note **sec**; press **F5** again and note **sec** again.
+   *You should see:* a difference of about **0.500** s. Record it as "Timer".
+4. End the session. Add `delay_ms` from practical 2 above `main`, and change `delay_500ms();` to `delay_ms(500);`. Build.
+   *You should see:* `0 Error(s)`, and possibly the harmless warning L16 for the now-unused timer functions.
+5. Debug again and repeat step 3.
+   *You should see:* a time near 0.5 s, but not exact. Record it as "Software loop".
+6. Change **Options for Target → C51 → Optimization** to a different level, rebuild and measure again.
+   *You should see:* the software-loop time may change; the timer version cannot, because the crystal sets its time. Record what you measure.
+7. Fill in the comparison table in your journal using the Explanation below.
+   *You should see:* that only the timer method is exact and compiler-independent.
 
 ## Code
 
@@ -120,6 +138,16 @@ So a loop count found by trial on one compiler is wrong on another. This is why 
 ### How can the CPU be freed completely?
 
 In this practical the CPU still **polls** TF0 in a loop. With a **Timer 0 interrupt** (vector 000BH), the timer interrupts the CPU every 50 ms, a small ISR counts to 10 and toggles the LED, and the main loop is free for other work such as reading switches. This is how real products blink a status LED while doing their main job.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| `*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS` | One of the delay functions is no longer called | Harmless; delete the unused function to remove it |
+| Measured time is 50 ms, not 500 ms | The breakpoint is inside `delay_50ms`, not on `LED = ~LED;` | Put the breakpoint in `main` |
+| Measured time is 0 or does not change | The program was stepped (F10/F11) instead of run | Use **F5** between the two stops |
+| Program hangs in `while (TF0 == 0);` | `TR0 = 1;` missing | Start the timer before waiting |
+| LED blinks at the wrong speed in Proteus but the Keil time is right | Proteus clock frequency not set to 11.0592 MHz | Set **Clock Frequency** in the AT89C51's properties |
 
 ## Try it
 

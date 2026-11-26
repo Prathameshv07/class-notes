@@ -21,6 +21,13 @@ To debug and test an 8051 program in Keil µVision using breakpoints, single-ste
 - [[8051-programming-environment-practical]] (creating and building a Keil project)
 - [[embedded-firmware]]
 
+## Before the lab
+
+- **Install:** Keil µVision 5 (C51). No Proteus needed.
+- **Revise first:** practical 1 (creating a project), and data-type ranges: `unsigned char` holds 0–255, `unsigned int` holds 0–65535.
+- **Know these words:** breakpoint, single-step, Watch window, overflow (all explained below).
+- **Work out first, on paper:** the total and average of 85, 90, 78, 92 and 88. You will compare the program's answer with yours.
+
 ## Setup
 
 ### Tool
@@ -38,14 +45,28 @@ To debug and test an 8051 program in Keil µVision using breakpoints, single-ste
 | ==Registers window== | Left pane in debug mode | Shows R0–R7, A, PSW, and the **sec** (time) counter |
 | ==Memory window== | View → Memory Windows | Shows raw memory, e.g. `D:0x30` for internal RAM |
 
-### Steps
+## Steps
 
-1. Create project `marks_debug` (device AT89C51, Xtal 11.0592 MHz), add `main.c` with Program 1, build.
-2. **Ctrl+F5** to start debugging. Add `sum`, `i` and `avg` to Watch 1 (right-click a variable → Add to Watch 1).
-3. Put a breakpoint on the line `avg = sum / 5;`. Press **F5**. Read `sum` in the Watch window.
-4. Step through the loop with **F11** and watch `sum` after each mark is added. Find where it goes wrong.
-5. Fix the bug (Program 2), rebuild, debug again and compare.
-6. **Part B:** use the **sec** counter to time `delay_ms(1)` (see Explanation).
+1. Create project `marks_debug` as in practical 1 steps 1–6, add `main.c` with **Program 1**, and press **F7**.
+   *You should see:* `0 Error(s), 0 Warning(s)`. The bug does not stop the build.
+2. Press **Ctrl+F5** to start debugging.
+   *You should see:* the debug layout, with a yellow arrow showing where the program will start.
+3. Right-click the word `sum` in the code and choose **Add 'sum' to … Watch 1**; do the same for `i` and `avg`.
+   *You should see:* the Watch 1 window listing sum, i and avg.
+4. Click in the grey margin beside the line `avg = sum / 5;` (or put the cursor on it and press **F9**).
+   *You should see:* a red dot on that line: a breakpoint.
+5. Press **F5** (Run).
+   *You should see:* the program stop at the red dot; Watch shows **sum = 0xB1 (177)**, not 433.
+6. Click **Debug → Reset CPU**, then press **F11** (Step) repeatedly through the `for` loop, watching `sum`.
+   *You should see:* sum go 85, 175, 253, then **89**: the overflow happens when 92 is added.
+7. End the session (Ctrl+F5), change `unsigned char sum` to `unsigned int sum` (**Program 2**), and press **F7**.
+   *You should see:* `0 Error(s), 0 Warning(s)`.
+8. Debug again (Ctrl+F5) and run to the breakpoint (F5).
+   *You should see:* **sum = 433 (0x01B1)** and, after one more F10, **avg = 86 (0x56)**.
+9. **Part B:** add the `delay_ms` function from practical 2 and a line `delay_ms(1);` in `main`; put breakpoints on that line and on the next one.
+   *You should see:* two red dots.
+10. Run to the first breakpoint (F5) and note **sec** in the Registers window (under **Sys**); run again (F5) and note **sec** again.
+    *You should see:* two times; their difference is the time of `delay_ms(1)`. Record it in your journal.
 
 ## Code
 
@@ -145,6 +166,17 @@ Record the result in your journal. It shows whether the loop count 1275 really g
 3. ==**Observe:**== step and watch until a value differs from the prediction.
 4. ==**Fix the cause**==, not the symptom (change the data type, don't add 256 at the end).
 5. ==**Re-test**== with the same inputs, and with extreme ones (all marks 100).
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| A breakpoint shows a hollow or grey dot, or the program never stops there | The compiler's optimiser merged or removed that line, so no code belongs to it | Put the breakpoint on the next line, or set **Options for Target → C51 → Optimization** to level 0 while debugging |
+| Watch shows a wrong or strange value for a local variable | The variable is not in scope yet, or optimisation keeps it in a register | Stop inside `main` after the variable is set; use optimisation level 0 for debugging |
+| `*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS` | A function (often `delay_ms`) is written but never called | Harmless; call it (Part B) or delete it |
+| Pressing F11 inside `delay_ms` takes thousands of presses | Step goes into every loop pass | Use **F10** (Step Over) to run the whole function as one step |
+| **sec** does not change between breakpoints | The program was stepped, not run, or both breakpoints are on the same line | Use **F5** between two different breakpoints |
+| `main.c(...): error C202: 'avg': undefined identifier` | `avg` was deleted or misspelt when editing | Keep the declaration `unsigned char i, avg;` |
 
 ## Try it
 

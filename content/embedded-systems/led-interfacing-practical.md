@@ -21,6 +21,13 @@ To interface LEDs with the 8051 microcontroller: calculate the series resistor, 
 - [[8051-gpio-ports-practical]] (port pins as outputs, `sbit`)
 - [[sensors-and-actuators]] (an LED is an actuator)
 
+## Before the lab
+
+- **Install:** Keil µVision 5 (C51) and Proteus 8.
+- **Revise first:** Ohm's law (V = I × R), active-low wiring from practical 2, and `sbit` from practical 5.
+- **Work out first, on paper:** the series resistor for a red LED at 10 mA from 5 V (Setup below). You should get 300 Ω, rounded to 330 Ω.
+- **Have ready:** a blank Proteus project.
+
 ## Setup
 
 ### Tools
@@ -45,6 +52,23 @@ The nearest standard value above it is **330 Ω**, giving (5 − 2) / 330 ≈ **
 | AT89C51 | EA (pin 31) to +5 V |
 
 With both LEDs lit, Port 1 sinks about 18 mA, slightly over the AT89C51's 15 mA per-port limit. Proteus does not mind, but on a real board use 470 Ω (about 6 mA each, 13 mA together) to stay inside it.
+
+## Steps
+
+1. Create Keil project `led` (as in practical 1 steps 1–6), add the code below and press **F7**.
+   *You should see:* `"led" - 0 Error(s), 0 Warning(s).` and `led.hex` created.
+2. In Proteus, press **P** and add `AT89C51`, `LED-RED`, `LED-GREEN` and `RES`.
+   *You should see:* AT89C51, LED-RED and RES in the **Devices** list on the left.
+3. Place the AT89C51, a red LED, a green LED and two resistors.
+   *You should see:* five parts on the sheet.
+4. Set both resistors to `330` (double-click → Resistance).
+   *You should see:* "330" under each resistor.
+5. Wire +5 V (POWER terminal) → resistor → red LED → **P1.0**, and +5 V → resistor → green LED → **P1.7**.
+   *You should see:* each LED's bar (cathode) side facing the microcontroller pin.
+6. Double-click the AT89C51, set **Program File** to `led.hex` and the clock to 11.0592 MHz, then click **Run**.
+   *You should see:* the green LED on all the time and the red LED blinking.
+7. While it runs, look at the small square drawn next to pin P1.0.
+   *You should see:* it turn red (high: LED off) and blue (low: LED on) in turn. Proteus shows every pin's logic state this way.
 
 ## Code
 
@@ -112,6 +136,17 @@ P1 = 0x7F  ->  green LED (P1.7) ON, red LED (P1.0) OFF
 - `PWR = 0;` turns on the green LED once; nothing changes it again, so it stays on.
 - Inside the loop, only P1.0 toggles, every 500 ms (about 1 blink per second).
 - Using `sbit` avoids disturbing the other pins of the port, which a byte write like `P1 = 0x00` would change.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| An LED never lights | LED placed the wrong way round | Flip it so the cathode (bar) goes to the pin |
+| LED is very dim or seems off | Resistor still at Proteus's default 10k | Set it to 330 Ω |
+| Red LED blinks but green is off, or `LED = 0` turns the LED **off** | LED wired active-high (pin → LED → ground) | Wire it +5 V → resistor → LED → pin |
+| `main.c(3): error C202: 'P1': undefined identifier` at the `sbit` line | `#include <reg51.h>` missing above the `sbit` lines | Put the include first |
+| The red LED looks always on, or blinks very slowly | The simulation is not running in real time, or the delay count is wrong | Check for the CPU-load message; measure `delay_ms` as in practical 3 |
+| A real LED or pin gets hot | No resistor, or too small a resistor | Always use a series resistor (330 Ω or more) |
 
 ## Try it
 

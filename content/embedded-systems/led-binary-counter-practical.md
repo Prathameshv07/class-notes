@@ -20,6 +20,13 @@ To simulate an 8-bit binary up-counter (0 to 255) using eight LEDs on Port 1 of 
 - [[led-interfacing-practical]] (active-low LEDs, resistor)
 - [[8051-programming-environment-practical]] (`unsigned char` and its range)
 
+## Before the lab
+
+- **Install:** Keil µVision 5 (C51) and Proteus 8.
+- **Revise first:** binary place values (1, 2, 4 … 128), and the range of `unsigned char` (0–255).
+- **Know this:** `~` inverts every bit; it is needed because the LEDs are active-low (Explanation below).
+- **Have ready:** the eight-LED circuit from practical 2, with **P1.7 placed on the left**.
+
 ## Setup
 
 ### Tools
@@ -28,6 +35,21 @@ To simulate an 8-bit binary up-counter (0 to 255) using eight LEDs on Port 1 of 
 - **Proteus**: AT89C51 with eight LED-RED + 330 Ω resistors on P1.0 … P1.7, wired active-low (the circuit from practical 2). Use a driver chip or 2.2 kΩ resistors on a real board, as up to eight LEDs are lit together.
 
 Place the LED for **P1.7 on the left** and **P1.0 on the right**, so the LEDs read like a binary number.
+
+## Steps
+
+1. Create Keil project `counter` (as in practical 1 steps 1–6), add the code below and press **F7**.
+   *You should see:* `"counter" - 0 Error(s), 0 Warning(s).`
+2. Press **Ctrl+F5**, open **Peripherals → I/O-Ports → Port 1** and press **F5**.
+   *You should see:* P1 going FF, FE, FD, FC … slowly in the Port 1 window.
+3. End the debug session (Ctrl+F5).
+   *You should see:* the editor layout again.
+4. Open the practical 2 circuit in Proteus. Check that the LED on P1.7 is on the **left** and P1.0 on the **right**.
+   *You should see:* the LEDs in the order of a binary number (most significant on the left).
+5. Double-click the AT89C51, set **Program File** to `counter.hex`, clock 11.0592 MHz; click **Run**.
+   *You should see:* the rightmost LED (P1.0) blink every step, P1.1 every two steps, and so on: binary counting.
+6. Watch until all eight LEDs are on, then one more step.
+   *You should see:* all LEDs go off: 255 wraps round to 0 (about 2 minutes 8 seconds per full count in real time).
 
 ## Code
 
@@ -95,6 +117,16 @@ Notice the pattern: P1.0 changes every step, P1.1 every 2 steps, P1.2 every 4 st
 ### How long does a full count take?
 
 256 counts × 0.5 s = **128 seconds** (about 2 minutes and 8 seconds) before the counter wraps round to 0.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| LEDs show 1-bits as **off** and 0-bits as on | `~` missing in `P1 = ~count;` | Invert before output |
+| The count reads backwards (right to left) | LEDs placed with P1.0 on the left | Rearrange so P1.7 is leftmost |
+| The LEDs never change | `count` is declared **inside** the `while (1)` loop, so it is reset to 0 every pass | Declare `count` before the loop, as in the code |
+| Counting is too fast to follow | Delay too short, or `delay_ms` missing from the loop | Keep `delay_ms(500);` inside the loop |
+| Counter stops at 255 | A condition such as `if (count < 255)` was added | Let `unsigned char` wrap round by itself |
 
 ## Try it
 

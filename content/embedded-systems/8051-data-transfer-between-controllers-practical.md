@@ -21,6 +21,13 @@ To demonstrate parallel data transfer between two 8051 microcontrollers using ge
 - [[8051-gpio-ports-practical]] (input and output pins)
 - [[communication-interfaces]] (parallel communication)
 
+## Before the lab
+
+- **Install:** Keil µVision 5 (C51) and Proteus 8.
+- **Revise first:** practical 5 ([[8051-gpio-ports-practical]]): input pins must be written with 1 first; and parallel communication in [[communication-interfaces]].
+- **Know this idea:** a **strobe** is a "data ready" signal on its own wire (Explanation below).
+- **Have ready:** two folders, `sender` and `receiver`, one Keil project in each.
+
 ## Setup
 
 ### Tools
@@ -38,6 +45,25 @@ To demonstrate parallel data transfer between two 8051 microcontrollers using ge
 | | P2.0 … P2.7 → 330 Ω → LEDs → +5 V | Show the received byte (active-low) |
 
 On real boards, the two boards **must** share ground, or the receiver cannot read the sender's levels correctly.
+
+## Steps
+
+1. Create Keil project `sender` (as in practical 1 steps 1–6), add the **Sender** code and press **F7**.
+   *You should see:* `"sender" - 0 Error(s), 0 Warning(s).` and `sender.hex` created.
+2. Create project `receiver` the same way with the **Receiver** code, and build.
+   *You should see:* `"receiver" - 0 Error(s), 0 Warning(s).` and `receiver.hex` created.
+3. In Proteus, place **two** AT89C51 chips, eight LED-RED and eight 330 Ω resistors.
+   *You should see:* U1 and U2 on the sheet.
+4. Wire U1's P1.0–P1.7 to U2's P1.0–P1.7, and U1's P3.2 to U2's P3.2. (Tip: instead of long wires, put the same **net label**, such as D0 … D7 and STB, on both ends.)
+   *You should see:* nine connections between the chips.
+5. Wire the eight LEDs active-low on U2's P2.0–P2.7 (+5 V → 330 Ω → LED → pin).
+   *You should see:* LEDs only on the receiver.
+6. Double-click U1 and set **Program File** to `sender.hex`; double-click U2 and set it to `receiver.hex`. Set both clocks to 11.0592 MHz.
+   *You should see:* each chip holding a different program.
+7. Click **Run**.
+   *You should see:* the receiver's LEDs count up in binary, one step about every half second.
+8. Stop the simulation, right-click the strobe wire (P3.2 to P3.2), choose **Delete Wire**, then click **Run** again.
+   *You should see:* the LEDs freeze: without the strobe the receiver never reads. Put the wire back.
 
 ## Code
 
@@ -138,6 +164,17 @@ The receiver's LEDs are active-low: a 0 turns an LED on. Inverting the byte with
 - ==**Interrupt instead of polling:**== P3.2 is also INT0, so the strobe could trigger an interrupt and the receiver would be free to do other work.
 - ==**Acknowledge line:**== the receiver answers on another pin after reading, for reliable transfer.
 - ==**Serial transfer:**== the 8051's UART (practical 11) needs only 2 wires instead of 9.
+
+## Common errors and fixes
+
+| Message or symptom | Cause | Fix |
+|---|---|---|
+| Receiver LEDs never change | The strobe line is missing, or goes to a different pin on each chip | Connect P3.2 of U1 to P3.2 of U2 |
+| Both chips behave the same | The same HEX file was loaded into both | U1 gets `sender.hex`, U2 gets `receiver.hex` |
+| LEDs show the opposite pattern (0 shows all on) | `~` was left out in the receiver, or LEDs wired active-high | Use `P2 = ~P1;` with active-low LEDs |
+| Receiver shows wrong or jumping values on a real board | No common ground between the two boards | Connect GND of both boards together |
+| Receiver skips counts | Sender's strobe pulse is too short for the receiver to see | Keep `delay_ms(1)` between `STB = 0;` and `STB = 1;` |
+| Net labels do not connect | Labels differ in spelling or case (`D0` vs `d0`) | Use exactly the same label text on both ends |
 
 ## Try it
 

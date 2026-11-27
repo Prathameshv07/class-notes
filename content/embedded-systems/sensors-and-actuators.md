@@ -86,6 +86,29 @@ So a **driver** stands between the pin and the actuator:
 
 ==A sensor feeds the controller through signal conditioning or an ADC; an actuator is driven by the controller through a driver circuit.==
 
+### Q6. Differentiate between analog and digital sensors. [2M]
+
+| Analog sensor | Digital sensor |
+|---|---|
+| ==Output is a continuous voltage or current== | ==Output is 0/1 or a digital number== |
+| Needs an ADC before the microcontroller | Connects directly to a port pin or serial bus |
+| LM35, LDR | PIR module, push button, DHT11 |
+
+### Q7. With a block diagram, explain how an embedded system reads a temperature sensor and controls a fan. ⭐
+
+```mermaid
+flowchart LR
+  accTitle: Temperature-controlled fan
+  accDescr: The LM35 sensor feeds an ADC, the microcontroller compares the reading with a set limit, and drives a relay or transistor that switches the fan.
+  T[LM35 sensor] --> A[ADC] --> M[Microcontroller] --> D[Driver / relay] --> F[Fan]
+```
+
+- ==**Sensor:**== the LM35 gives 10 mV per °C.
+- ==**ADC:**== converts the voltage into a number (the 8051 has no built-in ADC).
+- ==**Microcontroller:**== converts the number to °C and compares it with the set limit (e.g. 30 °C).
+- ==**Driver:**== a transistor or relay switches the fan, since a port pin cannot supply its current.
+- ==**Action:**== above the limit the fan turns on; below it, off.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -129,16 +152,6 @@ flowchart LR
 > [!warning] Common mistake
 > **Connecting a motor or relay coil straight to a port pin.** The pin cannot supply that current, and the coil's voltage spike when switching off can destroy it. Always use a driver, and a diode across relay and motor coils.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define sensor and actuator with two examples each. ⭐
-2. Differentiate between analog and digital sensors.
-3. Why is a driver circuit needed between a microcontroller and an actuator?
-
-**Long answer (5 marks)**
-1. Explain sensors and actuators in embedded systems, with their types and examples. ⭐
-2. With a block diagram, explain how an embedded system reads a temperature sensor and controls a fan.
 
 ## Sources
 

@@ -83,6 +83,15 @@ Mask ROM is cheapest at very high volume; OTP suits medium volume when the code 
 | ==Large data: logs, images, audio== | NAND flash, SD card |
 | ==Clock time and settings during power cuts== | Battery-backed RAM (NVRAM) in an RTC chip |
 
+### Q6. Differentiate between EEPROM and flash memory. [2M]
+
+| Point | EEPROM | Flash |
+|---|---|---|
+| ==Erased in units of== | One byte | A whole block |
+| ==Speed for large writes== | Slow | Fast |
+| ==Size and cost== | Small, costlier per bit | Large, cheap per bit |
+| ==Typical use== | Settings, calibration data | Program memory, bulk data |
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -139,16 +148,6 @@ flowchart TB
 > [!warning] Common mistake
 > **Saving a value to flash or EEPROM in a fast loop.** Writing every millisecond wears the memory out within hours or days. Save only when the value changes, or at intervals, and keep fast-changing data in RAM.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Differentiate between volatile and non-volatile memory with examples.
-2. Compare SRAM and DRAM. ⭐
-3. Differentiate between EEPROM and flash memory.
-
-**Long answer (5 marks)**
-1. Explain the different types of ROM used in embedded systems. ⭐
-2. Explain the types of memory used in embedded systems, and state which memory is used for program, data and settings, with reasons.
 
 ## Sources
 

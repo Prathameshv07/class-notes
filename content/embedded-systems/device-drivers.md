@@ -122,16 +122,6 @@ flowchart TB
 > [!warning] Common mistake
 > **Using registers directly in the application "just this once".** It works until the hardware or pin changes, and then every scattered register write must be found and fixed. Keep all register access inside the driver.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is a device driver? Why is it needed? ⭐
-2. List the typical functions provided by a device driver.
-3. What is a timer driver?
-
-**Long answer (5 marks)**
-1. Explain the role of device drivers in an embedded system, with their types and functions. ⭐
-2. Explain a timer driver for the 8051 with its functions and an example of its use.
 
 ## Sources
 

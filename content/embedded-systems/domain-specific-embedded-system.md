@@ -135,16 +135,6 @@ flowchart LR
 > [!warning] Common mistake
 > **Mixing up CAN and LIN.** CAN is fast and robust, for critical systems. LIN is slow and cheap, for simple body functions like windows and mirrors.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is a domain-specific embedded system? How does it differ from an application-specific one? ⭐
-2. What is an ECU? Name four ECUs in a car.
-3. Name three in-vehicle communication buses and state one use of each.
-
-**Long answer (5 marks)**
-1. Explain the automotive embedded system as a domain-specific embedded system, with its high-speed and low-speed subsystems. ⭐
-2. Explain the communication buses used in automotive embedded systems and the key players of the automotive embedded industry.
 
 ## Sources
 

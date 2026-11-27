@@ -79,6 +79,26 @@ The interface is "application-specific" because it shows only what that one task
 > [!beyond] Beyond the syllabus
 > Many modern systems combine several purposes with a cloud link. A smart electricity meter collects usage (data collection), sends it to the board's servers (communication), and lets the board cut supply remotely (control). This combination is what the Internet of Things means in practice, and you will meet it in the Sem 5 IoT course.
 
+### Q6. Differentiate between the monitoring and control purposes of embedded systems. [2M]
+
+| Monitoring | Control |
+|---|---|
+| ==Observes a quantity and reports it== | ==Observes a quantity and acts to change it== |
+| Uses sensors and a display or alarm | Uses sensors **and** actuators |
+| ECG machine, smoke detector | Air conditioner, sprinkler system |
+
+### Q7. Show how one real device serves more than one purpose of embedded systems.
+
+Example: a **cold-storage truck carrying vaccines**.
+
+- ==**Data collection:**== temperature sensors inside the container.
+- ==**Monitoring:**== an alarm if the temperature rises above 8 °C.
+- ==**Control:**== the cooling unit switches on and off to hold 2–8 °C.
+- ==**Data communication:**== a GPS-GSM unit sends temperature and location to the depot.
+- ==**Application-specific user interface:**== a small display and buzzer for the driver.
+
+One device, five purposes: most real embedded systems combine several.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -127,16 +147,6 @@ flowchart LR
 > [!warning] Common mistake
 > **Giving one purpose per device.** Most real devices serve several purposes. In a long answer, show this: it earns marks.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. List any six application areas of embedded systems with one example each.
-2. Differentiate between monitoring and control purposes of embedded systems. ⭐
-3. What is meant by an application-specific user interface? Give two examples.
-
-**Long answer (5 marks)**
-1. Explain the purposes of embedded systems with suitable examples. ⭐
-2. Taking any one real device, show how it serves more than one purpose of embedded systems.
 
 ## Sources
 

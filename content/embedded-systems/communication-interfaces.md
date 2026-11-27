@@ -139,16 +139,6 @@ flowchart LR
 > [!warning] Common mistake
 > **"Serial is always slower than parallel."** Over long cables, parallel lines interfere with each other and drift out of step. That is why fast modern links (USB, SATA, PCIe) are all serial.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Differentiate between serial and parallel communication. ⭐
-2. What is UART? Why is it called asynchronous?
-3. List four external communication interfaces used in embedded systems.
-
-**Long answer (5 marks)**
-1. Explain onboard communication interfaces I2C and SPI and compare them. ⭐
-2. Explain the external communication interfaces of embedded systems, wired and wireless, with one application each.
 
 ## Sources
 

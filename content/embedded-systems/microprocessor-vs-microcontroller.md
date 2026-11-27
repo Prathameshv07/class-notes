@@ -131,16 +131,6 @@ flowchart TB
 > [!warning] Common mistake
 > **"Arduino is a microcontroller."** Arduino is a development **board** and software platform. The microcontroller on an Arduino Uno is the ATmega328P chip.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define microprocessor and microcontroller. ⭐
-2. Why are microcontrollers preferred in embedded systems? Give three reasons.
-3. Name two microprocessors and two microcontrollers.
-
-**Long answer (5 marks)**
-1. Differentiate between microprocessor and microcontroller on at least six points. ⭐
-2. With a block diagram, compare a microprocessor-based system and a microcontroller-based system.
 
 ## Sources
 

@@ -81,6 +81,22 @@ Remainder (last 3 bits) = 111
 - ==**Check:**== 110101111 ÷ 1011 gives remainder **000**: no error.
 - ==**With an error**== (fifth bit flipped: 110111111), the remainder is **110**, not zero: error detected.
 
+### Q6. Find the CRC for data 1101 with generator 1011. ⭐ [2M]
+
+The generator 1011 has degree 3, so append three zeros: 1101**000**.
+
+```text
+1101000
+1011            XOR -> 0110000
+ 1011           XOR -> 0011100
+  1011          XOR -> 0001010
+   1011         XOR -> 0000001
+Remainder (last 3 bits) = 001
+```
+
+- ==**CRC is 001**==; transmitted block = 1101**001**.
+- ==**Check:**== 1101001 ÷ 1011 leaves remainder 000, so no error is detected.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -127,16 +143,6 @@ flowchart LR
 > [!warning] Common mistake
 > **Appending the wrong number of zeros.** Append as many zeros as the **degree** of the generator, which is one less than its number of bits. Generator 1011 (4 bits) means 3 zeros and a 3-bit CRC.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Why is memory testing needed in embedded systems?
-2. What is a checksum? State one limitation.
-3. Find the CRC for data 1101 with generator 1011.
-
-**Long answer (5 marks)**
-1. Explain the data bus, address bus and device tests used for RAM testing. ⭐
-2. What is CRC? Explain its calculation and checking with an example. ⭐
 
 ## Sources
 

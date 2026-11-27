@@ -84,6 +84,21 @@ If a sensor reports a fault (no water, door opened, heavy imbalance), the contro
 > [!beyond] Beyond the syllabus
 > Many "smart" or "AI wash" models estimate the load weight and dirt level from the motor's effort and from a turbidity (cloudiness) sensor, then choose water, time and detergent automatically. Older models did this with **fuzzy logic** rules; newer ones may use small machine learning models running on the controller.
 
+### Q6. Why must a washing machine controller check the door lock before starting? [2M]
+
+- ==**Safety:**== a spinning drum full of water can injure a hand or flood the floor if the door opens.
+- ==**The firmware starts only after the door-lock switch reports "closed and locked"**==, and keeps the door locked until the drum stops and the water drains.
+
+### Q7. Draw and explain the block diagram of a washing machine's embedded system. ⭐
+
+Draw the block diagram shown in the **Diagram** section: inputs on the left, the microcontroller in the middle, outputs on the right.
+
+- ==**Inputs:**== keypad/knob, water-level sensor, door-lock switch, temperature sensor, speed and imbalance sensors.
+- ==**Microcontroller with firmware:**== reads the inputs and runs the wash program stage by stage.
+- ==**Outputs:**== drum motor, inlet valve, drain pump, heater, door lock, display and buzzer.
+- ==**Working:**== fill, heat, wash, drain, rinse and spin, each stage ended by a sensor reading or a timer.
+- ==**Protection:**== the door stays locked, and faults (no water, imbalance) pause the cycle with an error code.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -131,16 +146,6 @@ flowchart LR
 > [!warning] Common mistake
 > **Confusing application-specific with domain-specific.** A washing machine is one application. Automotive is a domain containing many applications (engine control, ABS, airbags).
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is an application-specific embedded system? Give two examples.
-2. List the sensors and actuators used in a washing machine. ⭐
-3. Why must a washing machine controller check the door lock before starting?
-
-**Long answer (5 marks)**
-1. With a neat block diagram, explain the washing machine as an application-specific embedded system. ⭐
-2. Explain the sequence of operations in an automatic washing machine and the role of its sensors at each step. ⭐
 
 ## Sources
 

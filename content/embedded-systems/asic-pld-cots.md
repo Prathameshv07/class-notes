@@ -85,6 +85,18 @@ Examples:
 | ==Already tested and reliable== | ==Part may be discontinued== |
 | No need to design from scratch | May include unused features; less optimised |
 
+### Q6. Compare ASIC and FPGA. When would a designer choose each? ⭐
+
+| Point | ASIC | FPGA |
+|---|---|---|
+| ==Design cost (NRE)== | Very high | Low |
+| ==Cost per unit== | Very low at high volume | Higher |
+| ==Can it be changed later?== | No | Yes, reprogram it |
+| ==Speed and power== | Fastest, lowest power | Slower, more power |
+| ==Time to market== | Long (months) | Short (weeks) |
+
+==Choose an **ASIC** for very high volumes with a fixed design== (fitness bands, phone chips). ==Choose an **FPGA** for low volumes, prototypes, or designs that may change== (radar, test equipment, ASIC prototyping).
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -131,16 +143,6 @@ flowchart LR
 > [!warning] Common mistake
 > **"ASICs are always expensive."** The design is expensive; each chip, once in mass production, is very cheap. Whether an ASIC is costly depends on how many units are made.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is an ASIC? State two advantages and one disadvantage.
-2. What is a PLD? Name its types. ⭐
-3. What are COTS components? Give two examples.
-
-**Long answer (5 marks)**
-1. Explain ASIC, PLD and COTS components with their advantages and disadvantages. ⭐
-2. Compare ASIC and FPGA. When would a designer choose each?
 
 ## Sources
 

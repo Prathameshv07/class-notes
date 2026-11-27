@@ -88,6 +88,13 @@ You will study each block in later lectures of this unit.
 > [!beyond] Beyond the syllabus
 > The line between the two kinds of system is moving. Small microcontrollers can now run trained machine learning models, an area called **TinyML** or **edge AI**. Wake-word detection ("Hey Google") and smart doorbells that recognise a person run a tiny neural network inside an embedded chip, without sending every frame to the cloud. For Data Science students, this is where your models and this subject meet.
 
+### Q6. What is firmware? How is it different from application software on a PC? [2M]
+
+==Firmware is the fixed program stored in an embedded system's non-volatile memory, written by the maker to run that device.==
+
+- ==**Firmware:**== stored in ROM/flash, one fixed job, changed only by the maker (e.g. a firmware update).
+- ==**PC application software:**== installed and removed by the user, many different programs, runs through an operating system.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -137,17 +144,6 @@ flowchart LR
 > [!warning] Common mistake
 > **"Firmware can never be changed."** Makers can update firmware, for example over-the-air updates in cars and phones. What the user cannot do is install their own programs to change the device's purpose.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define an embedded system. Give two examples. ⭐
-2. What is firmware? How is it different from application software on a PC?
-3. State any four differences between an embedded system and a general-purpose computer.
-4. Is a smartphone an embedded system? Justify your answer briefly.
-
-**Long answer (5 marks)**
-1. Compare embedded systems and general-purpose computer systems on at least six points, with an example of each. ⭐
-2. With a neat block diagram, explain the building blocks of an embedded system, using a washing machine or a UPI soundbox as an example. ⭐
 
 ## Sources
 

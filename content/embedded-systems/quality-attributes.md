@@ -82,6 +82,15 @@ Availability = 2000 / (2000 + 4) × 100 = 2000 / 2004 × 100 ≈ **99.8%**.
 
 ==MTBF measures reliability, MTTR measures maintainability, and availability is MTBF divided by (MTBF + MTTR).==
 
+### Q6. An embedded system has MTBF = 1,000 h and MTTR = 10 h. Find its availability. ⭐ [2M]
+
+$$\text{Availability} = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}} \times 100\%$$
+
+- MTBF = 1,000 h (average working time between failures), MTTR = 10 h (average repair time).
+- Availability = 1000 / (1000 + 10) × 100 = 1000 / 1010 × 100 ≈ **99.0%**.
+
+The system is ==available about 99% of the time==.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -136,16 +145,6 @@ flowchart TB
 > [!warning] Common mistake
 > **Mixing up security and safety.** Security protects the **system** from people (hackers, theft). Safety protects **people** from the system (injury, fire). A pacemaker needs both.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Differentiate between operational and non-operational quality attributes.
-2. Define MTBF and MTTR. An embedded system has MTBF = 1,000 h and MTTR = 10 h. Find its availability. ⭐
-3. Differentiate between response and throughput.
-
-**Long answer (5 marks)**
-1. Explain the operational quality attributes of an embedded system with examples. ⭐
-2. Explain the non-operational quality attributes of an embedded system with examples.
 
 ## Sources
 

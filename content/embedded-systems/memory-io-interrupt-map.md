@@ -125,16 +125,6 @@ flowchart TB
 > [!warning] Common mistake
 > **Mixing up the vector address and the ISR.** The vector address is only where the processor jumps; the ISR is the code that runs. On the 8051 the vector usually holds just a jump to the ISR.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is a memory map? Why is it needed?
-2. Differentiate between memory-mapped I/O and I/O-mapped I/O.
-3. Write the vector addresses of the 8051 interrupts. ⭐
-
-**Long answer (5 marks)**
-1. Explain the memory map of the 8051 microcontroller with a neat diagram. ⭐
-2. Explain the memory map, I/O map and interrupt map of an embedded system, with 8051 examples. ⭐
 
 ## Sources
 

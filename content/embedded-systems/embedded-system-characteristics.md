@@ -71,6 +71,15 @@ Example: an ABS (anti-lock braking) controller reads wheel-speed sensors many ti
 
 ==Embedded systems must deliver their function within tight limits of time, power, size and cost.==
 
+### Q6. Show how an ATM reflects the characteristics of an embedded system.
+
+- ==**Application specific:**== it only dispenses cash and handles account services.
+- ==**Reactive and real-time:**== it responds to the card, PIN and keys within seconds.
+- ==**Harsh environment:**== it runs 24×7, often outdoors, in heat and dust.
+- ==**Distributed:**== separate controllers handle the card reader, cash dispenser, printer and network link.
+- ==**Power concerns:**== a UPS keeps it running during power cuts.
+- ==**Small size where possible:**== each controller is a compact board inside the cabinet.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -120,16 +129,6 @@ flowchart TB
 > [!warning] Common mistake
 > **Confusing characteristics with quality attributes.** Characteristics describe what embedded systems **are** (reactive, distributed, small). Quality attributes describe how **well** a system does its job (reliability, maintainability). Quality attributes are the next lecture.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is meant by reactive and real-time behaviour of an embedded system? ⭐
-2. What is a distributed embedded system? Give an example.
-3. How do embedded systems address power concerns?
-
-**Long answer (5 marks)**
-1. Explain the characteristics of embedded systems with suitable examples. ⭐
-2. Taking an ATM or a car as an example, show how it reflects the characteristics of an embedded system.
 
 ## Sources
 

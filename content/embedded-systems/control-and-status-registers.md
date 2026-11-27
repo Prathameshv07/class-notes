@@ -141,16 +141,6 @@ flowchart LR
 > [!warning] Common mistake
 > **Overwriting the other timer's settings.** `TMOD = 0x01;` also sets Timer 1's bits to 0000. If Timer 1 is already in use (for example for the serial port), change only Timer 0's bits: `TMOD = (TMOD & 0xF0) | 0x01;`.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What are control and status registers?
-2. Explain the bits of the 8051 TMOD register. ⭐
-3. What is a flag? Give two examples from the 8051.
-
-**Long answer (5 marks)**
-1. Explain control, status and data registers with 8051 examples (TMOD, TCON, SCON). ⭐
-2. Explain how a program uses control and status registers to generate a time delay with Timer 0. ⭐
 
 ## Sources
 

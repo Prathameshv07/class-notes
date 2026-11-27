@@ -96,6 +96,19 @@ The CISC program is shorter, but its one instruction takes many cycles. Each RIS
 > [!beyond] Beyond the syllabus
 > The line has blurred. Modern Intel and AMD chips accept CISC x86 instructions but internally break them into RISC-like "micro-operations". **RISC-V** is an open, royalty-free RISC instruction set; India's Shakti processors from IIT Madras are based on it.
 
+### Q6. What is a load/store architecture? [2M]
+
+==In a load/store architecture, only LOAD and STORE instructions access memory; all arithmetic and logic work on registers.==
+
+- Data is first loaded into registers, processed there, then stored back.
+- ==It is a key feature of RISC processors== such as ARM and RISC-V.
+
+### Q7. Why is pipelining easier in RISC processors? [2M]
+
+- ==**Fixed-length instructions**== are fetched and decoded in the same time every cycle.
+- ==**Most instructions take one cycle**==, so pipeline stages stay balanced.
+- ==**Only LOAD/STORE touch memory**==, so fewer instructions wait for memory in the middle of the pipeline.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -141,16 +154,6 @@ flowchart LR
 > [!warning] Common mistake
 > **Calling the 8051 a RISC processor.** The 8051 is CISC: it has many instructions of different lengths (1 to 3 bytes) and several addressing modes, including direct memory operations.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Expand RISC and CISC. Give two examples of each. ⭐
-2. What is a load/store architecture?
-3. Why is pipelining easier in RISC processors?
-
-**Long answer (5 marks)**
-1. Differentiate between RISC and CISC architectures on at least six points. ⭐
-2. Explain RISC and CISC with an example showing how the same task is coded in each.
 
 ## Sources
 

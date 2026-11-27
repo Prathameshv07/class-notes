@@ -69,6 +69,12 @@ Embedded systems often run **unattended**, so they must recover on their own. A 
 - ==**Log the cause:**== on restart, check whether it was a watchdog reset and record it, so the bug can be found.
 - ==**Never use it to hide bugs:**== a watchdog is a safety net, not a fix.
 
+### Q6. Why should the watchdog not be kicked from an interrupt routine? [2M]
+
+- ==**An interrupt routine can keep running when the main loop is stuck**==, for example a timer ISR firing every millisecond.
+- ==**The watchdog would keep being kicked**==, never time out, and never reset the stuck system.
+- ==**So kick it only from the main loop**==, after all tasks have run.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -110,16 +116,6 @@ flowchart TB
 > [!warning] Common mistake
 > **Confusing the watchdog timer with Timer 0 or Timer 1.** Timers 0 and 1 measure time for your program. The watchdog is a separate safety timer whose only job is to reset a stuck system.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is a watchdog timer? Why is it needed? ⭐
-2. What is meant by "kicking" or "feeding" the watchdog?
-3. Why should the watchdog not be kicked from an interrupt routine?
-
-**Long answer (5 marks)**
-1. Explain the working of a watchdog timer with a flowchart. ⭐
-2. Explain the watchdog timer, its need in embedded systems and good practices for using it, with an 8051-family example.
 
 ## Sources
 

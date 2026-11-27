@@ -104,6 +104,12 @@ This classification is by **triggering**: ==what makes the system act==.
 - ==**Event-triggered:** acts when something happens==, such as a key press or a sensor crossing a limit (fire alarm).
 - ==**Time-triggered:** acts at fixed time intervals==, such as reading a temperature every second (data logger).
 
+### Q8. Classify a TV remote, an airbag controller and a smart electricity meter. [2M]
+
+- ==**TV remote:**== small-scale, stand-alone, event-triggered (acts on a key press).
+- ==**Airbag controller:**== hard real-time, event-triggered (acts on a crash).
+- ==**Smart electricity meter:**== small-scale, networked, time-triggered (reads and reports at fixed intervals).
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -155,17 +161,6 @@ flowchart TB
 > [!warning] Common mistake
 > **"Each device belongs to exactly one class."** The classes are different viewpoints, not boxes. A smart meter can be small-scale, networked and time-triggered all at once. In exams, name the classification scheme before naming the class.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Write a short note on the history of embedded systems.
-2. Differentiate between hard real-time and soft real-time systems with one example each. ⭐
-3. What are event-triggered and time-triggered embedded systems?
-4. Classify the following: (a) TV remote, (b) airbag controller, (c) smart electricity meter.
-
-**Long answer (5 marks)**
-1. Explain the classification of embedded systems based on generation, with examples. ⭐
-2. Classify embedded systems based on complexity and on functional requirements. Give two examples of each type. ⭐
 
 ## Sources
 

@@ -138,16 +138,6 @@ flowchart LR
 > [!warning] Common mistake
 > **"Firmware is always written in assembly."** That was true decades ago. Today most firmware is written in Embedded C, with assembly used only for small time-critical parts.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is embedded firmware? Where is it stored? ⭐
-2. State the advantages and disadvantages of writing firmware in assembly language.
-3. What is a super loop? Why does it never end?
-
-**Long answer (5 marks)**
-1. Explain the firmware design approaches: super loop based and operating system based. ⭐
-2. Compare firmware development in assembly language and in Embedded C. Describe how firmware is loaded into a microcontroller.
 
 ## Sources
 

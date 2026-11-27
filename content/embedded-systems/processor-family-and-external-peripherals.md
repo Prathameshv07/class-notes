@@ -126,16 +126,6 @@ flowchart LR
 > [!warning] Common mistake
 > **Adding external chips for features already on-chip.** Always check the datasheet first: a newer family member may include the ADC, EEPROM or watchdog you were about to add.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is a processor family? State two advantages.
-2. Compare the 8051, 8052 and AT89C51.
-3. What are external peripherals? Name four with their use.
-
-**Long answer (5 marks)**
-1. Explain the 8051 family of microcontrollers with a comparison table. ⭐
-2. Explain external peripherals in an embedded system, how they are connected, and the factors used to select a microcontroller. ⭐
 
 ## Sources
 

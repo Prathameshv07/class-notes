@@ -102,6 +102,22 @@ Little endian
 > [!beyond] Beyond the syllabus
 > The 8051 has almost no instructions that read 16-bit values from memory, so for C variables the **compiler** decides the byte order. Keil C51 stores multi-byte variables in big-endian order (Keil's own knowledge base confirms this), while the free SDCC compiler stores them in little-endian order. The same C code can therefore lay out memory differently on the same chip.
 
+### Q6. Show how 0xA1B2C3D4 is stored from address 2000 in big-endian and little-endian processors. ⭐ [2M]
+
+| Address | 2000 | 2001 | 2002 | 2003 |
+|---|---|---|---|---|
+| ==Big endian== | A1 | B2 | C3 | D4 |
+| ==Little endian== | D4 | C3 | B2 | A1 |
+
+==Big endian puts the most significant byte== (A1) at the lowest address; ==little endian puts the least significant byte== (D4) there.
+
+### Q7. What is network byte order? [2M]
+
+==Network byte order is the byte order used to send multi-byte numbers over a network: it is **big endian**.==
+
+- TCP/IP headers (ports, addresses, lengths) are sent most significant byte first.
+- ==Little-endian devices convert before sending== and after receiving, with functions such as `htons()` and `ntohs()`.
+
 ## Analogy and real-life example
 
 ### Analogy
@@ -141,16 +157,6 @@ flowchart LR
 > [!warning] Common mistake
 > **Thinking single bytes are affected.** An 8-bit `char` or a text string stored one character per byte looks the same in both systems. Endianness matters only for values of 2 or more bytes.
 
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is endianness? Define big endian and little endian. ⭐
-2. Show how 0xA1B2C3D4 is stored from address 2000 in big-endian and little-endian processors. ⭐
-3. What is network byte order?
-
-**Long answer (5 marks)**
-1. Explain big-endian and little-endian processors with a memory diagram and examples of each. ⭐
-2. Why is endianness important when an embedded device communicates with a PC or a network? Explain with an example.
 
 ## Sources
 

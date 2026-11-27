@@ -16,12 +16,13 @@ Rules come from `NOTES_PROJECT_PLAN.md`, Section 18.
 - **Same syntax as Sutra** (plan Section 8.5): KaTeX maths, Mermaid diagrams, Obsidian callouts, fenced code.
 - **Same style guide** (plan Section 11): simple English, Q&A explanations, paraphrase, never copy textbooks, mark unverified chapter references `verify`.
 - **Answers under about 120 words.** Keep each `###` answer short; prefer bullets and tables; split a long answer into two questions. Present mode turns each `###` into a slide, and short chunks read better on phones.
-- **Write-down highlights.** Students copy only "In one line", "Key points", the diagram, and `==highlighted==` lines in the explanation. Highlight at most 3–5 short lines per note (definitions, rules, lists the exam asks for), never a whole paragraph, and never inside the three write-down sections.
+- **Exam questions live in Explained** (plan decision 48). There is no separate "Exam questions" section. Exam papers are generated from the `###` questions in Explained, so they should cover every question the exam can ask. End a heading with ` ⭐` for an important question (dictated in class) and with ` [2M]` for a 2-mark question (5 marks is the default). Q numbers never change once a note is `reviewed`.
+- **Answer skeletons** (plan Section 11). Students copy "In one line", "Key points", the diagram, and the `==highlighted==` skeletons. In each exam-likely answer, highlight the definition and the key phrase that opens each bullet (usually 3–8 words; at most a definition plus 6 points). Never highlight a whole bullet or paragraph, and never inside "In one line", "Key points", "Diagram", "Why should you care?", analogies or `[!beyond]`.
 - **Beyond the syllabus.** Anything not examined goes in a `> [!beyond] Beyond the syllabus` callout, never mixed into the main explanation. "Syllabus" means the course codes in the note's `syllabus` field, so every note sets it (codes below).
 - **Alt text everywhere.** Every Mermaid diagram has `accTitle:` and `accDescr:` lines; every image is `![alt text](path)` with real alt text.
-- **No icons or emojis in notes** (plan Sections 11 and 12). The engine adds icons and colours per section automatically.
+- **No icons or emojis in notes** (plan Sections 11 and 12), except the ` ⭐` that marks an important question. The engine adds icons and colours per section automatically.
 - **Separate from the main site.** No `REGISTRY.md` rows, no career paths, no wikilinks to main-site notes. Link to a main-site note by URL only.
-- **Separate from the exam question bank** (`teacher-desk-data`, see `TEACHER_DESK_PLAN.md`). Students see the "Exam questions" in these notes, so a DESK chat for these subjects must write new questions, never copy them from here.
+- **Feeds teacher-desk.** `teacher-desk` builds question papers from the `###` questions of **reviewed** notes here, using the notes' answers as the key (`TEACHER_DESK_PLAN.md`, Section 4). Its usage log stays private.
 - **Delivery:** export PDFs from Obsidian. The Markdown is the only source; never keep a separate Word or PDF version.
 
 **Syllabus codes** (for the `syllabus` field)
@@ -70,8 +71,8 @@ In Obsidian, the link in `_index.md` turns from unresolved (faded) to resolved a
 | Careers that use it | Diagram (optional) | Output |
 | Map of the subject (Mermaid) | Key points | Explanation |
 | Sources | Common mistakes (optional) | Try it (optional) |
-| | Exam questions (short + long) | Viva questions |
-| | Sources | Sources |
+| | Sources | Viva questions |
+| | | Sources |
 
 For practicals, **Setup** names the tool (Cisco Packet Tracer, Keil µVision, Proteus). **Code** is Cisco IOS / ASA commands (Security in Computing) or 8051 Embedded C in Keil (Embedded Systems).
 **Output** is the real `show` command output, or a screenshot of the Proteus or Packet Tracer result saved in `content/assets/img/<subject-id>/`, with alt text.

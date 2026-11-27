@@ -21,14 +21,19 @@ sources:
 ## Explained
 
 <!-- Required. Q&A style. Each answer under about 120 words; prefer bullets and tables.
-     Highlight at most 3–5 short lines in the whole note with ==...== (definitions, rules, lists the exam asks for).
+     Exam papers are generated from these ### questions (plan decision 48), so cover every question the exam can ask.
+     Add " ⭐" at the end of a heading for an important question (dictated in class).
+     Questions are 5 marks by default; add " [2M]" at the very end for a short 2-mark question.
+     Answer skeleton: in exam-likely answers, highlight with ==...== the definition and the key phrase opening each bullet
+     (usually 3–8 words; at most a definition + 6 points; never a whole bullet or paragraph).
+     Q numbers never change once the note is reviewed: add new ones at the end, split as Q3 and Q3b.
      Anything outside the syllabus goes in a [!beyond] callout, never in the main answer. -->
 
-### Q1. What is …?
+### Q1. What is …? [2M]
 
 ### Q2. Why do we need …?
 
-### Q3. How does … work?
+### Q3. How does … work? ⭐
 
 > [!beyond] Beyond the syllabus
 > Optional. Delete if not needed.
@@ -63,16 +68,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > 
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. 
-2. 
-
-**Long answer (5 marks)**
-1. 
-2. 
 
 ## Sources
 

@@ -26,7 +26,7 @@ A number system writes quantities using a fixed set of digits, where each digit'
 
 ## Explained
 
-### Q1. What is a number system?
+### Q1. What is a number system? ⭐
 
 ==A number system is a way of representing quantities using a fixed set of symbols called digits.==
 
@@ -52,7 +52,7 @@ For base 10:
 
 So $(345.67)_{10} = 3 \times 100 + 4 \times 10 + 5 \times 1 + 6 \times 0.1 + 7 \times 0.01$.
 
-### Q3. What are the four number systems used in digital electronics?
+### Q3. What are the four number systems used in digital electronics? ⭐
 
 | System | Base | Digits | Example | Where you see it |
 |---|---|---|---|---|
@@ -63,7 +63,7 @@ So $(345.67)_{10} = 3 \times 100 + 4 \times 10 + 5 \times 1 + 6 \times 0.1 + 7 \
 
 In hexadecimal, ==the letters stand for values: A = 10, B = 11, C = 12, D = 13, E = 14, F = 15.==
 
-### Q4. Why do digital systems use binary?
+### Q4. Why do digital systems use binary? ⭐
 
 - ==**Two states are easy to build:**== a transistor is either on or off; a voltage is either high (about 5 V or 3.3 V) or low (about 0 V).
 - ==**Reliable against noise:**== a slightly wrong voltage is still clearly "high" or "low", so small disturbances do not change the value.
@@ -84,7 +84,7 @@ In $(1\,0110)_2$, the MSB is the leftmost 1 (weight 16) and the LSB is the right
 
 With n bits you can write $2^n$ different patterns: 8 bits give $2^8 = 256$ values, 0 to 255.
 
-### Q6. How do you convert any base to decimal?
+### Q6. How do you convert any base to decimal? ⭐
 
 ==Multiply each digit by its positional weight and add the results.==
 
@@ -226,15 +226,15 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Define base (radix) of a number system. Give the base and digits of binary, octal, decimal and hexadecimal systems.
+1. Define base (radix) of a number system. Give the base and digits of binary, octal, decimal and hexadecimal systems. ⭐
 2. What is positional weight? Write the weights of the first four integer positions and first two fraction positions in binary.
-3. Convert $(110101.11)_2$ to decimal.
+3. Convert $(110101.11)_2$ to decimal. ⭐
 4. Convert $(3B7)_{16}$ and $(645)_8$ to decimal.
 5. Define bit, nibble, byte, MSB and LSB.
 
 **Long answer (5 marks)**
-1. Explain the binary, octal, decimal and hexadecimal number systems with their base, digits and one example each. Why do digital systems use binary?
-2. Explain the method of converting a number in any base to decimal. Convert $(10110.011)_2$, $(127.4)_8$ and $(1C.8)_{16}$ to decimal, showing all steps.
+1. Explain the binary, octal, decimal and hexadecimal number systems with their base, digits and one example each. Why do digital systems use binary? ⭐
+2. Explain the method of converting a number in any base to decimal. Convert $(10110.011)_2$, $(127.4)_8$ and $(1C.8)_{16}$ to decimal, showing all steps. ⭐
 
 ## Sources
 

@@ -24,7 +24,7 @@ Justifying security investment means showing management, in business terms, that
 
 ## Explained
 
-### Q1. Why is security investment hard to justify?
+### Q1. Why is security investment hard to justify? ⭐
 
 - ==**Success is invisible.**== When security works, nothing happens, and "nothing happened" looks like wasted money.
 - ==**Losses are uncertain.**== A breach may or may not happen this year.
@@ -46,7 +46,7 @@ A breach costs far more than fixing the computers:
 
 According to IBM's 2025 Cost of a Data Breach report, the average cost of a breach to an organisation in India reached about ₹22 crore (INR 220 million), 13% more than in 2024. Phishing was the most common cause.
 
-### Q3. What business benefits does security bring?
+### Q3. What business benefits does security bring? ⭐
 
 Security is not only loss prevention. It also helps the business:
 
@@ -56,7 +56,7 @@ Security is not only loss prevention. It also helps the business:
 - ==**Compliance:**== meeting legal and customer requirements (DPDP Act, RBI rules, ISO 27001) avoids penalties and wins contracts.
 - ==**Trust:**== customers choose the bank or app they believe is safe.
 
-### Q4. How is the money value calculated? (ALE)
+### Q4. How is the money value calculated? (ALE) ⭐
 
 Security teams estimate the **expected yearly loss** from a risk:
 
@@ -68,7 +68,7 @@ $$ALE = SLE \times ARO$$
 
 How to find SLE and ARO is covered in [[risk-analysis]]. Here we use ALE to judge a control.
 
-### Q5. How do we decide whether a control is worth buying? (ROSI)
+### Q5. How do we decide whether a control is worth buying? (ROSI) ⭐
 
 ==**Return on Security Investment (ROSI)** compares the loss avoided with the cost of the control==:
 
@@ -144,13 +144,13 @@ flowchart LR
 
 **Short answer (2–3 marks)**
 1. Why is it difficult to justify investment in security?
-2. Define SLE, ARO and ALE.
-3. What is ROSI? State its formula.
+2. Define SLE, ARO and ALE. ⭐
+3. What is ROSI? State its formula. ⭐
 4. List any four business benefits of security.
 
 **Long answer (5 marks)**
-1. Explain how an organisation can justify its investment in information security.
-2. A server worth ₹10,00,000 loses 40% of its value in one attack, expected once every 2 years. A control costing ₹60,000 per year reduces the loss per attack to 10% of the value. Calculate ALE before and after, and ROSI. Should the control be bought?
+1. Explain how an organisation can justify its investment in information security. ⭐
+2. A server worth ₹10,00,000 loses 40% of its value in one attack, expected once every 2 years. A control costing ₹60,000 per year reduces the loss per attack to 10% of the value. Calculate ALE before and after, and ROSI. Should the control be bought? ⭐
 3. Explain business agility, cost reduction and portability as benefits of security investment.
 
 ## Sources

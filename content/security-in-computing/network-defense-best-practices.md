@@ -40,7 +40,7 @@ They are grouped here into:
 - ==design principles (how to think)==, and
 - ==operational practices (what to do every day)==.
 
-### Q2. What design principles guide network defense?
+### Q2. What design principles guide network defense? ⭐
 
 - **Least privilege:** give each user and system only the access it needs, no more.
 - **Defense in depth:** many independent layers ([[defense-models]]).
@@ -52,21 +52,21 @@ They are grouped here into:
 
 ==Key design principles: least privilege, defense in depth, segmentation, secure by default, fail securely.==
 
-### Q3. Practices 1–4: physical, passwords, hardening, patching
+### Q3. Practices 1–4: physical, passwords, hardening, patching ⭐
 
 1. ==**Secure the physical environment:**== lock server rooms and network cabinets; control who enters; protect against fire and power failure.
 2. ==**Strong authentication:**== change all default passwords; use long passphrases; turn on multi-factor login for admins, email and VPN.
 3. ==**Harden systems:**== disable unused services, ports and accounts; follow CIS Benchmarks for routers, servers and PCs; use SSH instead of Telnet (practical 3).
 4. ==**Patch promptly:**== keep an inventory of all systems and software; apply security updates quickly, critical ones first.
 
-### Q4. Practices 5–8: malware, firewalls, encryption, admin access
+### Q4. Practices 5–8: malware, firewalls, encryption, admin access ⭐
 
 5. ==**Protect against malware:**== endpoint protection on every PC and server, kept updated; block risky attachments and USB auto-run.
 6. ==**Firewalls and filtering:**== at the perimeter and between zones; default-deny rules; review rules regularly and remove old ones.
 7. ==**Encrypt sensitive data:**== in transit (HTTPS, VPN, SSH) and at rest (disk and database encryption).
 8. ==**Control admin access:**== separate admin accounts from daily accounts; restrict admin access to the management zone; use AAA to record who did what (practical 4).
 
-### Q5. Practices 9–12: monitoring, backups, people, plan
+### Q5. Practices 9–12: monitoring, backups, people, plan ⭐
 
 9. ==**Monitor and log:**== central syslog with correct time (practical 2), IDS/IPS at boundaries, and someone who actually reviews alerts.
 10. ==**Back up and test recovery:**== follow the 3-2-1 rule (3 copies, 2 types of media, 1 offline or off-site); test restores regularly.
@@ -129,14 +129,14 @@ flowchart TB
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is the principle of least privilege?
+1. What is the principle of least privilege? ⭐
 2. Explain "fail securely" with an example.
-3. What is the 3-2-1 backup rule?
+3. What is the 3-2-1 backup rule? ⭐
 4. Why should admin accounts be separate from daily-use accounts?
 
 **Long answer (5 marks)**
-1. Explain any ten best practices for network defense.
-2. Explain the design principles that guide secure network defense.
+1. Explain any ten best practices for network defense. ⭐
+2. Explain the design principles that guide secure network defense. ⭐
 3. "Most successful attacks exploit basic failures." Justify this statement and explain the best practices that prevent such failures.
 
 ## Sources

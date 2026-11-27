@@ -26,7 +26,7 @@ Public-key (asymmetric) encryption uses a pair of mathematically linked keys, a 
 
 ## Explained
 
-### Q1. What is public-key encryption?
+### Q1. What is public-key encryption? ⭐
 
 ==Public-key (asymmetric) encryption uses two different but related keys: a public key shared with everyone and a private key kept only by its owner.==
 
@@ -36,7 +36,7 @@ Public-key (asymmetric) encryption uses a pair of mathematically linked keys, a 
 
 The idea was published by Diffie and Hellman in 1976; RSA followed in 1977.
 
-### Q2. How is it used for confidentiality?
+### Q2. How is it used for confidentiality? ⭐
 
 ==To send a secret message, encrypt with the receiver's public key; only the receiver's private key can decrypt it.==
 
@@ -46,7 +46,7 @@ The idea was published by Diffie and Hellman in 1976; RSA followed in 1977.
 
 No secret had to be shared in advance. Anyone may send Amit a confidential message; only Amit can read it.
 
-### Q3. How is it used for digital signatures?
+### Q3. How is it used for digital signatures? ⭐
 
 ==A digital signature is created with the sender's private key and verified with the sender's public key.==
 
@@ -81,7 +81,7 @@ ECC is popular on phones because its short keys need less computing power.
 
 Real RSA uses primes hundreds of digits long.
 
-### Q6. Why use both symmetric and public-key encryption together?
+### Q6. Why use both symmetric and public-key encryption together? ⭐
 
 | Point | Symmetric | Public-key |
 |---|---|---|
@@ -142,13 +142,13 @@ flowchart TB
 
 **Short answer (2–3 marks)**
 1. What is public-key encryption?
-2. What is a digital signature? What does it prove?
-3. Compare symmetric and asymmetric encryption on any three points.
+2. What is a digital signature? What does it prove? ⭐
+3. Compare symmetric and asymmetric encryption on any three points. ⭐
 4. Using RSA with p = 5, q = 11 and e = 3, find n, φ(n) and d.
 
 **Long answer (5 marks)**
-1. Explain how public-key encryption provides confidentiality and digital signatures, with diagrams.
-2. Explain the RSA algorithm with a numerical example.
+1. Explain how public-key encryption provides confidentiality and digital signatures, with diagrams. ⭐
+2. Explain the RSA algorithm with a numerical example. ⭐
 3. What is hybrid encryption? Why is it used in HTTPS?
 
 ## Sources

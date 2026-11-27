@@ -29,7 +29,7 @@ Authorization is the process of deciding what an authenticated user or system is
 
 ## Explained
 
-### Q1. What is authorization?
+### Q1. What is authorization? ⭐
 
 ==Authorization decides which resources an authenticated subject may access and which actions it may perform.==
 
@@ -51,7 +51,7 @@ Authentication ([[authentication]]) always comes first. Together with accounting
 
 ==Least privilege limits the damage any one account can do if it is misused or stolen.==
 
-### Q3. What is Discretionary Access Control (DAC)?
+### Q3. What is Discretionary Access Control (DAC)? ⭐
 
 ==In DAC, the owner of an object decides who else may access it.==
 
@@ -59,7 +59,7 @@ Authentication ([[authentication]]) always comes first. Together with accounting
 - ==**Advantage:** flexible and easy== for users.
 - ==**Disadvantage:** depends on owners' judgement==; a careless owner can share sensitive data with anyone, and malware running as the owner gets all the owner's rights.
 
-### Q4. What is Mandatory Access Control (MAC)?
+### Q4. What is Mandatory Access Control (MAC)? ⭐
 
 ==In MAC, the system enforces access using security labels set by an administrator; owners cannot change them.==
 
@@ -68,7 +68,7 @@ Authentication ([[authentication]]) always comes first. Together with accounting
 - Used in **military and government** systems; SELinux brings MAC to Linux.
 - ==**Advantage:** very strong and consistent==. **Disadvantage:** rigid and hard to manage.
 
-### Q5. What is Role-Based Access Control (RBAC)?
+### Q5. What is Role-Based Access Control (RBAC)? ⭐
 
 ==In RBAC, permissions are given to roles, and users get permissions only by being assigned roles.==
 
@@ -134,14 +134,14 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Define authorization. How is it different from authentication?
+1. Define authorization. How is it different from authentication? ⭐
 2. What is the principle of least privilege?
-3. Differentiate between DAC and MAC.
+3. Differentiate between DAC and MAC. ⭐
 4. What is an access control list?
 
 **Long answer (5 marks)**
-1. Explain DAC, MAC and RBAC with examples, and compare them.
-2. Explain the principles that guide authorization in an organisation.
+1. Explain DAC, MAC and RBAC with examples, and compare them. ⭐
+2. Explain the principles that guide authorization in an organisation. ⭐
 3. Design role-based access control for a college ERP system, listing roles and their permissions.
 
 ## Sources

@@ -26,7 +26,7 @@ Database security layers protect a database at every level, from the physical se
 
 ## Explained
 
-### Q1. Why is database security built in layers?
+### Q1. Why is database security built in layers? ⭐
 
 ==Database security layers are independent levels of protection around the data, each guarding a different path to it.==
 
@@ -51,7 +51,7 @@ Database security layers protect a database at every level, from the physical se
 - ==**Protect database files:**== only the database service account may read data and log files.
 - ==**Limit OS logins**== on the database server to a few administrators.
 
-### Q4. What is database (DBMS) level security?
+### Q4. What is database (DBMS) level security? ⭐
 
 ==The DBMS layer controls who can connect to the database and what each account may do inside it.==
 
@@ -61,7 +61,7 @@ Database security layers protect a database at every level, from the physical se
 - ==**Least privilege for accounts:**== application accounts get only the rights they need, never DBA rights.
 - ==**Limit admin (DBA) access**== and record its use.
 
-### Q5. What is object level security?
+### Q5. What is object level security? ⭐
 
 ==Object level security controls access to individual database objects such as tables, views, procedures and columns.==
 
@@ -70,7 +70,7 @@ Database security layers protect a database at every level, from the physical se
 - ==**Views:**== show only certain columns or rows; for example, a view of student names and marks without phone numbers.
 - ==**Stored procedures:**== users may run a procedure that updates marks in a controlled way, without direct UPDATE rights on the table.
 
-### Q6. What is data level security?
+### Q6. What is data level security? ⭐
 
 ==Data level security protects the data values themselves, even if someone gets past the other layers.==
 
@@ -124,13 +124,13 @@ flowchart TB
 
 **Short answer (2–3 marks)**
 1. Why is database security implemented in layers?
-2. What is object level security? Give two techniques.
-3. How do views improve database security?
+2. What is object level security? Give two techniques. ⭐
+3. How do views improve database security? ⭐
 4. What is data masking?
 
 **Long answer (5 marks)**
-1. Explain the layers of database security with a diagram.
-2. Explain DBMS-level and object-level security controls in detail.
+1. Explain the layers of database security with a diagram. ⭐
+2. Explain DBMS-level and object-level security controls in detail. ⭐
 3. Describe how you would secure the database of a college ERP at each layer.
 
 ## Sources

@@ -30,7 +30,7 @@ A security methodology is a planned, repeatable way of protecting an organisatio
 
 ## Explained
 
-### Q1. What is a security methodology?
+### Q1. What is a security methodology? ⭐
 
 ==A security methodology is a structured, repeatable approach to identifying what must be protected, choosing controls, putting them in place, and checking that they work.==
 
@@ -68,7 +68,7 @@ A typical program has:
 - ==a budget and a yearly plan==,
 - ==regular reviews, audits and training==.
 
-### Q4. How is a security program built? (steps 1–3)
+### Q4. How is a security program built? (steps 1–3) ⭐
 
 1. ==**Authority:** top management formally backs the program==, appoints its owner and gives a budget. Without this, nobody follows the rules.
 2. ==**Framework:** write the rules down==, from general to specific:
@@ -78,7 +78,7 @@ A typical program has:
    - **Guideline:** recommended, not mandatory, advice.
 3. ==**Assessment:** list the assets, find threats== and weaknesses, and rank risks ([[risk-analysis]], lecture 5).
 
-### Q5. How is a security program built? (steps 4–6)
+### Q5. How is a security program built? (steps 4–6) ⭐
 
 4. ==**Planning:** decide which risks to fix first==, with what controls, by when and at what cost.
 5. ==**Action:** implement the controls==: configure systems, change processes, train people.
@@ -88,7 +88,7 @@ A typical program has:
 
 The same idea appears in the ISO 27001 standard as ==**Plan–Do–Check–Act**==: plan the controls, do (implement) them, check that they work, act to improve.
 
-### Q6. What is the difference between business processes and technical controls?
+### Q6. What is the difference between business processes and technical controls? ⭐
 
 | | Business processes (administrative controls) | Technical controls |
 |---|---|---|
@@ -158,12 +158,12 @@ flowchart LR
 **Short answer (2–3 marks)**
 1. What is a security methodology?
 2. Differentiate between a security program and a security project.
-3. Distinguish between policy, standard, procedure and guideline.
-4. Give one example each of preventive, detective and corrective controls.
+3. Distinguish between policy, standard, procedure and guideline. ⭐
+4. Give one example each of preventive, detective and corrective controls. ⭐
 
 **Long answer (5 marks)**
-1. Explain the steps involved in building a security program.
-2. Compare business processes and technical controls, with examples. Why are both needed?
+1. Explain the steps involved in building a security program. ⭐
+2. Compare business processes and technical controls, with examples. Why are both needed? ⭐
 3. "Security is about people, process and technology." Explain with a suitable example.
 
 ## Sources

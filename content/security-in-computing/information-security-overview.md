@@ -31,7 +31,7 @@ Information security is the protection of information and the systems that hold 
 
 ## Explained
 
-### Q1. What is information security?
+### Q1. What is information security? ⭐
 
 ==Information security protects information, in any form, from unauthorised access, use, disclosure, disruption, modification or destruction.==
 
@@ -53,7 +53,7 @@ Three words in that definition matter:
 
 ==Information security is the widest of the three.== The other two are parts of it. In daily use people often treat the words as the same; in an exam, state the difference.
 
-### Q3. Why is information protection important?
+### Q3. Why is information protection important? ⭐
 
 - ==**Information is an asset.**== Customer lists, designs and records have money value, like machines or buildings.
 - ==**Business depends on it.**== If UPI or a bank's core system stops, payments stop. Downtime costs money every minute.
@@ -69,7 +69,7 @@ Three words in that definition matter:
 
 ==Lesson of this era: connecting computers creates new risks.==
 
-### Q5. How did security practice change after the internet? (1990s–today)
+### Q5. How did security practice change after the internet? (1990s–today) ⭐
 
 | Era | Main idea | Typical tools |
 |---|---|---|
@@ -133,14 +133,14 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Define information security.
+1. Define information security. ⭐
 2. Differentiate between information security and cybersecurity.
-3. State any four reasons why information must be protected.
+3. State any four reasons why information must be protected. ⭐
 4. Why is security called a process and not a product?
 
 **Long answer (5 marks)**
-1. Explain the importance of information protection for an organisation, with examples.
-2. Describe the evolution of information security practices from the mainframe era to today.
+1. Explain the importance of information protection for an organisation, with examples. ⭐
+2. Describe the evolution of information security practices from the mainframe era to today. ⭐
 3. "Security is a business problem, not only a technical one." Explain with the role of people, process and technology.
 
 ## Sources

@@ -26,7 +26,7 @@ A threat is anything that can cause harm, a vulnerability is a weakness it can u
 
 ## Explained
 
-### Q1. What are threat, vulnerability, attack and risk?
+### Q1. What are threat, vulnerability, attack and risk? ⭐
 
 | Term | Meaning | Example |
 |---|---|---|
@@ -51,7 +51,7 @@ A threat is anything that can cause harm, a vulnerability is a weakness it can u
 
 A complete security plan covers all three kinds, not just hackers.
 
-### Q3. What are passive attacks?
+### Q3. What are passive attacks? ⭐
 
 ==A passive attack only observes or copies information; it does not change anything.==
 
@@ -60,7 +60,7 @@ A complete security plan covers all three kinds, not just hackers.
 
 Passive attacks are hard to **detect** because nothing changes. The defence is to **prevent** them, ==mainly with encryption==.
 
-### Q4. What are active attacks?
+### Q4. What are active attacks? ⭐
 
 ==An active attack changes data or disrupts a system.==
 
@@ -73,7 +73,7 @@ Passive attacks are hard to **detect** because nothing changes. The defence is t
 
 Active attacks are easier to detect but hard to prevent completely. ==The aim is to detect them quickly and recover.==
 
-### Q5. What are the common attacks today? (part 1)
+### Q5. What are the common attacks today? (part 1) ⭐
 
 - ==**Malware:** harmful software.==
   - Virus (attaches to files), worm (spreads by itself), Trojan (hides inside useful-looking software), spyware, and ==**ransomware** (encrypts data and demands payment)==.
@@ -131,14 +131,14 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Differentiate between a threat and a vulnerability, with an example.
-2. What is a passive attack? Give two types.
+1. Differentiate between a threat and a vulnerability, with an example. ⭐
+2. What is a passive attack? Give two types. ⭐
 3. Define masquerade and replay attacks.
 4. What is ransomware?
 
 **Long answer (5 marks)**
-1. Explain the relationship between asset, threat, vulnerability, attack and risk with a diagram.
-2. Compare passive and active attacks, with types and examples of each.
+1. Explain the relationship between asset, threat, vulnerability, attack and risk with a diagram. ⭐
+2. Compare passive and active attacks, with types and examples of each. ⭐
 3. Describe any five common attacks faced by organisations today.
 
 ## Sources

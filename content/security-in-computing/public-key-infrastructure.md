@@ -27,7 +27,7 @@ Public Key Infrastructure (PKI) is the system of certificate authorities, digita
 
 ## Explained
 
-### Q1. What is PKI and why is it needed?
+### Q1. What is PKI and why is it needed? ⭐
 
 ==PKI is the framework of hardware, software, people, policies and procedures used to create, manage, distribute, verify and revoke digital certificates.==
 
@@ -37,7 +37,7 @@ It solves the **public-key trust problem**:
 - ==**Prevents impersonation:**== an attacker cannot simply claim to be the bank.
 - ==**Supports secure services:**== HTTPS, digital signatures, secure email, VPNs, code signing.
 
-### Q2. What is a digital certificate?
+### Q2. What is a digital certificate? ⭐
 
 ==A digital certificate is an electronic document, signed by a trusted Certificate Authority, that links a public key to the identity of its owner.==
 
@@ -50,7 +50,7 @@ The standard format is **X.509**. A certificate contains:
 - ==**Serial number**== and algorithm details.
 - ==**CA's digital signature**== over all of the above.
 
-### Q3. What are the components of PKI?
+### Q3. What are the components of PKI? ⭐
 
 | Component | Role |
 |---|---|
@@ -69,7 +69,7 @@ The standard format is **X.509**. A certificate contains:
 4. ==**Certificate signed**== by the CA with its private key and returned.
 5. ==**Certificate used:**== the owner presents it; others verify the CA's signature, the dates and the revocation status.
 
-### Q5. What is the chain of trust?
+### Q5. What is the chain of trust? ⭐
 
 ==A chain of trust links a certificate, through one or more intermediate CAs, to a root CA that the verifier already trusts.==
 
@@ -130,13 +130,13 @@ flowchart TB
 
 **Short answer (2–3 marks)**
 1. What is PKI?
-2. List the contents of an X.509 digital certificate.
-3. Differentiate between a CA and an RA.
+2. List the contents of an X.509 digital certificate. ⭐
+3. Differentiate between a CA and an RA. ⭐
 4. What is a CRL? How is OCSP different?
 
 **Long answer (5 marks)**
-1. Explain the components of PKI with a diagram.
-2. Explain the process of certificate issuance and the chain of trust.
+1. Explain the components of PKI with a diagram. ⭐
+2. Explain the process of certificate issuance and the chain of trust. ⭐
 3. Why is PKI needed for public-key cryptography? Explain with the example of HTTPS.
 
 ## Sources

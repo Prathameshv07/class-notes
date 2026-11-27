@@ -30,7 +30,7 @@ Database auditing records who did what and when in a database, monitoring watche
 
 ## Explained
 
-### Q1. What is database auditing?
+### Q1. What is database auditing? ⭐
 
 ==Database auditing is the recording of selected database activities, such as logins, data changes and privilege changes, in a protected audit trail.==
 
@@ -44,7 +44,7 @@ An audit record typically stores:
 
 Auditing supports **accountability**, **investigation** and **compliance**.
 
-### Q2. What should be audited?
+### Q2. What should be audited? ⭐
 
 Auditing everything slows the database and buries useful events. Focus on:
 
@@ -65,7 +65,7 @@ Auditing everything slows the database and buries useful events. Focus on:
 - ==**Retention period:**== keep logs as long as policy and law require.
 - ==**Synchronised time**== so events from different servers can be put in order.
 
-### Q4. What is database monitoring?
+### Q4. What is database monitoring? ⭐
 
 ==Database monitoring is the continuous review of database activity and health to detect misuse, attacks and problems quickly.==
 
@@ -138,15 +138,15 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is database auditing?
+1. What is database auditing? ⭐
 2. List any four events that should be audited in a database.
-3. Differentiate between auditing and monitoring.
+3. Differentiate between auditing and monitoring. ⭐
 4. Why should audit logs be stored off the database server?
 
 **Long answer (5 marks)**
-1. Explain database auditing: what to audit and how to protect the audit trail.
+1. Explain database auditing: what to audit and how to protect the audit trail. ⭐
 2. Explain database monitoring and its role in detecting attacks.
-3. Explain the activities involved in database server maintenance.
+3. Explain the activities involved in database server maintenance. ⭐
 
 ## Sources
 

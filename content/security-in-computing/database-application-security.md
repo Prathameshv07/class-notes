@@ -42,7 +42,7 @@ Most systems use a **three-tier architecture**:
 
 Users should never connect to the data tier directly. Every request passes through the application, so the application must be trustworthy.
 
-### Q2. How should applications connect to the database?
+### Q2. How should applications connect to the database? ⭐
 
 - ==**A dedicated application account**== for each application, never a person's account or the DBA account.
 - ==**Least privilege:**== the account gets only the rights it needs (for example SELECT and INSERT on certain tables, no DROP).
@@ -59,7 +59,7 @@ Users should never connect to the data tier directly. Every request passes throu
 - ==**Better: a secrets manager**== (a vault service) that supplies the password at run time.
 - ==**Rotate passwords**== regularly and immediately when a developer leaves.
 
-### Q4. What is SQL injection?
+### Q4. What is SQL injection? ⭐
 
 ==SQL injection is an attack in which user input is inserted into a SQL query in a way that changes the query's meaning.==
 
@@ -77,7 +77,7 @@ SELECT * FROM results WHERE roll_no = '' OR '1'='1';
 
 `'1'='1'` is always true, so every row is returned. Other inputs can update or delete data. Injection has been one of the most common web application risks for many years (OWASP Top 10).
 
-### Q5. How is SQL injection prevented?
+### Q5. How is SQL injection prevented? ⭐
 
 - ==**Parameterised queries (prepared statements):**== the query and the data are sent separately, so input is always treated as data, never as SQL code. This is the main defence.
 - ==**Stored procedures**== with parameters, used in the same safe way.
@@ -136,14 +136,14 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is SQL injection? Give an example input.
-2. What are parameterised queries?
+1. What is SQL injection? Give an example input. ⭐
+2. What are parameterised queries? ⭐
 3. Why should applications not use the DBA account?
 4. Why should database passwords not be stored in source code?
 
 **Long answer (5 marks)**
-1. Explain SQL injection with an example and the methods to prevent it.
-2. Explain the security controls for connecting applications to databases.
+1. Explain SQL injection with an example and the methods to prevent it. ⭐
+2. Explain the security controls for connecting applications to databases. ⭐
 3. Explain database application security in a three-tier architecture with a diagram.
 
 ## Sources

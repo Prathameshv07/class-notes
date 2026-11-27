@@ -26,7 +26,7 @@ Risk analysis is the process of identifying assets, the threats and vulnerabilit
 
 ## Explained
 
-### Q1. What is risk?
+### Q1. What is risk? ⭐
 
 ==Risk is the chance that a threat will exploit a vulnerability, multiplied by the impact if it does.==
 
@@ -38,7 +38,7 @@ $$\text{Risk} = \text{Likelihood} \times \text{Impact}$$
 
 Threats and vulnerabilities were defined in [[threats-and-attacks]].
 
-### Q2. What are the steps of risk analysis?
+### Q2. What are the steps of risk analysis? ⭐
 
 1. ==**Identify assets**== and give each a value (data, servers, services, reputation).
 2. ==**Identify threats**== to each asset.
@@ -65,7 +65,7 @@ The process repeats every year, or whenever systems or threats change.
 
 Most organisations start with this kind of ==**risk matrix**==.
 
-### Q4. What is quantitative risk analysis?
+### Q4. What is quantitative risk analysis? ⭐
 
 ==Quantitative analysis puts **money values** on risk.==
 
@@ -91,7 +91,7 @@ A college's admission database server is valued at ₹20,00,000 (including data 
 
 So spending up to about ₹1,20,000 a year on controls that remove this risk can be justified. A control costing ₹3,00,000 a year would not be.
 
-### Q6. How are risks treated?
+### Q6. How are risks treated? ⭐
 
 After ranking, each risk gets one of four treatments:
 
@@ -157,13 +157,13 @@ flowchart TB
 
 **Short answer (2–3 marks)**
 1. Define risk. How is it calculated?
-2. Differentiate between qualitative and quantitative risk analysis.
+2. Differentiate between qualitative and quantitative risk analysis. ⭐
 3. What is residual risk?
-4. Define AV, EF, SLE, ARO and ALE.
+4. Define AV, EF, SLE, ARO and ALE. ⭐
 
 **Long answer (5 marks)**
-1. Explain the steps of risk analysis with a diagram.
-2. Explain the four ways of treating risk, with an example of each.
+1. Explain the steps of risk analysis with a diagram. ⭐
+2. Explain the four ways of treating risk, with an example of each. ⭐
 3. A web server is worth ₹12,00,000. A DDoS attack causes a 25% loss of its value and is expected 2 times a year. Calculate SLE and ALE. Would a ₹4,00,000 per year anti-DDoS service be justified?
 
 ## Sources

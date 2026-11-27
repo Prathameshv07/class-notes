@@ -40,7 +40,7 @@ Databases need backups against:
 
 Backups protect **availability** and **integrity** in the [[cia-triad]].
 
-### Q2. What are the types of database backup?
+### Q2. What are the types of database backup? ⭐
 
 | Type | What it copies | Restore needs | Trade-off |
 |---|---|---|---|
@@ -56,7 +56,7 @@ Backups protect **availability** and **integrity** in the [[cia-triad]].
 
 A plain file copy of a running database is often **corrupt**; always use the DBMS's own backup method.
 
-### Q4. What are RPO and RTO?
+### Q4. What are RPO and RTO? ⭐
 
 ==**Recovery Point Objective (RPO):** the maximum amount of data, measured in time, that the organisation can afford to lose.==
 
@@ -70,7 +70,7 @@ A plain file copy of a running database is often **corrupt**; always use the DBM
 
 RPO decides **how often** to back up; RTO decides **how fast** recovery must be, and so the method and budget.
 
-### Q5. How is a database recovered?
+### Q5. How is a database recovered? ⭐
 
 1. ==**Find the cause and stop the damage**== (isolate infected servers, stop the faulty job).
 2. **Restore the last good full backup.**
@@ -131,14 +131,14 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Differentiate between differential and incremental backups.
-2. Define RPO and RTO.
+1. Differentiate between differential and incremental backups. ⭐
+2. Define RPO and RTO. ⭐
 3. What is a hot backup?
 4. What is point-in-time recovery?
 
 **Long answer (5 marks)**
-1. Explain the types of database backup with their advantages and disadvantages.
-2. Explain the steps of database recovery after an accidental deletion.
+1. Explain the types of database backup with their advantages and disadvantages. ⭐
+2. Explain the steps of database recovery after an accidental deletion. ⭐
 3. Explain the best practices for keeping database backups secure.
 
 ## Sources

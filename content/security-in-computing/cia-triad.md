@@ -28,7 +28,7 @@ The CIA triad is the three core goals of information security: Confidentiality (
 
 ## Explained
 
-### Q1. What is the CIA triad?
+### Q1. What is the CIA triad? ⭐
 
 ==The CIA triad is the model of the three goals of information security: Confidentiality, Integrity and Availability.==
 
@@ -38,7 +38,7 @@ The CIA triad is the three core goals of information security: Confidentiality (
 
 The three goals often pull against each other, so the right balance depends on the asset.
 
-### Q2. What is confidentiality?
+### Q2. What is confidentiality? ⭐
 
 ==Confidentiality means information is disclosed only to authorised people, processes or systems.==
 
@@ -52,7 +52,7 @@ The three goals often pull against each other, so the right balance depends on t
 
 Example: only you and your college can see your marks; Aadhaar numbers in a database are masked or encrypted.
 
-### Q3. What is integrity?
+### Q3. What is integrity? ⭐
 
 ==Integrity means information is accurate and complete, and is changed only in authorised ways.==
 
@@ -65,7 +65,7 @@ Example: only you and your college can see your marks; Aadhaar numbers in a data
 
 Integrity also covers ==**authenticity** (data really comes from who it claims)== and ==**non-repudiation** (the sender cannot later deny sending it)==. Example: a bank transfer amount cannot be altered between your phone and the bank.
 
-### Q4. What is availability?
+### Q4. What is availability? ⭐
 
 ==Availability means systems and data are accessible to authorised users when they need them.==
 
@@ -149,14 +149,14 @@ flowchart TB
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is the CIA triad?
+1. What is the CIA triad? ⭐
 2. Define integrity. Name two controls that protect it.
 3. Give one threat and one control for availability.
-4. What is the DAD triad?
+4. What is the DAD triad? ⭐
 
 **Long answer (5 marks)**
-1. Explain the CIA triad with a diagram, giving threats and controls for each goal.
-2. "The goals of the CIA triad sometimes conflict." Explain with examples.
+1. Explain the CIA triad with a diagram, giving threats and controls for each goal. ⭐
+2. "The goals of the CIA triad sometimes conflict." Explain with examples. ⭐
 3. For a hospital records system, explain which CIA goal is most important and how you would protect each one.
 
 ## Sources

@@ -35,7 +35,7 @@ Two classic models are:
 - ==the **lollipop model** (perimeter only)==, and
 - ==the **onion model** (layered, also called defense in depth)==.
 
-### Q2. What is the lollipop model?
+### Q2. What is the lollipop model? ⭐
 
 ==The lollipop model protects assets with one hard outer shell, such as a perimeter firewall, while the inside is soft and trusts everything.==
 
@@ -55,7 +55,7 @@ It was common in the 1990s, when networks had one internet connection and all us
 - ==**No detection inside:**== once in, attackers move freely and quietly, often for months.
 - ==**Today's networks have no single edge:**== laptops at home, mobile phones, cloud servers and partner links all cross the "wall".
 
-### Q4. What is the onion model?
+### Q4. What is the onion model? ⭐
 
 ==The onion model (defense in depth) places several independent layers of security around the assets, so that an attacker must defeat every layer to reach the data.==
 
@@ -80,7 +80,7 @@ Typical layers, outside to inside:
 
 ==Lollipop: one strong outer layer. Onion: many layers, each able to stop or detect an attack.==
 
-### Q6. Lollipop vs onion: comparison
+### Q6. Lollipop vs onion: comparison ⭐
 
 | Point | Lollipop model | Onion model |
 |---|---|---|
@@ -137,14 +137,14 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is the lollipop model of defense?
-2. What is defense in depth?
+1. What is the lollipop model of defense? ⭐
+2. What is defense in depth? ⭐
 3. List the layers of the onion model.
 4. Give two weaknesses of the lollipop model.
 
 **Long answer (5 marks)**
-1. Explain the lollipop and onion models of defense with diagrams.
-2. Compare the lollipop and onion models. Why is the onion model preferred today?
+1. Explain the lollipop and onion models of defense with diagrams. ⭐
+2. Compare the lollipop and onion models. Why is the onion model preferred today? ⭐
 3. Explain with an example how defense in depth protects data even after the perimeter is breached.
 
 ## Sources

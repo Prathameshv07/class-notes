@@ -39,7 +39,7 @@ Symmetric encryption uses the same secret key to encrypt and decrypt data; it is
 
 ==The algorithm can be public; the security depends only on keeping the key secret.== This is known as **Kerckhoffs's principle**.
 
-### Q2. What is symmetric encryption?
+### Q2. What is symmetric encryption? ⭐
 
 ==Symmetric (secret-key) encryption uses one shared key for both encryption and decryption.==
 
@@ -60,7 +60,7 @@ Real ciphers are far stronger, but the idea is the same: one key, used on both s
   - ==**ECB:** each block encrypted separately==; equal blocks give equal ciphertext, so patterns leak. Avoid.
   - ==**CBC, GCM:** each block depends on the previous one== or on a counter; patterns are hidden. GCM also checks integrity.
 
-### Q4. What are the common symmetric algorithms?
+### Q4. What are the common symmetric algorithms? ⭐
 
 | Algorithm | Key size | Block size | Status |
 |---|---|---|---|
@@ -79,7 +79,7 @@ Real ciphers are far stronger, but the idea is the same: one key, used on both s
 
 Where it is used: Wi-Fi (WPA2/WPA3), full-disk encryption (BitLocker, phone storage), VPN tunnels, HTTPS data after the handshake, encrypted database columns.
 
-### Q6. What is the key distribution problem?
+### Q6. What is the key distribution problem? ⭐
 
 ==The key distribution problem is that both parties must share the same secret key safely before they can communicate securely.==
 
@@ -135,14 +135,14 @@ flowchart LR
 
 **Short answer (2–3 marks)**
 1. Define plaintext, ciphertext and key.
-2. What is symmetric encryption? Give two examples of algorithms.
-3. Differentiate between block and stream ciphers.
+2. What is symmetric encryption? Give two examples of algorithms. ⭐
+3. Differentiate between block and stream ciphers. ⭐
 4. How many keys are needed for 50 users to communicate privately using symmetric encryption?
 
 **Long answer (5 marks)**
-1. Explain symmetric encryption with a diagram, its advantages and its limitations.
+1. Explain symmetric encryption with a diagram, its advantages and its limitations. ⭐
 2. Compare DES, 3DES and AES.
-3. What is the key distribution problem? How is it solved in practice?
+3. What is the key distribution problem? How is it solved in practice? ⭐
 
 ## Sources
 

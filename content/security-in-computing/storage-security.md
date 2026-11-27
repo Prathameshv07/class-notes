@@ -26,7 +26,7 @@ Storage security protects data at rest, on disks, storage networks, backups and 
 
 ## Explained
 
-### Q1. What is storage security?
+### Q1. What is storage security? ⭐
 
 ==Storage security is the set of controls that protect stored data and the storage systems that hold it from unauthorised access, change, loss and destruction.==
 
@@ -38,7 +38,7 @@ It covers data **at rest** on:
 - ==**Backups**== and archives.
 - ==**Cloud storage:**== buckets, drives and cloud databases.
 
-### Q2. How has storage evolved, and how did security change with it?
+### Q2. How has storage evolved, and how did security change with it? ⭐
 
 | Stage | Description | Security focus |
 |---|---|---|
@@ -58,7 +58,7 @@ It covers data **at rest** on:
 - ==**Hardware failure and disasters:**== disk crashes, fire, flood.
 - ==**Insider misuse:**== storage admins can see and copy everything.
 
-### Q4. What is risk remediation for storage?
+### Q4. What is risk remediation for storage? ⭐
 
 ==Risk remediation means finding the weaknesses in storage and taking actions to remove or reduce them.==
 
@@ -125,13 +125,13 @@ flowchart LR
 
 **Short answer (2–3 marks)**
 1. What is storage security?
-2. Differentiate between NAS and SAN.
-3. What are zoning and LUN masking?
+2. Differentiate between NAS and SAN. ⭐
+3. What are zoning and LUN masking? ⭐
 4. Why is a normal format not enough before disposing of a disk?
 
 **Long answer (5 marks)**
-1. Explain the evolution of storage systems and how storage security changed with it.
-2. What is risk remediation in storage security? Explain its steps.
+1. Explain the evolution of storage systems and how storage security changed with it. ⭐
+2. What is risk remediation in storage security? Explain its steps. ⭐
 3. Explain the modern techniques used to protect stored data.
 
 ## Sources

@@ -26,7 +26,7 @@ Authentication is the process of verifying that a user, device or system really 
 
 ## Explained
 
-### Q1. What is authentication?
+### Q1. What is authentication? ⭐
 
 ==Authentication is the process of verifying a claimed identity before granting access.==
 
@@ -39,7 +39,7 @@ It comes **before** authorization ([[authorization]]): first the system checks w
 
 Authentication applies to people, devices (a laptop joining Wi-Fi), and systems (a router accepting OSPF updates, as in [[ospf-md5-authentication-practical]]).
 
-### Q2. What are the factors of authentication?
+### Q2. What are the factors of authentication? ⭐
 
 ==Authentication factors are the types of evidence used to prove identity.==
 
@@ -51,7 +51,7 @@ Authentication applies to people, devices (a laptop joining Wi-Fi), and systems 
 
 Two further factors are sometimes added: **somewhere you are** (location) and **something you do** (typing rhythm, signature).
 
-### Q3. What is multi-factor authentication (MFA)?
+### Q3. What is multi-factor authentication (MFA)? ⭐
 
 ==Multi-factor authentication requires two or more different factors, so stealing one is not enough.==
 
@@ -80,7 +80,7 @@ MFA stops most attacks based on stolen passwords, because the attacker also need
 - ==**Certificate-based authentication:**== the user or device proves it holds the private key matching a digital certificate ([[public-key-infrastructure]]). Used for VPNs, Wi-Fi and Digital Signature Certificates for income-tax and GST filing.
 - ==**Passkeys:**== a newer password-free method; the phone or laptop holds a private key unlocked by fingerprint or face.
 
-### Q6. What are biometrics and their limits?
+### Q6. What are biometrics and their limits? ⭐
 
 ==Biometric authentication uses a measurable body or behaviour feature to verify identity.==
 
@@ -139,14 +139,14 @@ flowchart LR
 
 **Short answer (2–3 marks)**
 1. Define authentication. How is it different from identification?
-2. List the three main authentication factors with examples.
-3. What is multi-factor authentication?
+2. List the three main authentication factors with examples. ⭐
+3. What is multi-factor authentication? ⭐
 4. What are FAR and FRR in biometrics?
 
 **Long answer (5 marks)**
-1. Explain the factors of authentication and multi-factor authentication with real examples.
+1. Explain the factors of authentication and multi-factor authentication with real examples. ⭐
 2. Discuss the weaknesses of password-based authentication and how they can be reduced.
-3. Explain biometric authentication, its types and its limitations.
+3. Explain biometric authentication, its types and its limitations. ⭐
 
 ## Sources
 

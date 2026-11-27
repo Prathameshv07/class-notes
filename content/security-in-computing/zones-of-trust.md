@@ -25,7 +25,7 @@ Zones of trust divide a network into segments with different trust levels, and c
 
 ## Explained
 
-### Q1. What is a zone of trust?
+### Q1. What is a zone of trust? ⭐
 
 ==A zone of trust is a group of systems that share the same level of trust and the same security requirements, separated from other zones by controlled boundaries.==
 
@@ -46,7 +46,7 @@ Zones of trust divide a network into segments with different trust levels, and c
 
 The more valuable the data, the deeper (more trusted, more protected) the zone.
 
-### Q3. What is a DMZ?
+### Q3. What is a DMZ? ⭐
 
 ==A DMZ is a separate zone between the internet and the internal network that holds servers the public must reach, such as a website.==
 
@@ -56,7 +56,7 @@ The more valuable the data, the deeper (more trusted, more protected) the zone.
 
 You will configure a real DMZ on the Cisco ASA in practical 14.
 
-### Q4. How is traffic between zones controlled?
+### Q4. How is traffic between zones controlled? ⭐
 
 The basic rule:
 
@@ -129,14 +129,14 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is a zone of trust?
-2. What is a DMZ? Why is it used?
+1. What is a zone of trust? ⭐
+2. What is a DMZ? Why is it used? ⭐
 3. Name any four zones of trust found in an organisation.
 4. How is traffic between zones controlled?
 
 **Long answer (5 marks)**
-1. Explain zones of trust with a diagram of a typical organisation.
-2. Explain the benefits and challenges of dividing a network into zones of trust.
+1. Explain zones of trust with a diagram of a typical organisation. ⭐
+2. Explain the benefits and challenges of dividing a network into zones of trust. ⭐
 3. Design zones of trust for a college network (labs, staff, accounts, exam server, guest Wi-Fi, website), and state the rules between them.
 
 ## Sources

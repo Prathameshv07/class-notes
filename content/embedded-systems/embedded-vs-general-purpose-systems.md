@@ -26,7 +26,7 @@ An embedded system is a combination of hardware and firmware built into a larger
 
 ## Explained
 
-### Q1. What is an embedded system?
+### Q1. What is an embedded system? ⭐
 
 ==An embedded system is an electronic system of hardware and firmware, designed to perform a specific function, usually as part of a larger device.==
 
@@ -48,7 +48,7 @@ Examples: digital watch, microwave oven, pulse oximeter, FASTag reader, traffic 
 
 Examples: desktop PC, laptop, server.
 
-### Q3. How do the two differ?
+### Q3. How do the two differ? ⭐
 
 | Point | General-purpose computer | Embedded system |
 |---|---|---|
@@ -72,7 +72,7 @@ It sits on the boundary.
 
 So a smartphone is usually called a ==general-purpose device **built from many embedded subsystems**==. An ATM is the opposite case: it runs a PC-like computer, but the whole machine does one job, so it is treated as embedded.
 
-### Q5. What are the building blocks of an embedded system?
+### Q5. What are the building blocks of an embedded system? ⭐
 
 ==Every embedded system has four blocks: input (sensors), processing (processor, memory and firmware), output (actuators) and communication.==
 
@@ -140,14 +140,14 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Define an embedded system. Give two examples.
+1. Define an embedded system. Give two examples. ⭐
 2. What is firmware? How is it different from application software on a PC?
 3. State any four differences between an embedded system and a general-purpose computer.
 4. Is a smartphone an embedded system? Justify your answer briefly.
 
 **Long answer (5 marks)**
-1. Compare embedded systems and general-purpose computer systems on at least six points, with an example of each.
-2. With a neat block diagram, explain the building blocks of an embedded system, using a washing machine or a UPI soundbox as an example.
+1. Compare embedded systems and general-purpose computer systems on at least six points, with an example of each. ⭐
+2. With a neat block diagram, explain the building blocks of an embedded system, using a washing machine or a UPI soundbox as an example. ⭐
 
 ## Sources
 

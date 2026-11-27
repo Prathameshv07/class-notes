@@ -33,21 +33,21 @@ Embedded systems are application- and domain-specific, reactive and real-time, a
 
 Each is explained below with an example. In exams, write the characteristic, a one-line meaning and one example.
 
-### Q2. What does "application and domain specific" mean?
+### Q2. What does "application and domain specific" mean? ⭐
 
 - ==**Application specific:** each embedded system is designed for one task== and cannot be used for another. The controller of a washing machine cannot run an air conditioner.
 - ==**Domain specific:** systems are designed with the knowledge of their field==. An automotive controller follows automotive rules for temperature range and safety; a medical device follows medical safety standards.
 
 This is the most basic difference from a PC, which can be used for anything.
 
-### Q3. What does "reactive and real-time" mean?
+### Q3. What does "reactive and real-time" mean? ⭐
 
 - ==**Reactive:** the system continuously responds to events== in its environment, such as a key press, a sensor reading or a message.
 - ==**Real-time:** it must respond **within a fixed time limit**==. A late answer is a wrong answer.
 
 Example: an ABS (anti-lock braking) controller reads wheel-speed sensors many times a second and must release and re-apply the brakes in milliseconds. If it reacts late, the wheel locks and the car skids.
 
-### Q4. What do "harsh environments" and "distributed" mean?
+### Q4. What do "harsh environments" and "distributed" mean? ⭐
 
 **Operates in harsh environments**
 - ==Must work in heat, cold, dust, moisture, vibration== and electrical noise.
@@ -58,7 +58,7 @@ Example: an ABS (anti-lock braking) controller reads wheel-speed sensors many ti
 - ==Many small embedded systems work together==, each doing part of a bigger job, connected by a network.
 - Example: a car has dozens of controllers (engine, brakes, airbags, doors) talking over a CAN bus. An ATM has separate controllers for the card reader, cash dispenser and printer.
 
-### Q5. What do "small size and weight" and "power concerns" mean?
+### Q5. What do "small size and weight" and "power concerns" mean? ⭐
 
 **Small size and weight**
 - Many embedded systems ==must fit in a small space or be carried==: phones, fitness bands, hearing aids, drones.
@@ -123,12 +123,12 @@ flowchart TB
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is meant by reactive and real-time behaviour of an embedded system?
+1. What is meant by reactive and real-time behaviour of an embedded system? ⭐
 2. What is a distributed embedded system? Give an example.
 3. How do embedded systems address power concerns?
 
 **Long answer (5 marks)**
-1. Explain the characteristics of embedded systems with suitable examples.
+1. Explain the characteristics of embedded systems with suitable examples. ⭐
 2. Taking an ATM or a car as an example, show how it reflects the characteristics of an embedded system.
 
 ## Sources

@@ -25,7 +25,7 @@ A domain-specific embedded system is designed for a whole field of use, such as 
 
 ## Explained
 
-### Q1. What is a domain-specific embedded system?
+### Q1. What is a domain-specific embedded system? ⭐
 
 ==A domain-specific embedded system is designed for a particular domain (field), and contains many embedded systems that follow that domain's rules and standards.==
 
@@ -35,7 +35,7 @@ A domain-specific embedded system is designed for a whole field of use, such as 
 
 Example: the electronics of an automobile. Compare: a washing machine is **application** specific (one application); a car is **domain** specific (one field, many applications).
 
-### Q2. What is an ECU?
+### Q2. What is an ECU? ⭐
 
 ==An ECU (Electronic Control Unit) is an embedded controller in a vehicle that manages one function or subsystem.==
 
@@ -50,7 +50,7 @@ Each ECU has a microcontroller, sensors, actuators and firmware, like any embedd
 | Instrument cluster | Speedometer, warnings, fuel gauge |
 | Infotainment unit | Music, navigation, phone connection |
 
-### Q3. How are automotive ECUs grouped?
+### Q3. How are automotive ECUs grouped? ⭐
 
 ==Automotive embedded systems are grouped into high-speed and low-speed systems.==
 
@@ -58,7 +58,7 @@ Each ECU has a microcontroller, sensors, actuators and firmware, like any embedd
 - ==**Low-speed (comfort and body):**== power windows, seats, mirrors, central locking, climate control. A short delay only annoys the driver.
 - ==**Infotainment and telematics:**== music, navigation, connected-car services. Needs high data rates but is not safety-critical.
 
-### Q4. How do ECUs talk to each other?
+### Q4. How do ECUs talk to each other? ⭐
 
 They share data over **in-vehicle networks** (buses):
 
@@ -138,12 +138,12 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is a domain-specific embedded system? How does it differ from an application-specific one?
+1. What is a domain-specific embedded system? How does it differ from an application-specific one? ⭐
 2. What is an ECU? Name four ECUs in a car.
 3. Name three in-vehicle communication buses and state one use of each.
 
 **Long answer (5 marks)**
-1. Explain the automotive embedded system as a domain-specific embedded system, with its high-speed and low-speed subsystems.
+1. Explain the automotive embedded system as a domain-specific embedded system, with its high-speed and low-speed subsystems. ⭐
 2. Explain the communication buses used in automotive embedded systems and the key players of the automotive embedded industry.
 
 ## Sources

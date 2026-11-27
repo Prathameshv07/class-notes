@@ -26,7 +26,7 @@ A watchdog timer (WDT) is a hardware timer that resets the microcontroller if th
 
 ## Explained
 
-### Q1. What is a watchdog timer?
+### Q1. What is a watchdog timer? ⭐
 
 ==A watchdog timer is a hardware timer that resets the processor when it counts to its limit, unless the program restarts it in time.==
 
@@ -36,7 +36,7 @@ A watchdog timer (WDT) is a hardware timer that resets the microcontroller if th
 
 After the reset, the system starts again from the beginning, exactly as at power-on.
 
-### Q2. Why is a watchdog timer needed?
+### Q2. Why is a watchdog timer needed? ⭐
 
 Embedded systems often run **unattended**, so they must recover on their own. A program can hang because of:
 
@@ -46,7 +46,7 @@ Embedded systems often run **unattended**, so they must recover on their own. A 
 
 ==The watchdog turns a permanent hang into a short restart.==
 
-### Q3. How does a watchdog timer work?
+### Q3. How does a watchdog timer work? ⭐
 
 1. ==**Enable**== the watchdog at the start of the program.
 2. ==**The WDT counts up**== continuously from 0 towards its timeout value.
@@ -55,7 +55,7 @@ Embedded systems often run **unattended**, so they must recover on their own. A 
 5. ==**Program stuck:**== no kicks arrive; the count reaches the timeout.
 6. ==**Timeout:**== the WDT resets the microcontroller, and the program restarts.
 
-### Q4. Does the 8051 have a watchdog timer?
+### Q4. Does the 8051 have a watchdog timer? ⭐
 
 - ==The original 8051 and the AT89C51 have no watchdog==. Designers add an external watchdog chip (a supervisor IC).
 - ==The **AT89S52** has a built-in watchdog==. It is enabled by writing **1EH** and then **E1H** to its **WDTRST** register (SFR address A6H), and the same two-byte sequence kicks it.
@@ -113,12 +113,12 @@ flowchart TB
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is a watchdog timer? Why is it needed?
+1. What is a watchdog timer? Why is it needed? ⭐
 2. What is meant by "kicking" or "feeding" the watchdog?
 3. Why should the watchdog not be kicked from an interrupt routine?
 
 **Long answer (5 marks)**
-1. Explain the working of a watchdog timer with a flowchart.
+1. Explain the working of a watchdog timer with a flowchart. ⭐
 2. Explain the watchdog timer, its need in embedded systems and good practices for using it, with an 8051-family example.
 
 ## Sources

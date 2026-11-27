@@ -33,7 +33,7 @@ There are two ways to design this list:
 - ==Give the processor **many powerful instructions**==, so programs are short (CISC).
 - ==Give it **few simple instructions**== that run very fast, and let the compiler combine them (RISC).
 
-### Q2. What is RISC?
+### Q2. What is RISC? ⭐
 
 ==RISC: a small set of simple, fixed-length instructions, most executing in one clock cycle.==
 
@@ -46,7 +46,7 @@ Features:
 
 Examples: ARM, RISC-V, AVR (Arduino Uno), PIC.
 
-### Q3. What is CISC?
+### Q3. What is CISC? ⭐
 
 ==CISC: a large set of complex, variable-length instructions; one instruction can do several operations, including memory access.==
 
@@ -59,7 +59,7 @@ Features:
 
 Examples: Intel x86 (8086 to Core i7), and the **8051**, which has over a hundred instructions of 1 to 3 bytes.
 
-### Q4. How do RISC and CISC differ?
+### Q4. How do RISC and CISC differ? ⭐
 
 | Point | RISC | CISC |
 |---|---|---|
@@ -144,12 +144,12 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Expand RISC and CISC. Give two examples of each.
+1. Expand RISC and CISC. Give two examples of each. ⭐
 2. What is a load/store architecture?
 3. Why is pipelining easier in RISC processors?
 
 **Long answer (5 marks)**
-1. Differentiate between RISC and CISC architectures on at least six points.
+1. Differentiate between RISC and CISC architectures on at least six points. ⭐
 2. Explain RISC and CISC with an example showing how the same task is coded in each.
 
 ## Sources

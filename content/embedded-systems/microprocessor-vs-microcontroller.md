@@ -28,7 +28,7 @@ A microprocessor is only a CPU on a chip and needs external memory and I/O chips
 
 ## Explained
 
-### Q1. What is a microprocessor?
+### Q1. What is a microprocessor? ⭐
 
 ==A microprocessor is a CPU on a single chip; memory, timers and I/O must be added as separate chips.==
 
@@ -37,7 +37,7 @@ A microprocessor is only a CPU on a chip and needs external memory and I/O chips
 - It is ==designed for **general computing**==: high speed, large memory, running many programs.
 - Examples: Intel 8085 (8-bit), Intel 8086 (16-bit), Intel Core i5, AMD Ryzen.
 
-### Q2. What is a microcontroller?
+### Q2. What is a microcontroller? ⭐
 
 ==A microcontroller is a single chip containing a CPU, RAM, ROM, I/O ports, timers and often a serial port and ADC.==
 
@@ -46,7 +46,7 @@ A microprocessor is only a CPU on a chip and needs external memory and I/O chips
 - It is ==cheap, small and uses little power==, which suits embedded systems.
 - Examples: Intel 8051, Microchip PIC, Atmel AVR (used in Arduino Uno), ARM Cortex-M (STM32).
 
-### Q3. How do they differ?
+### Q3. How do they differ? ⭐
 
 | Point | Microprocessor | Microcontroller |
 |---|---|---|
@@ -60,7 +60,7 @@ A microprocessor is only a CPU on a chip and needs external memory and I/O chips
 | Bit-handling instructions | Few | ==Many (set or clear one pin)== |
 | Examples | 8085, 8086, Core i5 | 8051, PIC, AVR, ARM Cortex-M |
 
-### Q4. Which one does an embedded system use, and why?
+### Q4. Which one does an embedded system use, and why? ⭐
 
 Most embedded systems use a **microcontroller**, because they need:
 - ==**Low cost:**== one chip instead of five or six.
@@ -134,12 +134,12 @@ flowchart TB
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Define microprocessor and microcontroller.
+1. Define microprocessor and microcontroller. ⭐
 2. Why are microcontrollers preferred in embedded systems? Give three reasons.
 3. Name two microprocessors and two microcontrollers.
 
 **Long answer (5 marks)**
-1. Differentiate between microprocessor and microcontroller on at least six points.
+1. Differentiate between microprocessor and microcontroller on at least six points. ⭐
 2. With a block diagram, compare a microprocessor-based system and a microcontroller-based system.
 
 ## Sources

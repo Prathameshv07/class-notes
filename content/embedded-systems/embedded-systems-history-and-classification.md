@@ -50,7 +50,7 @@ There are millions of embedded designs, from a TV remote to a satellite. Classif
 
 ==Embedded systems are classified by generation, by complexity and performance, by functional requirement, and by deterministic behaviour and triggering.==
 
-### Q3. What is classification by generation?
+### Q3. What is classification by generation? ⭐
 
 ==Based on the processor technology used==:
 
@@ -63,7 +63,7 @@ There are millions of embedded designs, from a TV remote to a satellite. Classif
 
 Each generation brought more power, more memory and, from the third generation on, an operating system in many devices.
 
-### Q4. What is classification by complexity and performance?
+### Q4. What is classification by complexity and performance? ⭐
 
 | Type | Processor | Operating system | Example |
 |---|---|---|---|
@@ -73,7 +73,7 @@ Each generation brought more power, more memory and, from the third generation o
 
 Small-scale: 8/16-bit, usually no OS. Medium-scale: 16/32-bit, may use an RTOS. Large-scale: 32/64-bit or multicore, needs an RTOS.
 
-### Q5. What is classification by functional requirement?
+### Q5. What is classification by functional requirement? ⭐
 
 ==Based on what the system must do==:
 
@@ -86,7 +86,7 @@ Small-scale: 8/16-bit, usually no OS. Medium-scale: 16/32-bit, may use an RTOS. 
 
 One device can fit several types: a fitness band is mobile **and** networked.
 
-### Q6. What are hard and soft real-time systems?
+### Q6. What are hard and soft real-time systems? ⭐
 
 This classification is by **deterministic behaviour**: how strict the deadline is.
 
@@ -159,13 +159,13 @@ flowchart TB
 
 **Short answer (2–3 marks)**
 1. Write a short note on the history of embedded systems.
-2. Differentiate between hard real-time and soft real-time systems with one example each.
+2. Differentiate between hard real-time and soft real-time systems with one example each. ⭐
 3. What are event-triggered and time-triggered embedded systems?
 4. Classify the following: (a) TV remote, (b) airbag controller, (c) smart electricity meter.
 
 **Long answer (5 marks)**
-1. Explain the classification of embedded systems based on generation, with examples.
-2. Classify embedded systems based on complexity and on functional requirements. Give two examples of each type.
+1. Explain the classification of embedded systems based on generation, with examples. ⭐
+2. Classify embedded systems based on complexity and on functional requirements. Give two examples of each type. ⭐
 
 ## Sources
 

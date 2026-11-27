@@ -27,7 +27,7 @@ An ASIC is a chip designed for one application, a PLD is a chip whose hardware l
 
 ## Explained
 
-### Q1. What is an ASIC?
+### Q1. What is an ASIC? ⭐
 
 ==An ASIC (Application-Specific Integrated Circuit) is a chip designed and manufactured for one particular application.==
 
@@ -49,7 +49,7 @@ An ASIC is a chip designed for one application, a PLD is a chip whose hardware l
 
 Example: if an ASIC costs ₹5 crore to design but saves ₹50 per unit, it pays off only after 10 lakh units.
 
-### Q3. What is a programmable logic device (PLD)?
+### Q3. What is a programmable logic device (PLD)? ⭐
 
 ==A PLD is a chip whose internal logic circuits can be configured by the user after manufacture to implement custom hardware.==
 
@@ -69,7 +69,7 @@ Types:
 
 Trade-off: compared with an ASIC, an FPGA costs more per unit and uses more power, but has no large design cost and can be changed.
 
-### Q5. What are COTS components?
+### Q5. What are COTS components? ⭐
 
 ==COTS (Commercial Off-The-Shelf) components are ready-made hardware or software parts that can be bought and used directly in a product.==
 
@@ -135,11 +135,11 @@ flowchart LR
 
 **Short answer (2–3 marks)**
 1. What is an ASIC? State two advantages and one disadvantage.
-2. What is a PLD? Name its types.
+2. What is a PLD? Name its types. ⭐
 3. What are COTS components? Give two examples.
 
 **Long answer (5 marks)**
-1. Explain ASIC, PLD and COTS components with their advantages and disadvantages.
+1. Explain ASIC, PLD and COTS components with their advantages and disadvantages. ⭐
 2. Compare ASIC and FPGA. When would a designer choose each?
 
 ## Sources

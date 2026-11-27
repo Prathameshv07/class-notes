@@ -26,7 +26,7 @@ A sensor converts a physical quantity (temperature, light, motion) into an elect
 
 ## Explained
 
-### Q1. What is a sensor?
+### Q1. What is a sensor? ⭐
 
 ==A sensor detects a physical quantity and converts it into an electrical signal.==
 
@@ -36,7 +36,7 @@ A sensor converts a physical quantity (temperature, light, motion) into an elect
 
 Examples: LM35 temperature sensor, LDR (light), PIR (human motion), ultrasonic sensor (distance), MQ-2 (gas/smoke), accelerometer (tilt, steps).
 
-### Q2. What types of sensors are there?
+### Q2. What types of sensors are there? ⭐
 
 | Basis | Types | Example |
 |---|---|---|
@@ -61,7 +61,7 @@ Example: ==the LM35 gives **10 mV per °C**==.
 
 ==The basic 8051 has no built-in ADC==, so an external ADC chip (such as the ADC0804) is used.
 
-### Q4. What is an actuator?
+### Q4. What is an actuator? ⭐
 
 ==An actuator converts an electrical signal from the controller into a physical action such as motion, light or sound.==
 
@@ -75,7 +75,7 @@ Example: ==the LM35 gives **10 mV per °C**==.
 | Servo motor | ==Turns to a set angle== | Robot arm, camera mount |
 | Solenoid valve | Opens or closes a pipe | Washing machine water inlet |
 
-### Q5. Why can't the 8051 drive a motor or lamp directly?
+### Q5. Why can't the 8051 drive a motor or lamp directly? ⭐
 
 An 8051 port pin can supply or take ==only a few milliamperes at 5 V==. A motor may need an ampere; a street lamp runs on 230 V AC. Connecting them directly would damage the chip.
 
@@ -132,12 +132,12 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Define sensor and actuator with two examples each.
+1. Define sensor and actuator with two examples each. ⭐
 2. Differentiate between analog and digital sensors.
 3. Why is a driver circuit needed between a microcontroller and an actuator?
 
 **Long answer (5 marks)**
-1. Explain sensors and actuators in embedded systems, with their types and examples.
+1. Explain sensors and actuators in embedded systems, with their types and examples. ⭐
 2. With a block diagram, explain how an embedded system reads a temperature sensor and controls a fan.
 
 ## Sources

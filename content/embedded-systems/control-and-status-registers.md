@@ -25,7 +25,7 @@ Control and status registers (CSRs) are special registers through which the proc
 
 ## Explained
 
-### Q1. What are control and status registers?
+### Q1. What are control and status registers? ⭐
 
 ==Control and status registers are special registers inside a peripheral that the processor uses to configure it, command it and check its state.==
 
@@ -39,7 +39,7 @@ Every peripheral usually has three kinds:
 
 On the 8051 these are **special function registers (SFRs)** at addresses 80H–FFH.
 
-### Q2. What is a control register? Give an 8051 example.
+### Q2. What is a control register? Give an 8051 example. ⭐
 
 ==A control register holds bits that configure how a peripheral works.==
 
@@ -51,7 +51,7 @@ On the 8051 these are **special function registers (SFRs)** at addresses 80H–F
 
 Example: `TMOD = 0x01;` puts Timer 0 in mode 1 (16-bit timer).
 
-### Q3. What is a status register? Give an 8051 example.
+### Q3. What is a status register? Give an 8051 example. ⭐
 
 ==A status register holds flag bits that the peripheral sets to report an event or condition.==
 
@@ -75,7 +75,7 @@ Yes. **TCON (Timer Control, address 88H)** mixes both:
 
 TCON and SCON are **bit-addressable**, so in Keil C you can write single bits by name: `TR0 = 1;` starts Timer 0.
 
-### Q5. How does a program use them together?
+### Q5. How does a program use them together? ⭐
 
 The usual pattern, shown for a Timer 0 delay:
 
@@ -145,12 +145,12 @@ flowchart LR
 
 **Short answer (2–3 marks)**
 1. What are control and status registers?
-2. Explain the bits of the 8051 TMOD register.
+2. Explain the bits of the 8051 TMOD register. ⭐
 3. What is a flag? Give two examples from the 8051.
 
 **Long answer (5 marks)**
-1. Explain control, status and data registers with 8051 examples (TMOD, TCON, SCON).
-2. Explain how a program uses control and status registers to generate a time delay with Timer 0.
+1. Explain control, status and data registers with 8051 examples (TMOD, TCON, SCON). ⭐
+2. Explain how a program uses control and status registers to generate a time delay with Timer 0. ⭐
 
 ## Sources
 

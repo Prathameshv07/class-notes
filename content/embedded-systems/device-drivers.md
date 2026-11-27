@@ -25,7 +25,7 @@ A device driver is a piece of software that hides a hardware device's registers 
 
 ## Explained
 
-### Q1. What is a device driver?
+### Q1. What is a device driver? ⭐
 
 ==A device driver is software that controls a hardware device and gives the rest of the program simple functions to use it.==
 
@@ -35,7 +35,7 @@ A device driver is a piece of software that hides a hardware device's registers 
 
 In an embedded system with an OS, drivers are part of the OS; in a super-loop 8051 program, drivers are simply C functions in their own source files.
 
-### Q2. Why are device drivers needed?
+### Q2. Why are device drivers needed? ⭐
 
 - ==**Abstraction:**== the application says *what* to do, the driver knows *how*.
 - ==**Reuse:**== the same LCD driver works in every project that uses that LCD.
@@ -43,7 +43,7 @@ In an embedded system with an OS, drivers are part of the OS; in a super-loop 80
 - ==**Easier debugging:**== a fault in the serial port is looked for in one place: the UART driver.
 - ==**Safe sharing:**== the driver controls access, so two parts of the program don't fight over one device.
 
-### Q3. What functions does a typical driver provide?
+### Q3. What functions does a typical driver provide? ⭐
 
 | Function | Job | UART example |
 |---|---|---|
@@ -59,7 +59,7 @@ In an embedded system with an OS, drivers are part of the OS; in a super-loop 80
 - ==**External device drivers:**== for chips and modules outside: LCD, RTC, EEPROM, sensors, GSM module.
 - ==**Architecture-specific vs generic:**== the low layer that touches registers is specific to one chip; the upper layer (e.g. "print a string on the LCD") can be generic and reused.
 
-### Q5. What is a timer driver?
+### Q5. What is a timer driver? ⭐
 
 ==A timer driver is a device driver that manages the microcontroller's hardware timers and gives functions for delays, periodic events and time measurement.==
 
@@ -125,12 +125,12 @@ flowchart TB
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is a device driver? Why is it needed?
+1. What is a device driver? Why is it needed? ⭐
 2. List the typical functions provided by a device driver.
 3. What is a timer driver?
 
 **Long answer (5 marks)**
-1. Explain the role of device drivers in an embedded system, with their types and functions.
+1. Explain the role of device drivers in an embedded system, with their types and functions. ⭐
 2. Explain a timer driver for the 8051 with its functions and an example of its use.
 
 ## Sources

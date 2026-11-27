@@ -36,7 +36,7 @@ Two different checks are needed:
 - ==**RAM test:**== can every location be written and read back correctly?
 - ==**ROM/flash test:**== are the stored contents still exactly what was programmed?
 
-### Q2. How is RAM tested?
+### Q2. How is RAM tested? ⭐
 
 A RAM test checks three things, in this order:
 
@@ -46,7 +46,7 @@ A RAM test checks three things, in this order:
 
 ==A RAM test checks the data bus, the address bus and every memory cell.==
 
-### Q3. How are ROM and flash contents checked?
+### Q3. How are ROM and flash contents checked? ⭐
 
 ROM cannot be written during a test, so we check its **contents** instead:
 
@@ -55,7 +55,7 @@ ROM cannot be written during a test, so we check its **contents** instead:
 
 The same idea protects **data in transit**: UART frames, CAN messages, Ethernet frames, and files all carry a CRC.
 
-### Q4. How is a CRC calculated?
+### Q4. How is a CRC calculated? ⭐
 
 1. ==Choose a **generator** polynomial== agreed by sender and receiver, e.g. x³ + x + 1 = **1011**.
 2. ==Append zeros to the data==: as many as the generator's degree (here 3).
@@ -135,8 +135,8 @@ flowchart LR
 3. Find the CRC for data 1101 with generator 1011.
 
 **Long answer (5 marks)**
-1. Explain the data bus, address bus and device tests used for RAM testing.
-2. What is CRC? Explain its calculation and checking with an example.
+1. Explain the data bus, address bus and device tests used for RAM testing. ⭐
+2. What is CRC? Explain its calculation and checking with an example. ⭐
 
 ## Sources
 

@@ -26,7 +26,7 @@ A memory map shows how a processor's address space is divided among program memo
 
 ## Explained
 
-### Q1. What is a memory map?
+### Q1. What is a memory map? ⭐
 
 ==A memory map is a diagram or table showing which range of addresses is used for which memory or device.==
 
@@ -36,7 +36,7 @@ A memory map shows how a processor's address space is divided among program memo
 
 Example: a processor with a 16-bit address bus can address 2¹⁶ = 65,536 locations (64 KB), numbered 0000H to FFFFH.
 
-### Q2. What does the 8051's memory map look like?
+### Q2. What does the 8051's memory map look like? ⭐
 
 The 8051 keeps program and data in **separate** address spaces:
 
@@ -49,7 +49,7 @@ The 8051 keeps program and data in **separate** address spaces:
 | ==Special function registers (SFRs)== | 80H–FFH | Port, timer, serial and control registers |
 | ==External data memory== | 0000H–FFFFH | Optional extra RAM (64 KB) |
 
-### Q3. What is an I/O map, and how are I/O devices addressed?
+### Q3. What is an I/O map, and how are I/O devices addressed? ⭐
 
 ==An I/O map lists the addresses assigned to each input/output port and peripheral.==
 
@@ -67,7 +67,7 @@ On the 8051, the ports are **special function registers** inside the memory map:
 - ==The **vector address** is where the processor jumps== for that interrupt.
 - ==The **priority** decides which is served first== when two interrupts arrive together.
 
-### Q5. What is the 8051's interrupt map?
+### Q5. What is the 8051's interrupt map? ⭐
 
 | Source | Vector address | Default priority |
 |---|---|---|
@@ -130,11 +130,11 @@ flowchart TB
 **Short answer (2–3 marks)**
 1. What is a memory map? Why is it needed?
 2. Differentiate between memory-mapped I/O and I/O-mapped I/O.
-3. Write the vector addresses of the 8051 interrupts.
+3. Write the vector addresses of the 8051 interrupts. ⭐
 
 **Long answer (5 marks)**
-1. Explain the memory map of the 8051 microcontroller with a neat diagram.
-2. Explain the memory map, I/O map and interrupt map of an embedded system, with 8051 examples.
+1. Explain the memory map of the 8051 microcontroller with a neat diagram. ⭐
+2. Explain the memory map, I/O map and interrupt map of an embedded system, with 8051 examples. ⭐
 
 ## Sources
 

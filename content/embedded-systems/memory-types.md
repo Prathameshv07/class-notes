@@ -26,7 +26,7 @@ Embedded systems use volatile RAM (SRAM, DRAM) for working data that is lost at 
 
 ## Explained
 
-### Q1. How is memory classified?
+### Q1. How is memory classified? ⭐
 
 ==Memory is classified as volatile (loses data when power is off) or non-volatile (keeps data without power).==
 
@@ -36,7 +36,7 @@ Embedded systems use volatile RAM (SRAM, DRAM) for working data that is lost at 
 
 On the AT89C51: 4 KB flash (program) and 128 bytes RAM (data).
 
-### Q2. What are SRAM and DRAM?
+### Q2. What are SRAM and DRAM? ⭐
 
 | Point | SRAM (Static RAM) | DRAM (Dynamic RAM) |
 |---|---|---|
@@ -50,7 +50,7 @@ On the AT89C51: 4 KB flash (program) and 128 bytes RAM (data).
 
 **NVRAM** (non-volatile RAM) is SRAM with a small backup battery, so it keeps data when main power fails.
 
-### Q3. What are the types of ROM?
+### Q3. What are the types of ROM? ⭐
 
 | Type | How it is written | Erasable? |
 |---|---|---|
@@ -62,7 +62,7 @@ On the AT89C51: 4 KB flash (program) and 128 bytes RAM (data).
 
 Mask ROM is cheapest at very high volume; OTP suits medium volume when the code is final.
 
-### Q4. Why is flash the most used program memory today?
+### Q4. Why is flash the most used program memory today? ⭐
 
 - ==**Electrically erasable in the circuit:**== no UV lamp, no removing the chip; supports in-system programming and firmware updates.
 - ==**Erased in blocks:**== much faster than EEPROM's byte-by-byte erase for large programs.
@@ -143,11 +143,11 @@ flowchart TB
 
 **Short answer (2–3 marks)**
 1. Differentiate between volatile and non-volatile memory with examples.
-2. Compare SRAM and DRAM.
+2. Compare SRAM and DRAM. ⭐
 3. Differentiate between EEPROM and flash memory.
 
 **Long answer (5 marks)**
-1. Explain the different types of ROM used in embedded systems.
+1. Explain the different types of ROM used in embedded systems. ⭐
 2. Explain the types of memory used in embedded systems, and state which memory is used for program, data and settings, with reasons.
 
 ## Sources

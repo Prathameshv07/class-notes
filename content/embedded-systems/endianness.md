@@ -34,7 +34,7 @@ So the processor must split the number across several addresses, and it must dec
 
 The terms come from *Gulliver's Travels*, where two kingdoms fought over which end of a boiled egg to break first: the big end or the little end.
 
-### Q2. What is big endian?
+### Q2. What is big endian? ⭐
 
 ==Big endian: the most significant byte (MSB) is stored at the lowest memory address.==
 
@@ -48,7 +48,7 @@ The number reads left to right in memory exactly as we write it.
 
 ==Used by: older Motorola 68000, IBM mainframes, and **network protocols**== (TCP/IP sends data in big-endian order, called **network byte order**).
 
-### Q3. What is little endian?
+### Q3. What is little endian? ⭐
 
 ==Little endian: the least significant byte (LSB) is stored at the lowest memory address.==
 
@@ -90,7 +90,7 @@ Byte at lowest address: 0x78
 Little endian
 ```
 
-### Q5. Where does endianness cause problems in embedded systems?
+### Q5. Where does endianness cause problems in embedded systems? ⭐
 
 - ==**Device to PC or server:**== a sensor node sends a 16-bit reading; if the two sides use different orders, the value is garbled (as in the truck example).
 - ==**Networking:** data must be converted to network byte order== (big endian) before sending, using functions like `htons()` and `htonl()`.
@@ -144,12 +144,12 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is endianness? Define big endian and little endian.
-2. Show how 0xA1B2C3D4 is stored from address 2000 in big-endian and little-endian processors.
+1. What is endianness? Define big endian and little endian. ⭐
+2. Show how 0xA1B2C3D4 is stored from address 2000 in big-endian and little-endian processors. ⭐
 3. What is network byte order?
 
 **Long answer (5 marks)**
-1. Explain big-endian and little-endian processors with a memory diagram and examples of each.
+1. Explain big-endian and little-endian processors with a memory diagram and examples of each. ⭐
 2. Why is endianness important when an embedded device communicates with a PC or a network? Explain with an example.
 
 ## Sources

@@ -25,7 +25,7 @@ An application-specific embedded system is built for one particular application,
 
 ## Explained
 
-### Q1. What is an application-specific embedded system?
+### Q1. What is an application-specific embedded system? ⭐
 
 ==An application-specific embedded system is designed to perform one particular application and cannot be used for anything else.==
 
@@ -37,7 +37,7 @@ Examples: washing machine, microwave oven, digital camera, air conditioner, elec
 
 Compare this with a **domain-specific** system (next lecture), which is built for a whole field, such as automotive.
 
-### Q2. What are the inputs of a washing machine's embedded system?
+### Q2. What are the inputs of a washing machine's embedded system? ⭐
 
 | Input | What it tells the controller |
 |---|---|
@@ -48,7 +48,7 @@ Compare this with a **domain-specific** system (next lecture), which is built fo
 | ==Tachometer / speed sensor== | Drum speed, to control the motor |
 | ==Imbalance sensor== | Clothes have bunched to one side |
 
-### Q3. What are its outputs (actuators)?
+### Q3. What are its outputs (actuators)? ⭐
 
 | Output | What it does |
 |---|---|
@@ -59,7 +59,7 @@ Compare this with a **domain-specific** system (next lecture), which is built fo
 | ==Door lock actuator== | Keeps the door locked while running |
 | ==Display, LEDs and buzzer== | Show time left and status; beep at the end |
 
-### Q4. How does the controller run a wash cycle?
+### Q4. How does the controller run a wash cycle? ⭐
 
 The firmware moves through fixed stages, checking sensors at each step:
 
@@ -135,12 +135,12 @@ flowchart LR
 
 **Short answer (2–3 marks)**
 1. What is an application-specific embedded system? Give two examples.
-2. List the sensors and actuators used in a washing machine.
+2. List the sensors and actuators used in a washing machine. ⭐
 3. Why must a washing machine controller check the door lock before starting?
 
 **Long answer (5 marks)**
-1. With a neat block diagram, explain the washing machine as an application-specific embedded system.
-2. Explain the sequence of operations in an automatic washing machine and the role of its sensors at each step.
+1. With a neat block diagram, explain the washing machine as an application-specific embedded system. ⭐
+2. Explain the sequence of operations in an automatic washing machine and the role of its sensors at each step. ⭐
 
 ## Sources
 

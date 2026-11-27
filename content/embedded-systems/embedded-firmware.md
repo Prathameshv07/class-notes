@@ -25,7 +25,7 @@ Embedded firmware is the control program stored permanently in an embedded syste
 
 ## Explained
 
-### Q1. What is embedded firmware?
+### Q1. What is embedded firmware? ⭐
 
 ==Firmware is the program stored in an embedded system's non-volatile memory that controls its hardware to perform its specific task.==
 
@@ -36,7 +36,7 @@ Embedded firmware is the control program stored permanently in an embedded syste
 
 Examples: the program in a TV remote, a microwave oven, a router, a car's engine controller.
 
-### Q2. How is firmware different from application software on a PC?
+### Q2. How is firmware different from application software on a PC? ⭐
 
 | Point | Firmware | PC application software |
 |---|---|---|
@@ -48,7 +48,7 @@ Examples: the program in a TV remote, a microwave oven, a router, a car's engine
 | Updates | Rare, by the maker | Frequent, by the user |
 | Ends? | ==Never: runs in an infinite loop== | Closes when the user exits |
 
-### Q3. In which languages is firmware written?
+### Q3. In which languages is firmware written? ⭐
 
 | Approach | Language | Strength | Weakness |
 |---|---|---|---|
@@ -58,7 +58,7 @@ Examples: the program in a TV remote, a microwave oven, a router, a car's engine
 
 ==Embedded C is the most widely used firmware language: it is C plus extensions to access the microcontroller's registers and pins.==
 
-### Q4. What are the two ways of designing firmware?
+### Q4. What are the two ways of designing firmware? ⭐
 
 **1. Super loop (no operating system)**
 - After setting up the hardware, ==the program runs one infinite loop that repeats a list of tasks==.
@@ -141,12 +141,12 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. What is embedded firmware? Where is it stored?
+1. What is embedded firmware? Where is it stored? ⭐
 2. State the advantages and disadvantages of writing firmware in assembly language.
 3. What is a super loop? Why does it never end?
 
 **Long answer (5 marks)**
-1. Explain the firmware design approaches: super loop based and operating system based.
+1. Explain the firmware design approaches: super loop based and operating system based. ⭐
 2. Compare firmware development in assembly language and in Embedded C. Describe how firmware is loaded into a microcontroller.
 
 ## Sources

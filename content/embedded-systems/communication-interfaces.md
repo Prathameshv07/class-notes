@@ -26,7 +26,7 @@ Communication interfaces are standard ways for an embedded system to exchange da
 
 ## Explained
 
-### Q1. What are serial and parallel communication?
+### Q1. What are serial and parallel communication? ⭐
 
 ==**Parallel:** sends several bits at the same time== on several wires (e.g. 8 wires for a byte).
 - ==Fast over short distances==, but needs many pins and wires.
@@ -47,7 +47,7 @@ Communication interfaces are standard ways for an embedded system to exchange da
 
 The same device usually uses both: a smartwatch uses I2C to read its sensors (onboard) and Bluetooth to reach your phone (external).
 
-### Q3. What is UART?
+### Q3. What is UART? ⭐
 
 ==**UART** (Universal Asynchronous Receiver Transmitter)== sends serial data using ==two lines: **TX** (transmit) and **RX** (receive)==.
 
@@ -57,7 +57,7 @@ The same device usually uses both: a smartwatch uses I2C to read its sensors (on
 - ==The 8051 has one built-in UART== (pins P3.0 RXD and P3.1 TXD). You will use it in practical 11.
 - Examples: microcontroller to PC, GPS module, GSM module, Bluetooth module (HC-05).
 
-### Q4. What are I2C and SPI?
+### Q4. What are I2C and SPI? ⭐
 
 | Feature | I2C | SPI |
 |---|---|---|
@@ -142,12 +142,12 @@ flowchart LR
 ## Exam questions
 
 **Short answer (2–3 marks)**
-1. Differentiate between serial and parallel communication.
+1. Differentiate between serial and parallel communication. ⭐
 2. What is UART? Why is it called asynchronous?
 3. List four external communication interfaces used in embedded systems.
 
 **Long answer (5 marks)**
-1. Explain onboard communication interfaces I2C and SPI and compare them.
+1. Explain onboard communication interfaces I2C and SPI and compare them. ⭐
 2. Explain the external communication interfaces of embedded systems, wired and wireless, with one application each.
 
 ## Sources

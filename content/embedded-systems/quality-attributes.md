@@ -27,7 +27,7 @@ Quality attributes are the non-functional requirements of an embedded system: op
 
 ## Explained
 
-### Q1. What are quality attributes, and how are they grouped?
+### Q1. What are quality attributes, and how are they grouped? ⭐
 
 A device's ==**functional requirements** say what it must do== ("announce the payment amount"). Its ==**quality attributes** say how well it must do it== ("within one second, every time, for years").
 
@@ -42,7 +42,7 @@ A device's ==**functional requirements** say what it must do== ("announce the pa
 | Security | Per-unit and total cost |
 | Safety | |
 
-### Q2. What are response and throughput?
+### Q2. What are response and throughput? ⭐
 
 ==**Response:** how quickly the system reacts== to an input or event.
 - Example: a car's brake controller must respond in milliseconds; a weather logger can take a few seconds.
@@ -52,7 +52,7 @@ A device's ==**functional requirements** say what it must do== ("announce the pa
 
 Response is about **how fast one event** is handled; throughput is about **how many** are handled per unit time.
 
-### Q3. What is reliability, and how is it measured?
+### Q3. What is reliability, and how is it measured? ⭐
 
 ==**Reliability** is how long the system works without failure==.
 
@@ -64,7 +64,7 @@ $$\text{Availability} = \frac{\text{MTBF}}{\text{MTBF} + \text{MTTR}} \times 100
 **Worked example:** a traffic-signal controller has MTBF = 2,000 hours and MTTR = 4 hours.
 Availability = 2000 / (2000 + 4) × 100 = 2000 / 2004 × 100 ≈ **99.8%**.
 
-### Q4. What are maintainability, security and safety?
+### Q4. What are maintainability, security and safety? ⭐
 
 ==**Maintainability:** how easily the system can be kept working==: fixed, serviced or updated. Measured by MTTR. Example: a meter whose firmware can be updated remotely is highly maintainable.
 
@@ -140,11 +140,11 @@ flowchart TB
 
 **Short answer (2–3 marks)**
 1. Differentiate between operational and non-operational quality attributes.
-2. Define MTBF and MTTR. An embedded system has MTBF = 1,000 h and MTTR = 10 h. Find its availability.
+2. Define MTBF and MTTR. An embedded system has MTBF = 1,000 h and MTTR = 10 h. Find its availability. ⭐
 3. Differentiate between response and throughput.
 
 **Long answer (5 marks)**
-1. Explain the operational quality attributes of an embedded system with examples.
+1. Explain the operational quality attributes of an embedded system with examples. ⭐
 2. Explain the non-operational quality attributes of an embedded system with examples.
 
 ## Sources

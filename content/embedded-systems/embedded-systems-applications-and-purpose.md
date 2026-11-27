@@ -39,13 +39,13 @@ Embedded systems are used in almost every field, from consumer electronics to sp
 | Defence and space | Missile guidance, satellites, launch vehicles |
 | Agriculture | Soil-moisture sensors, automatic drip irrigation |
 
-### Q2. What are the purposes of embedded systems?
+### Q2. What are the purposes of embedded systems? ⭐
 
 ==The six purposes of embedded systems: data collection, data communication, data processing, monitoring, control, and application-specific user interface.==
 
 Each embedded system is built for one or more of these. A digital thermometer collects and displays data; an air conditioner monitors temperature and controls the compressor. In exams, explain each purpose with one example.
 
-### Q3. What are data collection and data communication?
+### Q3. What are data collection and data communication? ⭐
 
 **Data collection (storage and representation)**
 - ==The system senses real-world data, converts it to digital form==, and stores or displays it.
@@ -57,7 +57,7 @@ Each embedded system is built for one or more of these. A digital thermometer co
 - Some systems only carry data (a router); others collect and then send it (a smart meter sending readings to the electricity board).
 - Examples: Wi-Fi router, network switch, GPS tracker in a delivery bike.
 
-### Q4. What are data processing, monitoring and control?
+### Q4. What are data processing, monitoring and control? ⭐
 
 ==**Data processing:** the system changes data to make it useful==. A hearing aid filters noise and amplifies speech; a voice assistant processes sound to detect a wake word.
 
@@ -131,11 +131,11 @@ flowchart LR
 
 **Short answer (2–3 marks)**
 1. List any six application areas of embedded systems with one example each.
-2. Differentiate between monitoring and control purposes of embedded systems.
+2. Differentiate between monitoring and control purposes of embedded systems. ⭐
 3. What is meant by an application-specific user interface? Give two examples.
 
 **Long answer (5 marks)**
-1. Explain the purposes of embedded systems with suitable examples.
+1. Explain the purposes of embedded systems with suitable examples. ⭐
 2. Taking any one real device, show how it serves more than one purpose of embedded systems.
 
 ## Sources

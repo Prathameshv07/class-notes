@@ -26,7 +26,7 @@ A processor family is a group of chips sharing the same core and instruction set
 
 ## Explained
 
-### Q1. What is a processor family?
+### Q1. What is a processor family? ⭐
 
 ==A processor family is a set of processors or microcontrollers that share the same core architecture and instruction set, but differ in memory size, peripherals, speed or package.==
 
@@ -36,7 +36,7 @@ A processor family is a group of chips sharing the same core and instruction set
 
 Examples: the **8051 family** (MCS-51), the **ARM Cortex-M family** (M0, M3, M4, M7), the **AVR family** (ATtiny, ATmega).
 
-### Q2. What are the members of the 8051 family?
+### Q2. What are the members of the 8051 family? ⭐
 
 | Chip | Program memory | RAM | Timers | Note |
 |---|---|---|---|---|
@@ -49,7 +49,7 @@ Examples: the **8051 family** (MCS-51), the **ARM Cortex-M family** (M0, M3, M4,
 
 All share the 8051 instruction set, so a program for the 8051 runs on every one of them.
 
-### Q3. What are external peripherals?
+### Q3. What are external peripherals? ⭐
 
 ==External peripherals are chips connected outside the microcontroller to add functions that it does not have on-chip.==
 
@@ -64,7 +64,7 @@ The basic 8051 has no ADC, no real-time clock, no EEPROM and only 32 I/O pins, s
 | ==Display and keypad== | 16×2 LCD (HD44780), 4×4 keypad | User interface |
 | ==Level converter== | MAX232 | Converts 5 V UART to RS-232 levels for a PC |
 
-### Q4. How are external peripherals connected?
+### Q4. How are external peripherals connected? ⭐
 
 - ==**Through port pins:**== the simplest way, e.g. an LCD on Port 1 and Port 2, a keypad on Port 3.
 - ==**On the external bus (memory-mapped):**== the peripheral gets an address in the external data space, as with the 8255.
@@ -134,8 +134,8 @@ flowchart LR
 3. What are external peripherals? Name four with their use.
 
 **Long answer (5 marks)**
-1. Explain the 8051 family of microcontrollers with a comparison table.
-2. Explain external peripherals in an embedded system, how they are connected, and the factors used to select a microcontroller.
+1. Explain the 8051 family of microcontrollers with a comparison table. ⭐
+2. Explain external peripherals in an embedded system, how they are connected, and the factors used to select a microcontroller. ⭐
 
 ## Sources
 

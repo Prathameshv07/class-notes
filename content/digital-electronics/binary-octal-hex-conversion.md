@@ -47,7 +47,7 @@ This is why octal and hex are used as **short forms of binary**: hex shrinks bin
 3. ==**Pad with zeros** to complete the outer groups:== add zeros on the far left of the integer part and the far right of the fraction part. This does not change the value.
 4. ==**Replace each group**== with its octal digit (000 = 0 … 111 = 7).
 
-### Q3. Worked example: binary to octal
+### Q3. Worked example: binary to octal [2M]
 
 Convert $(11010111.1011)_2$ to octal.
 
@@ -132,6 +132,47 @@ $(2AF)_{16} = (1257)_8$. Both equal 687 in decimal.
 | Octal / hex → binary | ==Replace each digit by 3 / 4 bits== |
 | Octal ↔ hex | ==Go through binary:== expand, then regroup |
 
+### Q8. Convert $(1011011101.0111)_2$ to octal and hexadecimal. [2M]
+
+==Group from the binary point; pad with zeros at the outer ends.==
+
+| Target | Integer groups | Fraction groups | Answer |
+|---|---|---|---|
+| Octal (3s) | 001 · 011 · 011 · 101 → 1 3 3 5 | 011 · 100 → 3 4 | $(1335.34)_8$ |
+| Hex (4s) | 0010 · 1101 · 1101 → 2 D D | 0111 → 7 | $(2DD.7)_{16}$ |
+
+### Q9. Convert $(5A3.C)_{16}$ to binary and octal. [2M]
+
+**Hex to binary:** 5 = 0101, A = 1010, 3 = 0011, C = 1100
+
+$(5A3.C)_{16} = (0101\,1010\,0011.1100)_2 = (10110100011.11)_2$
+
+**Binary to octal** (regroup in 3s from the point): 010 · 110 · 100 · 011 . 110 → 2 6 4 3 . 6
+
+$(5A3.C)_{16} = (2643.6)_8$
+
+### Q10. Convert $(4762)_8$ to hexadecimal through binary. [2M]
+
+1. ==Expand each octal digit to 3 bits:== 100 111 110 010
+2. ==Regroup in 4s from the right:== 1001 · 1111 · 0010
+3. ==Replace each group:== 9 · F · 2
+
+$(4762)_8 = (9F2)_{16}$
+
+### Q11. Convert $(BEE.8)_{16}$ to binary, octal and decimal.
+
+**Binary:** B = 1011, E = 1110, E = 1110, 8 = 1000
+
+$(BEE.8)_{16} = (101111101110.1)_2$
+
+**Octal** (regroup in 3s): 101 · 111 · 101 · 110 . 100 → 5 7 5 6 . 4
+
+$(BEE.8)_{16} = (5756.4)_8$
+
+**Decimal** (B = 11, E = 14):
+
+$11 \times 256 + 14 \times 16 + 14 \times 1 + 8 \times 16^{-1} = 2816 + 224 + 14 + 0.5 = (3054.5)_{10}$
+
 ## Analogy and real-life example
 
 ### Analogy: phone numbers in groups
@@ -178,18 +219,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > **Using 3-bit groups for a hex digit.** Every hex digit is 4 bits, even small ones: 2 is 0010, not 10 or 010.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Why are octal and hexadecimal called short forms of binary? ⭐
-2. Convert $(1011011101.0111)_2$ to octal and hexadecimal. ⭐
-3. Convert $(5A3.C)_{16}$ to binary and octal.
-4. Convert $(4762)_8$ to hexadecimal through binary.
-
-**Long answer (5 marks)**
-1. Explain with examples how to convert binary to octal and hexadecimal, and back. ⭐
-2. Convert $(BEE.8)_{16}$ to binary, octal and decimal, showing all steps. ⭐
 
 ## Sources
 

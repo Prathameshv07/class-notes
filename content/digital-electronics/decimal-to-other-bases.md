@@ -39,7 +39,7 @@ To convert a decimal integer to base r, divide repeatedly by r and read the rema
 
 For hexadecimal, ==write remainders 10–15 as A–F.==
 
-### Q2. Worked example: decimal to binary
+### Q2. Worked example: decimal to binary [2M]
 
 Convert $(25)_{10}$ to binary.
 
@@ -57,7 +57,7 @@ Reading remainders bottom to top: $(25)_{10} = (11001)_2$
 
 The router example: dividing 192 by 2 repeatedly gives remainders 0, 0, 0, 0, 0, 0, 1, 1, so $(192)_{10} = (11000000)_2$.
 
-### Q3. Worked example: decimal to octal
+### Q3. Worked example: decimal to octal [2M]
 
 Convert $(175)_{10}$ to octal.
 
@@ -71,7 +71,7 @@ Bottom to top: $(175)_{10} = (257)_8$
 
 **Check:** $2 \times 64 + 5 \times 8 + 7 = 128 + 40 + 7 = 175$. Correct. (This is the same number we converted the other way in the last lecture.)
 
-### Q4. Worked example: decimal to hexadecimal
+### Q4. Worked example: decimal to hexadecimal [2M]
 
 Convert $(687)_{10}$ to hexadecimal.
 
@@ -154,6 +154,65 @@ And $(25.625)_{10} = (11001.101)_2$, using the answers of Q2 and Q6(a).
 
 $(45)_{10} = (101101)_2$
 
+### Q9. Convert $(156)_{10}$ to binary, octal and hexadecimal. [2M]
+
+| Base | Repeated division (quotient, remainder) | Read bottom to top |
+|---|---|---|
+| 2 | 78 r0, 39 r0, 19 r1, 9 r1, 4 r1, 2 r0, 1 r0, 0 r1 | $(10011100)_2$ |
+| 8 | 19 r4, 2 r3, 0 r2 | $(234)_8$ |
+| 16 | 9 r12 (C), 0 r9 | $(9C)_{16}$ |
+
+**Check:** $9 \times 16 + 12 = 156$. Correct.
+
+### Q10. Convert $(0.8125)_{10}$ to binary, octal and hexadecimal. [2M]
+
+==Multiply the fraction by the base repeatedly; read integer parts top to bottom.==
+
+| Base | Multiplications | Answer |
+|---|---|---|
+| 2 | 0.8125×2 = **1**.625; 0.625×2 = **1**.25; 0.25×2 = **0**.5; 0.5×2 = **1**.0 | $(0.1101)_2$ |
+| 8 | 0.8125×8 = **6**.5; 0.5×8 = **4**.0 | $(0.64)_8$ |
+| 16 | 0.8125×16 = **13**.0 → D | $(0.D)_{16}$ |
+
+### Q11. Why can $(0.1)_{10}$ not be stored exactly in binary? [2M]
+
+- ==**Repeated multiplication never reaches 0:**== 0.1 → 0.2 → 0.4 → 0.8 → 1.6 → 1.2 → 0.4 … the pattern repeats.
+- ==**So the binary fraction is endless:**== $(0.1)_{10} = (0.000110011\ldots)_2$.
+- ==**A computer keeps a fixed number of bits,**== so it stores a value very close to 0.1, not 0.1 itself.
+- This is why `0.1 + 0.2` gives `0.30000000000000004` in Python.
+
+### Q12. Convert $(43.375)_{10}$ to binary. ⭐
+
+==Convert the integer and fraction parts separately, then join them.==
+
+**Integer part 43** (divide by 2):
+
+| 43÷2 | 21÷2 | 10÷2 | 5÷2 | 2÷2 | 1÷2 |
+|---|---|---|---|---|---|
+| r1 | r1 | r0 | r1 | r0 | r1 |
+
+Bottom to top: 101011.
+
+**Fraction part 0.375** (multiply by 2): 0.375×2 = **0**.75; 0.75×2 = **1**.5; 0.5×2 = **1**.0 → .011
+
+$$(43.375)_{10} = (101011.011)_2$$
+
+**Check:** $32 + 8 + 2 + 1 = 43$ and $0.25 + 0.125 = 0.375$. Correct.
+
+### Q13. Convert $(250.75)_{10}$ to binary, octal and hexadecimal.
+
+**Integer part 250:**
+- Binary: remainders 0, 1, 0, 1, 1, 1, 1, 1 (LSB first) → 11111010
+- Octal: 250÷8 = 31 r2, 31÷8 = 3 r7, 3÷8 = 0 r3 → 372
+- Hex: 250÷16 = 15 r10 (A), 15÷16 = 0 r15 (F) → FA
+
+**Fraction part 0.75:**
+- ×2: **1**.5, **1**.0 → .11
+- ×8: **6**.0 → .6
+- ×16: **12**.0 → .C
+
+$$(250.75)_{10} = (11111010.11)_2 = (372.6)_8 = (FA.C)_{16}$$
+
 ## Analogy and real-life example
 
 ### Analogy: making change
@@ -199,18 +258,6 @@ flowchart TB
 
 > [!warning] Common mistake
 > **Writing "15" as a hex digit.** A remainder of 15 is one hex digit, F. Writing it as "15" gives two digits and a wrong number.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Explain the repeated division method for converting a decimal integer to binary. ⭐
-2. Convert $(156)_{10}$ to binary, octal and hexadecimal. ⭐
-3. Convert $(0.8125)_{10}$ to binary, octal and hexadecimal.
-4. Why can $(0.1)_{10}$ not be stored exactly in binary?
-
-**Long answer (5 marks)**
-1. Explain the methods of converting the integer part and the fraction part of a decimal number to another base. Convert $(43.375)_{10}$ to binary. ⭐
-2. Convert $(250.75)_{10}$ to binary, octal and hexadecimal, showing all steps. ⭐
 
 ## Sources
 

@@ -70,7 +70,7 @@ In hexadecimal, ==the letters stand for values: A = 10, B = 11, C = 12, D = 13, 
 - ==**Simple circuits:**== the logic for two values is much simpler than for ten.
 - ==**Matches logic:**== 1 and 0 map directly to true and false, so Boolean algebra (Unit 2) can design the circuits.
 
-### Q5. What are bit, nibble, byte, MSB and LSB?
+### Q5. What are bit, nibble, byte, MSB and LSB? [2M]
 
 | Term | Meaning |
 |---|---|
@@ -98,7 +98,7 @@ where $d_i$ is the digit at position $i$ and $r$ is the base.
 3. ==Multiply digit × weight== (convert A–F to 10–15 first).
 4. ==Add all the products.==
 
-### Q7. Worked example: binary to decimal
+### Q7. Worked example: binary to decimal [2M]
 
 Convert $(1011.101)_2$ to decimal.
 
@@ -115,7 +115,7 @@ $$(1011.101)_2 = (11.625)_{10}$$
 
 **Shortcut for binary:** only the 1s count, so just add the weights under the 1s.
 
-### Q8. Worked example: octal to decimal
+### Q8. Worked example: octal to decimal [2M]
 
 Convert $(257)_8$ to decimal.
 
@@ -129,7 +129,7 @@ $$(257)_8 = 128 + 40 + 7 = (175)_{10}$$
 
 **With a fraction:** $(17.4)_8 = 1 \times 8 + 7 \times 1 + 4 \times 8^{-1} = 8 + 7 + 0.5 = (15.5)_{10}$
 
-### Q9. Worked example: hexadecimal to decimal
+### Q9. Worked example: hexadecimal to decimal [2M]
 
 Convert $(2AF)_{16}$ to decimal. First replace letters: A = 10, F = 15.
 
@@ -143,7 +143,7 @@ $$(2AF)_{16} = 512 + 160 + 15 = (687)_{10}$$
 
 **Back to the flag:** `#FF9933` is three hex pairs for red, green and blue. FF = $15 \times 16 + 15 = 255$, 99 = $9 \times 16 + 9 = 153$, 33 = $3 \times 16 + 3 = 51$. So saffron is red 255, green 153, blue 51.
 
-### Q10. How do you count in each system?
+### Q10. How do you count in each system? [2M]
 
 When a position runs out of digits, it ==resets to 0 and carries 1 to the next position== on the left.
 
@@ -168,6 +168,45 @@ When a position runs out of digits, it ==resets to 0 and carries 1 to the next p
 | 16 | 1 0000 | 20 | 10 |
 
 Learn this table by heart: the next two lectures (decimal to other bases, and binary ↔ octal ↔ hex grouping) use it constantly.
+
+### Q11. Convert $(110101.11)_2$ to decimal. [2M]
+
+| Digit | 1 | 1 | 0 | 1 | 0 | 1 | . | 1 | 1 |
+|---|---|---|---|---|---|---|---|---|---|
+| Weight | 32 | 16 | 8 | 4 | 2 | 1 | . | 0.5 | 0.25 |
+
+==Add the weights under the 1s:==
+- Integer: $32 + 16 + 4 + 1 = 53$
+- Fraction: $0.5 + 0.25 = 0.75$
+
+$$(110101.11)_2 = (53.75)_{10}$$
+
+### Q12. Convert $(3B7)_{16}$ and $(645)_8$ to decimal. [2M]
+
+**Hex:** B = 11.
+
+$(3B7)_{16} = 3 \times 16^2 + 11 \times 16^1 + 7 \times 16^0 = 768 + 176 + 7 = (951)_{10}$
+
+**Octal:**
+
+$(645)_8 = 6 \times 8^2 + 4 \times 8^1 + 5 \times 8^0 = 384 + 32 + 5 = (421)_{10}$
+
+### Q13. Convert $(10110.011)_2$, $(127.4)_8$ and $(1C.8)_{16}$ to decimal. ⭐
+
+==Multiply each digit by its positional weight and add.==
+
+**(a) Binary:**
+- Integer 10110: $16 + 4 + 2 = 22$
+- Fraction .011: $0 \times 0.5 + 1 \times 0.25 + 1 \times 0.125 = 0.375$
+- $(10110.011)_2 = (22.375)_{10}$
+
+**(b) Octal:**
+- $1 \times 64 + 2 \times 8 + 7 \times 1 + 4 \times 8^{-1} = 64 + 16 + 7 + 0.5$
+- $(127.4)_8 = (87.5)_{10}$
+
+**(c) Hex** (C = 12):
+- $1 \times 16 + 12 \times 1 + 8 \times 16^{-1} = 16 + 12 + 0.5$
+- $(1C.8)_{16} = (28.5)_{10}$
 
 > [!beyond] Beyond the syllabus
 > The positional decimal system with a symbol for zero was developed in India. Brahmagupta (628 CE) gave rules for calculating with zero, and the system reached Europe through Arab mathematicians, which is why the digits are called "Hindu-Arabic numerals". Binary, octal and hex are the same place-value idea with a different base.
@@ -222,19 +261,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > **Starting positions at 1.** The digit just left of the point is position 0 (weight $r^0 = 1$), and the first digit after the point is position −1, not 0.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define base (radix) of a number system. Give the base and digits of binary, octal, decimal and hexadecimal systems. ⭐
-2. What is positional weight? Write the weights of the first four integer positions and first two fraction positions in binary.
-3. Convert $(110101.11)_2$ to decimal. ⭐
-4. Convert $(3B7)_{16}$ and $(645)_8$ to decimal.
-5. Define bit, nibble, byte, MSB and LSB.
-
-**Long answer (5 marks)**
-1. Explain the binary, octal, decimal and hexadecimal number systems with their base, digits and one example each. Why do digital systems use binary? ⭐
-2. Explain the method of converting a number in any base to decimal. Convert $(10110.011)_2$, $(127.4)_8$ and $(1C.8)_{16}$ to decimal, showing all steps. ⭐
 
 ## Sources
 

@@ -57,7 +57,7 @@ In a circuit, a 1's complement is just a row of NOT gates.
 
 Both methods always give the same answer. Use Method 2 to save time; use Method 1 to check.
 
-### Q3. Worked example: 2's complement by both methods
+### Q3. Worked example: 2's complement by both methods [2M]
 
 Find the 2's complement of $(0010\,1101)_2$ (that is, +45) to get −45.
 
@@ -77,7 +77,7 @@ So in 8-bit 2's complement, **−45 = 1101 0011**.
 
 **Check:** $256 - 45 = 211$, and $(1101\,0011)_2 = 128 + 64 + 16 + 2 + 1 = 211$. Correct.
 
-### Q4. Worked example: the shortcut on a number ending in zeros
+### Q4. Worked example: the shortcut on a number ending in zeros [2M]
 
 Find the 2's complement of $(0110\,1000)_2$ (+104).
 
@@ -129,6 +129,36 @@ All values in 4 bits:
 | ==**Zeros**== | two | two | one |
 | ==**Range**== | −7 to +7 | −7 to +7 | −8 to +7 |
 
+### Q8. Find the 1's and 2's complement of $(1011\,0100)_2$. [2M]
+
+| Step | Bits |
+|---|---|
+| Number | 1011 0100 |
+| ==1's complement (invert every bit)== | 0100 1011 |
+| ==2's complement (add 1)== | 0100 1100 |
+
+**Shortcut check:** copy "100" (up to the first 1 from the right), invert "10110" → "01001": 0100 1100. Same answer.
+
+### Q9. Represent −37 in 8-bit sign-magnitude, 1's complement and 2's complement form. [2M]
+
+First, $+37 = 32 + 4 + 1 = 0010\,0101$.
+
+| Form | Method | −37 |
+|---|---|---|
+| ==Sign-magnitude== | Set the sign bit to 1 | 1010 0101 |
+| ==1's complement== | Invert every bit of +37 | 1101 1010 |
+| ==2's complement== | 1's complement + 1 | 1101 1011 |
+
+**Check (2's):** $-128 + 64 + 16 + 8 + 2 + 1 = -37$. Correct.
+
+### Q10. Find the decimal value of the 8-bit 2's complement number 1110 0110. [2M]
+
+==MSB is 1, so the number is negative.==
+
+**Method 1 (negative MSB weight):** $-128 + 64 + 32 + 4 + 2 = -26$
+
+**Method 2 (complement again):** 2's complement of 1110 0110 = 0001 1010 = 26, so the value is **−26**.
+
 ## Analogy and real-life example
 
 ### Analogy: the scooter odometer going backwards
@@ -173,18 +203,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > **Reading 1101 0011 as 211.** If the number is declared signed (2's complement), an MSB of 1 means negative: it is −45, not 211.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define 1's complement and 2's complement with an example. ⭐
-2. Find the 1's and 2's complement of $(1011\,0100)_2$. ⭐
-3. Represent −37 in 8-bit sign-magnitude, 1's complement and 2's complement form.
-4. Find the decimal value of the 8-bit 2's complement number 1110 0110.
-
-**Long answer (5 marks)**
-1. Explain 1's and 2's complement representation of signed numbers with examples. Why is 2's complement preferred in computers? ⭐
-2. Compare sign-magnitude, 1's complement and 2's complement representations, with a 4-bit table and the range of each. ⭐
 
 ## Sources
 

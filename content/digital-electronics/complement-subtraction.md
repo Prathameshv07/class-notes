@@ -44,7 +44,7 @@ To find $A - B$:
 4. ==**If there is a carry out:**== remove it and **add it to the LSB** of the result (the **end-around carry**). The answer is **positive**.
 5. ==**If there is no carry:**== the answer is **negative**. Take the 1's complement of the sum and put a minus sign in front.
 
-### Q3. Worked example: 1's complement, positive result
+### Q3. Worked example: 1's complement, positive result [2M]
 
 $(1101)_2 - (0110)_2$, that is, 13 − 6.
 
@@ -57,7 +57,7 @@ $(1101)_2 - (0110)_2$, that is, 13 − 6.
 
 **Check:** 13 − 6 = 7. Correct.
 
-### Q4. Worked example: 1's complement, negative result
+### Q4. Worked example: 1's complement, negative result [2M]
 
 $(0110)_2 - (1101)_2$, that is, 6 − 13.
 
@@ -82,7 +82,7 @@ To find $A - B$:
 
 The only difference from the 1's complement method is step 4: **discard** the carry instead of adding it back.
 
-### Q6. Worked example: 2's complement, positive result
+### Q6. Worked example: 2's complement, positive result [2M]
 
 $(1101)_2 - (0110)_2$, that is, 13 − 6.
 
@@ -93,7 +93,7 @@ $(1101)_2 - (0110)_2$, that is, 13 − 6.
 | Carry out = 1, so discard it | 0111 |
 | **Answer** | **+0111 = +7** |
 
-### Q7. Worked example: 2's complement, negative result
+### Q7. Worked example: 2's complement, negative result [2M]
 
 $(0110)_2 - (1101)_2$, that is, 6 − 13.
 
@@ -136,6 +136,81 @@ Note that 1001 is already −7 in 4-bit 2's complement. Complementing it again o
 | ==**Number of additions**== | Can need two (sum + end-around carry) | Always one |
 | ==**Zero**== | Two zeros can appear (0000, 1111) | Only one zero |
 | ==**Used in computers**== | Rarely | Always |
+
+### Q10. Subtract $(1010)_2 - (0111)_2$ using 1's complement. [2M]
+
+| Step | Working |
+|---|---|
+| 1's complement of B = 0111 | 1000 |
+| A + complement | 1010 + 1000 = **1** 0010 |
+| ==Carry 1: end-around carry== | 0010 + 1 = 0011 |
+| **Answer** | **+0011 = +3** |
+
+**Check:** 10 − 7 = 3. Correct.
+
+### Q11. Subtract $(0101)_2 - (1100)_2$ using 2's complement. [2M]
+
+| Step | Working |
+|---|---|
+| 2's complement of B = 1100 | 0011 + 1 = 0100 |
+| A + complement | 0101 + 0100 = 1001 |
+| ==No carry: result is negative== | 2's complement of 1001 = 0111 |
+| **Answer** | **−0111 = −7** |
+
+**Check:** 5 − 12 = −7. Correct.
+
+### Q12. What is an end-around carry? [2M]
+
+==An end-around carry is the carry out of the MSB that is added back to the LSB in 1's complement subtraction.==
+
+- ==**When it appears:**== the sum of A and the 1's complement of B produces a carry out.
+- ==**What it means:**== the result is positive.
+- ==**Why it is needed:**== 1's complement is one less than the true negative, so adding the carry back corrects the result by 1.
+- Example: 1101 + 1001 = **1** 0110 → 0110 + 1 = 0111 (13 − 6 = 7).
+
+### Q13. Perform $(11011)_2 - (10101)_2$ using both 1's and 2's complement. ⭐
+
+A = 11011 (27), B = 10101 (21).
+
+**1's complement method:**
+
+| Step | Working |
+|---|---|
+| ==1's complement of B== | 01010 |
+| ==A + complement== | 11011 + 01010 = **1** 00101 |
+| ==Carry: end-around carry== | 00101 + 1 = 00110 |
+| **Answer** | **+6** |
+
+**2's complement method:**
+
+| Step | Working |
+|---|---|
+| ==2's complement of B== | 01010 + 1 = 01011 |
+| ==A + complement== | 11011 + 01011 = **1** 00110 |
+| ==Carry: discard it== | 00110 |
+| **Answer** | **+6** |
+
+**Check:** 27 − 21 = 6. Correct.
+
+### Q14. Perform (a) 58 − 23 and (b) 23 − 58 in 8 bits using 2's complement.
+
+58 = 0011 1010, 23 = 0001 0111.
+
+**(a) 58 − 23:**
+
+| Step | Working |
+|---|---|
+| 2's complement of 23 | 1110 1001 |
+| 0011 1010 + 1110 1001 | **1** 0010 0011 |
+| Carry: discard | 0010 0011 = **+35** |
+
+**(b) 23 − 58:**
+
+| Step | Working |
+|---|---|
+| 2's complement of 58 | 1100 0110 |
+| 0001 0111 + 1100 0110 | 1101 1101 |
+| No carry: negative | 2's complement = 0010 0011 = 35 → **−35** |
 
 ## Analogy and real-life example
 
@@ -183,18 +258,6 @@ flowchart TB
 
 > [!warning] Common mistake
 > **Forgetting the minus sign.** When there is no carry, the complemented result is the **size** of the answer; the answer itself is negative.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Why do digital systems perform subtraction using complements? ⭐
-2. Subtract $(1010)_2 - (0111)_2$ using 1's complement. ⭐
-3. Subtract $(0101)_2 - (1100)_2$ using 2's complement.
-4. What is an end-around carry?
-
-**Long answer (5 marks)**
-1. Explain the steps of subtraction using 1's complement and 2's complement. Perform $(11011)_2 - (10101)_2$ by both methods. ⭐
-2. Perform the following in 8 bits using 2's complement: (a) 58 − 23, (b) 23 − 58. Show all steps and verify in decimal. ⭐
 
 ## Sources
 

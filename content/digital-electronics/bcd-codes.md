@@ -52,7 +52,7 @@ BCD (Binary Coded Decimal) represents each decimal digit separately by a 4-bit c
 - ==**Six patterns are invalid:**== 1010, 1011, 1100, 1101, 1110, 1111 (10 to 15). They never appear in correct BCD.
 - It is also called **natural BCD** or simply **BCD**.
 
-### Q3. Worked example: decimal to 8421 BCD
+### Q3. Worked example: decimal to 8421 BCD [2M]
 
 Convert $(395)_{10}$ to BCD and to binary.
 
@@ -68,7 +68,7 @@ $(395)_{10} = (0011\;1001\;0101)_{BCD}$, 12 bits.
 
 BCD is **not** the same as binary. It needs more bits, but each digit stays visible.
 
-### Q4. Worked example: 8421 BCD to decimal
+### Q4. Worked example: 8421 BCD to decimal [2M]
 
 ==Split the bits into groups of 4 from the right, and convert each group to one decimal digit.==
 
@@ -95,7 +95,7 @@ BCD is **not** the same as binary. It needs more bits, but each digit stays visi
 - Some digits could be written two ways (5 = 0101 or 1011); the standard table above uses the choice that keeps the code self-complementing. It is also called the **Aiken code**.
 - ==**Digits 5–9 all start with 1,**== and 0–4 all start with 0.
 
-### Q6. Worked example: decimal to 2421, and the self-complement
+### Q6. Worked example: decimal to 2421, and the self-complement [2M]
 
 Convert $(52)_{10}$ to 2421 code.
 
@@ -127,6 +127,44 @@ This lets a decimal machine find the 9's complement (used for decimal subtractio
 - ==**Calculators, petrol pumps, fare meters, energy meters:**== anywhere digits are counted and shown.
 - ==**Money and finance:**== decimal storage avoids binary rounding errors in paise.
 - ==**2421 code:**== decimal arithmetic circuits, where self-complementing makes 9's complement subtraction easy.
+
+### Q9. Convert $(729)_{10}$ to 8421 BCD and to binary. Compare the number of bits. [2M]
+
+**BCD** (each digit in 4 bits): 7 = 0111, 2 = 0010, 9 = 1001
+
+$(729)_{10} = (0111\;0010\;1001)_{BCD}$: **12 bits**
+
+**Binary:** $729 = 512 + 128 + 64 + 16 + 8 + 1$
+
+$(729)_{10} = (10\,1101\,1001)_2$: **10 bits**
+
+==BCD needs 2 more bits here,== because each 4-bit group uses only 10 of its 16 patterns.
+
+### Q10. Convert $(0100\;1000\;0110)_{BCD}$ to decimal. [2M]
+
+==Split into 4-bit groups and convert each to one digit:==
+
+| Group | 0100 | 1000 | 0110 |
+|---|---|---|---|
+| Digit | 4 | 8 | 6 |
+
+$(0100\;1000\;0110)_{BCD} = (486)_{10}$
+
+All three groups are 0000–1001, so the number is valid BCD.
+
+### Q11. What is a self-complementing code? Show that 2421 is self-complementing. [2M]
+
+==A self-complementing code is one where inverting the bits of a digit's code gives the code of its 9's complement (9 − digit).==
+
+**2421 example:** 4 = 0100. Inverting gives 1011, which is 5 in 2421, and $9 - 4 = 5$.
+
+| Digit | 2421 | Inverted | Gives | 9 − digit |
+|---|---|---|---|---|
+| 1 | 0001 | 1110 | 8 | 8 |
+| 3 | 0011 | 1100 | 6 | 6 |
+| 4 | 0100 | 1011 | 5 | 5 |
+
+8421 BCD is **not** self-complementing: 4 = 0100 inverts to 1011, which is invalid.
 
 > [!beyond] Beyond the syllabus
 > **BCD addition** needs a correction. Add two BCD digits in binary; if the result is more than 9 (or a carry is produced), add 6 (0110). Example: 7 + 5 = 0111 + 0101 = 1100 (invalid). Add 0110: 1100 + 0110 = 1 0010, which is 0001 0010 in BCD, that is, 12. Adding 6 skips the six invalid patterns.
@@ -178,18 +216,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > **Accepting 1010–1111 as digits.** These six patterns are invalid in 8421 BCD. A BCD number containing one of them is an error.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is BCD? Why are six combinations invalid in 8421 BCD? ⭐
-2. Convert $(729)_{10}$ to 8421 BCD and to binary. Compare the number of bits. ⭐
-3. Convert $(0100\;1000\;0110)_{BCD}$ to decimal.
-4. What is a self-complementing code? Show that 2421 is self-complementing with an example.
-
-**Long answer (5 marks)**
-1. Explain 8421 BCD and 2421 codes with their tables and one conversion example each. ⭐
-2. Compare BCD and pure binary representation. Give four applications of BCD in digital systems. ⭐
 
 ## Sources
 

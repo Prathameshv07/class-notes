@@ -37,7 +37,7 @@ Binary addition and subtraction work column by column like decimal, except that 
 
 ==Add column by column from the right (LSB),== carrying into the next column, just as in decimal.
 
-### Q2. Worked example: adding two binary integers
+### Q2. Worked example: adding two binary integers [2M]
 
 Add $(1011)_2$ and $(0110)_2$ (that is, 11 + 6).
 
@@ -57,7 +57,7 @@ Step by step, from the right:
 
 $(1011)_2 + (0110)_2 = (10001)_2 = 17$. Correct.
 
-### Q3. Worked example: adding numbers with fractions
+### Q3. Worked example: adding numbers with fractions [2M]
 
 ==Line up the binary points first,== then add as usual. A carry can cross the point.
 
@@ -93,7 +93,7 @@ Result: $(1001.00)_2 = 9$. Correct, since 5.75 + 3.25 = 9.
 - ==**The column you borrowed from loses 1.**==
 - ==**If that column is 0, it borrows in turn**== from the next one: a **borrow chain**.
 
-### Q5. Worked example: binary subtraction with borrow
+### Q5. Worked example: binary subtraction with borrow [2M]
 
 Subtract $(1101)_2 - (0110)_2$ (that is, 13 − 6).
 
@@ -109,7 +109,7 @@ Subtract $(1101)_2 - (0110)_2$ (that is, 13 − 6).
 
 Reading top to bottom from column 3: $(1101)_2 - (0110)_2 = (0111)_2 = 7$. Correct.
 
-### Q6. Worked example: a long borrow chain
+### Q6. Worked example: a long borrow chain [2M]
 
 Subtract $(10000)_2 - (00011)_2$ (that is, 16 − 3).
 
@@ -137,6 +137,58 @@ Result: $(01101)_2 = 13$. Correct.
 - In Q2, two 4-bit numbers gave a 5-bit sum (10001). A 4-bit adder shows only 0001 and sets a **carry flag** to 1.
 - ==**Processors keep this carry in a flag**== (the 8051 calls it CY), so programs can detect it or chain additions for larger numbers.
 - ==**Ignoring it gives a wrong answer:**== 11 + 6 would appear as 1.
+
+### Q8. Add $(110110)_2$ and $(101011)_2$ and verify in decimal. [2M]
+
+| Carry | 1 | 1 | 1 | 1 | 1 | 0 | |
+|---|---|---|---|---|---|---|---|
+| A | | 1 | 1 | 0 | 1 | 1 | 0 |
+| B | | 1 | 0 | 1 | 0 | 1 | 1 |
+| **Sum** | **1** | **1** | **0** | **0** | **0** | **0** | **1** |
+
+$(110110)_2 + (101011)_2 = (1100001)_2$
+
+**Verify:** $54 + 43 = 97 = 64 + 32 + 1$. Correct.
+
+### Q9. Subtract $(101001)_2 - (011110)_2$ using the borrow method. [2M]
+
+| Column | 5 | 4 | 3 | 2 | 1 | 0 |
+|---|---|---|---|---|---|---|
+| A | 1 | 0 | 1 | 0 | 0 | 1 |
+| B | 0 | 1 | 1 | 1 | 1 | 0 |
+| **Difference** | **0** | **0** | **1** | **0** | **1** | **1** |
+
+- Col 0: 1 − 0 = 1. Col 1: 0 − 1, borrow from col 3 (col 2 is 0) → 1.
+- Col 2: now 1 − 1 = 0. Col 3: now 0 − 1, borrow from col 5 → 1. Col 4: now 1 − 1 = 0. Col 5: 0.
+
+Result $(001011)_2 = 11$. **Verify:** $41 - 30 = 11$. Correct.
+
+### Q10. Add $(1101.101)_2$ and $(111.011)_2$. [2M]
+
+==Line up the binary points, then add from the right.==
+
+| Column | 4 | 3 | 2 | 1 | 0 | . | −1 | −2 | −3 |
+|---|---|---|---|---|---|---|---|---|---|
+| Carry | 1 | 1 | 1 | 1 | 1 | | 1 | 1 | |
+| A | | 1 | 1 | 0 | 1 | . | 1 | 0 | 1 |
+| B | | 0 | 1 | 1 | 1 | . | 0 | 1 | 1 |
+| **Sum** | **1** | **0** | **1** | **0** | **1** | **.** | **0** | **0** | **0** |
+
+The carry from column −1 crosses the point into column 0.
+
+$(1101.101)_2 + (111.011)_2 = (10101.000)_2$
+
+**Verify:** $13.625 + 7.375 = 21$. Correct.
+
+### Q11. Perform (a) $(11101)_2 + (10111)_2$, (b) $(110000)_2 - (000101)_2$, (c) $(1010.11)_2 + (110.01)_2$. What happens to (a) in a 5-bit adder? ⭐
+
+| Part | Working (right to left) | Result | Check |
+|---|---|---|---|
+| (a) | 1+1 = 0 c1; 0+1+1 = 0 c1; 1+1+1 = 1 c1; 1+0+1 = 0 c1; 1+1+1 = 1 c1; carry 1 | $(110100)_2$ | 29 + 23 = 52 |
+| (b) | Col 0 borrows from col 4 (cols 1–3 become 1); 10−1 = 1, 1−0 = 1, 1−1 = 0, 1−0 = 1, 0−0 = 0, 1−0 = 1 | $(101011)_2$ | 48 − 5 = 43 |
+| (c) | Line up points; .11 + .01 = 1.00 (carry crosses the point); 1010 + 110 + 1 = 10001 | $(10001.00)_2$ | 10.75 + 6.25 = 17 |
+
+==**5-bit adder:**== the sum 110100 needs 6 bits. The adder shows only the lower 5 bits, **10100** (20), and ==sets the carry flag to 1==. Without the carry, the answer is wrong.
 
 > [!beyond] Beyond the syllabus
 > **Binary multiplication** is shift-and-add. Multiplying by $(10)_2$ shifts the number one place left, just as multiplying by 10 in decimal does. So $1011 \times 101 = 1011 \times 100 + 1011 \times 1 = 101100 + 1011 = 110111$ (11 × 5 = 55). Multiplier circuits in GPUs are large arrays of adders doing exactly this.
@@ -184,18 +236,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > **Dropping the final carry.** In Q2 the answer is 10001 (17), not 0001. Write the last carry unless the question fixes the width to n bits.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. State the rules of binary addition and binary subtraction. ⭐
-2. Add $(110110)_2$ and $(101011)_2$. Verify in decimal. ⭐
-3. Subtract $(101001)_2 - (011110)_2$ using the borrow method.
-4. Add $(1101.101)_2$ and $(111.011)_2$.
-
-**Long answer (5 marks)**
-1. Explain binary addition and subtraction with rules and one example of each. ⭐
-2. Perform (a) $(11101)_2 + (10111)_2$, (b) $(110000)_2 - (000101)_2$, (c) $(1010.11)_2 + (110.01)_2$, showing carries and borrows. What happens if (a) is done in a 5-bit adder? ⭐
 
 ## Sources
 

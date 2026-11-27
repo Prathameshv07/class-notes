@@ -100,6 +100,26 @@ All n-bit systems have $2^n$ patterns. Signed systems spend half of them on nega
 
 **Gangnam Style again:** a 32-bit signed counter tops out at $2^{31} - 1 = 2{,}147{,}483{,}647$.
 
+### Q7. Differentiate between signed and unsigned numbers. [2M]
+
+| Point | Unsigned | Signed |
+|---|---|---|
+| ==**Values**== | Zero and positive only | Positive, negative and zero |
+| ==**MSB**== | Part of the magnitude | Sign bit (0 = +, 1 = −) |
+| ==**8-bit range**== | 0 to 255 | −128 to +127 (2's complement) |
+| ==**Largest value**== | $2^n - 1$ | $2^{n-1} - 1$ |
+| ==**Uses**== | Pixels, addresses, counts | Temperatures, balances, sensor offsets |
+
+### Q8. Represent +45 and −45 in 8-bit sign-magnitude form. [2M]
+
+1. ==Convert the magnitude to 7 bits:== $45 = 32 + 8 + 4 + 1 = 010\,1101$.
+2. ==Put the sign bit in front:== 0 for positive, 1 for negative.
+
+| Number | Sign bit | Magnitude (7 bits) | 8-bit sign-magnitude |
+|---|---|---|---|
+| +45 | 0 | 010 1101 | **0010 1101** |
+| −45 | 1 | 010 1101 | **1010 1101** |
+
 ## Analogy and real-life example
 
 ### Analogy: a thermometer and a measuring tape
@@ -154,18 +174,6 @@ flowchart TB
 
 > [!warning] Common mistake
 > **Thinking a 1 in front always means negative.** 1101 is 13 if the number is unsigned. Only a signed representation treats the MSB as a sign.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Differentiate between signed and unsigned numbers. ⭐
-2. Represent +45 and −45 in 8-bit sign-magnitude form. ⭐
-3. What is the range of an 8-bit unsigned number and an 8-bit sign-magnitude number?
-4. Why does sign-magnitude representation have two zeros?
-
-**Long answer (5 marks)**
-1. Explain signed and unsigned number representation. Explain sign-magnitude representation with examples and its drawbacks. ⭐
-2. Write the range of n-bit numbers in unsigned, sign-magnitude, 1's complement and 2's complement form. Give the 8-bit ranges and explain why they differ. ⭐
 
 ## Sources
 

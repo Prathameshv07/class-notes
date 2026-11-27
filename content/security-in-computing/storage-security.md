@@ -83,6 +83,28 @@ It covers data **at rest** on:
 - ==**Monitoring and logging:**== record who accessed what; alert on mass reads or deletions.
 - ==**Data minimisation:**== do not store what you do not need. The DPDP Act 2023 also expects personal data to be erased once its purpose is over.
 
+### Q7. Differentiate between NAS and SAN. ⭐ [2M]
+
+| Point | NAS | SAN |
+|---|---|---|
+| ==What it is== | A file server on the normal network | A separate high-speed network of storage |
+| ==Access level== | Files (shared folders) | Blocks (appears as a local disk to servers) |
+| ==Used by== | Users and small offices | Servers and databases in data centres |
+| ==Key security controls== | File permissions, network access control | Zoning, LUN masking, isolated network |
+
+### Q8. What are zoning and LUN masking? ⭐ [2M]
+
+- ==**Zoning:** controls which servers can talk to which storage ports== on the SAN switch, like VLANs for storage.
+- ==**LUN masking:** controls which servers can see which disks (LUNs)== on the storage system.
+
+Together they ensure each server sees only its own storage.
+
+### Q9. Why is a normal format not enough before disposing of a disk? [2M]
+
+- ==**Format removes only the index**==; the data stays on the disk until overwritten.
+- ==**Free recovery tools**== can read it back.
+- ==**Proper sanitisation:**== overwrite the disk, use cryptographic erase, or physically destroy it.
+
 > [!beyond] Beyond the syllabus
 > In the cloud, security follows the **shared responsibility model**: the provider secures the physical disks and data centres, but the customer is responsible for who can access the data and how it is configured. Most cloud storage leaks are configuration mistakes by the customer.
 
@@ -120,19 +142,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Keeping the backup permanently connected to the same network and account. Ransomware that reaches the server will encrypt the backup too.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is storage security?
-2. Differentiate between NAS and SAN. ⭐
-3. What are zoning and LUN masking? ⭐
-4. Why is a normal format not enough before disposing of a disk?
-
-**Long answer (5 marks)**
-1. Explain the evolution of storage systems and how storage security changed with it. ⭐
-2. What is risk remediation in storage security? Explain its steps. ⭐
-3. Explain the modern techniques used to protect stored data.
 
 ## Sources
 

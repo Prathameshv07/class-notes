@@ -62,9 +62,9 @@ Security teams estimate the **expected yearly loss** from a risk:
 
 $$ALE = SLE \times ARO$$
 
-- ==**SLE** (Single Loss Expectancy): money lost in one incident==.
+- ==**SLE**== (Single Loss Expectancy): money lost in one incident.
 - ==**ARO** (Annualised Rate of Occurrence): how many times a year== it is expected.
-- ==**ALE** (Annualised Loss Expectancy): expected loss per year==.
+- ==**ALE**== (Annualised Loss Expectancy): expected loss per year.
 
 How to find SLE and ARO is covered in [[risk-analysis]]. Here we use ALE to judge a control.
 
@@ -98,6 +98,27 @@ Every rupee spent saves ₹2.50 more than it costs, so the investment is justifi
 - ==**Use real incidents:**== AIIMS 2022, or a competitor's breach.
 - ==**Show legal duty:**== DPDP Act obligations, RBI or CERT-In directions.
 - ==**Measure and report:**== after spending, report results such as fewer incidents and faster recovery, so the next request is easier.
+
+### Q8. How can an organisation justify its investment in information security? ⭐
+
+==Security investment is justified by showing management that the business value of a control is greater than its cost.==
+
+- ==**Estimate the expected loss:**== use ALE = SLE × ARO for each major risk ([[risk-analysis]]).
+- ==**Compare loss avoided with cost:**== calculate ROSI; buy controls with ROSI above 0.
+- ==**Show business benefits:**== agility, cost reduction, portability, trust.
+- ==**Show legal duty:**== DPDP Act 2023, RBI and CERT-In directions.
+- ==**Use real incidents:**== AIIMS 2022, or a competitor's breach.
+- ==**Report results afterwards:**== fewer incidents, faster recovery, so the next request is easier.
+
+### Q9. Numerical: should this control be bought? ⭐
+
+*A server worth ₹10,00,000 loses 40% of its value in one attack, expected once every 2 years. A control costing ₹60,000 per year reduces the loss per attack to 10% of the value. Calculate ALE before and after, and ROSI.*
+
+- ==**Before:**== SLE = 10,00,000 × 0.40 = ₹4,00,000; ARO = 0.5; ALE = ₹2,00,000.
+- ==**After:**== SLE = 10,00,000 × 0.10 = ₹1,00,000; ALE = ₹50,000.
+- ==**Loss avoided**== = 2,00,000 − 50,000 = ₹1,50,000 per year.
+- ==**ROSI**== = (1,50,000 − 60,000) / 60,000 = **1.5** (150%).
+- ==**Decision:**== ROSI is above 0, so the control should be bought.
 
 > [!beyond] Beyond the syllabus
 > Large companies also use Total Cost of Ownership (TCO), which adds staff time, licences, training and maintenance over several years to the purchase price, and cyber-insurance, which transfers part of the financial risk.
@@ -139,19 +160,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Counting only direct costs. Lost customers, legal penalties and reputation often cost more than the repair.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Why is it difficult to justify investment in security?
-2. Define SLE, ARO and ALE. ⭐
-3. What is ROSI? State its formula. ⭐
-4. List any four business benefits of security.
-
-**Long answer (5 marks)**
-1. Explain how an organisation can justify its investment in information security. ⭐
-2. A server worth ₹10,00,000 loses 40% of its value in one attack, expected once every 2 years. A control costing ₹60,000 per year reduces the loss per attack to 10% of the value. Calculate ALE before and after, and ROSI. Should the control be bought? ⭐
-3. Explain business agility, cost reduction and portability as benefits of security investment.
 
 ## Sources
 

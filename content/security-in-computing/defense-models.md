@@ -33,7 +33,7 @@ It answers: if an attacker gets past one control, what stops them next?
 
 Two classic models are:
 - ==the **lollipop model** (perimeter only)==, and
-- ==the **onion model** (layered, also called defense in depth)==.
+- ==the **onion model**== (layered, also called defense in depth).
 
 ### Q2. What is the lollipop model? ⭐
 
@@ -92,6 +92,18 @@ Typical layers, outside to inside:
 | ==Cost and effort== | Lower | Higher, but justified for valuable assets |
 | Also called | Perimeter security | Defense in depth, layered security |
 
+### Q7. How does defense in depth protect data even after the perimeter is breached?
+
+==In defense in depth, each inner layer can still stop or detect an attacker who has passed the outer ones.==
+
+Example: an employee opens a phishing attachment, so malware is already inside the firewall.
+
+- ==**Network layer:**== segmentation stops it from reaching the finance and exam servers.
+- ==**Host layer:**== endpoint protection and patching block the malware on other PCs.
+- ==**Application layer:**== MFA stops it from using a stolen password.
+- ==**Data layer:**== encryption keeps stolen files unreadable.
+- ==**Recovery:**== offline backups restore anything it damaged.
+
 > [!beyond] Beyond the syllabus
 > Modern organisations go one step further with **zero trust**: no user or device is trusted just because it is inside the network. Every request is checked for identity, device health and permission, every time (NIST SP 800-207).
 
@@ -133,19 +145,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Saying the lollipop model has no firewall. It does; it has **only** the perimeter firewall and nothing behind it.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is the lollipop model of defense? ⭐
-2. What is defense in depth? ⭐
-3. List the layers of the onion model.
-4. Give two weaknesses of the lollipop model.
-
-**Long answer (5 marks)**
-1. Explain the lollipop and onion models of defense with diagrams. ⭐
-2. Compare the lollipop and onion models. Why is the onion model preferred today? ⭐
-3. Explain with an example how defense in depth protects data even after the perimeter is breached.
 
 ## Sources
 

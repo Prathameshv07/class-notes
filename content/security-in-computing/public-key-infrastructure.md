@@ -87,6 +87,33 @@ The browser checks each signature up the chain until it reaches a root in its **
 
 **India:** under the IT Act 2000, the ==**Controller of Certifying Authorities (CCA)**== runs the Root Certifying Authority of India and licenses CAs (such as eMudhra and other licensed providers). Their **Digital Signature Certificates** are used for income-tax, GST and company filings, and Aadhaar-based **eSign** issues short-lived certificates for signing online.
 
+### Q7. Differentiate between a CA and an RA. ⭐ [2M]
+
+| Point | Certificate Authority (CA) | Registration Authority (RA) |
+|---|---|---|
+| ==Main job== | Issues and signs certificates | Verifies the applicant's identity |
+| ==Signs certificates?== | Yes, with its private key | No |
+| ==Trusted by== | Browsers and systems (through the chain of trust) | The CA |
+| Example | A licensed CA in India | The office that checks your documents for a DSC |
+
+### Q8. What is a CRL? How is OCSP different? [2M]
+
+- ==**CRL (Certificate Revocation List):** a signed list of cancelled certificates==, published by the CA at intervals. The verifier downloads the whole list.
+- ==**OCSP (Online Certificate Status Protocol):** an online service answering "is this one certificate still valid?"== in real time. Faster and more up to date.
+
+### Q9. Why is PKI needed for public-key cryptography? Explain with HTTPS.
+
+==Without PKI, nobody can be sure that a public key really belongs to the person or website that claims it.==
+
+When you open a bank's website:
+
+1. ==**The site sends its certificate**== containing its public key.
+2. ==**The browser checks the CA's signature**== up the chain to a trusted root.
+3. ==**It checks the name and dates**==, and the revocation status.
+4. ==**Only then does it trust the public key**== and use it to set up the encrypted session.
+
+Without these checks, an attacker on fake Wi-Fi could send his own key and read everything.
+
 > [!beyond] Beyond the syllabus
 > Certificate Transparency logs publicly record every website certificate a CA issues, so wrongly issued certificates can be spotted quickly. Browsers today require it for trusted website certificates.
 
@@ -125,19 +152,6 @@ flowchart TB
 
 > [!warning] Common mistake
 > Thinking a padlock means the website is honest. It means the connection is encrypted and the domain name was verified; a phishing site can also get a certificate for its own domain.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is PKI?
-2. List the contents of an X.509 digital certificate. ⭐
-3. Differentiate between a CA and an RA. ⭐
-4. What is a CRL? How is OCSP different?
-
-**Long answer (5 marks)**
-1. Explain the components of PKI with a diagram. ⭐
-2. Explain the process of certificate issuance and the chain of trust. ⭐
-3. Why is PKI needed for public-key cryptography? Explain with the example of HTTPS.
 
 ## Sources
 

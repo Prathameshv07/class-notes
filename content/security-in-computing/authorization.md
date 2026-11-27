@@ -89,6 +89,47 @@ Authentication ([[authentication]]) always comes first. Together with accounting
 - ==**Access Control List (ACL):**== a list attached to an object saying which subjects have which permissions. Router ACLs (practicals 5 and 6) apply the same idea to network traffic.
 - ==**Capability list:**== the opposite view: a list attached to each subject of what it can access.
 
+### Q7. How is authorization different from authentication? ⭐ [2M]
+
+| Point | Authentication | Authorization |
+|---|---|---|
+| ==Question== | Who are you? | What may you do? |
+| ==Order== | Comes first | Comes after authentication |
+| ==Based on== | Password, OTP, fingerprint | Roles, permissions, policies |
+| Example | Logging in to the ERP | Being allowed to enter marks only for your subjects |
+
+### Q8. Differentiate between DAC and MAC. ⭐ [2M]
+
+| Point | DAC | MAC |
+|---|---|---|
+| ==Who decides access== | The owner of the object | The system, using labels set by an administrator |
+| ==Flexibility== | Flexible | Rigid |
+| ==Security== | Weaker; depends on owners | Strong and consistent |
+| Example | Sharing a Google Drive file | Military Secret/Top Secret documents |
+
+### Q9. Compare DAC, MAC and RBAC. ⭐
+
+| Point | DAC | MAC | RBAC |
+|---|---|---|---|
+| ==Access decided by== | Owner of the object | System labels (clearance vs classification) | The user's role |
+| ==Flexibility== | High | Low | Medium |
+| ==Management effort== | Low for owners, hard to control centrally | High | Low: change roles, not each user |
+| ==Main risk== | Careless sharing | Rigid, hard to change | Roles grow too broad over time |
+| ==Typical use== | Personal files, Windows/Linux permissions | Military, government | Business systems: ERP, banking, hospitals |
+
+### Q10. Design role-based access control for a college ERP system.
+
+| Role | Permissions |
+|---|---|
+| ==Student== | View own marks, attendance and fee status |
+| ==Teacher== | Enter marks and attendance for assigned subjects only |
+| ==HOD== | View all marks of the department; approve teachers' entries |
+| ==Exam controller== | Approve and publish results; no editing after publishing |
+| ==Accounts staff== | Manage fees; no access to marks |
+| ==System admin== | Create users and assign roles; no access to marks |
+
+Separation of duties: teachers enter, the exam controller publishes, and every change is logged.
+
 > [!beyond] Beyond the syllabus
 > Large companies manage access with Identity and Access Management (IAM) and Privileged Access Management (PAM) tools, which grant admin rights only for a limited time and record every privileged session.
 
@@ -130,19 +171,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Thinking RBAC means "one role per user". A user can hold several roles; for example, a teacher who is also the exam controller gets the permissions of both.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define authorization. How is it different from authentication? ⭐
-2. What is the principle of least privilege?
-3. Differentiate between DAC and MAC. ⭐
-4. What is an access control list?
-
-**Long answer (5 marks)**
-1. Explain DAC, MAC and RBAC with examples, and compare them. ⭐
-2. Explain the principles that guide authorization in an organisation. ⭐
-3. Design role-based access control for a college ERP system, listing roles and their permissions.
 
 ## Sources
 

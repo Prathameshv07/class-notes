@@ -205,7 +205,7 @@ R1>
 
 ### Default list versus named list
 
-- ==A default list applies automatically to every line without a named list.==
+- A default list applies automatically to every line without a named list.
 - A named list must be applied to a line by name, so console and remote access can follow different rules.
 - In a company, the list might read `group tacacs+ local`: try the central TACACS+ server first, and fall back to the local account only if the server is unreachable.
 

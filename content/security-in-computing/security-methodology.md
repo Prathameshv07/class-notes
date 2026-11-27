@@ -37,9 +37,9 @@ A security methodology is a planned, repeatable way of protecting an organisatio
 It answers four questions in order:
 
 1. ==**What** are we protecting?== (information assets)
-2. ==**From what?** (threats and risks)==
-3. ==**How?** (controls: process and technology)==
-4. ==**Is it working?** (monitoring, audit, improvement)==
+2. ==**From what?**== (threats and risks)
+3. ==**How?**== (controls: process and technology)
+4. ==**Is it working?**== (monitoring, audit, improvement)
 
 Without a methodology, security becomes a shopping list of products bought after each scare.
 
@@ -66,7 +66,7 @@ A typical program has:
 - ==a person in charge== (for example a CISO, Chief Information Security Officer),
 - ==written policies approved by management==,
 - ==a budget and a yearly plan==,
-- ==regular reviews, audits and training==.
+- regular reviews, audits and training.
 
 ### Q4. How is a security program built? (steps 1–3) ⭐
 
@@ -111,6 +111,25 @@ By **type**: ==administrative (process), technical (logical) and physical== (gua
 
 A good program has some of each. The AIIMS ransomware attack in 2022 showed a gap in prevention, while separate backup servers made correction possible.
 
+### Q8. What is the difference between a security program and a security project? [2M]
+
+| Point | Security project | Security program |
+|---|---|---|
+| Duration | ==Has a fixed start and end== | ==Continues for as long as the organisation exists== |
+| Example | Installing a new firewall | Policies, risk reviews, training and audits every year |
+| Owner | A project manager | Management, usually a CISO |
+
+==A project delivers one change; a program keeps the whole organisation secure over time.==
+
+### Q9. Distinguish between policy, standard, procedure and guideline. ⭐ [2M]
+
+| Document | Answers | Mandatory? | Example |
+|---|---|---|---|
+| ==Policy== | What must be achieved, and why | Yes | "All student data is confidential." |
+| ==Standard== | The required way to meet the policy | Yes | "Passwords must have at least 12 characters." |
+| ==Procedure== | The exact steps | Yes | "Steps to create an ERP account." |
+| ==Guideline== | Recommended good practice | No | "Use a password manager." |
+
 > [!beyond] Beyond the syllabus
 > In industry, organisations prove their program to customers through certification (ISO/IEC 27001) or audits (SOC 2). Indian banks follow RBI's cyber security framework, and government bodies follow CERT-In directions, such as reporting certain incidents within 6 hours.
 
@@ -152,19 +171,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Mixing up policy and procedure. A policy says what must happen and why; a procedure gives the exact steps. Policies change rarely; procedures change whenever the system changes.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is a security methodology?
-2. Differentiate between a security program and a security project.
-3. Distinguish between policy, standard, procedure and guideline. ⭐
-4. Give one example each of preventive, detective and corrective controls. ⭐
-
-**Long answer (5 marks)**
-1. Explain the steps involved in building a security program. ⭐
-2. Compare business processes and technical controls, with examples. Why are both needed? ⭐
-3. "Security is about people, process and technology." Explain with a suitable example.
 
 ## Sources
 

@@ -89,6 +89,14 @@ Where it is used: Wi-Fi (WPA2/WPA3), full-disk encryption (BitLocker, phone stor
 
 ==The solution in practice is public-key cryptography to exchange the symmetric key, then symmetric encryption for the data== ([[public-key-encryption]]).
 
+### Q7. Numerical: how many keys do 50 users need for symmetric encryption? [2M]
+
+==With symmetric encryption, every pair of users needs its own shared key: n(n−1)/2 keys for n users.==
+
+For n = 50: 50 × 49 / 2 = **1,225 keys**.
+
+With public-key encryption, the same 50 users need only 50 key pairs.
+
 > [!beyond] Beyond the syllabus
 > Large quantum computers would weaken symmetric ciphers only moderately (roughly halving effective key length), which is one reason AES-256 is recommended for long-term secrets. Public-key algorithms are far more affected.
 
@@ -130,19 +138,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Writing the key count as $n^2$. Each pair needs one key, so it is $n(n-1)/2$.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define plaintext, ciphertext and key.
-2. What is symmetric encryption? Give two examples of algorithms. ⭐
-3. Differentiate between block and stream ciphers. ⭐
-4. How many keys are needed for 50 users to communicate privately using symmetric encryption?
-
-**Long answer (5 marks)**
-1. Explain symmetric encryption with a diagram, its advantages and its limitations. ⭐
-2. Compare DES, 3DES and AES.
-3. What is the key distribution problem? How is it solved in practice? ⭐
 
 ## Sources
 

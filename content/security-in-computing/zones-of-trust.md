@@ -67,7 +67,7 @@ Boundaries are enforced with:
 - ==firewalls and access control lists (ACLs)==,
 - ==VLANs and network segmentation==,
 - ==VPNs for remote users== entering a zone,
-- ==monitoring (IDS) at the boundary==.
+- ==monitoring== (IDS) at the boundary.
 
 You will build these in practicals 5–7 (ACLs, zone-based firewall) and 10 (VLAN security).
 
@@ -87,6 +87,19 @@ You will build these in practicals 5–7 (ACLs, zone-based firewall) and 10 (VLA
 - ==**Mobile and cloud users**== do not sit neatly inside one zone.
 
 ==Zones of trust work only if the rules between zones are kept strict and reviewed regularly.==
+
+### Q7. Design zones of trust for a college network.
+
+| Zone | Systems | Rule |
+|---|---|---|
+| ==Internet (untrusted)== | Outside users | May reach only the DMZ |
+| ==DMZ== | College website | Reached from the internet; no access to internal zones |
+| ==Guest== | Visitor Wi-Fi | Internet only |
+| ==Student labs== | Lab PCs | Internet and the e-learning server only |
+| ==Staff== | Staff PCs, printers | May use the ERP through its web interface |
+| ==Restricted== | Accounts, exam server, ERP database | Only named staff PCs and the ERP application server |
+
+All boundaries are enforced by firewalls or ACLs, with default deny.
 
 > [!beyond] Beyond the syllabus
 > **Micro-segmentation** in data centres and clouds shrinks zones down to single applications or even single servers, each with its own rules. Together with identity checks on every request, this is the basis of zero trust networks.
@@ -125,19 +138,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Thinking a VLAN alone makes a secure zone. A VLAN separates traffic, but without ACLs or a firewall between VLANs, routing can still connect them.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is a zone of trust? ⭐
-2. What is a DMZ? Why is it used? ⭐
-3. Name any four zones of trust found in an organisation.
-4. How is traffic between zones controlled?
-
-**Long answer (5 marks)**
-1. Explain zones of trust with a diagram of a typical organisation. ⭐
-2. Explain the benefits and challenges of dividing a network into zones of trust. ⭐
-3. Design zones of trust for a college network (labs, staff, accounts, exam server, guest Wi-Fi, website), and state the rules between them.
 
 ## Sources
 

@@ -37,7 +37,7 @@ Database security layers protect a database at every level, from the physical se
 ### Q2. What are the outer layers: physical and network?
 
 - ==**Physical / server level:**== the database server is in a locked server room or a secured data centre; only authorised staff can touch it.
-- ==**Network level:**==
+- **Network level:**
   - Place the database in a **restricted zone** ([[zones-of-trust]]), never directly reachable from the internet.
   - ==**Firewall rules:**== allow the database port (for example 3306 for MySQL, 1433 for SQL Server) only from the application servers that need it.
   - ==**Encrypt connections**== between applications and the database (TLS).
@@ -79,6 +79,32 @@ Database security layers protect a database at every level, from the physical se
 - ==**Row-level security:**== each user sees only rows they are allowed to (a teacher sees only her own classes).
 - ==**Integrity constraints:**== primary keys, foreign keys and checks keep data correct.
 
+### Q7. How do views improve database security? ⭐ [2M]
+
+==A view is a stored query that shows users only selected columns or rows of a table.==
+
+- ==**Hides sensitive columns:**== a view of student names and marks without phone or Aadhaar numbers.
+- ==**Limits rows:**== a teacher's view shows only her own classes.
+- ==**Grant on the view, not the table:**== users never touch the base table.
+
+### Q8. What is data masking? [2M]
+
+==Data masking shows only part of a sensitive value to users who do not need the whole value.==
+
+- **Example:** an Aadhaar number shown as `XXXX-XXXX-1234`.
+- ==**Real data stays unchanged**== in the database; only what is displayed is hidden.
+
+### Q9. How would you secure the database of a college ERP at each layer?
+
+| Layer | Controls for the college ERP |
+|---|---|
+| ==Physical== | Server in a locked server room; only IT staff enter |
+| ==Network== | Database in a restricted zone; only the ERP app server can connect |
+| ==Operating system== | Patched, hardened OS; database runs as a low-privilege service account |
+| ==DBMS== | Separate accounts; no default users; ERP account without DBA rights |
+| ==Object== | Roles for teachers and students; views limited to their own data |
+| ==Data== | Aadhaar and phone numbers encrypted and masked; nightly encrypted backups |
+
 > [!beyond] Beyond the syllabus
 > Some databases support **tokenisation**: the real card or Aadhaar number is stored in a separate secure vault and replaced everywhere else by a random token, so a stolen copy of the main database is useless. In India, RBI rules have required card-on-file tokenisation instead of storing card numbers since October 2022.
 
@@ -119,19 +145,6 @@ flowchart TB
 
 > [!warning] Common mistake
 > Thinking database encryption alone is enough. If an attacker logs in with a valid account, the database decrypts the data for him; access control is still needed.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Why is database security implemented in layers?
-2. What is object level security? Give two techniques. ⭐
-3. How do views improve database security? ⭐
-4. What is data masking?
-
-**Long answer (5 marks)**
-1. Explain the layers of database security with a diagram. ⭐
-2. Explain DBMS-level and object-level security controls in detail. ⭐
-3. Describe how you would secure the database of a college ERP at each layer.
 
 ## Sources
 

@@ -86,9 +86,16 @@ Both. ==Technology alone fails if people and processes are weak==.
 
 - ==**People:**== a staff member who clicks a phishing link bypasses the best firewall.
 - ==**Process:**== who approves a new login? Who removes it when someone leaves? How often are backups tested?
-- ==**Technology:** firewalls, encryption, access control, monitoring==.
+- ==**Technology:**== firewalls, encryption, access control, monitoring.
 
 Good security balances these three and is ==driven by business needs==: protect what matters most, at a cost the organisation can justify. Lectures 2 and 3 build on this: [[security-methodology]] and [[justifying-security-investment]].
+
+### Q7. Why is security called a process and not a product? [2M]
+
+==Security is a continuous process because threats, systems and people keep changing.==
+
+- ==**A product protects only one layer**== at one moment; a firewall does nothing against a stolen password or a missing backup.
+- ==**The process repeats:**== prevent, detect, respond and recover, then review and improve.
 
 > [!beyond] Beyond the syllabus
 > Security teams often describe their work with the NIST Cybersecurity Framework functions: Govern, Identify, Protect, Detect, Respond and Recover. It is a useful checklist when you join a company's security team.
@@ -129,19 +136,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > "We have a firewall, so we are secure." A firewall is one layer. It does nothing against a stolen password used from inside, or a deleted file with no backup.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define information security. ⭐
-2. Differentiate between information security and cybersecurity.
-3. State any four reasons why information must be protected. ⭐
-4. Why is security called a process and not a product?
-
-**Long answer (5 marks)**
-1. Explain the importance of information protection for an organisation, with examples. ⭐
-2. Describe the evolution of information security practices from the mainframe era to today. ⭐
-3. "Security is a business problem, not only a technical one." Explain with the role of people, process and technology.
 
 ## Sources
 

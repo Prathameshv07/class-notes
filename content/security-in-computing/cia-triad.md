@@ -107,6 +107,14 @@ The ==**DAD triad** describes what attackers aim for==:
 
 When you analyse an incident, ask: was data disclosed, altered or destroyed?
 
+### Q7. For a hospital records system, which CIA goal matters most, and how is each protected?
+
+==In a hospital, integrity and availability matter most, because wrong or missing records can harm patients.==
+
+- ==**Integrity (highest):**== wrong blood group or dose can kill. Protect with access control, audit logs and change approval.
+- ==**Availability (highest):**== doctors need records in emergencies, at any hour. Protect with redundant servers, offline backups and a UPS.
+- ==**Confidentiality (high):**== health data is very sensitive under the DPDP Act. Protect with role-based access, encryption and masking.
+
 > [!beyond] Beyond the syllabus
 > The Parkerian hexad extends CIA to six elements by adding possession (control), authenticity and utility. For example, an encrypted backup whose key is lost still has confidentiality and integrity, but no utility.
 
@@ -145,19 +153,6 @@ flowchart TB
 
 > [!warning] Common mistake
 > Forgetting that availability is a security goal. A server crash or power cut with no backup is a security failure even if no attacker was involved.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is the CIA triad? ⭐
-2. Define integrity. Name two controls that protect it.
-3. Give one threat and one control for availability.
-4. What is the DAD triad? ⭐
-
-**Long answer (5 marks)**
-1. Explain the CIA triad with a diagram, giving threats and controls for each goal. ⭐
-2. "The goals of the CIA triad sometimes conflict." Explain with examples. ⭐
-3. For a hospital records system, explain which CIA goal is most important and how you would protect each one.
 
 ## Sources
 

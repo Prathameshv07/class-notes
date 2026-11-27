@@ -231,7 +231,7 @@ Interface Configuration
 
 - **Signature 2004** matches ICMP echo request (ping) packets.
 - `retired false` / `enabled true`: load it and switch it on.
-- ==`produce-alert` logs the event; `deny-packet-inline` drops the packet.==
+- `produce-alert` logs the event; `deny-packet-inline` drops the packet.
 - Together they turn a detection into a **prevention**: the ping is both recorded and stopped.
 
 ### IDS versus IPS

@@ -93,6 +93,12 @@ MFA stops most attacks based on stolen passwords, because the attacker also need
   - **Privacy:** biometric data is highly sensitive personal data.
   - **Spoofing:** fake fingerprints or photos, unless the sensor checks liveness.
 
+### Q7. What are FAR and FRR in biometrics? [2M]
+
+- ==**False Acceptance Rate (FAR):** how often a wrong person is accepted.== Dangerous, because an impostor gets in.
+- ==**False Rejection Rate (FRR):** how often the right person is rejected.== Annoying, because genuine users are locked out.
+- ==**Trade-off:**== a stricter sensor lowers FAR but raises FRR. High-security systems choose a very low FAR.
+
 > [!beyond] Beyond the syllabus
 > Single sign-on (SSO) systems such as those built on SAML or OpenID Connect let users log in once and access many applications. Kerberos does this inside Windows domains using time-limited tickets.
 
@@ -134,19 +140,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Saying passwords are stored "encrypted". Good systems store a one-way salted hash; encryption can be reversed, a hash cannot.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define authentication. How is it different from identification?
-2. List the three main authentication factors with examples. ⭐
-3. What is multi-factor authentication? ⭐
-4. What are FAR and FRR in biometrics?
-
-**Long answer (5 marks)**
-1. Explain the factors of authentication and multi-factor authentication with real examples. ⭐
-2. Discuss the weaknesses of password-based authentication and how they can be reduced.
-3. Explain biometric authentication, its types and its limitations. ⭐
 
 ## Sources
 

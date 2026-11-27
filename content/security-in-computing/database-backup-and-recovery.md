@@ -88,6 +88,22 @@ RPO decides **how often** to back up; RTO decides **how fast** recovery must be,
 - ==**Test restores regularly:**== a backup is only proven when it has been restored successfully.
 - ==**Monitor backup jobs**== and alert on failures.
 
+### Q7. Differentiate between differential and incremental backups. ⭐ [2M]
+
+| Point | Differential | Incremental |
+|---|---|---|
+| ==Copies changes since== | The last **full** backup | The last backup **of any type** |
+| ==Size over the week== | Grows each day | Small each day |
+| ==Restore needs== | Last full + last differential | Last full + every incremental since |
+| ==Restore speed== | Faster | Slower |
+
+### Q8. What is point-in-time recovery? [2M]
+
+==Point-in-time recovery restores a database to its exact state at a chosen moment, by restoring a backup and replaying transaction logs up to that time.==
+
+- **Example:** a wrong DELETE ran at 10:43, so the database is recovered to 10:42.
+- ==**Needs transaction log backups**==, taken regularly.
+
 > [!beyond] Beyond the syllabus
 > Critical systems also use **replication** to a standby database at another site (for example a disaster-recovery data centre in another city). Replication protects against site failure, but it also copies mistakes and ransomware damage instantly, so it complements backups and never replaces them.
 
@@ -127,19 +143,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Treating replication as a backup. Replication copies a wrong DELETE or ransomware encryption to the standby within seconds.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Differentiate between differential and incremental backups. ⭐
-2. Define RPO and RTO. ⭐
-3. What is a hot backup?
-4. What is point-in-time recovery?
-
-**Long answer (5 marks)**
-1. Explain the types of database backup with their advantages and disadvantages. ⭐
-2. Explain the steps of database recovery after an accidental deletion. ⭐
-3. Explain the best practices for keeping database backups secure.
 
 ## Sources
 

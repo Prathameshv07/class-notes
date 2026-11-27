@@ -95,6 +95,15 @@ Auditing **records**; monitoring **watches and alerts**.
 
 ==Maintenance is continuous; an unpatched, unreviewed database slowly becomes insecure even if nobody touches it.==
 
+### Q7. Differentiate between auditing and monitoring. ⭐ [2M]
+
+| Point | Auditing | Monitoring |
+|---|---|---|
+| ==Purpose== | Record what happened | Watch activity and alert in time |
+| ==When used== | After the event: investigation, proof, compliance | During the event: detection and response |
+| ==Output== | Audit trail (logs) | Alerts, dashboards |
+| Example | Who changed the marks table last month | Alert on 100 failed logins in a minute |
+
 > [!beyond] Beyond the syllabus
 > Under India's DPDP Act 2023 and the related rules, organisations must take reasonable security safeguards for personal data, including logging and monitoring access, and must report personal data breaches. Database audit logs are often the main evidence used in such reports.
 
@@ -134,19 +143,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Turning on auditing for everything. The database slows down and important events are lost in the noise; audit what matters.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is database auditing? ⭐
-2. List any four events that should be audited in a database.
-3. Differentiate between auditing and monitoring. ⭐
-4. Why should audit logs be stored off the database server?
-
-**Long answer (5 marks)**
-1. Explain database auditing: what to audit and how to protect the audit trail. ⭐
-2. Explain database monitoring and its role in detecting attacks.
-3. Explain the activities involved in database server maintenance. ⭐
 
 ## Sources
 

@@ -94,6 +94,19 @@ SELECT * FROM results WHERE roll_no = '' OR '1'='1';
 - ==**Log application actions**== with the real user's name, not only the shared app account.
 - ==**Secure development:**== code review and security testing before release ([[secure-application-design]], Unit 4).
 
+### Q7. What are parameterised queries? ⭐ [2M]
+
+==A parameterised query (prepared statement) sends the SQL command and the user's input separately, so input is always treated as data, never as SQL code.==
+
+- **Example (Python):** `cursor.execute("SELECT * FROM results WHERE roll_no = %s", (roll,))`
+- ==**Main defence**== against SQL injection.
+
+### Q8. Why should applications not use the DBA account? [2M]
+
+- ==**DBA has full control:**== it can read, change or drop every database on the server.
+- ==**If the application is hacked**==, the attacker gets all of that power.
+- ==**Use least privilege instead:**== a dedicated account with only the rights the application needs.
+
 > [!beyond] Beyond the syllabus
 > Many developers use an ORM (Object-Relational Mapper) such as Django ORM or Hibernate, which builds parameterised queries automatically. Injection is still possible if developers bypass the ORM with raw SQL strings.
 
@@ -132,19 +145,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Checking only that the user is logged in, not whether the requested record belongs to them. This is an authorization failure, not an authentication one.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is SQL injection? Give an example input. ⭐
-2. What are parameterised queries? ⭐
-3. Why should applications not use the DBA account?
-4. Why should database passwords not be stored in source code?
-
-**Long answer (5 marks)**
-1. Explain SQL injection with an example and the methods to prevent it. ⭐
-2. Explain the security controls for connecting applications to databases. ⭐
-3. Explain database application security in a three-tier architecture with a diagram.
 
 ## Sources
 

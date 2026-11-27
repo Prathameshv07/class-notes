@@ -45,7 +45,7 @@ A threat is anything that can cause harm, a vulnerability is a weakness it can u
   - ==**External:** hackers, criminal gangs==, competitors, nation-state groups.
   - ==**Internal (insiders):** employees, contractors, ex-employees== with old access. Insiders already know the systems, so they are often the most damaging.
 - **By intent:**
-  - ==**Intentional:** theft, fraud, sabotage==.
+  - ==**Intentional:**== theft, fraud, sabotage.
   - ==**Accidental:** wrong file deleted==, data emailed to the wrong person.
 - ==**Natural and environmental:** flood, fire, earthquake==, power failure.
 
@@ -75,7 +75,7 @@ Active attacks are easier to detect but hard to prevent completely. ==The aim is
 
 ### Q5. What are the common attacks today? (part 1) ⭐
 
-- ==**Malware:** harmful software.==
+- ==**Malware:**== harmful software.
   - Virus (attaches to files), worm (spreads by itself), Trojan (hides inside useful-looking software), spyware, and ==**ransomware** (encrypts data and demands payment)==.
 - ==**Phishing and social engineering:** tricking people into giving passwords==, OTPs or money. Fake KYC SMS, fake customer-care numbers and calls from "bank officers" are common in India.
 - ==**Password attacks:** guessing, brute force==, and reusing passwords leaked from other sites (credential stuffing).
@@ -87,6 +87,38 @@ Active attacks are easier to detect but hard to prevent completely. ==The aim is
 - ==**Injection attacks:**== malicious input such as SQL injection makes a web application run the attacker's commands (Unit 4).
 - ==**Insider misuse:**== a staff member copies customer data before leaving.
 - ==**Exploiting unpatched software:**== using a known bug that the organisation has not fixed.
+
+### Q7. What is the difference between a threat and a vulnerability? ⭐ [2M]
+
+- ==**Threat:** a possible cause of harm==, such as a hacker, a flood or a careless employee. It usually cannot be removed.
+- ==**Vulnerability:** a weakness a threat can use==, such as a default password or an unpatched server. It can be fixed.
+- **Example:** a burglar (threat) and a broken window latch (vulnerability).
+
+### Q8. What are masquerade and replay attacks? [2M]
+
+- ==**Masquerade:** the attacker pretends to be someone else==, for example by logging in with a stolen password.
+- ==**Replay:** valid data is captured and sent again later==, for example re-sending a captured payment request so it is processed twice.
+
+Both are active attacks.
+
+### Q9. What is ransomware? [2M]
+
+==Ransomware is malware that encrypts a victim's files or systems and demands payment for the key.==
+
+- ==**Spreads through**== phishing emails, unpatched software and weak remote access.
+- ==**Best defence:**== offline or immutable backups, patching and user training.
+- **Example:** the AIIMS New Delhi attack in November 2022.
+
+### Q10. Compare passive and active attacks. ⭐
+
+| Point | Passive attack | Active attack |
+|---|---|---|
+| ==What it does== | Observes or copies data | Changes data or disrupts a system |
+| ==Types== | Release of message contents, traffic analysis | Masquerade, replay, modification, denial of service |
+| ==Effect on data== | Nothing changes | Data or service is altered |
+| ==Detection== | Hard to detect | Easier to detect |
+| ==Main defence== | Prevent, mainly with encryption | Detect quickly and recover |
+| Example | Reading traffic on fake Wi-Fi | Changing the account number in a transfer |
 
 > [!beyond] Beyond the syllabus
 > Security teams map real attacks step by step using the MITRE ATT&CK framework, a public catalogue of attacker techniques, from first access to stealing data.
@@ -127,19 +159,6 @@ flowchart LR
 
 > [!warning] Common mistake
 > Thinking encryption stops all passive attacks. It hides the content, but traffic analysis can still reveal who talks to whom and when.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Differentiate between a threat and a vulnerability, with an example. ⭐
-2. What is a passive attack? Give two types. ⭐
-3. Define masquerade and replay attacks.
-4. What is ransomware?
-
-**Long answer (5 marks)**
-1. Explain the relationship between asset, threat, vulnerability, attack and risk with a diagram. ⭐
-2. Compare passive and active attacks, with types and examples of each. ⭐
-3. Describe any five common attacks faced by organisations today.
 
 ## Sources
 

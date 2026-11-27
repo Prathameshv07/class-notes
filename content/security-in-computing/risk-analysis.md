@@ -60,7 +60,7 @@ The process repeats every year, or whenever systems or threats change.
 | **Medium** | Low | Medium | High |
 | **Low** | Low | Low | Medium |
 
-- ==**Strength:** quick, needs no exact money figures==.
+- ==**Strength:**== quick, needs no exact money figures.
 - ==**Weakness:** subjective==; two people may rate the same risk differently.
 
 Most organisations start with this kind of ==**risk matrix**==.
@@ -78,7 +78,7 @@ Most organisations start with this kind of ==**risk matrix**==.
 ==SLE = AV × EF, and ALE = SLE × ARO.==
 
 - ==**Strength:** objective numbers that management understands==; supports cost–benefit decisions ([[justifying-security-investment]]).
-- ==**Weakness:** good data on probabilities is often unavailable==.
+- ==**Weakness:**== good data on probabilities is often unavailable.
 
 ### Q5. Worked example (quantitative)
 
@@ -105,6 +105,31 @@ After ranking, each risk gets one of four treatments:
 ==Risk treatments: avoid, mitigate, transfer, accept.==
 
 ==The risk left after treatment is called **residual risk**==. Management must formally accept it.
+
+### Q7. Differentiate between qualitative and quantitative risk analysis. ⭐ [2M]
+
+| Point | Qualitative | Quantitative |
+|---|---|---|
+| ==Measures risk using== | Ratings such as Low, Medium, High | Money values (₹) |
+| ==Tools== | Risk matrix, expert judgement | AV, EF, SLE, ARO, ALE |
+| ==Strength== | Quick, needs no exact data | Objective; supports cost–benefit decisions |
+| ==Weakness== | Subjective | Needs reliable data, often unavailable |
+
+### Q8. What is residual risk? [2M]
+
+==Residual risk is the risk that remains after controls have been applied.==
+
+- ==**Never zero:**== no control removes a risk completely.
+- ==**Must be accepted formally**== by management, who decide it is low enough to live with.
+
+### Q9. Numerical: is the anti-DDoS service justified? ⭐
+
+*A web server is worth ₹12,00,000. A DDoS attack causes a 25% loss of its value and is expected 2 times a year. Calculate SLE and ALE. Would a ₹4,00,000 per year anti-DDoS service be justified?*
+
+- ==**SLE**== = AV × EF = 12,00,000 × 0.25 = **₹3,00,000**.
+- ==**ALE**== = SLE × ARO = 3,00,000 × 2 = **₹6,00,000 per year**.
+- ==**Compare:**== the service costs ₹4,00,000 a year, less than the ₹6,00,000 expected loss.
+- ==**Decision:**== justified, if it removes most of the risk; it saves up to ₹2,00,000 a year.
 
 > [!beyond] Beyond the syllabus
 > Organisations often follow published methods such as NIST SP 800-30 or ISO/IEC 27005 for risk assessment, so that results are consistent from year to year and can be audited.
@@ -152,19 +177,6 @@ flowchart TB
 
 > [!warning] Common mistake
 > Thinking risk can be reduced to zero. Every treatment leaves some residual risk; the goal is to bring risk down to a level management accepts.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. Define risk. How is it calculated?
-2. Differentiate between qualitative and quantitative risk analysis. ⭐
-3. What is residual risk?
-4. Define AV, EF, SLE, ARO and ALE. ⭐
-
-**Long answer (5 marks)**
-1. Explain the steps of risk analysis with a diagram. ⭐
-2. Explain the four ways of treating risk, with an example of each. ⭐
-3. A web server is worth ₹12,00,000. A DDoS attack causes a 25% loss of its value and is expected 2 times a year. Calculate SLE and ALE. Would a ₹4,00,000 per year anti-DDoS service be justified?
 
 ## Sources
 

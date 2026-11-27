@@ -177,7 +177,7 @@ Extended IP access list 100
 
 ### How the router processes the list
 
-- ==The router checks statements from top to bottom and stops at the first match.==
+- The router checks statements from top to bottom and stops at the first match.
 - ==Every ACL ends with an invisible `deny any`== (the implicit deny). Without the last `permit ip any any`, PC-C could reach nothing beyond R3.
 - Order matters: if the `deny ip … 192.168.1.0` line came first, web and ping to the server would also be blocked.
 

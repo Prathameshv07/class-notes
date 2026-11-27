@@ -70,7 +70,7 @@ A valid signature proves:
 
 ECC is popular on phones because its short keys need less computing power.
 
-### Q5. Small RSA example
+### Q5. Small RSA example ⭐
 
 1. Choose primes $p = 3$, $q = 11$. Then $n = p \times q = 33$.
 2. $\phi(n) = (p-1)(q-1) = 2 \times 10 = 20$.
@@ -93,6 +93,14 @@ Real RSA uses primes hundreds of digits long.
 ==Hybrid encryption uses public-key cryptography to exchange a random symmetric key, then symmetric encryption for the data.==
 
 This is how HTTPS (TLS), secure email and VPNs work: the slow public-key step happens once, then fast AES protects everything else.
+
+### Q7. Numerical: RSA with p = 5, q = 11 and e = 3. Find n, φ(n) and d. [2M]
+
+- ==**n**== = p × q = 5 × 11 = **55**
+- ==**φ(n)**== = (p − 1)(q − 1) = 4 × 10 = **40**
+- ==**d**== must satisfy e × d mod 40 = 1. 3 × 27 = 81, and 81 mod 40 = 1, so **d = 27**.
+
+Public key = (3, 55); private key = (27, 55).
 
 > [!beyond] Beyond the syllabus
 > A large quantum computer could break RSA and ECC. NIST published its first post-quantum standards in 2024 (for example ML-KEM for key exchange and ML-DSA for signatures), and browsers have begun using them alongside classical algorithms.
@@ -137,19 +145,6 @@ flowchart TB
 
 > [!warning] Common mistake
 > Saying public-key encryption replaces symmetric encryption. It is too slow for bulk data; in practice the two are always used together.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is public-key encryption?
-2. What is a digital signature? What does it prove? ⭐
-3. Compare symmetric and asymmetric encryption on any three points. ⭐
-4. Using RSA with p = 5, q = 11 and e = 3, find n, φ(n) and d.
-
-**Long answer (5 marks)**
-1. Explain how public-key encryption provides confidentiality and digital signatures, with diagrams. ⭐
-2. Explain the RSA algorithm with a numerical example. ⭐
-3. What is hybrid encryption? Why is it used in HTTPS?
 
 ## Sources
 

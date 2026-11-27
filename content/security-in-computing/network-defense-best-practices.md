@@ -38,7 +38,7 @@ They come from experience and from published guides such as the CIS Critical Sec
 
 They are grouped here into:
 - ==design principles (how to think)==, and
-- ==operational practices (what to do every day)==.
+- ==operational practices== (what to do every day).
 
 ### Q2. What design principles guide network defense? ⭐
 
@@ -85,6 +85,45 @@ They are grouped here into:
 
 Best practices are not a one-time setup. They are habits that must be checked, like a vehicle's regular service.
 
+### Q7. What is the principle of least privilege? ⭐ [2M]
+
+==Least privilege means giving each user, program or device only the access it needs to do its job, and no more.==
+
+- **Example:** a teacher can enter marks only for her own subjects, not for the whole college.
+- ==**Benefit:**== if the account is misused or stolen, the damage is limited.
+
+### Q8. What does "fail securely" mean? [2M]
+
+==Fail securely means that when a control breaks, it blocks access instead of allowing it.==
+
+- **Example:** if a firewall crashes, it should drop all traffic, not pass everything.
+- **Example:** a door lock that loses power should stay locked from outside.
+
+### Q9. What is the 3-2-1 backup rule? ⭐ [2M]
+
+==Keep 3 copies of important data, on 2 different types of media, with 1 copy off-site or offline.==
+
+- ==**Why offline:**== ransomware that reaches the network cannot encrypt a copy it cannot reach.
+- ==**Test restores**== regularly; an untested backup may not work.
+
+### Q10. Why should admin accounts be separate from daily-use accounts? [2M]
+
+- ==**Daily work is risky:**== email and web browsing are how most malware arrives.
+- ==**Separate accounts limit damage:**== malware opened by the daily account does not get admin rights.
+- ==**Clear records:**== admin actions are logged under the admin account.
+
+### Q11. "Most successful attacks exploit basic failures." Justify this statement.
+
+==Most breaches use known, simple weaknesses that best practices would have closed.==
+
+- ==**Unpatched software:**== WannaCry (2017) used a flaw patched two months earlier.
+- ==**Default or reused passwords:**== attackers simply log in.
+- ==**Phishing:**== untrained users hand over passwords and OTPs.
+- ==**Excess privilege:**== admin accounts used for daily work.
+- ==**No tested backup:**== ransomware becomes a disaster.
+
+Patching, strong authentication, training, least privilege and tested backups prevent most of these.
+
 > [!beyond] Beyond the syllabus
 > The CIS Critical Security Controls (version 8) group best practices into 18 controls and three implementation groups, so a small college can start with the basic group and grow from there.
 
@@ -125,19 +164,6 @@ flowchart TB
 
 > [!warning] Common mistake
 > Collecting logs but never reading them. Logging is a detective control only if someone reviews the alerts.
-
-## Exam questions
-
-**Short answer (2–3 marks)**
-1. What is the principle of least privilege? ⭐
-2. Explain "fail securely" with an example.
-3. What is the 3-2-1 backup rule? ⭐
-4. Why should admin accounts be separate from daily-use accounts?
-
-**Long answer (5 marks)**
-1. Explain any ten best practices for network defense. ⭐
-2. Explain the design principles that guide secure network defense. ⭐
-3. "Most successful attacks exploit basic failures." Justify this statement and explain the best practices that prevent such failures.
 
 ## Sources
 

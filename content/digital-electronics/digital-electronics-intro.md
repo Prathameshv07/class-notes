@@ -4,7 +4,7 @@ title: Introduction to Digital Electronics
 subject: digital-electronics
 unit: 0
 type: intro
-syllabus: [UDSII-005]
+syllabus: [UITII-004, UDSII-005]
 status: draft
 sources:
   - "M. Morris Mano, Digital Logic and Computer Design, Ch. 1 (verify)"
@@ -83,4 +83,4 @@ flowchart TB
 - Floyd, *Digital Fundamentals*, Pearson, Ch. 1 (verify).
 - C. E. Shannon, *A Symbolic Analysis of Relay and Switching Circuits*, MIT master's thesis (1937), published in *Transactions of the AIEE*, 1938.
 - G. Boole, *An Investigation of the Laws of Thought*, 1854.
-- University syllabus, BSc DS Sem 2, course UDSII-005 (BOS 05/06/2026).
+- University syllabus, Sem 2 Digital Electronics: BSc IT UITII-004 and BSc DS UDSII-005 (same units) (BOS 05/06/2026).

@@ -4,7 +4,7 @@ title: BCD Codes (8421 and 2421)
 subject: digital-electronics
 unit: 1
 type: theory
-syllabus: [UDSII-005]
+syllabus: [UITII-004, UDSII-005]
 status: draft
 sources:
   - "M. Morris Mano, Digital Logic and Computer Design, Ch. 1 (verify)"
@@ -222,4 +222,4 @@ flowchart LR
 - M. Morris Mano, *Digital Logic and Computer Design*, Prentice Hall, Ch. 1, binary codes and BCD (verify).
 - R. P. Jain, *Modern Digital Electronics*, Tata McGraw Hill, Ch. 2, codes (verify).
 - Analog Devices (formerly Maxim Integrated), *DS1307 64 x 8, Serial, I²C Real-Time Clock* datasheet, timekeeper registers in BCD format.
-- University syllabus, BSc DS Sem 2, course UDSII-005, Unit 1 (BOS 05/06/2026).
+- University syllabus, Sem 2 Digital Electronics: BSc IT UITII-004 and BSc DS UDSII-005 (same units), Unit 1 (BOS 05/06/2026).

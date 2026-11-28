@@ -4,7 +4,7 @@ title: Binary Addition and Subtraction
 subject: digital-electronics
 unit: 1
 type: theory
-syllabus: [UDSII-005]
+syllabus: [UITII-004, UDSII-005]
 status: draft
 sources:
   - "M. Morris Mano, Digital Logic and Computer Design, Ch. 1 (verify)"
@@ -241,4 +241,4 @@ flowchart LR
 
 - M. Morris Mano, *Digital Logic and Computer Design*, Prentice Hall, Ch. 1, arithmetic in binary (verify).
 - Floyd, *Digital Fundamentals*, Pearson, Ch. 2, binary arithmetic (verify).
-- University syllabus, BSc DS Sem 2, course UDSII-005, Unit 1 (BOS 05/06/2026).
+- University syllabus, Sem 2 Digital Electronics: BSc IT UITII-004 and BSc DS UDSII-005 (same units), Unit 1 (BOS 05/06/2026).

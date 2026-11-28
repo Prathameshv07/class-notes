@@ -2,11 +2,12 @@
 id: digital-electronics
 title: Digital Electronics
 type: index
-class: Sem 2 BSc DS
-codes: "DS: UDSII-005 (theory only, no practical course)"
+class: Sem 2 BSc IT and BSc DS (combined lecture)
+codes: "IT: UITII-004; DS: UDSII-005 (theory only, no practical course)"
 ---
 
 Topic list in lecture order, mapped from the university syllabus (BOS 05/06/2026).
+FY IT and FY DS share this syllabus and are taught together, so one set of notes serves both classes.
 One note per lecture: 30 hours, 30 notes. Faded links are not written yet.
 
 **Reference books (from syllabus):** M. Morris Mano, *Digital Logic and Computer Design*; R. P. Jain, *Modern Digital Electronics*; Floyd, *Digital Fundamentals*.
@@ -62,4 +63,4 @@ One note per lecture: 30 hours, 30 notes. Faded links are not written yet.
 
 ## Practicals
 
-None. UDSII-005 is a theory-only course.
+None. UITII-004 and UDSII-005 are theory-only courses.

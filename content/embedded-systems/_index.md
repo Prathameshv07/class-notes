@@ -72,6 +72,8 @@ Faded links are not written yet.
 
 ## Practicals
 
+Programmes: BSc IT (UITIV-006) and BSc DS (UDSIV-006). The two practical lists are identical, so every practical below serves both classes.
+
 Tools: Keil µVision (C51) for every practical; Proteus whenever a circuit is simulated (from practical 2).
 
 **Unit 1 · 8051 Programming and Basic Interfacing**
